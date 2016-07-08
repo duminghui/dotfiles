@@ -1,0 +1,12 @@
+host github.com
+user git
+hostname ssh.github.com
+port 443
+identityfile ~/.ssh/github
+
+host coding.net
+user git
+hostname coding.net
+port 22
+identityfile ~/.ssh/coding
+
