@@ -1,0 +1,48 @@
+allprojects {
+    buildscript {
+        repositories {
+            mavenLocal()
+            maven(){
+                name "public-Nexus Maven Repo"
+                url 'http://127.0.0.1:8081/nexus/content/groups/public'
+            }
+            jcenter()
+            mavenCentral()
+        }
+    }
+    repositories {
+        mavenLocal()
+        maven(){
+            name "public-Nexus Maven Repo"
+            url 'http://127.0.0.1:8081/nexus/content/groups/public'
+        }
+        jcenter()
+        mavenCentral()
+    }
+
+    task showRepos << {
+        description 'Show Tasks in Gradle Project'
+        group 'custom'
+        println "All repos:"
+        repositories.each {
+            if (it.metaClass.hasProperty(it, 'url') != null) {
+                println "repo: ${it.name} ('${it.url}')"
+            } else if (it.metaClass.hasProperty(it, 'dirs') != null) {
+                println "repo: ${it.name} ('${it.dirs}')"
+            }
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.incremental = true
+    }
+    tasks.withType(Javadoc){
+        options.encoding = "UTF-8"
+        options.charSet = "UTF-8"
+    }
+    configurations.all {
+         resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
+         resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
+    }
+}

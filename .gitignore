@@ -1,0 +1,6 @@
+/git/gitconfig.local.symlink
+/gradle.symlink/*
+!/gradle.symlink/gradle.properties
+!/gradle.symlink/init.d
+/ssh.symlink/*
+!/ssh.symlink/config

@@ -1,0 +1,28 @@
+"不需要的插件{
+UnBundle 'reedes/vim-litecorrect'
+UnBundle 'reedes/vim-wordy'
+UnBundle 'rust-lang/rust.vim'
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'cespare/vim-toml'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
+UnBundle 'saltstack/salt-vim'
+"}
+
+"中文档{
+Bundle 'vimcn/vimcdoc'
+Bundle 'vimcn/ctrlp.cnx'
+Bundle 'vimcn/NERD_tree.vim.cnx'
+Bundle 'vimcn/NERD_commenter.cnx'
+"}
+" Bundle 'vim-ctrlspace/vim-ctrlspace'
+Bundle 'udalov/kotlin-vim'
+Bundle 'Valloric/ListToggle'
+" 更多格式的C#highlighting
+Bundle 'OrangeT/vim-csharp'
+Bundle 'OmniSharp/omnisharp-vim'
+Bundle 'tpope/vim-dispatch'
+" 在nerdtree中显示git状态
+Bundle 'Xuyuanp/nerdtree-git-plugin'
+" vim open a file:line
+Bundle 'bogado/file-line'
+Bundle 'tpope/vim-unimpaired'
