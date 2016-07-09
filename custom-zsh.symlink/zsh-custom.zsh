@@ -184,17 +184,8 @@ zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
 #}}}
 
-alias ll="ls -AlTh"
-alias llrt="ll -rt"
 #alias .='pwd'
-alias 2_alcatraz_store='cd ~/Library/Application\ Support/Alcatraz/Plug-ins'
-alias 2_xcodeplugins_store='cd ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins'
-alias gem_g_outdated='rvm @global do gem outdated'
-alias gem_g_update='rvm @global do gem update'
-alias gem_g_cleanup='rvm @global do gem cleanup'
 #export LC_ALL=zh_US.UTF-8
-export LANG=zh_CN.UTF-8
-export LC_CTYPE=zh_CN.UTF-8
 #用于vim YCM 不配置会使vim启动报错
 #export DYLD_FORCE_FLAT_NAMESPACE=1
 #alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
