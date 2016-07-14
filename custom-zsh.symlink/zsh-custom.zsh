@@ -183,7 +183,18 @@ check-cmd-backward-delete-char() { zle .backward-delete-char && recolor-cmd }
 zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
 #}}}
-
+# man 手册显示彩色
+man() {
+  env GROFF_NO_SGR=1 \
+    LESS_TERMCAP_mb=$'\E[1;36m' \
+    LESS_TERMCAP_md=$'\E[1;36m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[1;44;33m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[1;33m' \
+    man "$@"
+}
 #alias .='pwd'
 #export LC_ALL=zh_US.UTF-8
 #用于vim YCM 不配置会使vim启动报错

@@ -54,23 +54,6 @@ plugins=(autojum brew brew-cask gem git gradle osx pod ruby xcode tmux vi-mode)
 #export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/android-sdk/tools:/usr/local/opt/android-sdk/platform-tools:/usr/local/opt/maven/libexec/bin:/usr/local/opt/gradle/bin:/Library/Java/JavaVirtualMachines/jdk.latest/Contents/Home/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export DOTFILES=$HOME/.dotfiles
-# all of our zsh files
-typeset -U config_files
-config_files=(`find ~/.dotfiles \( -path "*/gradle.symlink" -o -path "*/.git" -o -path "*/custom-zsh.symlink" \) -prune -o -name "*.zsh" -print`)
-echo $config_files
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source  $file
-done
-
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
-unset config_files
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,6 +81,23 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export DOTFILES=$HOME/.dotfiles
+# all of our zsh files
+typeset -U config_files
+config_files=(`find ~/.dotfiles \( -path "*/.git" -o -path "*/custom-zsh.symlink" \) -prune -o -name "*.zsh" -print`)
+echo $config_files
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source  $file
+done
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+unset config_files
 
 [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
