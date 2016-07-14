@@ -14,7 +14,7 @@ Bundle 'vimcn/ctrlp.cnx'
 Bundle 'vimcn/NERD_tree.vim.cnx'
 Bundle 'vimcn/NERD_commenter.cnx'
 "}
-" Bundle 'vim-ctrlspace/vim-ctrlspace'
+Bundle 'vim-ctrlspace/vim-ctrlspace'
 Bundle 'udalov/kotlin-vim'
 Bundle 'Valloric/ListToggle'
 " 更多格式的C#highlighting

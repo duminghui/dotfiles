@@ -7,3 +7,5 @@ let g:spf13_clear_search_highlight = 1
 let g:spf13_no_easyWindows = 1
 let g:spf13_no_wrapRelMotion = 1
 let g:spf13_no_fastTabs = 1
+" 禁用这个以防止对airline statusline的影响
+let g:spf13_no_views = 1

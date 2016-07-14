@@ -69,7 +69,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_splits = 1
 " 交换buffers和tabs的显示位置
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
-" 显示buffers列表在tabline上
+" 显示buffers_label在tabline上
 let g:airline#extensions#tabline#show_buffers = 1
 " 如果之前没有tab在新建一个tab时，已经打开的buffers会收集到一个新tab中
 let g:airline#extensions#tabline#show_tabs = 1
@@ -203,7 +203,8 @@ augroup omnisharp_commands
     " Builds can also run asynchronously with vim-dispatch installed
     autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
     " automatic syntax check on events (TextChanged requires Vim 7.4)
-    autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
+    " 加个这个会自动隐藏加载sln的文件信息
+    " autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
 
     " Automatically add new cs files to the nearest project on save
     autocmd BufWritePost *.cs call OmniSharp#AddToProject()

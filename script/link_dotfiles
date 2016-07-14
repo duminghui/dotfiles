@@ -72,7 +72,6 @@ link_file () {
         skip=true;
 
       else
-        echo "AAAAAAAAAAAAA"
         user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
         [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
         read -n 1 action
@@ -132,7 +131,8 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  # for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H ~/.dotfiles -maxdepth 2 -path '*/*.skip' -prune -o -name '*.symlink' -not -path '*.git*' -print)
   do
     dst="$HOME/.$(basename "${src%.symlink}")"
     link_file "$src" "$dst"
@@ -140,11 +140,11 @@ install_dotfiles () {
 }
 
 install_insymlinks(){
-     info "installing symlinks in dotfolders"
+    info "installing symlinks in dotfolders"
 
-     local overwrite_all=false backup_all=false skip_all=false
+    local overwrite_all=false backup_all=false skip_all=false
 
-     for src in $(find -H $DOTFILES_ROOT/*.dotfolder -name '*.insymlink')
+    for src in $(find -H $DOTFILES_ROOT/*.dotfolder -name '*.insymlink')
     do
         dst=`echo $src | sed 's/\/\([0-9a-zA-Z_.]\{1,\}\)\.dotfolder/\/.\1/g'`
         dst="$HOME${dst#*.dotfiles}"
