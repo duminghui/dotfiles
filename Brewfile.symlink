@@ -33,6 +33,7 @@ brew 'lua'
 brew 'readline'
 brew 'sqlite'
 brew 'python'
+brew 'python3'
 brew 'macvim', args: ['with-lua']
 brew 'mono'
 brew 'nexus'
