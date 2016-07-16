@@ -7,4 +7,5 @@ if has('gui_running')
     set guioptions-=r
     set guioptions-=l
     set guioptions-=L
+    set nospell
 endif

@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+osascript "$(dirname "$0")/openiterm4vim.scpt" 'VimWindow' 'VimHelperWindow' "nvr --remote-silent $1"
