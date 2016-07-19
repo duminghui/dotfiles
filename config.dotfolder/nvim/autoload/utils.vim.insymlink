@@ -1,0 +1,104 @@
+" 一些工具方法
+
+function! utils#init()
+endfunction
+
+let g:vim_plug = {}
+function! g:vim_plug.autoinstall() abort
+    let l:plug_file = '~/.config/nvim/autoload/plug.vim'
+    if !has('nvim')
+        let l:plug_file = '~/.vim/autoload/plug.vim'
+    endif
+    if !filereadable(expand(l:plug_file))
+        silent execute "!curl -fLo " . l:plug_file . " --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+        autocmd VimEnter * PlugInstall | source $MYVIMRC
+    endif
+endfunction
+
+let s:plug_mes=[]
+function! g:vim_plug.show_mes()
+    if len(s:plug_mes)
+        for msg in s:plug_mes
+            echom msg
+        endfor
+        call remove(s:plug_mes,  0,  len(s:plug_mes)-1)
+    endif
+endfunction
+
+function! g:vim_plug.is_ready(name)
+    let l:count = count(g:plugs_order , a:name)
+    let l:isdirectory = isdirectory(expand(g:plug_home . "/" . a:name , 1))
+    if l:count && l:isdirectory
+        return 1
+    endif
+    call add(s:plug_mes,"Plug [" . a:name . "] isn't Ready: c:" . l:count ." d:" . l:isdirectory)
+endfunction
+
+function! g:vim_plug.cond(cond,...)
+    let l:opts = get(a:000, 0, {})
+    return a:cond ? l:opts : extend(l:opts, {'on':[],'for':[]})
+endfunction
+
+let g:utils = {}
+function! g:utils.get_highlight_colors(group,  ...) abort
+    redir => highlight
+    silent execute 'silent highlight ' . a:group
+    redir END
+
+    let l:link_matches = matchlist(highlight, 'links to \(\S\+\)')
+    if len(l:link_matches) > 0 " follow the link
+        return call(self.get_highlight_colors,  [l:link_matches[1]] + a:000,  self)
+    endif
+    let l:colors = {}
+    let l:cterm_pattern = '=\([0-9A-Za-z]\+\)'
+    let l:gui_pattern = '=\([#0-9A-Za-z]\+\)'
+    let l:key_pattern = ''
+    for l:key in a:000
+        if matchend(l:key,'^gui') > 0
+            let l:key_pattern = l:key . l:gui_pattern
+        else
+            let l:key_pattern = l:key . l:cterm_pattern
+        endif
+        let l:colors[l:key] = s:match_highlight(highlight,  l:key_pattern)
+    endfor
+    return l:colors
+endfunction
+
+function! s:match_highlight(highlight,  pattern) abort
+    let matches = matchlist(a:highlight, a:pattern)
+    if len(matches) == 0
+        return 'NONE'
+    endif
+    return matches[1]
+endfunction
+
+function! g:utils.generate_diff_groups_highlight() abort
+        " 背景色用SignColumn的
+        " 前景色用对应的相关的颜色的
+        let l:bg            = g:utils.get_highlight_colors('SignColumn',  'ctermbg',  'guibg')
+        let l:fg_diffadd    = g:utils.get_highlight_colors("DiffAdd",     'ctermfg',  'gui',    'guifg')
+        let l:fg_diffchange = g:utils.get_highlight_colors("DiffChange",  'ctermfg',  'gui',    'guifg')
+        let l:fg_diffdelete = g:utils.get_highlight_colors("DiffDelete",  'ctermfg',  'gui',    'guifg')
+
+        call g:utils.generate_highlight("MyDiffAdd",  l:bg)
+        call g:utils.generate_highlight("MyDiffAdd",  l:fg_diffadd)
+
+        call g:utils.generate_highlight("MyDiffChange",  l:bg)
+        call g:utils.generate_highlight("MyDiffChange",  l:fg_diffchange)
+
+        call g:utils.generate_highlight("MyDiffDelete",  l:bg)
+        call g:utils.generate_highlight("MyDiffDelete",  l:fg_diffdelete)
+
+        highlight default link MyDiffChangeDelete MyDiffChange
+
+        " hi MyDiffAdd
+        " hi MyDiffChange
+        " hi MyDiffDelete
+        " hi MyDiffChangeDelete
+endfunction
+
+function! g:utils.generate_highlight(group,  highlights)
+    for [l:key,  l:color] in items(a:highlights)
+        execute "highlight " . a:group . " " . l:key . "=" . l:color
+    endfor
+endfunction

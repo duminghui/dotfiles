@@ -1,7 +1,7 @@
 " 'scrooloose/nerdtree'
 " 'jistr/vim-nerdtree-tabs'
 
-if PlugIsReady('nerdtree')
+if g:vim_plug.is_ready('nerdtree')
     let g:NERDShutUp=1
     map <C-e> <plug>NERDTreeTabsToggle<CR>
     map <leader>e :NERDTreeFind<CR>

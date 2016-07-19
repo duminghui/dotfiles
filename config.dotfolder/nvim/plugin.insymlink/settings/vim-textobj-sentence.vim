@@ -1,6 +1,6 @@
 " 'reedes/vim-textobj-sentence'
 
-if PlugIsReady('vim-textobj-sentence')
+if g:vim_plug.is_ready('vim-textobj-sentence')
     augroup textobj_sentence
         autocmd!
         autocmd FileType markdown call textobj#sentence#init()

@@ -1,5 +1,5 @@
 " 'godlygeek/tabular'
-if PlugIsReady('tabular')
+if g:vim_plug.is_ready('tabular')
     nmap <Leader>a& :Tabularize /&<CR>
     vmap <Leader>a& :Tabularize /&<CR>
     nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>

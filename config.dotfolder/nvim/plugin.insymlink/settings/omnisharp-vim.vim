@@ -1,7 +1,7 @@
 
 " 'OmniSharp/omnisharp-vim'
 
-if PlugIsReady('omnisharp-vim')
+if g:vim_plug.is_ready('omnisharp-vim')
     let g:OmniSharp_selector_ui = 'ctrlp'
     let g:OmniSharp_server_type = 'v1'
     " let g:OmniSharp_server_type = 'roslyn'

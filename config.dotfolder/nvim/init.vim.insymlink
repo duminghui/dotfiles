@@ -2,84 +2,18 @@
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={{,}} foldlevel=0 foldmethod=marker spell:
 " }}
 
-" Automatic install vim-plug {{
-let s:vimrc_home = expand("<sfile>:h")
-if expand("<sfile>:t") == "init.vim"
-    let s:vimrc_home .= '/'
-else
-    let s:vimrc_home .= '/.vim/'
-endif
-
-function! Dot_vim(path)
-    return s:vimrc_home . a:path
-endfunction
-
-let s:plug_file = Dot_vim('autoload/plug.vim')
-
-if !filereadable(expand(s:plug_file))
-    silent execute "!curl -fLo " . s:plug_file . " --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    autocmd VimEnter * PlugInstall | source $MYVIMRC
-     " silent !curl -fLo s:plug_file --create-dirs
-                " \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    " autocmd VimEnter * PlugInstall | source $MYVIMRC
-endif
-
-" if has('nvim')
-"     if empty(glob('~/.config/nvim/autoload/plug.vim'))
-"         silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-"                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"         autocmd VimEnter * PlugInstall | source $MYVIMRC
-"     endif
-" else
-"     if empty(glob('~/.vim/autoload/plug.vim'))
-"         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"                     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"         autocmd VimEnter * PlugInstall | source $MYVIMRC
-"     endif
-" endif
-" }}
-
-" Plug Config Help Functions {{
-let s:plug_msgs=[]
-function! s:ShowPlugMsgs()
-    if len(s:plug_msgs)
-        for msg in s:plug_msgs
-            echom msg
-        endfor
-        call remove(s:plug_msgs,0,len(s:plug_msgs)-1)
-    endif
-endfunction
-
-autocmd! BufEnter * call s:ShowPlugMsgs()
-
-function! PlugIsReady(name)
-    let l:count = count(g:plugs_order,a:name)
-    let l:isdirectory = isdirectory(expand(g:plug_home . "/" . a:name,1))
-    if l:count && l:isdirectory
-        unlet l:count
-        unlet l:isdirectory
-        return 1
-    endif
-    " call s:Pecho("Plug is not Ready:" . a:name . " c:" . l:count . " d:" . l:isdirectory)
-    call add(s:plug_msgs,"Plug [" . a:name . "] isn't Ready: c:" . l:count ." d:" . l:isdirectory)
-    unlet l:count
-    unlet l:isdirectory
-endfunction
-
-function! Cond(cond, ...)
-    let opts = get(a:000, 0, {})
-    return a:cond ? opts : extend(opts, {'on':[],'for':[]})
-endfunction
-" }}
+call utils#init()
+call g:vim_plug.autoinstall()
+autocmd! BufEnter * call g:vim_plug.show_mes()
 
 " Install Plugs {{
 " PlugInstall
 " call plug#begin()
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'powerline/fonts'
 Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/nerdtree'
 " Plug 'spf13/vim-colors'
@@ -98,7 +32,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
 """""""""""""""""""
-Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-abolish'
 Plug 'osyo-manga/vim-over'
 Plug 'kana/vim-textobj-user'
@@ -115,9 +50,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular'
 Plug 'luochen1990/rainbow'
-Plug 'majutsushi/tagbar',Cond(executable('ctags'))
+Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 """""""""""""""""""""""""""""""
-Plug 'Valloric/YouCompleteMe',{'do':'./install.py'}
+Plug 'Valloric/YouCompleteMe',  {'do':'./install.py'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 """""""""""""""""""""""""""""""
@@ -125,7 +60,8 @@ Plug 'tpope/vim-markdown'
 Plug 'spf13/vim-preview'
 """""""""""""""""""""""""""""""
 " 中文档
-Plug 'vimcn/vimcdoc',Cond(!has('nvim'))
+" Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
+Plug 'vimcn/vimcdoc'
 Plug 'vimcn/ctrlp.cnx'
 Plug 'vimcn/NERD_tree.vim.cnx'
 Plug 'vimcn/NERD_commenter.cnx'
@@ -136,7 +72,7 @@ Plug 'Valloric/ListToggle'
 " 更多格式的C#highlighting
 Plug 'OrangeT/vim-csharp'
 " C#环境
-Plug 'OmniSharp/omnisharp-vim',{'do':'cd server;xbuild'}
+Plug 'OmniSharp/omnisharp-vim',  {'do':'cd server;xbuild'}
 Plug 'tpope/vim-dispatch'
 " 在nerdtree中显示git状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -144,7 +80,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'bogado/file-line'
 " " 使用[]做快捷键
 " Plug 'tpope/vim-unimpaired'
-
+" 着色器高亮
+Plug 'vim-scripts/ShaderHighLight'
 call plug#end()
 
 " }}
@@ -217,9 +154,10 @@ set cursorline                  " Highlight current line
 set cursorcolumn
 set colorcolumn=+1
 
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
-"highlight clear CursorLineNr    " Remove highlight color from current line number
+" 把这三行移到vim-colors-solarized.vim中进行配置才能起作用
+" highlight clear SignColumn      " SignColumn should match background
+" highlight clear LineNr          " Current line number row will have same background color in relative mode
+" "highlight clear CursorLineNr    " Remove highlight color from current line number
 
 if has('cmdline_info')
     set ruler                   " Show the ruler
@@ -233,7 +171,7 @@ if has('statusline')
     " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
-    if PlugIsReady('vim-fugitive')
+    if g:vim_plug.is_ready('vim-fugitive')
     " if filereadable(expand(g:plug_home . "/vim-fugitive/plugin/fugitive.vim"))
         set statusline+=%{fugitive#statusline()} " Git Hotness
     endif
@@ -260,7 +198,6 @@ set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
-
 if &term == 'xterm' || &term == 'screen'
     set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
 endif

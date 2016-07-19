@@ -1,6 +1,6 @@
 
 " 'Valloric/YouCompleteMe'
-if PlugIsReady('YouCompleteMe')
+if g:vim_plug.is_ready('YouCompleteMe')
     let g:acp_enableAtStartup = 0
 
     " enable completion from tags
