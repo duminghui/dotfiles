@@ -1,6 +1,6 @@
 " 'vim-airline/vim-airline'
 " 'vim-airline/vim-airline-themes'
-if PlugIsReady('vim-airline')
+if g:vim_plug.is_ready('vim-airline')
     set laststatus=2
     let g:airline_powerline_fonts = 1
     set t_Co=256

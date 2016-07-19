@@ -1,6 +1,6 @@
 
 " 'tpope/vim-fugitive'
-if PlugIsReady('vim-fugitive')
+if g:vim_plug.is_ready('vim-fugitive')
     nnoremap <silent> <leader>gs :Gstatus<CR>
     nnoremap <silent> <leader>gd :Gdiff<CR>
     nnoremap <silent> <leader>gc :Gcommit<CR>
@@ -12,5 +12,4 @@ if PlugIsReady('vim-fugitive')
     nnoremap <silent> <leader>ge :Gedit<CR>
     " Mnemonic _i_nteractive
     nnoremap <silent> <leader>gi :Git add -p %<CR>
-    nnoremap <silent> <leader>gg :SignifyToggle<CR>
 endif

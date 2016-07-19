@@ -1,7 +1,7 @@
 " 'ctrlpvim/ctrlp.vim'
 " 'tacahiroy/ctrlp-funky'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-if PlugIsReady('ctrlp.vim')
+if g:vim_plug.is_ready('ctrlp.vim')
     let g:ctrlp_working_path_mode = 'ra'
     let g:ctrlp_by_filename = 1
     let g:ctrlp_funky_syntax_highlight = 1
@@ -32,7 +32,7 @@ if PlugIsReady('ctrlp.vim')
                 \ 'fallback': s:ctrlp_fallback
                 \ }
 
-    if PlugIsReady('ctrlp-funky')
+    if g:vim_plug.is_ready('ctrlp-funky')
         " CtrlP extensions
         let g:ctrlp_extensions = ['funky']
 

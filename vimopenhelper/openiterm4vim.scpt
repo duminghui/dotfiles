@@ -19,6 +19,7 @@ on run {profile,helperProfile,cmd}
             set vimWindow to (create window with profile profile)
             tell current session of vimWindow to write text cmd
         else
+            --这种方式运行有点慢，但是不用建帮助窗口
             do shell script cmd
         end if
         --else if not hasHelperWindow then

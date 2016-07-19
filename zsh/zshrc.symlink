@@ -99,6 +99,8 @@ do
 done
 unset config_files
 
+export PATH="/usr/local/bin:$PATH"
+
 [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
 
