@@ -12,11 +12,12 @@ autocmd! BufEnter * call g:vim_plug.show_mes()
 call plug#begin('~/.vim/plugged')
 Plug 'powerline/fonts'
 Plug 'altercation/vim-colors-solarized'
+Plug 'spf13/vim-colors',  g:vim_plug.cond(0)
+Plug 'flazz/vim-colorschemes',  g:vim_plug.cond(0)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/nerdtree'
-" Plug 'spf13/vim-colors'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'rhysd/conflict-marker.vim'
@@ -28,7 +29,8 @@ Plug 'vim-scripts/sessionman.vim'
 Plug 'matchit.zip'
 Plug 'bling/vim-bufferline'
 Plug 'easymotion/vim-easymotion'
-" Plug 'flazz/vim-colorschemes'
+Plug 'haya14busa/vim-easyoperator-line'
+Plug 'haya14busa/vim-easyoperator-phrase'
 Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
 """""""""""""""""""
@@ -52,7 +54,7 @@ Plug 'godlygeek/tabular'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 """""""""""""""""""""""""""""""
-Plug 'Valloric/YouCompleteMe',  {'do':'./install.py'}
+Plug 'Valloric/YouCompleteMe',  {'do':  './install.py'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 """""""""""""""""""""""""""""""
@@ -72,7 +74,7 @@ Plug 'Valloric/ListToggle'
 " 更多格式的C#highlighting
 Plug 'OrangeT/vim-csharp'
 " C#环境
-Plug 'OmniSharp/omnisharp-vim',  {'do':'cd server;xbuild'}
+Plug 'OmniSharp/omnisharp-vim',  {'do':  'cd server;xbuild'}
 Plug 'tpope/vim-dispatch'
 " 在nerdtree中显示git状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -110,7 +112,7 @@ set iskeyword-=#                    " '#' is an end of word designator
 set iskeyword-=-                    " '-' is an end of word designator
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
-autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.',  [0,  1,  1,  0])
 
 " Restore cursor to file in previous editing session {{
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
@@ -172,7 +174,6 @@ if has('statusline')
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
     if g:vim_plug.is_ready('vim-fugitive')
-    " if filereadable(expand(g:plug_home . "/vim-fugitive/plugin/fugitive.vim"))
         set statusline+=%{fugitive#statusline()} " Git Hotness
     endif
     set statusline+=\ [%{&ff}/%Y]            " Filetype
@@ -275,9 +276,6 @@ nmap <leader>f7 :set foldlevel=7<CR>
 nmap <leader>f8 :set foldlevel=8<CR>
 nmap <leader>f9 :set foldlevel=9<CR>
 
-" Most prefer to toggle search highlighting rather than clear the current
-" search results. To clear search highlighting rather than toggle it on
-" and off, add the following to your .vimrc.before.local file:
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " Find merge conflict markers

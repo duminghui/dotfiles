@@ -16,4 +16,6 @@ if g:vim_plug.is_ready('tabular')
     vmap <Leader>a,, :Tabularize /,\zs<CR>
     nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
     vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    nmap <Leader>a* :Tabularize /*<CR>
+    vmap <Leader>a* :Tabularize /*<CR>
 endif

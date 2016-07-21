@@ -7,7 +7,7 @@ if g:vim_plug.is_ready('vim-colors-solarized')
     let g:solarized_visibility="normal"
     " 配置DiffAdd,DiffChange,DiffDelete,DiffText的highlight显示样式，默认normal
     let g:solarized_diffmode="normal"
-    color solarized             " Load a colorscheme
+    colorscheme solarized             " Load a colorscheme
     highlight clear SignColumn      " SignColumn should match background
     highlight clear LineNr          " Current line number row will have same background color in relative mode
     " highlight CursorLineNr ctermfg=136 ctermbg=235
