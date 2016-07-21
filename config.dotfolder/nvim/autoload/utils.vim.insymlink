@@ -25,13 +25,17 @@ function! g:vim_plug.show_mes()
     endif
 endfunction
 
-function! g:vim_plug.is_ready(name)
-    let l:count = count(g:plugs_order , a:name)
-    let l:isdirectory = isdirectory(expand(g:plug_home . "/" . a:name , 1))
-    if l:count && l:isdirectory
-        return 1
+function! g:vim_plug.is_ready(name) abort
+    if exists('g:loaded_plug')
+        let l:count = count(g:plugs_order , a:name)
+        let l:isdirectory = isdirectory(expand(g:plug_home . "/" . a:name , 1))
+        if l:count && l:isdirectory
+            return 1
+        endif
+        call add(s:plug_mes,  "Plug [" . a:name . "] isn't Ready: c:" . l:count ." d:" . l:isdirectory)
+    else
+        return 0
     endif
-    call add(s:plug_mes,"Plug [" . a:name . "] isn't Ready: c:" . l:count ." d:" . l:isdirectory)
 endfunction
 
 function! g:vim_plug.cond(cond,...)
