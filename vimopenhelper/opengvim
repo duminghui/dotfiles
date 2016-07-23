@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-gvim --remote-silent $1
