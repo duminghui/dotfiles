@@ -1,4 +1,5 @@
 tap 'caskroom/cask'
+tap 'duminghui/tap'
 tap 'facebook/fb'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
@@ -51,3 +52,4 @@ brew 'facebook/fb/buck', args: ['HEAD']
 brew 'neovim/neovim/neovim'
 cask 'iterm2'
 cask 'jd-gui'
+cask 'open-nvim-4-ide-app'
