@@ -11,7 +11,7 @@ if g:vim_plug.is_ready('syntastic')
     " 1: always to jump
     " 2: only if issue is an error
     " 3: all issues detected are warning
-    let g:syntastic_auto_jump = 2
+    let g:syntastic_auto_jump = 0
     " automatically open and/or close the location-list
     " default 2
     " 0: neither
