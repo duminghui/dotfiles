@@ -91,9 +91,9 @@ call plug#end()
 
 " General {{
 set nocompatible
-set background=dark
+" set background=dark
 filetype plugin indent on
-syntax on
+" syntax on
 set mouse&
 set mousehide
 scriptencoding utf-8
