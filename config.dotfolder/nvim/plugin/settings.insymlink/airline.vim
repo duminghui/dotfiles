@@ -54,14 +54,14 @@ if g:vim_plug.is_ready('vim-airline')
 
     let g:airline#extensions#tabline#enabled = 1
     " 这个决定在多个tab时,tab_label的位置显示tab_lable(0)或是显示当前编辑的buffer的名称(1)
-    let g:airline#extensions#tabline#show_splits = 1
+    let g:airline#extensions#tabline#show_splits = 0
     " 交换buffers和tabs的显示位置
-    let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
+    let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
     " 显示buffers_label在tabline上
     let g:airline#extensions#tabline#show_buffers = 1
     " 如果之前没有tab在新建一个tab时，已经打开的buffers会收集到一个新tab中(1),否则还是以buffer_list的形式展示
     let g:airline#extensions#tabline#show_tabs = 1
-    let g:airline#extensions#tabline#exclude_preview = 0
+    let g:airline#extensions#tabline#exclude_preview = 1
     let g:airline#extensions#tabline#tab_nr_type = 2
     let g:airline#extensions#tabline#show_tab_nr = 1
     " 是否显示tab（far right）这个决定是否显示右上角的buffer_label/tab_lable
@@ -71,13 +71,15 @@ if g:vim_plug.is_ready('vim-airline')
     " 配置buffers显示的标签
     let g:airline#extensions#tabline#buffers_label = 'b'
     let g:airline#extensions#tabline#tabs_label = 't'
+    " let g:airline#extensions#tabline#formatter = 'default'
+    " let g:airline#extensions#tabline#formatter = 'unique_tail'
     let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
     let g:airline#extensions#tabline#buffer_nr_show = 1
     let g:airline#extensions#tabline#buffer_nr_format = '%s: '
     " let g:airline#extensions#tabline#fnamemod=':p:.'
     " let g:airline#extensions#tabline#fnamemod=':t'
     "是否将父目录的文件名省略到一个字符显示
-    let g:airline#extensions#tabline#fnamecollapse = 0
+    let g:airline#extensions#tabline#fnamecollapse = 1
     " 处于非活动状态的tab文件名显示位数
     let g:airline#extensions#tabline#fnametruncate = 0
     let g:airline#extensions#tabline#buffer_min_count = 0

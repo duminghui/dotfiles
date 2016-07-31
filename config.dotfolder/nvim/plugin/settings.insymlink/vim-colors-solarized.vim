@@ -1,15 +1,20 @@
 " 'altercation/vim-colors-solarized'
 if g:vim_plug.is_ready('vim-colors-solarized')
     let g:solarized_termcolors=256
-    " 这个是反转显示背景色和当前行highlight的一些配置，使用iTerm用1比较好
-    let g:solarized_termtrans=1
     let g:solarized_contrast="normal"
     let g:solarized_visibility="normal"
     " 配置DiffAdd,DiffChange,DiffDelete,DiffText的highlight显示样式，默认normal
     let g:solarized_diffmode="normal"
     call togglebg#map("<F5>")
+    " 这个是反转显示背景色和当前行highlight的一些配置，使用drak用1比较好
+    if 1
+        let g:solarized_termtrans=1
+        set background=dark
+    else
+        let g:solarized_termtrans=0
+        set background=light
+    endif
     syntax enable
-    set background=dark
     " set background=light
     colorscheme solarized             " Load a colorscheme
     highlight clear SignColumn      " SignColumn should match background
