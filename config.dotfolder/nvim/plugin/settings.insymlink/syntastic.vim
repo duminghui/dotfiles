@@ -22,8 +22,8 @@ if g:vim_plug.is_ready('syntastic')
     let g:syntastic_check_on_open = 1
     let g:syntastic_check_on_wq = 0
     let g:syntastic_loc_list_height = 5
-    let g:syntastic_error_symbol = "\u2717"
-    let g:syntastic_warning_symbol = "\u26A0"
-    let g:syntastic_style_error_symbol = "S\u2717"
-    let g:syntastic_style_warning_symbol = "S\u26A0"
+    let g:syntastic_error_symbol = "\u2307\u2307" "⌇⌇
+    let g:syntastic_warning_symbol = "\u2307" "⌇
+    let g:syntastic_style_error_symbol = "\u2CFD\u2CFD" "⳽⳽
+    let g:syntastic_style_warning_symbol = "S\u2307" "⳽
 endif

@@ -69,7 +69,7 @@ Plug 'vimcn/ctrlp.cnx'
 Plug 'vimcn/NERD_tree.vim.cnx'
 Plug 'vimcn/NERD_commenter.cnx'
 """""""""""""""""""""""
-Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'vim-ctrlspace/vim-ctrlspace',  g:vim_plug.cond(0)
 Plug 'udalov/kotlin-vim'
 Plug 'Valloric/ListToggle'
 " 更多格式的C#highlighting
@@ -149,7 +149,7 @@ let g:skipview_files = [
 
 " Vim UI {{
 
-set textwidth=80
+" set textwidth=80
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
 set cmdheight=2
