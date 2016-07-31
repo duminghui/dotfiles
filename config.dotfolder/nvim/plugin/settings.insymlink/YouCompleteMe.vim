@@ -7,9 +7,9 @@ if g:vim_plug.is_ready('YouCompleteMe')
     let g:ycm_collect_identifiers_from_tags_files = 1
 
     " remap Ultisnips for compatibility for YCM
-    let g:UltiSnipsExpandTrigger = '<C-j>'
-    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+    let g:UltiSnipsExpandTrigger = "<c-j>"
+    let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -38,5 +38,8 @@ if g:vim_plug.is_ready('YouCompleteMe')
     set completeopt-=preview
 
     nnoremap <leader>jd :YcmCompleter GoTo<CR>
+    " 下面的选项是直接作用于syntastic插件的
     let g:ycm_always_populate_location_list = 1
+    let g:ycm_error_symbol = '>>'
+    let g:ycm_warning_symbol = '>*'
 endif
