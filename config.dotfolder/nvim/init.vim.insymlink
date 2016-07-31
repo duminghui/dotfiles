@@ -31,6 +31,7 @@ Plug 'bling/vim-bufferline'
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
+Plug 'tommcdo/vim-exchange'
 Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
 """""""""""""""""""
