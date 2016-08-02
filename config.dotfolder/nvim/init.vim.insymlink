@@ -18,6 +18,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/nerdtree'
+" 在nerdtree中显示git状态
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'rhysd/conflict-marker.vim'
@@ -77,8 +79,6 @@ Plug 'OrangeT/vim-csharp'
 " C#环境
 Plug 'OmniSharp/omnisharp-vim',  {'do':  'cd server;xbuild'}
 Plug 'tpope/vim-dispatch'
-" 在nerdtree中显示git状态
-Plug 'Xuyuanp/nerdtree-git-plugin'
 " vim open a file:line
 Plug 'bogado/file-line'
 " " 使用[]做快捷键
@@ -150,6 +150,7 @@ let g:skipview_files = [
 " Vim UI {{
 
 " set textwidth=80
+set linebreak
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
 set cmdheight=2
@@ -229,6 +230,7 @@ autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtab
 " preceding line best in a plugin but here for now.
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+autocmd BufNewFile,BufRead *.vim.insymlink set filetype=vim
 
 " Workaround vim-commentary for Haskell
 autocmd FileType haskell setlocal commentstring=--\ %s
