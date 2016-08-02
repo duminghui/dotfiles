@@ -57,7 +57,7 @@ Plug 'godlygeek/tabular'
 Plug 'luochen1990/rainbow'
 Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 """""""""""""""""""""""""""""""
-Plug 'Valloric/YouCompleteMe',  {'do':  './install.py'}
+" Plug 'Valloric/YouCompleteMe',  {'do':  './install.py'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 """""""""""""""""""""""""""""""
@@ -67,7 +67,6 @@ Plug 'spf13/vim-preview'
 " 中文档
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
 Plug 'vimcn/vimcdoc'
-Plug 'vimcn/ctrlp.cnx'
 Plug 'vimcn/NERD_tree.vim.cnx'
 Plug 'vimcn/NERD_commenter.cnx'
 """""""""""""""""""""""
@@ -99,6 +98,7 @@ set mousehide
 scriptencoding utf-8
 " * register使用copy-paste
 set clipboard=unnamed
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " 防止打开一个新buffer的时候自动选择当前文件的目录
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 "set autowrite                       " Automatically write a file when leaving a modified buffer
