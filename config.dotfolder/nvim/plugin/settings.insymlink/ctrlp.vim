@@ -1,12 +1,12 @@
 " 'ctrlpvim/ctrlp.vim'
 " 'tacahiroy/ctrlp-funky'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 if g:vim_plug.is_ready('ctrlp.vim')
     let g:ctrlp_working_path_mode = 'ra'
     let g:ctrlp_by_filename = 1
     let g:ctrlp_funky_syntax_highlight = 1
     nnoremap <silent> <D-t> :CtrlP<CR>
     nnoremap <silent> <D-r> :CtrlPMRU<CR>
+    let g:ctrlp_reuse_window = 'netrw'
     let g:ctrlp_custom_ignore = {
                 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
                 \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }

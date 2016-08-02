@@ -3,8 +3,10 @@
 # bootstrap installs things.
 
 # cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$HOME/.dotfiles
-cd "$DOTFILES_ROOT"
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+# DOTFILES_ROOT=$HOME/.dotfiles
+# cd "$DOTFILES_ROOT"
 echo $DOTFILES_ROOT
 
 set -e
@@ -132,7 +134,7 @@ install_dotfiles () {
   local overwrite_all=false backup_all=false skip_all=false
 
   # for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
-  for src in $(find -H ~/.dotfiles -maxdepth 2 -path '*/*.skip' -prune -o -name '*.symlink' -not -path '*.git*' -print)
+  for src in $(find -L "$DOTFILES_ROOT" -maxdepth 2 -path '*/*.skip' -prune -o -name '*.symlink' -not -path '*.git*' -print)
   do
     dst="$HOME/.$(basename "${src%.symlink}")"
     link_file "$src" "$dst"
@@ -144,10 +146,10 @@ install_insymlinks(){
 
     local overwrite_all=false backup_all=false skip_all=false
 
-    for src in $(find -H $DOTFILES_ROOT/*.dotfolder -name '*.insymlink')
+    for src in $(find -L $DOTFILES_ROOT/*.dotfolder -name '*.insymlink')
     do
         dst=`echo $src | sed 's/\/\([0-9a-zA-Z_.]\{1,\}\)\.dotfolder/\/.\1/g'`
-        dst="$HOME${dst#*.dotfiles}"
+        dst="$HOME${dst#$DOTFILES_ROOT}"
         dst="${dst%.insymlink}"
         parentfolder="${dst%$(basename $dst)}"
         if [ ! -d $parentfolder ]
