@@ -5,18 +5,37 @@ if g:vim_plug.is_ready('YouCompleteMe')
 
     let g:acp_enableAtStartup = 0
 
+    " let g:ycm_filetype_blacklist = {
+    "             \ 'tagbar'   : 1,
+    "             \ 'qf'       : 1,
+    "             \ 'notes'    : 1,
+    "             \ 'markdown' : 1,
+    "             \ 'unite'    : 1,
+    "             \ 'text'     : 1,
+    "             \ 'vimwiki'  : 1,
+    "             \ 'pandoc'   : 1,
+    "             \ 'infolog'  : 1,
+    "             \ 'mail'     : 1,
+    "             \ 'cs'       : 1
+    "             \}
+
     " enable completion from tags
     let g:ycm_collect_identifiers_from_tags_files = 1
     let g:ycm_add_preview_to_completeopt = 0
     " 下面的选项是直接作用于syntastic插件的
-    let g:ycm_always_populate_location_list = 1
-    let g:ycm_error_symbol = '>>'
-    let g:ycm_warning_symbol = '>*'
+    " let g:ycm_always_populate_location_list = 1
+    " let g:ycm_error_symbol = '>>'
+    " let g:ycm_warning_symbol = '>*'
 
     " remap Ultisnips for compatibility for YCM
     let g:UltiSnipsExpandTrigger = "<c-j>"
     let g:UltiSnipsJumpForwardTrigger = "<c-j>"
     let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+    " For snippet_complete marker.
+    if has('conceal')
+        set conceallevel=2 concealcursor=i
+    endif
 
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -32,11 +51,6 @@ if g:vim_plug.is_ready('YouCompleteMe')
     " ~/.cabal/bin is in your $PATH.
     if !executable("ghcmod")
         autocmd BufWritePost *.hs GhcModCheckAndLintAsync
-    endif
-
-    " For snippet_complete marker.
-    if has('conceal')
-        set conceallevel=2 concealcursor=i
     endif
 
     " Disable the neosnippet preview candidate window
