@@ -104,7 +104,7 @@ endfunction
 function! g:utils.generate_highlight(group_name, group_src, highlight_extend)
     let l:group_dst = {}
     for[l:group_name, l:keys] in items(a:group_src)
-        call extend(l:group_dst, call(g:utils.get_highlight_colors, [l:group_name] + l:keys))
+        call extend(l:group_dst, call(self.get_highlight_colors, [l:group_name] + l:keys, self))
     endfor
     call extend(l:group_dst, a:highlight_extend)
     call s:generate_highlight(a:group_name, l:group_dst)
