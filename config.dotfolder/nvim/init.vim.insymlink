@@ -44,6 +44,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-abolish'
 Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode',  g:vim_plug.cond(1)
 Plug 'rhysd/conflict-marker.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
@@ -51,7 +52,7 @@ Plug 'gcmt/wildfire.vim'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
 " """""""""""""""""""""""
-Plug 'Valloric/YouCompleteMe',  {'do':  './install.py'}
+Plug 'Valloric/YouCompleteMe',  g:vim_plug.cond(1,  {'do':  './install.py'})
 " 还不能和ultisnips整合，先不用
 " Plug 'ervandew/supertab', {'for': 'cs'}
 Plug 'SirVer/ultisnips'
