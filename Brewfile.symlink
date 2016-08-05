@@ -53,7 +53,7 @@ brew 'zsh'
 brew 'zsh-completions'
 brew 'facebook/fb/buck', args: ['HEAD']
 brew 'homebrew/versions/openssl101'
-brew 'neovim/neovim/neovim'
+brew 'neovim/neovim/neovim', args: ['with-release']
 cask 'dotnet'
 cask 'iterm2'
 cask 'jd-gui'
