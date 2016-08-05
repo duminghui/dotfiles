@@ -71,7 +71,7 @@ Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}
 Plug 'tpope/vim-dispatch', {'for': 'cs'}
 Plug 'OrangeT/vim-csharp', {'for': 'cs'}
 " 着色器高亮
-Plug 'vim-scripts/ShaderHighLight',  {'for': ['cg',  'hlsl',  'glsl',  'shaderlab']}
+Plug 'vim-scripts/ShaderHighLight', {'for': ['cg', 'hlsl', 'glsl', 'shaderlab']}
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'spf13/vim-preview', {'for': 'markdown'}
 """""""""""""""""""""""""""""""
@@ -227,6 +227,12 @@ autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtab
 
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 autocmd BufNewFile,BufRead *.vim.insymlink set filetype=vim
+
+" fix ShaderHighLight Load Bug
+autocmd BufNewFile,BufRead *.cg set filetype=cg
+autocmd BufNewFile,BufRead *.hlsl,*.hlslc,*.hlslh,*.hlsl set filetype=hlsl
+autocmd! BufNewFile,BufRead *.glsl,*.geom,*.vert,*.frag,*.gsh,*.vsh,*.fsh,*.vs,*.fs set filetype=glsl
+autocmd BufNewFile,BufRead *.shader set filetype=shaderlab
 
 " Workaround vim-commentary for Haskell
 autocmd FileType haskell setlocal commentstring=--\ %s
