@@ -55,6 +55,7 @@ if g:vim_plug.is_ready('omnisharp-vim')
         " Builds can also run asynchronously with vim-dispatch installed
         autocmd FileType cs nnoremap <leader>b :wa!<cr>:OmniSharpBuildAsync<cr>
         " automatic syntax check on events (TextChanged requires Vim 7.4)
+        " 打开这个会造成使用terryma/vim-multiple-cursors时出现卡顿的现象
         autocmd BufEnter,TextChanged,InsertLeave *.cs SyntasticCheck
 
         " Automatically add new cs files to the nearest project on save
