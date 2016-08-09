@@ -4,15 +4,22 @@
 #
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
-export DOTFILES_PATH=$HOME/.dotfiles
+
+if [ ! $DOTFILES_ROOT ];
+then
+    cd "$(dirname "$0")/.."
+    export DOTFILES_ROOT=$(pwd -P)
+fi
+cd "$DOTFILES_ROOT"
+# export DOTFILES_PATH=$HOME/.dotfiles
 
 # Install homebrew
-$DOTFILES_PATH/homebrew/install.sh 2>&1
+$DOTFILES_ROOT/homebrew/install.sh 2>&1
 
 # Upgrade homebrew
 echo "› brew update"
-# brew update
+brew update
 
 # Install software
-echo "› $DOTFILES_PATH/script/install"
-$DOTFILES_PATH/script/install
+echo "› $DOTFILES_ROOT/script/install"
+$DOTFILES_ROOT/script/install
