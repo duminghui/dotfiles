@@ -4,11 +4,17 @@
 
 set -e
 
-cd "$(dirname $0)"/..
+if [ ! $DOTFILES_ROOT ];
+then
+    cd "$(dirname "$0")/.."
+    export DOTFILES_ROOT=$(pwd -P)
+fi
+cd "$DOTFILES_ROOT"
+# cd "$(dirname $0)"/..
 
 # Run Homebrew through the Brewfile
-echo "› brew bundle"
-brew bundle
+echo "› brew bundle -V --global"
+brew bundle -V --global
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
