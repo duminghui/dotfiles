@@ -57,4 +57,4 @@ brew 'neovim/neovim/neovim', args: ['with-release']
 cask 'dotnet'
 cask 'iterm2'
 cask 'jd-gui'
-cask 'openneovim4ide'
+cask 'openxvim4ide'
