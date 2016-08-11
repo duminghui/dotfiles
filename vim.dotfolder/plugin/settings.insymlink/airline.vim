@@ -11,8 +11,10 @@ if g:vim_plug.is_ready('vim-airline')
     endif
     let g:airline_left_sep = '⮀'
     let g:airline_left_alt_sep = '⮁'
+    let g:airline_left_alt_sep = '|'
     let g:airline_right_sep = '⮂'
     let g:airline_right_alt_sep = '⮃'
+    let g:airline_right_alt_sep = '|'
     let g:airline_symbols.crypt = '🔒'
     let g:airline_symbols.readonly = '⭤'
     let g:airline_symbols.linenr = '⭡'
@@ -87,14 +89,17 @@ if g:vim_plug.is_ready('vim-airline')
     " let g:airline#extensions#tabline#ignore_bufadd_pat =
     " \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree'
     " let airline#extensions#tabline#disable_refresh = 0
+    " 这个好像没起作用，在代码中没有看到这个的引用
+    let g:airline#extensions#ctrlspace#enabled = 0
 
-    let g:airline#extensions#ctrlspace#enabled = 1
     " let g:airline_exclude_preview = 1
 
-    let g:airline#extensions#tabline#left_sep = ''
-    let g:airline#extensions#tabline#left_alt_sep = ''
-    let g:airline#extensions#tabline#right_sep = ''
-    let g:airline#extensions#tabline#right_alt_sep = ''
+    " 以下四项如果不配置默认使用ariline相关的配置
+    " let g:airline#extensions#tabline#left_sep = '⮀'
+    " let g:airline#extensions#tabline#left_alt_sep = '|'
+    " let g:airline#extensions#tabline#right_sep = '⮂'
+    " let g:airline#extensions#tabline#right_alt_sep = '|'
+
     let g:airline#extensions#tabline#buffer_idx_mode = 1
     nmap <leader>1 <Plug>AirlineSelectTab1
     nmap <leader>2 <Plug>AirlineSelectTab2
@@ -107,4 +112,6 @@ if g:vim_plug.is_ready('vim-airline')
     nmap <leader>9 <Plug>AirlineSelectTab9
     nmap <leader>- <Plug>AirlineSelectPrevTab
     nmap <leader>+ <Plug>AirlineSelectNextTab
+
+    let airline#extensions#tmuxline#enabled = 0
 endif
