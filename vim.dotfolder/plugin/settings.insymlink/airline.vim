@@ -113,5 +113,6 @@ if g:vim_plug.is_ready('vim-airline')
     nmap <leader>- <Plug>AirlineSelectPrevTab
     nmap <leader>+ <Plug>AirlineSelectNextTab
 
-    let airline#extensions#tmuxline#enabled = 0
+    " let g:airline#extensions#tmuxline#enabled = 1
+    " let g:airline#extensions#tmuxline#snapshot_file = '~/.tmux.conf.colors'
 endif
