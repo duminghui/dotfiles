@@ -12,7 +12,7 @@ if g:vim_plug.is_ready('tmuxline.vim')
                 \ 'a'           : '#S',
                 \ 'win'         : ['#I:#W'],
                 \ 'cwin'        : ['#I:#W'],
-                \ 'z'           : ['#{?client_prefix,%R | ⑇,%R}'],
+                \ 'z'           : ['#{?client_prefix,⑇ | %R,%R}'],
                 \ 'options'     : {'status-justify'              : 'left'},
                 \ 'win_options' : {'window-status-activity-attr' : 'none'}
                 \ }
