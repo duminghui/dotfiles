@@ -12,10 +12,9 @@ if g:vim_plug.is_ready('tmuxline.vim')
                 \ 'a'           : '#S',
                 \ 'win'         : ['#I:#W'],
                 \ 'cwin'        : ['#I:#W'],
-                \ 'z'           : ['%R','#{?client_prefix,⑇, }'],
+                \ 'z'           : ['#{?client_prefix,%R | ⑇,%R}'],
                 \ 'options'     : {'status-justify'              : 'left'},
                 \ 'win_options' : {'window-status-activity-attr' : 'none'}
                 \ }
-    " nmap <Leader>mtc :TmuxlineSnapshot! ~/.tmux.conf.colors<CR>
     nnoremap <expr> <Leader>mtc exists(':TmuxlineSnapshot') ? ":TmuxlineSnapshot! ~/.tmux.conf.colors<CR>" : ":echo ':TmuxlineSnapshot Not Exist'<CR>"
 endif
