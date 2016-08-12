@@ -24,7 +24,7 @@ if g:vim_plug.is_ready('tabular')
     nmap <Leader>ap :Tabularize argument_list<CR>
     vmap <Leader>ap :Tabularize argument_list<CR>
     nmap <Leader>ams :Tabularize multiple_spaces<CR>
-    nmap <Leader>ams :Tabularize multiple_spaces<CR>
-    vmap <Leader>at :Tabularize ternary_operator<CR>
+    vmap <Leader>ams :Tabularize multiple_spaces<CR>
+    nmap <Leader>at :Tabularize ternary_operator<CR>
     vmap <Leader>at :Tabularize ternary_operator<CR>
 endif
