@@ -138,9 +138,9 @@ bind C-c command-prompt -p new-session 'new-session -s %%'
 #   - and iTerm2 is configured to let option key act as +Esc
 #   - and iTerm2 is configured to send [1;9A -> [1;9D for option + arrow keys
 # then uncomment the following line to make Meta + arrow keys mapping work
+set -g terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
 setw -g mode-keys vi
-set -g terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
 if -b 'which -s reattach-to-user-namespace' 'bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"'
 set -g prefix C-a                        # GNU-Screen compatible prefix
