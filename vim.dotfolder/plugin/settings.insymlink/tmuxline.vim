@@ -9,10 +9,9 @@ if g:vim_plug.is_ready('tmuxline.vim')
                 \ 'space'     : ' '
                 \ }
     let g:tmuxline_preset = {
-                \ 'a'           : '#S',
+                \ 'a'           : ['#{socket_path}','#S','#{session_attached}⨳'],
                 \ 'win'         : ['#I:#W'],
                 \ 'cwin'        : ['#I:#W'],
-                \ 'y'           : ['#{session_attached}⨳'],
                 \ 'z'           : ['#{?client_prefix,⑇ | %R,%R}'],
                 \ 'options'     : {'status-justify'              : 'left'},
                 \ 'win_options' : {'window-status-activity-attr' : 'none'}
