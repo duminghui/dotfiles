@@ -1,3 +1,4 @@
+# cat << ►_◄ > /dev/null
 
 # -- general -------------------------------------------------------------------
 
@@ -150,10 +151,20 @@ unbind C-b
 #load statusline colors
 if-shell "test -f ~/.tmux.conf.colors" "source  ~/.tmux.conf.colors"
 
+set-hook -g 'after-new-session' 'run "cut -c3- ~/.tmux.conf | sh -s reset_status_left"'
+
 # ►_◄
 #
 # # exit the script if any statement returns a non-true return value
 # set -e
+#
+# reset_status_left() {
+#   __status_left=$(tmux show-options -gvq status-left)
+#   __socket_path=$(tmux display -p -F '#{socket_path}')
+#   __socket_name="${__socket_path##*/}"
+#   __status_left_dst=$(echo $__status_left | sed "s/#{socket_path}/$__socket_name/g")
+#   tmux set-option -g status-left "$__status_left_dst"
+# }
 #
 # maximize_pane() {
 #   tmux -q -L swap-pane-test -f /dev/null new-session -d \; new-window \; new-window \; swap-pane -t :1 \; kill-session || { tmux display 'your tmux version has a buggy swap-pane command - see ticket #108, fixed in upstream commit 78e783e'; exit; }
@@ -179,3 +190,5 @@ if-shell "test -f ~/.tmux.conf.colors" "source  ~/.tmux.conf.colors"
 #     ${__restore} || tmux kill-pane
 #   fi
 # }
+#
+# $@
