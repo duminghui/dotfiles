@@ -69,7 +69,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mattn/webapi-vim'
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}
-Plug 'tpope/vim-dispatch', {'for': 'cs'}
+Plug 'tpope/vim-dispatch', g:vim_plug.cond(1, {'for': 'cs'})
 Plug 'OrangeT/vim-csharp', {'for': 'cs'}
 " 着色器高亮
 Plug 'vim-scripts/ShaderHighLight', {'for': ['cg', 'hlsl', 'glsl', 'shaderlab']}
