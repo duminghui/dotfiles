@@ -28,7 +28,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-scripts/sessionman.vim'
 Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'bogado/file-line'
+" 这个会影响OmniSharp/omnisharp-vim启动server，会启动两次mono,暂时不使用
+" Plug 'bogado/file-line', g:vim_plug.cond(0)
 Plug 'tpope/vim-repeat'
 Plug 'matchit.zip'
 Plug 'luochen1990/rainbow'

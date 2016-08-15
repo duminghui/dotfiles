@@ -9,7 +9,7 @@ if g:vim_plug.is_ready('tmuxline.vim')
                 \ 'space'     : ' '
                 \ }
     let g:tmuxline_preset = {
-                \ 'a'           : ['#{socket_path}','#S','#{session_attached}⨳'],
+                \ 'a'           : ['#{?client_prefix,#{socket_path} | #S | #{session_attached}⨳ | ⑇,#{socket_path} | #S | #{session_attached}⨳}'],
                 \ 'win'         : ['#I:#W'],
                 \ 'cwin'        : ['#I:#W'],
                 \ 'z'           : ['#{?client_prefix,⑇ | %R,%R}'],
