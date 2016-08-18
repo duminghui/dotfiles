@@ -91,7 +91,7 @@ if g:vim_plug.is_ready('vim-airline')
     " let airline#extensions#tabline#disable_refresh = 0
     " 这个好像没起作用，在代码中没有看到这个的引用
     let g:airline#extensions#ctrlspace#enabled = 0
-
+    let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
     " let g:airline_exclude_preview = 1
 
     " 以下四项如果不配置默认使用ariline相关的配置

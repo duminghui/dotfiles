@@ -17,7 +17,7 @@ Plug 'flazz/vim-colorschemes', g:vim_plug.cond(0)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(1)
-Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(0)
+Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'bling/vim-bufferline'
@@ -43,6 +43,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
 Plug 'tommcdo/vim-exchange'
+" 使用c,d,s等操作时不改变缓存区
+Plug 'svermeulen/vim-easyclip'
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-abolish'
 Plug 'godlygeek/tabular'
