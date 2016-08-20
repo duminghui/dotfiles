@@ -78,6 +78,8 @@ Plug 'OrangeT/vim-csharp', {'for': 'cs'}
 Plug 'vim-scripts/ShaderHighLight', {'for': ['cg', 'hlsl', 'glsl', 'shaderlab']}
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'spf13/vim-preview', {'for': 'markdown'}
+Plug 'keith/tmux.vim', {'for': 'tmux'}
+
 """""""""""""""""""""""""""""""
 " 中文档
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))

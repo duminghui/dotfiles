@@ -14,10 +14,10 @@ set -s quiet on                           # disable various messages
 set -g history-limit 5000                 # boost history
 
 # edit configuration
-bind e new-window -n '~/.tmux.conf' "sh -c '\${EDITOR:-vim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux display \"~/.tmux.conf sourced\"'"
+bind e new-window -n '~/.tmux.conf' "sh -c '\${EDITOR:-vim} ~/.tmux.conf && tmux source ~/.tmux.conf && tmux run \"cut -c3- ~/.tmux.conf | sh -s reset_status_left\" && tmux display \"~/.tmux.conf sourced\"'"
 
 # reload configuration
-bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
+bind r source-file ~/.tmux.conf \; run "cut -c3- ~/.tmux.conf | sh -s reset_status_left" \; display '~/.tmux.conf sourced'
 
 # see https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard
 if 'which -s reattach-to-user-namespace' 'set -g default-command "exec initializing... 2> /dev/null & reattach-to-user-namespace $SHELL -l"'
@@ -152,6 +152,19 @@ unbind C-b
 if-shell "test -f ~/.tmux.conf.colors" "source  ~/.tmux.conf.colors"
 
 set-hook -g 'after-new-session' 'run "cut -c3- ~/.tmux.conf | sh -s reset_status_left"'
+# set-hook -g 'client-attached' 'run "cut -c3- ~/.tmux.conf | sh -s reset_status_left"'
+
+# bind-key / command-prompt 'split-window "env GROFF_NO_SGR=1 LESS_TERMCAP_md=\\$\\'a\\' man %%"'
+bind-key / command-prompt "split-window \
+        \"env GROFF_NO_SGR=1 \
+        LESS_TERMCAP_mb=\\$'\\\\E[1;36m' \
+        LESS_TERMCAP_md=\\$'\\\\E[1;36m' \
+        LESS_TERMCAP_me=\\$'\\\\E[0m' \
+        LESS_TERMCAP_se=\\$'\\\\E[0m' \
+        LESS_TERMCAP_so=\\$'\\\\E[1;44;33m' \
+        LESS_TERMCAP_ue=\\$'\\\\E[0m' \
+        LESS_TERMCAP_us=\\$'\\\\E[1;33m' \
+        man %%\""
 
 # ►_◄
 #
