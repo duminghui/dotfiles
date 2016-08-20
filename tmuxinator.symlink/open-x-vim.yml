@@ -29,7 +29,12 @@ root: ~/github/open-x-vim
 
 windows:
   - open-x-vim:
-      layout: main-vertical
-      panes:
+      layout : main-vertical
+      panes  :
         -
+        -
+  - homebrew-tap:
+      root   : ~/github/homebrew-tap
+      layout : main-vertical
+      panes  :
         -
