@@ -54,5 +54,5 @@ brew 'neovim/neovim/neovim', args: ['with-release']
 cask 'dotnet'
 cask 'iterm2'
 cask 'jd-gui'
-cask 'openxvim4ide'
+cask 'openxvim'
 cask 'platypus'
