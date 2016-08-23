@@ -49,10 +49,9 @@ brew 'wget'
 brew 'xctool'
 brew 'zsh'
 brew 'zsh-completions'
-brew 'facebook/fb/buck', args: ['HEAD']
 brew 'neovim/neovim/neovim', args: ['with-release']
+brew 'duminghui/tap/open-x-vim'
+brew 'facebook/fb/buck', args: ['HEAD']
 cask 'dotnet'
 cask 'iterm2'
 cask 'jd-gui'
-cask 'openxvim'
-cask 'platypus'
