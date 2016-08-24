@@ -58,7 +58,7 @@ if g:vim_plug.is_ready('vim-airline')
     " 这个决定在多个tab时,tab_label的位置显示tab_lable(0)或是显示当前编辑的buffer的名称(1)
     let g:airline#extensions#tabline#show_splits = 0
     " 交换buffers和tabs的显示位置
-    let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
+    let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
     " 显示buffers_label在tabline上
     let g:airline#extensions#tabline#show_buffers = 1
     " 如果之前没有tab在新建一个tab时，已经打开的buffers会收集到一个新tab中(1),否则还是以buffer_list的形式展示
