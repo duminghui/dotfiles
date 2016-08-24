@@ -7,9 +7,9 @@
 # PROMPT2='%{$fg[$CARETCOLOR]%}◀%{$reset_color%} '
 
 PROMPT='$(_user_host)[$(_current_dir)] $(git_prompt_info) $(_ruby_version)
- %{$fg_bold[green]%}⊙ '
+ %{$fg_bold[green]%}⦿ '
 
-PROMPT2='%{$fg[green]%} ⊙ %{$reset_color%} '
+PROMPT2='%{$fg[green]%} ⦿ %{$reset_color%} '
 
 RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
 
