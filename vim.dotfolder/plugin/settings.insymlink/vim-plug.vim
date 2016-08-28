@@ -1,14 +1,18 @@
 let g:plug_window='tabnew'
+
 function! s:plug_gx()
     let line = getline('.')
     let sha = matchstr(line, '^ \X*\zs\x\{7}\ze ')
     let name = empty(sha) ? matchstr(line, '^[-x+] \zs[^:]\+\ze:')
                 \ : getline(search('^- .*:$', 'bn'))[2:-2]
+	" for [key, value] in items(g:plugs)
+        " echom key . ':' . get(value,'uri','')
+    " endfor
     let uri = get(get(g:plugs, name, {}), 'uri', '')
     if uri !~ 'github.com'
         return
     endif
-    let repo = matchstr(uri, '[^:/]*/' . name)
+    let repo = matchstr(uri, '[^:/]*/' . name . '.git')
     let url = empty(sha) ? 'https://github.com/' . repo
                 \ : printf('https://github.com/%s/commit/%s', repo, sha)
     call netrw#BrowseX(url, 0)
