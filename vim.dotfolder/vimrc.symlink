@@ -34,7 +34,7 @@ Plug 'tpope/vim-repeat'
 Plug 'matchit.zip'
 Plug 'luochen1990/rainbow'
 " " 使用[]做快捷键
-" Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired', g:vim_plug.cond(1)
 " """""""""""""""""""""""""
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -44,12 +44,11 @@ Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
 Plug 'tommcdo/vim-exchange'
 " 使用c,d,s等操作时不改变缓存区
-Plug 'svermeulen/vim-easyclip'
+Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-abolish'
 Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode', g:vim_plug.cond(1)
-Plug 'rhysd/conflict-marker.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'gcmt/wildfire.vim'
@@ -57,7 +56,7 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
 " """""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(1, {'do':  './install.py'})
-" 还不能和ultisnips整合，先不用
+" 还没有完成和ultisnips整合，先不用
 " Plug 'ervandew/supertab', {'for': 'cs'}
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -66,9 +65,14 @@ Plug 'tpope/vim-commentary'
 Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 Plug 'scrooloose/syntastic'
 Plug 'Valloric/ListToggle'
+"在sign上显示版本控制相关的标记
 Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+" 在sign显示marks
+Plug 'kshenoy/vim-signature'
+" 标记、跳转冲突的 <<<<<<,========,>>>>>>>
+Plug 'rhysd/conflict-marker.vim'
 Plug 'mattn/webapi-vim'
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}
@@ -249,12 +253,15 @@ autocmd FileType haskell,rust setlocal nospell
 
 " Key (re)Mappings {{
 let mapleader = ','
+noremap \ ,
 let maplocalleader = '_'
-noremap <leader>ev :split $MYVIMRC<CR>
-noremap <leader>sv :source $MYVIMRC<CR>
+noremap <leader>ve :split $MYVIMRC<CR>
+noremap <leader>vs :source $MYVIMRC<CR>
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
+noremap gj j
 noremap k gk
+noremap gk k
 
 " Stupid shift key fixes
 if has("user_commands")
@@ -313,7 +320,7 @@ cmap w!! w !sudo tee % >/dev/null
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
 map <leader>ew :e %%
 map <leader>es :sp %%
-" map <leader>ev :vsp %%
+map <leader>ev :vsp %%
 map <leader>et :tabe %%
 
 " Adjust viewports to the same size
@@ -334,8 +341,8 @@ nnoremap <silent> <leader>q gwip
 " fullscreen mode for GVIM and Terminal, need 'wmctrl' in you PATH
 map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
 
-nnoremap [b :bp<CR>
-nnoremap ]b :bn<CR>
+nnoremap [b :bprev<CR>
+nnoremap ]b :bnext<CR>
 
 " }}
 

@@ -43,6 +43,7 @@ brew 'reattach-to-user-namespace'
 brew 'scons'
 brew 'subversion'
 brew 'tmux', args: ['HEAD']
+brew 'tree'
 brew 'vim', args: ['with-lua', 'with-override-system-vi']
 brew 'watchman'
 brew 'wget'
