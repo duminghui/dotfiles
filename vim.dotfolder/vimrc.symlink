@@ -43,6 +43,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
 Plug 'tommcdo/vim-exchange'
+Plug 'nelstrom/vim-qargs'
 " 使用c,d,s等操作时不改变缓存区
 Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
 Plug 'osyo-manga/vim-over'
@@ -212,6 +213,20 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic white
 if &term == 'xterm' || &term == 'screen'
     set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
 endif
+
+" GUI {{
+
+if has('gui_running')
+    set guioptions-=T
+    set lines=40
+    set guifont=Monaco:h12
+    set noantialias
+    set guioptions-=r
+    set guioptions-=l
+    set guioptions-=L
+    set nospell
+endif
+" }}
 " }}
 
 " Formatting {{
@@ -380,6 +395,31 @@ inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menu,preview,longest
 " }}
+
+" ctags {{
+set tags=./tags;/,~/.vimtags
+
+" Make tags placed in .git/tags file available in all levels of a repository
+let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
+if gitroot != ''
+    let &tags = &tags . ',' . gitroot . '/.git/tags'
+endif
+" }}
+
+" autoread {{
+set autoread
+if !has("gui_running")
+    augroup checktime
+        autocmd!
+        autocmd BufEnter     * silent! checktime
+        autocmd CursorHold   * silent! checktime
+        autocmd CursorHoldI  * silent! checktime
+        autocmd CursorMoved  * silent! checktime
+        autocmd CursorMovedI * silent! checktime
+    augroup END
+endif
+" }}
+
 " }}
 
 " Funcations {{
