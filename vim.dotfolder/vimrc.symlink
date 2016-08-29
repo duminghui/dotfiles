@@ -46,14 +46,16 @@ Plug 'tommcdo/vim-exchange'
 " 使用c,d,s等操作时不改变缓存区
 Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
 Plug 'osyo-manga/vim-over'
+Plug 'bronson/vim-visual-star-search'
 Plug 'tpope/vim-abolish'
 Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode', g:vim_plug.cond(1)
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
-Plug 'gcmt/wildfire.vim'
+Plug 'kana/vim-textobj-lastpat'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
+Plug 'gcmt/wildfire.vim'
 " """""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(1, {'do':  './install.py'})
 " 还没有完成和ultisnips整合，先不用
@@ -87,7 +89,7 @@ Plug 'keith/tmux.vim', {'for': 'tmux'}
 """""""""""""""""""""""""""""""
 " 中文档
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
-Plug 'vimcn/vimcdoc'
+Plug 'vimcn/vimcdoc',  g:vim_plug.cond(1)
 Plug 'vimcn/NERD_tree.vim.cnx'
 Plug 'vimcn/NERD_commenter.cnx'
 """""""""""""""""""""""
@@ -96,7 +98,7 @@ call plug#end()
 
 " General {{
 set nocompatible
-" set background=dark
+set background=dark
 filetype plugin indent on
 syntax on
 set mouse&
@@ -153,7 +155,7 @@ let g:skipview_files = [
 " }}
 " }}
 
-" Vim UI {{
+" UI {{
 
 " set textwidth=80
 set linebreak
@@ -344,6 +346,40 @@ map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscr
 nnoremap [b :bprev<CR>
 nnoremap ]b :bnext<CR>
 
+" motion.txt
+" map [[ ?{<CR>w99[{
+" map ][ /{<CR>b99]}
+" map ]] j0[[%/{<CR>
+" map [] k$][%?}<CR>
+
+" }}
+
+" Misc {{
+" OmniComplete{{
+if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+                \if &omnifunc == "" |
+                \setlocal omnifunc=syntaxcomplete#Complete |
+                \endif
+endif
+
+hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+
+" Some convenient mappings
+"inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
+inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
+
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+" inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
+" inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
+
+" Automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt=menu,preview,longest
+" }}
 " }}
 
 " Funcations {{
