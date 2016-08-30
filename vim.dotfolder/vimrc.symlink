@@ -25,7 +25,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/nerdtree'
 " 在nerdtree中显示git状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'vim-scripts/sessionman.vim'
+Plug 'vim-scripts/restore_view.vim'
+Plug 'vim-scripts/sessionman.vim', g:vim_plug.cond(0)
 Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
 " 这个会影响OmniSharp/omnisharp-vim启动server，会启动两次mono,暂时不使用
@@ -73,7 +74,7 @@ Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " 在sign显示marks
-Plug 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature', g:vim_plug.cond(0)
 " 标记、跳转冲突的 <<<<<<,========,>>>>>>>
 Plug 'rhysd/conflict-marker.vim'
 Plug 'mattn/webapi-vim'
@@ -148,11 +149,6 @@ if has('persistent_undo')
     set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 endif
 
-" Add exclusions to mkview and loadview
-" eg: *.*, svn-commit.tmp
-let g:skipview_files = [
-            \ '\[example pattern\]'
-            \ ]
 " }}
 " }}
 
