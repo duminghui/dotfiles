@@ -25,6 +25,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/nerdtree'
 " 在nerdtree中显示git状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" auto mkview loadview
 Plug 'vim-scripts/restore_view.vim'
 Plug 'vim-scripts/sessionman.vim', g:vim_plug.cond(0)
 Plug 'mbbill/undotree'
@@ -44,6 +45,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
 Plug 'tommcdo/vim-exchange'
+"把qucikfix中的文件生成args
 Plug 'nelstrom/vim-qargs'
 " 使用c,d,s等操作时不改变缓存区
 Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
@@ -74,7 +76,7 @@ Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " 在sign显示marks
-Plug 'kshenoy/vim-signature', g:vim_plug.cond(0)
+Plug 'kshenoy/vim-signature', g:vim_plug.cond(1)
 " 标记、跳转冲突的 <<<<<<,========,>>>>>>>
 Plug 'rhysd/conflict-marker.vim'
 Plug 'mattn/webapi-vim'
