@@ -32,13 +32,12 @@ brew 'libksba'
 brew 'libtool'
 brew 'libyaml'
 brew 'lua'
+brew 'mono'
+brew 'nexus', service_restart: true
 brew 'readline'
 brew 'sqlite'
 brew 'python'
 brew 'python3'
-brew 'macvim', args: ['with-lua']
-brew 'mono'
-brew 'nexus', service_restart: true
 brew 'reattach-to-user-namespace'
 brew 'scons'
 brew 'subversion'
