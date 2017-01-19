@@ -17,6 +17,7 @@
 [core]
 	excludesfile = /Users/dumh/.gitignore
         editor = vim
+	autocrlf = input
 [apply]
         whitespace = nowarn
 [mergetool]
