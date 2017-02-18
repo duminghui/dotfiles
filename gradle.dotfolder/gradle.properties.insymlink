@@ -7,7 +7,7 @@ JAVA_MAX_HEAP_SIZE=6g
 # kotlin.incremental=true
 
 #JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk7.latest/Contents/Home
-JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk8.latest/Contents/Home
+JAVA8_HOME=/Library/Java/Home
 
 NEXUS_USERNAME=admin
 NEXUS_PASSWORD=admin123
