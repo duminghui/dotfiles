@@ -103,6 +103,9 @@ export PATH="/usr/local/bin:$PATH"
 
 # [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/dumh/.sdkman"
+[[ -s "/Users/dumh/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dumh/.sdkman/bin/sdkman-init.sh"
+
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
