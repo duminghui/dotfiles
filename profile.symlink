@@ -3,3 +3,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # export NO_BUCKD=1
 
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/dumh/.sdkman"
+[[ -s "/Users/dumh/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dumh/.sdkman/bin/sdkman-init.sh"

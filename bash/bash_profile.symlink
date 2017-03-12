@@ -28,3 +28,7 @@ export PATH=/usr/local/bin:$PATH
 # [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
 
 source ~/.profile
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/dumh/.sdkman"
+[[ -s "/Users/dumh/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dumh/.sdkman/bin/sdkman-init.sh"

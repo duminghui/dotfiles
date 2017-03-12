@@ -20,16 +20,18 @@ allprojects {
         mavenCentral()
     }
 
-    task showRepos << {
-        description 'Show Tasks in Gradle Project'
-        group 'custom'
-        println "All repos:"
-        repositories.each {
-            if (it.metaClass.hasProperty(it, 'url') != null) {
-                println "repo: ${it.name} ('${it.url}')"
-            } else if (it.metaClass.hasProperty(it, 'dirs') != null) {
-                println "repo: ${it.name} ('${it.dirs}')"
-            }
+    task showRepos {
+        doLast {
+            description 'Show Tasks in Gradle Project'
+                group 'custom'
+                println "All repos:"
+                repositories.each {
+                    if (it.metaClass.hasProperty(it, 'url') != null) {
+                        println "repo: ${it.name} ('${it.url}')"
+                    } else if (it.metaClass.hasProperty(it, 'dirs') != null) {
+                        println "repo: ${it.name} ('${it.dirs}')"
+                    }
+                }
         }
     }
 
