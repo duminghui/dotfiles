@@ -4,9 +4,9 @@ hostname ssh.github.com
 port 443
 identityfile ~/.ssh/github
 
-host coding.net
+host git.coding.net
 user git
-hostname coding.net
-port 22
+hostname git.coding.net
+# port 22
 identityfile ~/.ssh/coding
 
