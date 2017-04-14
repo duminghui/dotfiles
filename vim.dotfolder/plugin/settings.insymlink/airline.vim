@@ -5,7 +5,8 @@ if g:vim_plug.is_ready('vim-airline')
     let g:airline_powerline_fonts = 1
     set t_Co=256
 
-    let g:airline_theme='powerlineish'
+    " let g:airline_theme='powerlineish'
+    let g:airline_theme='hybridline'
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
