@@ -10,7 +10,7 @@ autocmd! BufEnter * call g:vim_plug.show_mes()
 " PlugInstall
 " call plug#begin()
 call plug#begin('~/.vim/plugged')
-Plug 'powerline/fonts'
+" Plug 'powerline/fonts'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'spf13/vim-colors', g:vim_plug.cond(1)
 Plug 'flazz/vim-colorschemes', g:vim_plug.cond(1)
@@ -102,7 +102,7 @@ call plug#end()
 
 " General {{
 set nocompatible
-set background=dark
+" set background=dark
 filetype plugin indent on
 syntax on
 set mouse&
