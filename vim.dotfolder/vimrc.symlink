@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
 " Plug 'spf13/vim-colors', g:vim_plug.cond(1)
 Plug 'w0ng/vim-hybrid', g:vim_plug.cond(1)
 Plug 'flazz/vim-colorschemes', g:vim_plug.cond(0)
-Plug 'kristijanhusak/vim-hybrid-material', g:vim_plug.cond(0)
+Plug 'kristijanhusak/vim-hybrid-material', g:vim_plug.cond(1)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(1)
