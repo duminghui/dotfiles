@@ -4,3 +4,7 @@ alias 2_xcodeplugins_store='cd ~/Library/Application\ Support/Developer/Shared/X
 alias ll="ls -AlTh"
 alias llrt="ls -rtAlTh"
 alias bb='brew bundle --global -v'
+alias pip_o='pip list -o'
+alias pip_u='pip install --upgrade'
+alias pip3_o='pip3 list -o'
+alias pip3_u='pip3 install --upgrade'
