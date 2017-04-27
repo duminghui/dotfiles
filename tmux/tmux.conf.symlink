@@ -4,9 +4,9 @@
 
 set -g default-terminal "screen-256color" # colors!
 setw -g xterm-keys on
-set -s escape-time 0                      # fastest command sequences
+set -s escape-time 10                      # fastest command sequences
 set -sg repeat-time 600                   # increase repeat timeout
-set -s quiet on                           # disable various messages
+# set -s quiet on                           # disable various messages
 
 # set -g prefix2 C-a                        # GNU-Screen compatible prefix
 # bind C-a send-prefix -2
@@ -53,7 +53,7 @@ set -g visual-activity off
 # -- navigation ----------------------------------------------------------------
 
 # find session
-bind C-f command-prompt -p find-session 'switch-client -t %%'
+bind C-f command-prompt -p find-session 'switch-client -T %%'
 
 # pane navigation
 bind -r h select-pane -L  # move left
@@ -79,25 +79,25 @@ bind -r C-h previous-window # select previous window
 bind -r C-l next-window     # select next window
 bind Tab last-window        # move to last active window
 
-# -- list choice ---------------------------------------------------------------
+# -- list choose ---------------------------------------------------------------
 
-bind -t vi-choice h tree-collapse
-bind -t vi-choice l tree-expand
-run -b 'tmux bind -t vi-choice K start-of-list 2> /dev/null'
-run -b 'tmux bind -t vi-choice J end-of-list 2> /dev/null'
-bind -t vi-choice H tree-collapse-all
-bind -t vi-choice L tree-expand-all
-bind -t vi-choice Escape cancel
+bind -T choose-mode-vi h send -X tree-collapse
+bind -T choose-mode-vi l send -X tree-expand
+run -b 'tmux bind -T choose-mode-vi K send -X start-of-list 2> /dev/null'
+run -b 'tmux bind -T choose-mode-vi J send -X end-of-list 2> /dev/null'
+bind -T choose-mode-vi H send -X tree-collapse-all
+bind -T choose-mode-vi L send -X tree-expand-all
+bind -T choose-mode-vi Escape send -X cancel
 
 
 # -- edit mode -----------------------------------------------------------------
 
-# the following vi-copy bindings match my vim settings
+# the following copy-mode-vi bindings match my vim settings
 #   see https://github.com/gpakosz/.vim.git
-bind -ct vi-edit H start-of-line
-bind -ct vi-edit L end-of-line
-bind -ct vi-edit q cancel
-bind -ct vi-edit Escape cancel
+bind -cT edit-mode-vi H send -X start-of-line
+bind -cT edit-mode-vi L send -X end-of-line
+bind -cT edit-mode-vi q send -X cancel
+bind -cT edit-mode-vi Escape send -X cancel
 
 
 # -- copy mode -----------------------------------------------------------------
@@ -107,14 +107,14 @@ bind b list-buffers  # list paster buffers
 bind p paste-buffer  # paste from the top pate buffer
 bind P choose-buffer # choose which buffer to paste from
 
-# the following vi-copy bindings match my vim settings
+# the following copy-mode-vi bindings match my vim settings
 #   see https://github.com/gpakosz/.vim.git
-bind -t vi-copy v begin-selection
-bind -t vi-copy C-v rectangle-toggle
-bind -t vi-copy y copy-selection
-bind -t vi-copy Escape cancel
-bind -t vi-copy H start-of-line
-bind -t vi-copy L end-of-line
+bind -T copy-mode-vi v send -X begin-selection
+bind -T copy-mode-vi C-v send -X rectangle-toggle
+bind -T copy-mode-vi y send -X copy-selection
+bind -T copy-mode-vi Escape send -X cancel
+bind -T copy-mode-vi H send -X start-of-line
+bind -T copy-mode-vi L send -X end-of-line
 
 # copy to Mac OSX pasteboard
 if -b 'which -s reattach-to-user-namespace' 'bind y run "tmux save-buffer - | reattach-to-user-namespace pbcopy"'
@@ -143,7 +143,7 @@ set -g terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3
 
 setw -g mode-keys vi
 
-if -b 'which -s reattach-to-user-namespace' 'bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"'
+if -b 'which -s reattach-to-user-namespace' 'bind -T copy-mode-vi y copy-pipe "reattach-to-user-namespace pbcopy"'
 set -g prefix C-a                        # GNU-Screen compatible prefix
 bind C-a send-prefix
 unbind C-b
@@ -180,11 +180,11 @@ bind-key / command-prompt "split-window \
 # }
 #
 # maximize_pane() {
-#   tmux -q -L swap-pane-test -f /dev/null new-session -d \; new-window \; new-window \; swap-pane -t :1 \; kill-session || { tmux display 'your tmux version has a buggy swap-pane command - see ticket #108, fixed in upstream commit 78e783e'; exit; }
+#   tmux -q -L swap-pane-test -f /dev/null new-session -d \; new-window \; new-window \; swap-pane -T :1 \; kill-session || { tmux display 'your tmux version has a buggy swap-pane command - see ticket #108, fixed in upstream commit 78e783e'; exit; }
 #   __current_pane=$(tmux display -p '#{pane_id}')
 #
 #   __dead_panes=$(tmux list-panes -s -F '#{pane_dead} #{pane_id} #{pane_start_command}' | grep -o '^1 %.\+maximized.\+$' || true)
-#   __restore=$(echo "${__dead_panes}" | sed -n -E -e "s/^1 ${__current_pane} .+maximized.+(%[0-9]+)$/tmux swap-pane -s \1 -t ${__current_pane} \; kill-pane -t ${__current_pane}/p" -e "s/^1 (%[0-9]+) .+maximized.+${__current_pane}$/tmux swap-pane -s \1 -t ${__current_pane} \; kill-pane -t \1/p" )
+#   __restore=$(echo "${__dead_panes}" | sed -n -E -e "s/^1 ${__current_pane} .+maximized.+(%[0-9]+)$/tmux swap-pane -s \1 -T ${__current_pane} \; kill-pane -T ${__current_pane}/p" -e "s/^1 (%[0-9]+) .+maximized.+${__current_pane}$/tmux swap-pane -s \1 -T ${__current_pane} \; kill-pane -T \1/p" )
 #
 #   if [ x"${__restore}" = x ] ; then
 #     [ x"$(tmux list-panes | wc -l | sed 's/^ *//g')" = x1 ] && tmux display "Can't maximize with only one pane" && return
@@ -192,13 +192,13 @@ bind-key / command-prompt "split-window \
 #     __window=${__window%.*}
 #
 #     __guard=50
-#     while ( [ x"$(tmux list-panes -t ${__window} -F '#{session_name}:#{window_index} #{pane_dead}')" != x"${__window} "1 ] && [ x"${__guard}" != x0 ] ) ; do sleep 0.01 ; __guard=$((__guard - 1)); done
+#     while ( [ x"$(tmux list-panes -T ${__window} -F '#{session_name}:#{window_index} #{pane_dead}')" != x"${__window} "1 ] && [ x"${__guard}" != x0 ] ) ; do sleep 0.01 ; __guard=$((__guard - 1)); done
 #     if [ x"${__guard}" = 0 ] ; then
 #       exit 1
 #     fi
 #
 #     __new_pane=$(tmux display -p '#{pane_id}')
-#     tmux setw remain-on-exit off \; swap-pane -s "${__current_pane}" -t "${__new_pane}"
+#     tmux setw remain-on-exit off \; swap-pane -s "${__current_pane}" -T "${__new_pane}"
 #   else
 #     ${__restore} || tmux kill-pane
 #   fi
