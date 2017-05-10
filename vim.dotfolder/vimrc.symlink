@@ -35,7 +35,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 " 这个会影响OmniSharp/omnisharp-vim启动server，会启动两次mono,暂时不使用
 " Plug 'bogado/file-line', g:vim_plug.cond(0)
 Plug 'tpope/vim-repeat'
-Plug 'matchit.zip'
+" Plug 'matchit.zip', g:vim_plug.cond(0)
 Plug 'luochen1990/rainbow'
 " " 使用[]做快捷键
 Plug 'tpope/vim-unimpaired', g:vim_plug.cond(1)
