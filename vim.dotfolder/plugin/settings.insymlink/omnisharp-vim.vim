@@ -8,6 +8,9 @@ if g:vim_plug.is_ready('omnisharp-vim')
     " OmniSharp won't work without this setting
     filetype plugin on
 
+    " Fix roslyn can't run
+    " let g:OmniSharp_port='2000 --stdio'
+
     "This is the default value, setting it isn't actually necessary
     let g:OmniSharp_host = "http://localhost:2000"
 
