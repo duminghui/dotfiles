@@ -12,17 +12,24 @@ if g:vim_plug.is_ready('vim-airline')
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
-    let g:airline_left_sep = '⮀'
-    let g:airline_left_alt_sep = '⮁'
+    let g:airline_left_sep = ''
+    let g:airline_left_sep = "\ue0b0"
+    let g:airline_left_alt_sep = ''
+    let g:airline_left_alt_sep = "\ue0b1"
     let g:airline_left_alt_sep = '|'
-    let g:airline_right_sep = '⮂'
-    let g:airline_right_alt_sep = '⮃'
+    let g:airline_right_sep = ''
+    let g:airline_right_sep = "\ue0b2"
+    let g:airline_right_alt_sep = ''
+    let g:airline_right_alt_sep = "\ue0b3"
     let g:airline_right_alt_sep = '|'
     let g:airline_symbols.crypt = '🔒'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.readonly = "\ue0a2"
+    let g:airline_symbols.linenr = ''
+    let g:airline_symbols.linenr = "\ue0a1"
     let g:airline_symbols.maxlinenr = '☰'
-    let g:airline_symbols.branch = '⭠'
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.branch = "\ue0a0"
     let g:airline_symbols.paste = 'Þ'
     let g:airline_symbols.spell = 'Ꞩ'
     let g:airline_symbols.notexists = '∄'

@@ -113,6 +113,7 @@ filetype plugin indent on
 syntax on
 set mouse&
 set mousehide
+set encoding=utf-8
 scriptencoding utf-8
 " * register使用copy-paste
 set clipboard=unnamed
