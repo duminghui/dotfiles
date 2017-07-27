@@ -63,7 +63,8 @@ Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
 Plug 'gcmt/wildfire.vim'
 " """""""""""""""""""""""
-Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(1, {'do':  './install.py'})
+Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(0, {'do':  './install.py'})
+Plug 'maralla/completor.vim'
 " 还没有完成和ultisnips整合，先不用
 " Plug 'ervandew/supertab', {'for': 'cs'}
 Plug 'SirVer/ultisnips'
@@ -71,7 +72,8 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-commentary'
 Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
-Plug 'scrooloose/syntastic'
+" Plug 'vim-syntastic/syntastic',g:vim_plug.cond(1)
+Plug 'w0rp/ale'
 Plug 'Valloric/ListToggle'
 "在sign上显示版本控制相关的标记
 Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
@@ -91,6 +93,8 @@ Plug 'vim-scripts/ShaderHighLight', {'for': ['cg', 'hlsl', 'glsl', 'shaderlab']}
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'spf13/vim-preview', {'for': 'markdown'}
 Plug 'keith/tmux.vim', {'for': 'tmux'}
+" tmux中在vim的pane下显示一个小窗口运行
+Plug 'benmills/vimux'
 
 """""""""""""""""""""""""""""""
 " 中文档
@@ -352,7 +356,7 @@ map zl zL
 map zh zH
 
 " Easier formatting
-nnoremap <silent> <leader>q gwip
+" nnoremap <silent> <leader>q gwip
 
 " FIXME: Revert this f70be548
 " fullscreen mode for GVIM and Terminal, need 'wmctrl' in you PATH

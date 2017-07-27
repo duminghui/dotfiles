@@ -1,5 +1,5 @@
 
-" 'scrooloose/syntastic'
+" 'vim-syntastic/syntastic'
 
 if g:vim_plug.is_ready('syntastic')
     " auto fill the |location-list| with the errors found
@@ -26,4 +26,6 @@ if g:vim_plug.is_ready('syntastic')
     let g:syntastic_warning_symbol = "\u2307" "⌇
     let g:syntastic_style_error_symbol = "\u2CFD\u2CFD" "⳽⳽
     let g:syntastic_style_warning_symbol = "\u2CFD" "⳽
+
+    let g:syntastic_c_checkers = ['gcc']
 endif
