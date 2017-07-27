@@ -27,11 +27,6 @@ if g:vim_plug.is_ready('YouCompleteMe')
     " let g:ycm_error_symbol = '>>'
     " let g:ycm_warning_symbol = '>*'
 
-    " remap Ultisnips for compatibility for YCM
-    let g:UltiSnipsExpandTrigger = "<c-j>"
-    let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-    let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-
     " For snippet_complete marker.
     if has('conceal')
         set conceallevel=2 concealcursor=i
@@ -59,4 +54,5 @@ if g:vim_plug.is_ready('YouCompleteMe')
     " set completeopt-=preview
 
     nnoremap <leader>jd :YcmCompleter GoTo<CR>
+    let g:ycm_show_diagnostics_ui = 0
 endif
