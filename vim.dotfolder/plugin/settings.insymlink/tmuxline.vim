@@ -2,9 +2,9 @@
 if g:vim_plug.is_ready('tmuxline.vim')
     let g:tmuxline_powerline_separators = 0
     let g:tmuxline_separators = {
-                \ 'left'      : '⮀',
+                \ 'left'      : '\ue0b0',
                 \ 'left_alt'  : '|',
-                \ 'right'     : '⮂',
+                \ 'right'     : '\ue0b2',
                 \ 'right_alt' : '|',
                 \ 'space'     : ' '
                 \ }
