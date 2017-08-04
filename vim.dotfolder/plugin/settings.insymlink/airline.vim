@@ -25,9 +25,9 @@ if g:vim_plug.is_ready('vim-airline')
     let g:airline_symbols.crypt = '🔒'
     let g:airline_symbols.readonly = ''
     let g:airline_symbols.readonly = "\ue0a2"
-    let g:airline_symbols.linenr = ''
-    let g:airline_symbols.linenr = "\ue0a1"
-    let g:airline_symbols.maxlinenr = '☰'
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.maxlinenr = "\ue0a1"
+    let g:airline_symbols.linenr = '☰'
     let g:airline_symbols.branch = ''
     let g:airline_symbols.branch = "\ue0a0"
     let g:airline_symbols.paste = 'Þ'

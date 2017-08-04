@@ -33,7 +33,9 @@ run -b 'cut -c3- ~/.tmux.conf.colors | sh -s config_status'
 # ►_◄
 #
 # #exit the script if any statement returns a non-true return value
-# #这种方法不能使用
+# set -e
+# #这种方法也不能解决powerline箭头使用unicode显示的问题
+# #tmux run之后echo "\ue0b0"不会进行转码
 # config_status() {
 #     _status_left=$(echo "#[fg=colour22,bg=colour148] #{?client_prefix,#{socket_path} | #S | #{session_attached}⨳ | ⑇,#{socket_path} | #S | #{session_attached}⨳} #[fg=colour148,bg=colour233,nobold,nounderscore,noitalics]")
 #     _status_right=$(echo "#[fg=colour148,bg=colour233,nobold,nounderscore,noitalics]#[fg=colour22,bg=colour148] #{?client_prefix,⑇ | %R,%R} ")
