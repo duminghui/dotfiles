@@ -44,7 +44,7 @@ allprojects {
         options.charSet = "UTF-8"
     }
     configurations.all {
-         resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
-         resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
+         // resolutionStrategy.cacheDynamicVersionsFor 10, 'minutes'
+         // resolutionStrategy.cacheChangingModulesFor 10, 'minutes'
     }
 }
