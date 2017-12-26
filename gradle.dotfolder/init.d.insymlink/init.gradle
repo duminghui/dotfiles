@@ -1,23 +1,19 @@
 allprojects {
     buildscript {
         repositories {
-            mavenLocal()
+            // mavenLocal()
             maven(){
                 name "public-Nexus Maven Repo"
                 url 'http://127.0.0.1:8081/nexus/content/groups/public'
             }
-            jcenter()
-            mavenCentral()
         }
     }
     repositories {
-        mavenLocal()
+        // mavenLocal()
         maven(){
             name "public-Nexus Maven Repo"
             url 'http://127.0.0.1:8081/nexus/content/groups/public'
         }
-        jcenter()
-        mavenCentral()
     }
 
     task showRepos {
