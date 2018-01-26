@@ -65,9 +65,13 @@ Plug 'gcmt/wildfire.vim'
 " """""""""""""""""""""""
 Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(0, {'do':  './install.py'})
 " 自动提示和YouCompleteMe功能差不多
-Plug 'maralla/completor.vim', g:vim_plug.cond(1)
+Plug 'maralla/completor.vim', g:vim_plug.cond(0)
 " 还没有完成和ultisnips整合，先不用
 " Plug 'ervandew/supertab', {'for': 'cs'}
+" 另一个自动补全工具,先试试
+Plug 'prabirshrestha/asyncomplete.vim', g:vim_plug.cond(1)
+Plug 'prabirshrestha/asyncomplete-buffer.vim', g:vim_plug.cond(1)
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(1)
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
