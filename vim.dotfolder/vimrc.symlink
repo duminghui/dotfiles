@@ -101,7 +101,7 @@ Plug 'benmills/vimux'
 """""""""""""""""""""""""""""""
 " 中文档
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
-Plug 'vimcn/vimcdoc',  g:vim_plug.cond(1)
+Plug 'vimcn/vimcdoc',  g:vim_plug.cond(0)
 Plug 'vimcn/NERD_tree.vim.cnx'
 Plug 'vimcn/NERD_commenter.cnx'
 """""""""""""""""""""""
@@ -123,7 +123,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " 防止打开一个新buffer的时候自动选择当前文件的目录
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 "set autowrite                       " Automatically write a file when leaving a modified buffer
-set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
+" 控制状态栏显示的选项 :h shortmess
+set shortmess+=filmnrwxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
