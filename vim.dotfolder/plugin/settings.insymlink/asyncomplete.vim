@@ -15,6 +15,13 @@ if g:vim_plug.is_ready('asyncomplete.vim')
                 \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
                 \ }))
 
+    call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+                \ 'name': 'omni',
+                \ 'whitelist': ['*'],
+                \ 'blacklist': ['html'],
+                \ 'completor': function('asyncomplete#sources#omni#completor')
+                \  }))
+
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
