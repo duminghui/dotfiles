@@ -14,3 +14,10 @@ hostname git.coding.net
 # port 22
 identityfile ~/.ssh/coding
 
+host aliyun
+AddKeysToAgent yes
+UseKeychain yes
+user root
+hostname 120.79.18.86
+identityfile ~/.ssh/aliyun.pem
+

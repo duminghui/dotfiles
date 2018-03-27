@@ -72,6 +72,7 @@ Plug 'maralla/completor.vim', g:vim_plug.cond(0)
 Plug 'prabirshrestha/asyncomplete.vim', g:vim_plug.cond(1)
 Plug 'prabirshrestha/asyncomplete-buffer.vim', g:vim_plug.cond(1)
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(1)
+Plug 'yami-beta/asyncomplete-omni.vim', g:vim_plug.cond(1)
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
