@@ -1,6 +1,14 @@
 " Plug 'prabirshrestha/asyncomplete.vim'
 
 if g:vim_plug.is_ready('asyncomplete.vim')
+    if executable('pyls')
+        " pip install python-language-server
+        au User lsp_setup call lsp#register_server({
+                    \ 'name': 'pyls',
+                    \ 'cmd': {server_info->['pyls']},
+                    \ 'whitelist': ['python'],
+                    \ })
+    endif
 
     call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
                 \ 'name': 'buffer',
