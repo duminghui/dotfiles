@@ -70,6 +70,9 @@ Plug 'maralla/completor.vim', g:vim_plug.cond(0)
 " Plug 'ervandew/supertab', {'for': 'cs'}
 " 另一个自动补全工具,先试试
 Plug 'prabirshrestha/asyncomplete.vim', g:vim_plug.cond(1)
+Plug 'prabirshrestha/async.vim', g:vim_plug.cond(1)
+Plug 'prabirshrestha/vim-lsp', g:vim_plug.cond(1)
+Plug 'prabirshrestha/asyncomplete-lsp.vim', g:vim_plug.cond(1)
 Plug 'prabirshrestha/asyncomplete-buffer.vim', g:vim_plug.cond(1)
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(1)
 Plug 'yami-beta/asyncomplete-omni.vim', g:vim_plug.cond(1)
@@ -129,7 +132,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 "set autowrite                       " Automatically write a file when leaving a modified buffer
 " 控制状态栏显示的选项 :h shortmess
-set shortmess+=filmnrwxoOtT          " Abbrev. of messages (avoids 'hit enter')
+set shortmess+=filmnrwxoOtT         " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
@@ -384,12 +387,12 @@ nnoremap ]b :bnext<CR>
 
 " Misc {{
 " OmniComplete{{
-if has("autocmd") && exists("+omnifunc")
-    autocmd Filetype *
-                \if &omnifunc == "" |
-                \setlocal omnifunc=syntaxcomplete#Complete |
-                \endif
-endif
+" if has("autocmd") && exists("+omnifunc")
+    " autocmd Filetype *
+    "             \if &omnifunc == "" |
+    "             \setlocal omnifunc=syntaxcomplete#Complete |
+    "             \endif
+" endif
 
 hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
 hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
