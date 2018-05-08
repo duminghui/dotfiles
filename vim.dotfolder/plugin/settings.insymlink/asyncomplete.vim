@@ -30,11 +30,20 @@ if g:vim_plug.is_ready('asyncomplete.vim')
                 \ 'completor': function('asyncomplete#sources#omni#completor')
                 \  }))
 
+    call asyncomplete#register_source(asyncomplete#sources#gocode#get_source_options({
+                \ 'name': 'gocode',
+                \ 'whitelist': ['go'],
+                \ 'completor': function('asyncomplete#sources#gocode#completor'),
+                \ 'config': {
+                \    'gocode_path': expand('~/go/bin/gocode')
+                \  },
+                \ }))
+
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
 
-    let g:asyncomplete_auto_popup = 0
+    let g:asyncomplete_auto_popup = 1
 
     function! s:check_back_space() abort
         let col = col('.') - 1

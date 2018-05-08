@@ -30,6 +30,7 @@ function! g:vim_plug.is_ready(name) abort
         let l:count = count(g:plugs_order , a:name)
         let l:isdirectory = isdirectory(expand(g:plug_home . "/" . a:name , 1))
         let l:in_rtp = match(&rtp , a:name) > -1
+        " echo &rtp
         if l:count && l:isdirectory && l:in_rtp
             return 1
         endif
