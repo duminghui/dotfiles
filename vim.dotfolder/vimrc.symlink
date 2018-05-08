@@ -130,7 +130,7 @@ Plug 'benmills/vimux'
 " 中文档
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(0)
-" Plug 'vimcn/NERD_tree.vim.cnx'
+Plug 'vimcn/NERD_tree.vim.cnx'
 " Plug 'vimcn/NERD_commenter.cnx'
 """""""""""""""""""""""
 call plug#end()
