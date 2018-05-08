@@ -16,20 +16,21 @@ call plug#begin('~/.vim/plugged')
 Plug 'w0ng/vim-hybrid', g:vim_plug.cond(1)
 Plug 'flazz/vim-colorschemes', g:vim_plug.cond(0)
 Plug 'kristijanhusak/vim-hybrid-material', g:vim_plug.cond(1)
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline', g:vim_plug.cond(1)
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(1)
 Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'bling/vim-bufferline'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 " 在nerdtree中显示git状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " auto mkview loadview
-Plug 'vim-scripts/restore_view.vim'
-Plug 'vim-scripts/sessionman.vim', g:vim_plug.cond(0)
+" 这个不用, 会影响nerdtree和tagbar的展示
+" Plug 'vim-scripts/restore_view.vim', g:vim_plug.cond(0)
+" Plug 'vim-scripts/sessionman.vim', g:vim_plug.cond(0)
 Plug 'mbbill/undotree'
 Plug 'nathanaelkane/vim-indent-guides'
 " 这个会影响OmniSharp/omnisharp-vim启动server，会启动两次mono,暂时不使用
@@ -40,50 +41,65 @@ Plug 'luochen1990/rainbow'
 " " 使用[]做快捷键
 Plug 'tpope/vim-unimpaired', g:vim_plug.cond(1)
 " """""""""""""""""""""""""
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround', g:vim_plug.cond(1)
+Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
+Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'tommcdo/vim-exchange'
 "把qucikfix中的文件生成args
 Plug 'nelstrom/vim-qargs'
 " 使用c,d,s等操作时不改变缓存区
 Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
+" 搜索时高亮显示要搜索的字符 :OverCommandLine
 Plug 'osyo-manga/vim-over'
 Plug 'bronson/vim-visual-star-search'
-Plug 'tpope/vim-abolish'
+" 英文输入修正
+Plug 'tpope/vim-abolish', g:vim_plug.cond(0)
+" 对齐插件
 Plug 'godlygeek/tabular'
-Plug 'dhruvasagar/vim-table-mode', g:vim_plug.cond(1)
+" 以表格的方式输入数据
+Plug 'dhruvasagar/vim-table-mode', g:vim_plug.cond(0)
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
 Plug 'gcmt/wildfire.vim'
+Plug 'Konfekt/FastFold', g:vim_plug.cond(1)
 " """""""""""""""""""""""
-Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(0, {'do':  './install.py'})
+" Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(0, {'do':  './install.py'})
 " 自动提示和YouCompleteMe功能差不多
-Plug 'maralla/completor.vim', g:vim_plug.cond(0)
+" Plug 'maralla/completor.vim', g:vim_plug.cond(0)
 " 还没有完成和ultisnips整合，先不用
-" Plug 'ervandew/supertab', {'for': 'cs'}
+" Plug 'ervandew/supertab'
 " 另一个自动补全工具,先试试
-Plug 'prabirshrestha/asyncomplete.vim', g:vim_plug.cond(1)
-Plug 'prabirshrestha/async.vim', g:vim_plug.cond(1)
-Plug 'prabirshrestha/vim-lsp', g:vim_plug.cond(1)
-Plug 'prabirshrestha/asyncomplete-lsp.vim', g:vim_plug.cond(1)
-Plug 'prabirshrestha/asyncomplete-buffer.vim', g:vim_plug.cond(1)
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(1)
-Plug 'yami-beta/asyncomplete-omni.vim', g:vim_plug.cond(1)
+" Plug 'prabirshrestha/asyncomplete.vim', g:vim_plug.cond(0)
+" Plug 'prabirshrestha/async.vim', g:vim_plug.cond(0)
+" Plug 'prabirshrestha/vim-lsp', g:vim_plug.cond(0)
+" Plug 'prabirshrestha/asyncomplete-lsp.vim', g:vim_plug.cond(0)
+" Plug 'prabirshrestha/asyncomplete-buffer.vim', g:vim_plug.cond(0)
+" Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(0)
+" Plug 'yami-beta/asyncomplete-omni.vim', g:vim_plug.cond(0)
+" Plug 'prabirshrestha/asyncomplete-gocode.vim', g:vim_plug.cond(0)
+if has('nvim')
+    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim', g:vim_plug.cond(1)
+  Plug 'roxma/nvim-yarp', g:vim_plug.cond(1)
+  Plug 'roxma/vim-hug-neovim-rpc', g:vim_plug.cond(1)
+endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-commentary'
-Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
+Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 " Plug 'vim-syntastic/syntastic',g:vim_plug.cond(1)
 " 在vim 8上使用的格式检测的,使用job
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', g:vim_plug.cond(1)
 Plug 'Valloric/ListToggle'
 "在sign上显示版本控制相关的标记
 Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
@@ -95,11 +111,15 @@ Plug 'kshenoy/vim-signature', g:vim_plug.cond(1)
 Plug 'rhysd/conflict-marker.vim'
 Plug 'mattn/webapi-vim'
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
-Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}
-Plug 'tpope/vim-dispatch', g:vim_plug.cond(1, {'for': 'cs'})
-Plug 'OrangeT/vim-csharp', {'for': 'cs'}
+" Goland
+Plug 'zchee/deoplete-go', g:vim_plug.cond(1, {'for': 'go', 'do': 'make'})
+Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': 'go', 'do': ':GoUpdateBinaries'})
+" Plug 'fatih/vim-go', g:vim_plug.cond(1, {'do': ':GoUpdateBinaries'})
+" Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}
+" Plug 'tpope/vim-dispatch', g:vim_plug.cond(1, {'for': 'cs'})
+" Plug 'OrangeT/vim-csharp', {'for': 'cs'}
 " 着色器高亮
-Plug 'vim-scripts/ShaderHighLight', {'for': ['cg', 'hlsl', 'glsl', 'shaderlab']}
+" Plug 'vim-scripts/ShaderHighLight', {'for': ['cg', 'hlsl', 'glsl', 'shaderlab']}
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'spf13/vim-preview', {'for': 'markdown'}
 Plug 'keith/tmux.vim', {'for': 'tmux'}
@@ -109,9 +129,9 @@ Plug 'benmills/vimux'
 """""""""""""""""""""""""""""""
 " 中文档
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
-Plug 'vimcn/vimcdoc',  g:vim_plug.cond(0)
-Plug 'vimcn/NERD_tree.vim.cnx'
-Plug 'vimcn/NERD_commenter.cnx'
+" Plug 'vimcn/vimcdoc',  g:vim_plug.cond(0)
+" Plug 'vimcn/NERD_tree.vim.cnx'
+" Plug 'vimcn/NERD_commenter.cnx'
 """""""""""""""""""""""
 call plug#end()
 " }}
@@ -182,7 +202,7 @@ set cmdheight=2
 set cursorline                  " Highlight current line
 set cursorcolumn
 set colorcolumn=+1
-
+set fillchars=vert:\|,fold:-
 " 把这三行移到vim-colors-solarized.vim中进行配置才能起作用
 " highlight clear SignColumn      " SignColumn should match background
 " highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -261,7 +281,7 @@ set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 "set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 " Remove trailing whitespaces and ^M chars
 " To disable the stripping of whitespace, add the following to your
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+" autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
@@ -489,17 +509,17 @@ endif
 " }}
 
 " Strip whitespace {{
-function! StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " do the business:
-    %s/\s\+$//e
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
+" function! StripTrailingWhitespace()
+"     " Preparation: save last search, and cursor position.
+"     let _s=@/
+"     let l = line(".")
+"     let c = col(".")
+"     " do the business:
+"     %s/\s\+$//e
+"     " clean up: restore previous search history, and cursor position
+"     let @/=_s
+"     call cursor(l, c)
+" endfunction
 " }}
 
 " Shell command {{

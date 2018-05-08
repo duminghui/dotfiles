@@ -1,4 +1,3 @@
-
 " 'vim-syntastic/syntastic'
 
 if g:vim_plug.is_ready('syntastic')
