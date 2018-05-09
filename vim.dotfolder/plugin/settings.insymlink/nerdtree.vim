@@ -6,7 +6,8 @@ if g:vim_plug.is_ready('nerdtree')
     map <C-e> <plug>NERDTreeTabsToggle<CR>
     map <leader>e :NERDTreeFind<CR>
     nmap <leader>nt :NERDTreeFind<CR>
-
+    let NERDTreeStatusline="%{exists('b:NERDTree')?b:NERDTree.root.path.str():''}"
+    " let NERDTreeStatusline="NERDTree"
     let NERDTreeShowBookmarks=0
     let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
     let NERDTreeChDirMode=0

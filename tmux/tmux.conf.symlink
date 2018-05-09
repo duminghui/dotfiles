@@ -2,7 +2,13 @@
 
 # -- general -------------------------------------------------------------------
 
-set -g default-terminal "screen-256color" # colors!
+# Enable true (24bit) colors for version >= 2.2
+# See https://deductivelabs.com/en/2016/03/using-true-color-vim-tmux/
+set -ga terminal-overrides ",xterm-256color:Tc"
+
+# set -g default-terminal "xterm-256color" # colors!
+set -g default-terminal "screen-256color"
+
 setw -g xterm-keys on
 set -s escape-time 10                      # fastest command sequences
 set -sg repeat-time 600                   # increase repeat timeout

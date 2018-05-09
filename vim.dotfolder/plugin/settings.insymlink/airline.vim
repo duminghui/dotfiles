@@ -5,10 +5,14 @@ if g:vim_plug.is_ready('vim-airline')
     let g:airline_powerline_fonts = 1
     set t_Co=256
 
-    let g:airline_theme='powerlineish'
+    " let g:airline_theme='powerlineish'
     " let g:airline_theme='hybridline'
     " let g:airline_theme='hybrid'
-    let g:airline_theme='badwolf'
+    " let g:airline_theme='badwolf'
+    " let g:airline_theme='darkone'
+    let g:airline_theme='one'
+    " let g:airline_theme='onehalflight'
+    " let g:airline_theme='onehalfdark'
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
@@ -66,8 +70,8 @@ if g:vim_plug.is_ready('vim-airline')
     let g:airline#extensions#whitespace#enabled = 1
 
     let g:airline#extensions#tabline#enabled = 1
-    " 这个决定在多个tab时,tab_label的位置显示tab_lable(0)或是显示当前编辑的buffer的名称(1)
-    let g:airline#extensions#tabline#show_splits = 0
+    "是否显示buffers列表
+    let g:airline#extensions#tabline#show_splits = 1
     " 交换buffers和tabs的显示位置
     let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
     " 显示buffers_label在tabline上
@@ -80,6 +84,8 @@ if g:vim_plug.is_ready('vim-airline')
     " 是否显示tab（far right）这个决定是否显示右上角的buffer_label/tab_lable
     let g:airline#extensions#tabline#show_tab_type = 1
     " let g:airline#extensions#tabline#show_tab_type = 0
+    let g:airline#extensions#tabline#buf_label_first = 1
+    let g:airline#extensions#tabline#current_first = 1
     let g:airline#extensions#tabline#show_close_button = 0
     " 配置buffers显示的标签
     let g:airline#extensions#tabline#buffers_label = 'b'

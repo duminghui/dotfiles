@@ -34,7 +34,9 @@ function! g:vim_plug.is_ready(name) abort
         if l:count && l:isdirectory && l:in_rtp
             return 1
         endif
-        call add(s:plug_mes,  "Plug [" . a:name . "] isn't Ready: [in plugs:" . l:count . "][dir:" . l:isdirectory . "][in rtp:" . l:in_rtp . "]")
+        if l:count != 0 || l:isdirectory !=0 || l:in_rtp !=0
+            call add(s:plug_mes,  "Plug [" . a:name . "] isn't Ready: [in plugs:" . l:count . "][dir:" . l:isdirectory . "][in rtp:" . l:in_rtp . "]")
+        endif
     else
         return 0
     endif
