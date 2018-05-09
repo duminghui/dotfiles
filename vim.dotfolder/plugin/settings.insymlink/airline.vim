@@ -38,10 +38,10 @@ if g:vim_plug.is_ready('vim-airline')
     " let g:airline_extensions = []
 
     " let g:airline#extensions#default#layout = [
-    "       \ [ 'a', 'b', 'c'  ],
-    "       \ [ 'x', 'y', 'z', 'warning','error'  ]
-    "       \ ]
-
+          " \ [ 'a', 'b', 'c'  ],
+          " \ [ 'x', 'y', 'z', 'warning','error'  ]
+          " \ ]
+    let g:airline_section_z='%3p%%(%o) %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v'
     let g:airline#extensions#bufferline#enabled = 1
     let g:airline#extensions#bufferline#overwrite_variables = 1
 
