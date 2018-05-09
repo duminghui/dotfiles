@@ -13,12 +13,15 @@ call plug#begin('~/.vim/plugged')
 " Plug 'powerline/fonts'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'spf13/vim-colors', g:vim_plug.cond(1)
-Plug 'w0ng/vim-hybrid', g:vim_plug.cond(1)
+" Plug 'w0ng/vim-hybrid', g:vim_plug.cond(1)
 Plug 'flazz/vim-colorschemes', g:vim_plug.cond(0)
 Plug 'kristijanhusak/vim-hybrid-material', g:vim_plug.cond(1)
+Plug 'rakr/vim-one', g:vim_plug.cond(1)
+" Plug 'sonph/onehalf', g:vim_plug.cond(0, {'rtp': 'vim'})
+Plug 'guns/xterm-color-table.vim'
 Plug 'vim-airline/vim-airline', g:vim_plug.cond(1)
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(1)
+Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(0)
 Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
@@ -57,11 +60,11 @@ Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
 Plug 'osyo-manga/vim-over'
 Plug 'bronson/vim-visual-star-search'
 " 英文输入修正
-Plug 'tpope/vim-abolish', g:vim_plug.cond(0)
+" Plug 'tpope/vim-abolish', g:vim_plug.cond(0)
 " 对齐插件
 Plug 'godlygeek/tabular'
 " 以表格的方式输入数据
-Plug 'dhruvasagar/vim-table-mode', g:vim_plug.cond(0)
+" Plug 'dhruvasagar/vim-table-mode', g:vim_plug.cond(0)
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-lastpat'
@@ -102,7 +105,7 @@ Plug 'majutsushi/tagbar'
 Plug 'w0rp/ale', g:vim_plug.cond(1)
 Plug 'Valloric/ListToggle'
 "在sign上显示版本控制相关的标记
-Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
+" Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " 在sign显示marks
@@ -124,7 +127,7 @@ Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'spf13/vim-preview', {'for': 'markdown'}
 Plug 'keith/tmux.vim', {'for': 'tmux'}
 " tmux中在vim的pane下显示一个小窗口运行
-Plug 'benmills/vimux'
+Plug 'benmills/vimux',g:vim_plug.cond(0)
 
 """""""""""""""""""""""""""""""
 " 中文档
@@ -190,6 +193,7 @@ if has('persistent_undo')
 endif
 
 " }}
+
 " }}
 
 " UI {{
@@ -249,6 +253,7 @@ set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic white
 if &term == 'xterm' || &term == 'screen'
     set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
 endif
+
 
 " GUI {{
 
@@ -402,6 +407,21 @@ nnoremap ]b :bnext<CR>
 " map ][ /{<CR>b99]}
 " map ]] j0[[%/{<CR>
 " map [] k$][%?}<CR>
+
+" Toggle background {{
+" Allow to trigger background
+function! ToggleBG()
+    let s:tbg = &background
+    " Inversion
+    if s:tbg == "dark"
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+noremap <leader>bg :call ToggleBG()<CR>
+
+    " }}
 
 " }}
 
