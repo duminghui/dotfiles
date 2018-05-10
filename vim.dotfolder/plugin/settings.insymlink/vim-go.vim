@@ -2,6 +2,15 @@
 
 " 先不加判断, plug的for会引起不加入到rtp里
 " if g:vim_plug.is_ready('vim-go')
+
+augroup vim_go_augroup
+    autocmd!
+    if g:vim_plug.is_ready('denite.nvim')
+        autocmd FileType go noremap <Leader>dd :Denite decls:%<CR>
+    endif
+    autocmd FileType go setlocal nospell
+augroup END
+
 let g:go_test_show_name = 0
 let g:go_test_timeout= '10s'
 " let g:go_play_browser_command = 'firefox-developer %URL% &'
@@ -97,6 +106,7 @@ let g:go_template_autocreate = 1
 let g:go_template_use_pkg = 0
 
 let g:go_decls_includes = 'func,type'
+"`ctrlp.vim` or `fzf`.
 let g:go_decls_mode = ''
 
 let g:go_echo_command_info = 1
@@ -125,7 +135,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
-let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_string_spellcheck = 0
 let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1

@@ -9,7 +9,17 @@ autocmd! BufEnter * call g:vim_plug.show_mes()
 " Install Plugs {{
 " PlugInstall
 " call plug#begin()
+
 call plug#begin('~/.vim/plugged')
+
+" Yet Another Remote Plugin Framework for Neovim {{
+if !has('nvim')
+  Plug 'roxma/nvim-yarp', g:vim_plug.cond(1)
+  Plug 'roxma/vim-hug-neovim-rpc', g:vim_plug.cond(1)
+endif
+"}}
+
+"  Themes {{
 " Plug 'powerline/fonts'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'spf13/vim-colors', g:vim_plug.cond(1)
@@ -19,30 +29,54 @@ Plug 'kristijanhusak/vim-hybrid-material', g:vim_plug.cond(1)
 Plug 'rakr/vim-one', g:vim_plug.cond(1)
 " Plug 'sonph/onehalf', g:vim_plug.cond(0, {'rtp': 'vim'})
 Plug 'guns/xterm-color-table.vim'
+" 导出airline的主题成tmux的主题
+Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(0)
+"}}
+
+" interface funcation extend {{
 Plug 'vim-airline/vim-airline', g:vim_plug.cond(1)
 Plug 'vim-airline/vim-airline-themes'
-Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(0)
 Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'tacahiroy/ctrlp-funky'
+if has('nvim')
+    Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
+else
+    Plug 'Shougo/denite.nvim'
+endif
 Plug 'bling/vim-bufferline'
 Plug 'scrooloose/nerdtree'
+Plug 'vimcn/NERD_tree.vim.cnx'
 Plug 'jistr/vim-nerdtree-tabs'
 " 在nerdtree中显示git状态
 Plug 'Xuyuanp/nerdtree-git-plugin'
+" tmux中在vim的pane下显示一个小窗口运行
+Plug 'benmills/vimux',g:vim_plug.cond(0)
 " auto mkview loadview
 " 这个不用, 会影响nerdtree和tagbar的展示
 " Plug 'vim-scripts/restore_view.vim', g:vim_plug.cond(0)
 " Plug 'vim-scripts/sessionman.vim', g:vim_plug.cond(0)
 Plug 'mbbill/undotree'
+" 使用[]做快捷键
+Plug 'tpope/vim-unimpaired', g:vim_plug.cond(1)
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Konfekt/FastFold', g:vim_plug.cond(1)
+" 彩色显示({[<>]})等
+Plug 'luochen1990/rainbow'
+Plug 'bronson/vim-trailing-whitespace'
+"把qucikfix中的文件生成args
+Plug 'nelstrom/vim-qargs'
+" 搜索时高亮显示要搜索的字符 :OverCommandLine
+Plug 'osyo-manga/vim-over'
+Plug 'bronson/vim-visual-star-search'
+"}}
+
+" type expend {{
+
 " 这个会影响OmniSharp/omnisharp-vim启动server，会启动两次mono,暂时不使用
 " Plug 'bogado/file-line', g:vim_plug.cond(0)
 Plug 'tpope/vim-repeat'
 " Plug 'matchit.zip', g:vim_plug.cond(0)
-Plug 'luochen1990/rainbow'
-" " 使用[]做快捷键
-Plug 'tpope/vim-unimpaired', g:vim_plug.cond(1)
 " """""""""""""""""""""""""
 Plug 'tpope/vim-surround', g:vim_plug.cond(1)
 Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
@@ -50,15 +84,14 @@ Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
 Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
-Plug 'bronson/vim-trailing-whitespace'
+
+" 交换两个textobject的位置, 第一次使用cx{motion}选择源目标,
+" 第二次使用选择目标位置,cxx:line,X:Visual mode, cxc:clean
 Plug 'tommcdo/vim-exchange'
-"把qucikfix中的文件生成args
-Plug 'nelstrom/vim-qargs'
+
 " 使用c,d,s等操作时不改变缓存区
 Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
-" 搜索时高亮显示要搜索的字符 :OverCommandLine
-Plug 'osyo-manga/vim-over'
-Plug 'bronson/vim-visual-star-search'
+
 " 英文输入修正
 " Plug 'tpope/vim-abolish', g:vim_plug.cond(0)
 " 对齐插件
@@ -70,11 +103,13 @@ Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-lastpat'
 Plug 'reedes/vim-textobj-sentence'
 Plug 'reedes/vim-textobj-quote'
+"  i', i", i), i], i}, ip and it.
 Plug 'gcmt/wildfire.vim'
-Plug 'Konfekt/FastFold', g:vim_plug.cond(1)
-" """""""""""""""""""""""
+
+" }}
+
+" Program Utils {{
 " Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(0, {'do':  './install.py'})
-" 自动提示和YouCompleteMe功能差不多
 " Plug 'maralla/completor.vim', g:vim_plug.cond(0)
 " 还没有完成和ultisnips整合，先不用
 " Plug 'ervandew/supertab'
@@ -91,12 +126,11 @@ if has('nvim')
     Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim', g:vim_plug.cond(1)
-  Plug 'roxma/nvim-yarp', g:vim_plug.cond(1)
-  Plug 'roxma/vim-hug-neovim-rpc', g:vim_plug.cond(1)
 endif
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
+Plug 'vimcn/NERD_commenter.cnx'
 Plug 'tpope/vim-commentary'
 Plug 'majutsushi/tagbar'
 " Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
@@ -126,15 +160,12 @@ Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': 'go', 'do': ':GoUpdateBinaries'}
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'spf13/vim-preview', {'for': 'markdown'}
 Plug 'keith/tmux.vim', {'for': 'tmux'}
-" tmux中在vim的pane下显示一个小窗口运行
-Plug 'benmills/vimux',g:vim_plug.cond(0)
 
+" }}
 """""""""""""""""""""""""""""""
 " 中文档
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
 " Plug 'vimcn/vimcdoc',  g:vim_plug.cond(0)
-Plug 'vimcn/NERD_tree.vim.cnx'
-" Plug 'vimcn/NERD_commenter.cnx'
 """""""""""""""""""""""
 call plug#end()
 " }}
@@ -218,19 +249,19 @@ if has('cmdline_info')
     set showcmd                 " Show partial commands in status line and  Selected characters/lines in visual mode
 endif
 
-if has('statusline')
-    set laststatus=2
+" if has('statusline')
+"     set laststatus=2
 
-    " Broken down into easily includeable segments
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
-    if g:vim_plug.is_ready('vim-fugitive')
-        set statusline+=%{fugitive#statusline()} " Git Hotness
-    endif
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-endif
+"     " Broken down into easily includeable segments
+"     set statusline=%<%f\                     " Filename
+"     set statusline+=%w%h%m%r                 " Options
+"     if g:vim_plug.is_ready('vim-fugitive')
+"         set statusline+=%{fugitive#statusline()} " Git Hotness
+"     endif
+"     set statusline+=\ [%{&ff}/%Y]            " Filetype
+"     set statusline+=\ [%{getcwd()}]          " Current dir
+"     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+" endif
 
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
@@ -565,4 +596,3 @@ command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
 " }}
 " }}
-

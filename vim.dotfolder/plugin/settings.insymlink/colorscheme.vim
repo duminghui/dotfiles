@@ -28,5 +28,5 @@ call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg
 " endif
 if has('nvim')
     set guicursor=
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 endif
