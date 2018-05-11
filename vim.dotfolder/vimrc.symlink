@@ -13,10 +13,8 @@ autocmd! BufEnter * call g:vim_plug.show_mes()
 call plug#begin('~/.vim/plugged')
 
 " Yet Another Remote Plugin Framework for Neovim {{
-if !has('nvim')
-  Plug 'roxma/nvim-yarp', g:vim_plug.cond(1)
-  Plug 'roxma/vim-hug-neovim-rpc', g:vim_plug.cond(1)
-endif
+Plug 'roxma/nvim-yarp', g:vim_plug.cond(!has('nvim'))
+Plug 'roxma/vim-hug-neovim-rpc', g:vim_plug.cond(!has('nvim'))
 "}}
 
 "  Themes {{
@@ -37,13 +35,10 @@ Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(0)
 Plug 'vim-airline/vim-airline', g:vim_plug.cond(1)
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'tacahiroy/ctrlp-funky'
-if has('nvim')
-    Plug 'Shougo/denite.nvim', {'do': ':UpdateRemotePlugins'}
-else
-    Plug 'Shougo/denite.nvim'
-endif
+Plug 'ctrlpvim/ctrlp.vim', g:vim_plug.cond(0)
+Plug 'tacahiroy/ctrlp-funky', g:vim_plug.cond(0)
+Plug 'Shougo/denite.nvim', g:vim_plug.cond(1,
+            \ has('nvim') ? {'do': ':UpdateRemotePlugins'} : {})
 Plug 'bling/vim-bufferline'
 Plug 'scrooloose/nerdtree'
 Plug 'vimcn/NERD_tree.vim.cnx'
@@ -122,11 +117,8 @@ Plug 'gcmt/wildfire.vim'
 " Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(0)
 " Plug 'yami-beta/asyncomplete-omni.vim', g:vim_plug.cond(0)
 " Plug 'prabirshrestha/asyncomplete-gocode.vim', g:vim_plug.cond(0)
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim', g:vim_plug.cond(1)
-endif
+Plug 'Shougo/deoplete.nvim',g:vim_plug.cond(1,
+            \ has('nvim') ? {'do': ':UpdateRemotePlugins' } : {})
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdcommenter'
