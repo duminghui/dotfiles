@@ -90,17 +90,21 @@ if g:vim_plug.is_ready('vim-airline')
     " 配置buffers显示的标签
     let g:airline#extensions#tabline#buffers_label = 'b'
     let g:airline#extensions#tabline#tabs_label = 't'
+
+    let g:airline#extensions#tabline#buffer_nr_show = 1
+    let g:airline#extensions#tabline#buffer_nr_format = '%s: '
+
     " let g:airline#extensions#tabline#formatter = 'default'
     " let g:airline#extensions#tabline#formatter = 'unique_tail'
     let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-    let g:airline#extensions#tabline#buffer_nr_show = 1
-    let g:airline#extensions#tabline#buffer_nr_format = '%s: '
     " let g:airline#extensions#tabline#fnamemod=':p:.'
+    " let g:airline#extensions#tabline#fnamemod=':p:~'
     " let g:airline#extensions#tabline#fnamemod=':t'
     "是否将父目录的文件名省略到一个字符显示
     let g:airline#extensions#tabline#fnamecollapse = 1
-    " 处于非活动状态的tab文件名显示位数
+    " 处于非活动状态的buffer文件名截取到指定位数
     let g:airline#extensions#tabline#fnametruncate = 0
+
     let g:airline#extensions#tabline#buffer_min_count = 0
     let g:airline#extensions#tabline#tab_min_count = 0
     " let g:airline#extensions#tabline#ignore_bufadd_pat =
@@ -117,6 +121,18 @@ if g:vim_plug.is_ready('vim-airline')
     " let g:airline#extensions#tabline#right_sep = '⮂'
     " let g:airline#extensions#tabline#right_alt_sep = '|'
 
+    let g:airline#extensions#tabline#buffer_idx_format = {
+                \ '0': '0 ',
+                \ '1': '1 ',
+                \ '2': '2 ',
+                \ '3': '3 ',
+                \ '4': '4 ',
+                \ '5': '5 ',
+                \ '6': '6 ',
+                \ '7': '7 ',
+                \ '8': '8 ',
+                \ '9': '9 '
+                \}
     let g:airline#extensions#tabline#buffer_idx_mode = 1
     nmap <leader>1 <Plug>AirlineSelectTab1
     nmap <leader>2 <Plug>AirlineSelectTab2
