@@ -24,15 +24,27 @@ if g:vim_plug.is_ready('nerdtree')
     let NERDTreeHijackNetrw=1
     let g:nerdtree_tabs_open_on_gui_startup=1
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "✹",
-                \ "Staged"    : "✚",
+                \ "Modified"  : "~",
+                \ "Staged"    : "+",
                 \ "Untracked" : "✭",
                 \ "Renamed"   : "➜",
                 \ "Unmerged"  : "═",
-                \ "Deleted"   : "✖",
+                \ "Deleted"   : "_",
                 \ "Dirty"     : "✗",
                 \ "Clean"     : "✔︎",
                 \ 'Ignored'   : '☒',
                 \ "Unknown"   : "?"
                 \ }
+    " let g:NERDTreeIndicatorMapCustom = {
+    "             \ "Modified"  : "✹",
+    "             \ "Staged"    : "✚",
+    "             \ "Untracked" : "✭",
+    "             \ "Renamed"   : "➜",
+    "             \ "Unmerged"  : "═",
+    "             \ "Deleted"   : "✖",
+    "             \ "Dirty"     : "✗",
+    "             \ "Clean"     : "✔︎",
+    "             \ 'Ignored'   : '☒',
+    "             \ "Unknown"   : "?"
+    "             \ }
 endif

@@ -104,7 +104,7 @@ let g:go_gocode_socket_type = 'unix'
 let g:go_template_autocreate = 1
 " let g:go_template_file = "hello_world.go"
 " let g:go_template_test_file = "hello_world_test.go"
-let g:go_template_use_pkg = 0
+let g:go_template_use_pkg = 1
 
 let g:go_decls_includes = 'func,type'
 "`ctrlp.vim` or `fzf`.
@@ -141,4 +141,5 @@ let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 
+nnoremap <leader>gi :GoImports<CR>
 " endif
