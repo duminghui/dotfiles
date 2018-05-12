@@ -9,6 +9,11 @@ augroup vim_go_augroup
         autocmd FileType go noremap <Leader>dd :Denite decls:%<CR>
     endif
     autocmd FileType go setlocal nospell
+    " autocmd FileType go setlocal autowrite
+    autocmd FileType go nmap <leader>gb  <Plug>(go-build)
+    autocmd FileType go nmap <leader>gr  <Plug>(go-run)
+    autocmd FileType go nmap <leader>gd  <Plug>(go-def-split)
+" go-def-split
 augroup END
 
 let g:go_test_show_name = 0
@@ -26,7 +31,7 @@ let g:go_updatetime = 800
 let g:go_jump_to_error = 1
 
 let g:go_fmt_autosave = 1
-let g:go_fmt_command = 'gofmt'
+let g:go_fmt_command = 'goimports' "gofmt
 let g:go_fmt_options = {}
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_experimental = 0
@@ -42,7 +47,9 @@ let g:go_def_mode = 'guru'
 " 使用CTRL-]:GoDef  CTRL-t :GoDefPop
 let g:go_def_mapping_enabled = 1
 
-let g:go_def_reuse_buffer = 0
+" Use this option to jump to an existing buffer for the split, vsplit and tab
+" mappings of :GoDef. By default it's disabled.
+let g:go_def_reuse_buffer = 1
 
 let g:go_doc_command = ["godoc"]
 
@@ -61,6 +68,7 @@ let g:go_build_tags = ''
 let g:go_autodetect_gopath = 0
 
 let g:go_textobj_enabled = 1
+let g:go_textobj_include_function_doc = 1
 let g:go_textobj_include_variable = 1
 
 let g:go_metalinter_autosave = 0
@@ -97,7 +105,7 @@ let g:go_alternate_mode = "edit"
 
 let g:go_gocode_autobuild = 1
 let g:go_gocode_propose_builtins = 1
-let g:go_gocode_unimported_packages = 1
+let g:go_gocode_unimported_packages = 0
 let g:go_gocode_socket_type = 'tcp'
 let g:go_gocode_socket_type = 'unix'
 
