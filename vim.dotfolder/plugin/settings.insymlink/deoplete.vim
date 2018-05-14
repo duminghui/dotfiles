@@ -20,6 +20,8 @@ if g:vim_plug.is_ready('deoplete.nvim')
     call deoplete#custom#source('_', 'sorters', ['sorter_rank'])
     call deoplete#custom#source('ultisnips', 'rank', 200)
     call deoplete#custom#source('ultisnips', 'min_pattern_length', 1)
+    call deoplete#custom#source('neosnippet', 'rank', 200)
+    call deoplete#custom#source('neosnippet', 'min_pattern_length', 1)
     " 查看配置的结果
     " echo deoplete#custom#_get()
     " echo deoplete#custom#_get_source_var('omni')

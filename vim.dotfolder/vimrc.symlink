@@ -1,5 +1,5 @@
 " Modeline {{{
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker :
 " }}}
 
 call utils#init()
@@ -117,15 +117,21 @@ Plug 'gcmt/wildfire.vim'
 " Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(0)
 " Plug 'yami-beta/asyncomplete-omni.vim', g:vim_plug.cond(0)
 " Plug 'prabirshrestha/asyncomplete-gocode.vim', g:vim_plug.cond(0)
-Plug 'Shougo/deoplete.nvim',g:vim_plug.cond(1,
+Plug 'Shougo/deoplete.nvim', g:vim_plug.cond(1,
             \ has('nvim') ? {'do': ':UpdateRemotePlugins' } : {})
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" 这个插件会引起在编辑.vimrc文件的时候,第一次保存之后重新载入文件,fold会全部折叠
+Plug 'Shougo/neosnippet.vim', g:vim_plug.cond(1)
+Plug 'Shougo/neosnippet-snippets', g:vim_plug.cond(1)
+" Plug 'SirVer/ultisnips', g:vim_plug.cond(0)
+" Plug 'honza/vim-snippets', g:vim_plug.cond(0)
+Plug 'Shougo/context_filetype.vim', g:vim_plug.cond(1)
+" deoplete source: vim
+Plug 'Shougo/neco-vim', g:vim_plug.cond(1)
 Plug 'scrooloose/nerdcommenter'
 Plug 'vimcn/NERD_commenter.cnx'
 Plug 'tpope/vim-commentary'
-Plug 'majutsushi/tagbar'
-" Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
+" Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 " Plug 'vim-syntastic/syntastic',g:vim_plug.cond(1)
 " 在vim 8上使用的格式检测的,使用job
 Plug 'w0rp/ale', g:vim_plug.cond(1)
@@ -143,7 +149,8 @@ Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 " Goland
 Plug 'zchee/deoplete-go', g:vim_plug.cond(1, {'for': 'go', 'do': 'make'})
 Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': 'go', 'do': ':GoUpdateBinaries'})
-" Plug 'fatih/vim-go', g:vim_plug.cond(1, {'do': ':GoUpdateBinaries'})
+" 分割或合并strcut显示
+Plug 'AndrewRadev/splitjoin.vim', g:vim_plug.cond(1)
 " Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}
 " Plug 'tpope/vim-dispatch', g:vim_plug.cond(1, {'for': 'cs'})
 " Plug 'OrangeT/vim-csharp', {'for': 'cs'}
@@ -156,8 +163,8 @@ Plug 'keith/tmux.vim', {'for': 'tmux'}
 " }}}
 """""""""""""""""""""""""""""""
 " 中文档
-" Plug 'vimcn/vimcdoc',  g:vim_plug.cond(!has('nvim'))
-" Plug 'vimcn/vimcdoc',  g:vim_plug.cond(0)
+" Plug 'vimct/vimcdoc',  g:vim_plug.cond(!has('nvim'))
+" Plug 'vimcn/vimcdoc',  g:vim_plug.cond(1)
 """""""""""""""""""""""
 call plug#end()
 " }}}
@@ -335,7 +342,7 @@ autocmd BufNewFile,BufRead *.vim.insymlink set filetype=vim
 " fix ShaderHighLight Load Bug
 autocmd BufNewFile,BufRead *.cg set filetype=cg
 autocmd BufNewFile,BufRead *.hlsl,*.hlslc,*.hlslh,*.hlsl set filetype=hlsl
-autocmd! BufNewFile,BufRead *.glsl,*.geom,*.vert,*.frag,*.gsh,*.vsh,*.fsh,*.vs,*.fs set filetype=glsl
+autocmd BufNewFile,BufRead *.glsl,*.geom,*.vert,*.frag,*.gsh,*.vsh,*.fsh,*.vs,*.fs set filetype=glsl
 autocmd BufNewFile,BufRead *.shader set filetype=shaderlab
 
 " Workaround vim-commentary for Haskell

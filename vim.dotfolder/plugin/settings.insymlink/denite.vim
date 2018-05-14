@@ -15,6 +15,6 @@ if g:vim_plug.is_ready('denite.nvim')
     call denite#custom#option('default', {
                 \ 'highlight_matched_char': 'MatchParen'
                 \ })
-
     call denite#custom#option('_', 'statusline', v:false)
+    call denite#custom#option('_', 'winheight', 10)
 endif

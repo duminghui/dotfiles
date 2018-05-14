@@ -5,7 +5,7 @@
 
 let g:deoplete#sources#go#package_dot = 0
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#pointer = 0
+let g:deoplete#sources#go#pointer = 1
 
 " endif
 

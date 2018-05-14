@@ -6,14 +6,35 @@
 augroup vim_go_augroup
     autocmd!
     if g:vim_plug.is_ready('denite.nvim')
-        autocmd FileType go noremap <Leader>dd :Denite decls:%<CR>
+        autocmd FileType go nnoremap <buffer> <Leader>dd :Denite decls:%<CR>
     endif
     autocmd FileType go setlocal nospell
+    autocmd FileType go setlocal updatetime=300
     " autocmd FileType go setlocal autowrite
-    autocmd FileType go nmap <leader>gb  <Plug>(go-build)
-    autocmd FileType go nmap <leader>gr  <Plug>(go-run)
-    autocmd FileType go nmap <leader>gd  <Plug>(go-def-split)
-" go-def-split
+
+    " autocmd FileType go nmap <leader>gb   <Plug>(go-build)
+    autocmd FileType go nmap <buffer> <leader>gr   <Plug>(go-run)
+    autocmd FileType go nmap <buffer> <leader>gt   <Plug>(go-test)
+    autocmd FileType go nmap <buffer> <leader>gd   <Plug>(go-def-split)
+    " autocmd FileType go nmap <buffer> <leader>gis  <Plug>(go-imports)
+    autocmd FileType go nmap <buffer> <leader>gc   <Plug>(go-coverage-toggle)
+    autocmd FileType go nmap <buffer> <Leader>gi   <Plug>(go-info)
+
+    function! s:build_go_files()
+        let l:file = expand('%')
+        if l:file =~# '^\f\+_test\.go$'
+            call go#test#Test(0, 1)
+        elseif l:file =~# '^\f\+\.go$'
+            call go#cmd#Build(0)
+        endif
+    endfunction
+    autocmd FileType go nnoremap <buffer> <leader>gb :<C-u>call <SID>build_go_files()<CR>
+
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+    autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+    autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+    autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+    autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
 let g:go_test_show_name = 0
@@ -42,7 +63,7 @@ let g:go_doc_max_height = 20
 let g:go_doc_url = 'https://godoc.org'
 
 let g:go_def_mode = 'godef'
-let g:go_def_mode = 'guru'
+" let g:go_def_mode = 'guru'
 
 " 使用CTRL-]:GoDef  CTRL-t :GoDefPop
 let g:go_def_mapping_enabled = 1
@@ -144,10 +165,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
-let g:go_highlight_string_spellcheck = 0
+let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
+" let g:go_highlight_variable_assignments = 1
 
-nnoremap <leader>gi :GoImports<CR>
 " endif
