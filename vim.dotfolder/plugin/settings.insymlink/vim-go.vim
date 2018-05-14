@@ -9,7 +9,7 @@ augroup vim_go_augroup
         autocmd FileType go nnoremap <buffer> <Leader>dd :Denite decls:%<CR>
     endif
     autocmd FileType go setlocal nospell
-    autocmd FileType go setlocal updatetime=300
+    " autocmd FileType go setlocal updatetime=300
     " autocmd FileType go setlocal autowrite
 
     " autocmd FileType go nmap <leader>gb   <Plug>(go-build)
@@ -47,7 +47,7 @@ let g:go_auto_type_info = 0
 let g:go_info_mode = 'guru'
 " let g:go_info_mode = 'gocode'
 let g:go_auto_sameids = 1
-let g:go_updatetime = 800
+let g:go_updatetime = 300
 
 let g:go_jump_to_error = 1
 
