@@ -87,7 +87,7 @@ let g:go_snippet_engine = "automatic"
 
 "Use this option to disable updating dependencies with |:GoInstallBinaries|. By
 " default this is enabled.
-let g:go_get_update = 1
+let g:go_get_update = 0
 
 let g:go_guru_scope = []
 
