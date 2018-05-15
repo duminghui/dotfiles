@@ -1,7 +1,6 @@
 " Modeline {{{
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={{{,}}} foldlevel=0 foldmethod=marker :
 " }}}
-
 call utils#init()
 call g:vim_plug.autoinstall()
 autocmd! BufEnter * call g:vim_plug.show_mes()
@@ -70,6 +69,8 @@ Plug 'bronson/vim-visual-star-search'
 
 " 这个会影响OmniSharp/omnisharp-vim启动server，会启动两次mono,暂时不使用
 " Plug 'bogado/file-line', g:vim_plug.cond(0)
+" 回到normal模式时,暂入法自动转换为英文格式
+Plug 'CodeFalling/fcitx-vim-osx'
 Plug 'tpope/vim-repeat'
 " Plug 'matchit.zip', g:vim_plug.cond(0)
 " """""""""""""""""""""""""
@@ -170,6 +171,8 @@ call plug#end()
 " }}}
 
 " General {{{
+" 去除蜂鸣声
+set belloff=esc,spell
 set nocompatible
 " set background=dark
 filetype plugin indent on

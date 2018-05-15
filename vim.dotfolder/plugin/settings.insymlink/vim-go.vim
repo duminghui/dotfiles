@@ -6,7 +6,7 @@
 augroup vim_go_augroup
     autocmd!
     if g:vim_plug.is_ready('denite.nvim')
-        autocmd FileType go nnoremap <buffer> <Leader>dd :Denite decls:%<CR>
+        autocmd FileType go nnoremap <buffer> <leader>dd :Denite decls:%<CR>
     endif
     autocmd FileType go setlocal nospell
     " autocmd FileType go setlocal updatetime=300
@@ -16,9 +16,15 @@ augroup vim_go_augroup
     autocmd FileType go nmap <buffer> <leader>gr   <Plug>(go-run)
     autocmd FileType go nmap <buffer> <leader>gt   <Plug>(go-test)
     autocmd FileType go nmap <buffer> <leader>gd   <Plug>(go-def-split)
-    " autocmd FileType go nmap <buffer> <leader>gis  <Plug>(go-imports)
+    " autocmd FileType go nnoremap <buffer> <leader>gis  <Plug>(go-imports)
     autocmd FileType go nmap <buffer> <leader>gc   <Plug>(go-coverage-toggle)
-    autocmd FileType go nmap <buffer> <Leader>gi   <Plug>(go-info)
+    autocmd FileType go nmap <buffer> <leader>gi   <Plug>(go-info)
+
+    autocmd FileType go nnoremap <buffer> <leader>gn   :<C-u>GoImport<space>
+    autocmd FileType go nnoremap <buffer> <leader>gm   :<C-u>GoRename<space>
+    autocmd FileType go nnoremap <buffer> <leader>gk   :<C-u>GoKeyify<CR>
+    autocmd FileType go nnoremap <buffer> <leader>gf   :<C-u>GoFillStruct<CR>
+
 
     function! s:build_go_files()
         let l:file = expand('%')
@@ -53,6 +59,7 @@ let g:go_jump_to_error = 1
 
 let g:go_fmt_autosave = 1
 let g:go_fmt_command = 'goimports' "gofmt
+" let g:go_fmt_command = 'gofmt' "gofmt
 let g:go_fmt_options = {}
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_experimental = 0
