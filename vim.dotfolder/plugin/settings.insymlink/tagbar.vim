@@ -15,7 +15,7 @@ if g:vim_plug.is_ready('tagbar')
     let g:tagbar_iconchars = ['▷', '◢']
 
     nnoremap <silent> <leader>tb :TagbarToggle<CR>
-    //tagbar-extend kinds部分的解释
+    " tagbar-extend kinds部分的解释
     let g:tagbar_type_go = {
                 \ 'ctagstype' : 'go',
                 \ 'kinds'     : [
