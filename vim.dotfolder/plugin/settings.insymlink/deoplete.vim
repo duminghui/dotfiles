@@ -3,7 +3,7 @@
 if g:vim_plug.is_ready('deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
     " deoplete.nvim recommend
-    set completeopt+=noselect
+    " set completeopt+=noselect
     set completeopt-=preview
     call deoplete#custom#option({
                 \ 'auto_complete': v:true,

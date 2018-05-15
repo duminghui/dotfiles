@@ -15,11 +15,12 @@ if g:vim_plug.is_ready('tagbar')
     let g:tagbar_iconchars = ['▷', '◢']
 
     nnoremap <silent> <leader>tb :TagbarToggle<CR>
+    //tagbar-extend kinds部分的解释
     let g:tagbar_type_go = {
                 \ 'ctagstype' : 'go',
                 \ 'kinds'     : [
                 \ 'p:package',
-                \ 'i:imports:1',
+                \ 'i:imports',
                 \ 'c:constants',
                 \ 'v:variables',
                 \ 't:types',
@@ -28,7 +29,8 @@ if g:vim_plug.is_ready('tagbar')
                 \ 'e:embedded',
                 \ 'm:methods',
                 \ 'r:constructor',
-                \ 'f:functions'
+                \ 'f:functions',
+                \ '?:unknown',
                 \ ],
                 \ 'sro' : '.',
                 \ 'kind2scope' : {
@@ -42,4 +44,5 @@ if g:vim_plug.is_ready('tagbar')
                 \ 'ctagsbin'  : 'gotags',
                 \ 'ctagsargs' : '-sort -silent'
                 \ }
+
 endif
