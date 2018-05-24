@@ -24,6 +24,7 @@ augroup vim_go_augroup
     autocmd FileType go nnoremap <buffer> <leader>gm   :<C-u>GoRename<space>
     autocmd FileType go nnoremap <buffer> <leader>gk   :<C-u>GoKeyify<CR>
     autocmd FileType go nnoremap <buffer> <leader>gf   :<C-u>GoFillStruct<CR>
+    autocmd FileType go nnoremap <buffer> <leader>gs   :<C-u>GoSameIdsAutoToggle<CR>
 
 
     function! s:build_go_files()

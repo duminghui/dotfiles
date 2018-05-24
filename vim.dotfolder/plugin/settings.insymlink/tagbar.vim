@@ -1,7 +1,7 @@
 
 " 'majutsushi/tagbar'
 if g:vim_plug.is_ready('tagbar')
-    autocmd FileType go :TagbarOpen
+    " autocmd FileType go :TagbarOpen
     let g:tagbar_width = 33
     let g:tagbar_zoomwidth = 1
     let g:tagbar_foldlevel = 9
