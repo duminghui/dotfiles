@@ -7,3 +7,5 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/dumh/.sdkman"
 [[ -s "/Users/dumh/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dumh/.sdkman/bin/sdkman-init.sh"
+
+command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
