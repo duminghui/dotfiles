@@ -111,3 +111,5 @@ export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
