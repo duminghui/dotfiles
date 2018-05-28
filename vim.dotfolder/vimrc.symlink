@@ -9,7 +9,11 @@ autocmd! BufEnter * call g:vim_plug.show_mes()
 " PlugInstall
 " call plug#begin()
 
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+    call plug#begin('~/.local/share/nvim/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
 
 " Yet Another Remote Plugin Framework for Neovim {{{
 Plug 'roxma/nvim-yarp', g:vim_plug.cond(!has('nvim'))
