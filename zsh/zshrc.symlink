@@ -111,5 +111,7 @@ export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
 
 #export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
+[[ -s "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
+bindkey '^s' autosuggest-accept
 command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"

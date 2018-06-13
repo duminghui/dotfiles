@@ -9,7 +9,7 @@ if g:vim_plug.is_ready('nerdtree')
     let NERDTreeStatusline="%{exists('b:NERDTree')?b:NERDTree.root.path.str():''}"
     " let NERDTreeStatusline="NERDTree"
     let NERDTreeShowBookmarks=0
-    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store$']
     let NERDTreeChDirMode=0
     let NERDTreeChDirMode=2
     let NERDTreeDirArrows=1
