@@ -26,7 +26,7 @@ if g:vim_plug.is_ready('deoplete.nvim')
     " echo deoplete#custom#_get()
     " echo deoplete#custom#_get_source_var('omni')
     " echo deoplete#custom#_get_option('min_pattern_length')
-    " nmap ,emc echo deoplete#custom#_get()
+    noremap <leader>deo :echo deoplete#custom#_get()<cr>
 
     inoremap <silent><expr> <TAB>
                 \ pumvisible() ? "\<C-n>" :

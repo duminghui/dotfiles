@@ -36,37 +36,37 @@ Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(0)
 
 " interface funcation extend {{{
 Plug 'vim-airline/vim-airline', g:vim_plug.cond(1)
-Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes', g:vim_plug.cond(1)
 Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
 Plug 'ctrlpvim/ctrlp.vim', g:vim_plug.cond(0)
 Plug 'tacahiroy/ctrlp-funky', g:vim_plug.cond(0)
 Plug 'Shougo/denite.nvim', g:vim_plug.cond(1,
             \ has('nvim') ? {'do': ':UpdateRemotePlugins'} : {})
-Plug 'bling/vim-bufferline'
-Plug 'scrooloose/nerdtree'
-Plug 'vimcn/NERD_tree.vim.cnx'
-Plug 'jistr/vim-nerdtree-tabs'
+Plug 'bling/vim-bufferline', g:vim_plug.cond(1)
+Plug 'scrooloose/nerdtree', g:vim_plug.cond(1)
+Plug 'vimcn/NERD_tree.vim.cnx', g:vim_plug.cond(1)
+Plug 'jistr/vim-nerdtree-tabs', g:vim_plug.cond(1)
 " 在nerdtree中显示git状态
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', g:vim_plug.cond(1)
 " tmux中在vim的pane下显示一个小窗口运行
 " Plug 'benmills/vimux',g:vim_plug.cond(0)
 " auto mkview loadview
 " 这个不用, 会影响nerdtree和tagbar的展示
 " Plug 'vim-scripts/restore_view.vim', g:vim_plug.cond(0)
 " Plug 'vim-scripts/sessionman.vim', g:vim_plug.cond(0)
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', g:vim_plug.cond(1)
 " 使用[]做快捷键
 Plug 'tpope/vim-unimpaired', g:vim_plug.cond(1)
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'nathanaelkane/vim-indent-guides', g:vim_plug.cond(1)
 Plug 'Konfekt/FastFold', g:vim_plug.cond(1)
 " 彩色显示({[<>]})等
-Plug 'luochen1990/rainbow'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'luochen1990/rainbow', g:vim_plug.cond(1)
+Plug 'bronson/vim-trailing-whitespace', g:vim_plug.cond(1)
 "把qucikfix中的文件生成args
-Plug 'nelstrom/vim-qargs'
+Plug 'nelstrom/vim-qargs', g:vim_plug.cond(0)
 " 搜索时高亮显示要搜索的字符 :OverCommandLine
-Plug 'osyo-manga/vim-over'
-Plug 'bronson/vim-visual-star-search'
+Plug 'osyo-manga/vim-over', g:vim_plug.cond(1)
+Plug 'bronson/vim-visual-star-search', g:vim_plug.cond(1)
 "}}}
 
 " type expend {{{
@@ -132,9 +132,9 @@ Plug 'Shougo/neosnippet-snippets', g:vim_plug.cond(1)
 Plug 'Shougo/context_filetype.vim', g:vim_plug.cond(1)
 " deoplete source: vim
 Plug 'Shougo/neco-vim', g:vim_plug.cond(1)
-Plug 'scrooloose/nerdcommenter'
-Plug 'vimcn/NERD_commenter.cnx'
-Plug 'tpope/vim-commentary'
+Plug 'scrooloose/nerdcommenter', g:vim_plug.cond(1)
+Plug 'vimcn/NERD_commenter.cnx', g:vim_plug.cond(1)
+Plug 'tpope/vim-commentary', g:vim_plug.cond(1)
 " Plug 'majutsushi/tagbar'
 Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 " Plug 'vim-syntastic/syntastic',g:vim_plug.cond(1)
