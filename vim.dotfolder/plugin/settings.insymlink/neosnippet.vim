@@ -50,5 +50,9 @@ if g:vim_plug.is_ready('neosnippet.vim')
     if has('conceal')
         " set conceallevel=2 concealcursor=niv
         set conceallevel=2
+        augroup conceal_augroup
+            autocmd!
+            autocmd FileType json setlocal conceallevel=0
+        augroup END
     endif
 endif
