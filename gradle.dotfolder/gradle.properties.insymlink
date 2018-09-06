@@ -1,7 +1,7 @@
 org.gradle.parallel=true
 org.gradle.daemon=true
 org.gradle.jvmargs=-Xmx6144m -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError
-org.gradle.configureondemand=true
+org.gradle.configureondemand=false
 JAVA_MAX_HEAP_SIZE=6g
 # 先不使用，在java和kotlin同时用的时候会有类找不到的情况
 # kotlin.incremental=true
