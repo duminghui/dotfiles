@@ -48,7 +48,7 @@ ZSH_CUSTOM=$HOME/.custom-zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autojum gem git gradle osx pod ruby xcode tmux vi-mode ssh-agent docker docker-compose docker-machine)
 
-zstyle :omz:plugins:ssh-agent identities github coding
+zstyle :omz:plugins:ssh-agent identities github coding vps1
 
 # User configuration
 

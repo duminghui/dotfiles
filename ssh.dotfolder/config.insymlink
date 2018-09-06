@@ -18,6 +18,14 @@ host aliyun
 AddKeysToAgent yes
 UseKeychain yes
 user root
-hostname 120.79.18.86
+hostname myaliyun.com
 identityfile ~/.ssh/aliyun.pem
+
+host vps1
+AddKeysToAgent yes
+UseKeychain yes
+user root
+port 212
+hostname myvps1.com
+identityfile ~/.ssh/vps1
 
