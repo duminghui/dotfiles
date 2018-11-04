@@ -65,6 +65,8 @@ let g:go_fmt_options = {}
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_experimental = 0
 
+let g:go_mod_fmt_autosave = 1
+
 " 使用K查看Doc
 let g:go_doc_keywordprg_enabled = 1
 let g:go_doc_max_height = 20
@@ -83,6 +85,7 @@ let g:go_def_reuse_buffer = 1
 let g:go_doc_command = ["godoc"]
 
 " let g:go_bin_path = ""
+" let go_search_bin_path_first = 1
 
 let g:go_snippet_engine = "automatic"
 
@@ -134,6 +137,7 @@ let g:go_alternate_mode = "edit"
 
 let g:go_gocode_autobuild = 1
 let g:go_gocode_propose_builtins = 1
+let g:go_gocode_propose_source = 1
 let g:go_gocode_unimported_packages = 1
 let g:go_gocode_socket_type = 'tcp'
 let g:go_gocode_socket_type = 'unix'
