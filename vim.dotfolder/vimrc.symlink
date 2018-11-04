@@ -152,8 +152,9 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'mattn/webapi-vim'
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 " Goland
-Plug 'zchee/deoplete-go', g:vim_plug.cond(1, {'for': 'go', 'do': 'make'})
-Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': 'go', 'do': ':GoUpdateBinaries'})
+Plug 'zchee/deoplete-go', g:vim_plug.cond(1, {'for': ['go','gomod','gohtmltmpl','gotexttmpl'], 'do': 'make'})
+" Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': 'go', 'do': ':GoUpdateBinaries'})
+Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': ['go','gomod','gohtmltmpl','gotexttmpl']})
 " 分割或合并strcut显示
 Plug 'AndrewRadev/splitjoin.vim', g:vim_plug.cond(1)
 " Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}

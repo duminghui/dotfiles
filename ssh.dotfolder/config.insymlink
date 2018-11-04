@@ -29,3 +29,18 @@ port 212
 hostname myvps1.com
 identityfile ~/.ssh/vps1
 
+host vps2
+AddKeysToAgent yes
+UseKeychain yes
+user root
+port 212
+hostname myvps2.com
+identityfile ~/.ssh/vps1
+
+host 192.168.1.200
+AddKeysToAgent yes
+UseKeychain yes
+user git
+port 22
+hostname 192.168.1.200
+identityfile ~/.ssh/jujian
