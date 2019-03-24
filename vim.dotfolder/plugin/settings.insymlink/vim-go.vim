@@ -72,7 +72,8 @@ let g:go_doc_keywordprg_enabled = 1
 let g:go_doc_max_height = 20
 let g:go_doc_url = 'https://godoc.org'
 
-let g:go_def_mode = 'godef'
+let g:go_def_mode = 'gopls'
+" let g:go_def_mode = 'godef'
 " let g:go_def_mode = 'guru'
 
 " 使用CTRL-]:GoDef  CTRL-t :GoDefPop
@@ -171,7 +172,8 @@ let g:go_highlight_space_tab_error = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
-let g:go_highlight_function_arguments = 1
+" let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_parameters = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
