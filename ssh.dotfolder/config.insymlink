@@ -41,6 +41,30 @@ host 192.168.1.200
 AddKeysToAgent yes
 UseKeychain yes
 user git
+port 222
+hostname 192.168.1.200
+identityfile ~/.ssh/jujian
+
+host server200
+AddKeysToAgent yes
+UseKeychain yes
+user root
 port 22
 hostname 192.168.1.200
 identityfile ~/.ssh/jujian
+
+host jujian.release
+AddKeysToAgent yes
+UseKeychain yes
+user root
+port 22
+hostname 47.107.128.125
+identityfile ~/.ssh/jujianrelease.pem
+
+host jujian.release.2
+AddKeysToAgent yes
+UseKeychain yes
+user root
+port 22
+hostname 47.112.197.225
+identityfile ~/.ssh/jujianrelease.pem
