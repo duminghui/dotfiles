@@ -59,8 +59,8 @@ let g:go_updatetime = 300
 let g:go_jump_to_error = 1
 
 let g:go_fmt_autosave = 1
-let g:go_fmt_command = 'goimports' "gofmt
 " let g:go_fmt_command = 'gofmt' "gofmt
+let g:go_fmt_command = 'goimports' "gofmt
 let g:go_fmt_options = {}
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_experimental = 0
@@ -82,8 +82,6 @@ let g:go_def_mapping_enabled = 1
 " Use this option to jump to an existing buffer for the split, vsplit and tab
 " mappings of :GoDef. By default it's disabled.
 let g:go_def_reuse_buffer = 1
-
-let g:go_doc_command = ["godoc"]
 
 " let g:go_bin_path = ""
 " let go_search_bin_path_first = 1
@@ -108,7 +106,8 @@ let g:go_metalinter_autosave = 0
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_disabled = []
-let g:go_metalinter_command = ""
+let g:go_metalinter_command = "gometalinter"
+let g:go_metalinter_command = "golangci-lint"
 let g:go_metalinter_deadline = "5s"
 
 " let g:go_list_height = 0
@@ -138,9 +137,9 @@ let g:go_alternate_mode = "edit"
 
 let g:go_gocode_autobuild = 1
 let g:go_gocode_propose_builtins = 1
-let g:go_gocode_propose_source = 1
-let g:go_gocode_unimported_packages = 1
-let g:go_gocode_socket_type = 'tcp'
+let g:go_gocode_propose_source = 0
+let g:go_gocode_unimported_packages = 0
+" let g:go_gocode_socket_type = 'tcp'
 let g:go_gocode_socket_type = 'unix'
 
 let g:go_template_autocreate = 1
@@ -172,7 +171,7 @@ let g:go_highlight_space_tab_error = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
-" let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_arguments = 1
 let g:go_highlight_function_parameters = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
