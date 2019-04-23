@@ -137,8 +137,8 @@ let g:go_alternate_mode = "edit"
 
 let g:go_gocode_autobuild = 1
 let g:go_gocode_propose_builtins = 1
-let g:go_gocode_propose_source = 0
-let g:go_gocode_unimported_packages = 0
+let g:go_gocode_propose_source = 1
+let g:go_gocode_unimported_packages = 1
 " let g:go_gocode_socket_type = 'tcp'
 let g:go_gocode_socket_type = 'unix'
 
