@@ -44,6 +44,9 @@ augroup vim_go_augroup
     autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
+let g:go_version_warning = 1
+let g:go_null_module_warning = 1
+let g:go_code_completion_enabled = 1
 let g:go_test_show_name = 0
 let g:go_test_timeout= '10s'
 " let g:go_play_browser_command = 'firefox-developer %URL% &'
@@ -51,7 +54,8 @@ let g:go_test_timeout= '10s'
 let g:go_play_open_browser = 1
 
 let g:go_auto_type_info = 0
-let g:go_info_mode = 'guru'
+let g:go_info_mode = 'gopls'
+" let g:go_info_mode = 'guru'
 " let g:go_info_mode = 'gocode'
 let g:go_auto_sameids = 1
 let g:go_updatetime = 300
@@ -135,7 +139,6 @@ let g:go_alternate_mode = "edit"
 "             \ '? go#util#pascalcase(expand("<cword>"))' .
 "             \ ': go#util#camelcase(expand("<cword>"))'
 
-let g:go_gocode_autobuild = 1
 let g:go_gocode_propose_builtins = 1
 let g:go_gocode_propose_source = 1
 let g:go_gocode_unimported_packages = 1

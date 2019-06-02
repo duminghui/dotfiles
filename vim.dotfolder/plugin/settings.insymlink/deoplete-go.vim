@@ -12,9 +12,10 @@ let g:deoplete#sources#go#cgo = 0
 let g:deoplete#sources#go#cgo#libclang_path = ''
 let g:deoplete#sources#go#cgo#std = 'c11'
 let g:deoplete#sources#go#auto_goos = 0
-let g:deoplete#sources#go#source_importer = 0
+let g:deoplete#sources#go#source_importer = 1
 let g:deoplete#sources#go#builtin_objects = 1
 let g:deoplete#sources#go#unimported_packages = 1
+let g:deoplete#sources#go#fallback_to_source = 1
 
 " endif
 
