@@ -21,7 +21,7 @@ if g:vim_plug.is_ready('denite.nvim')
         autocmd FileType nerdtree noremap <buffer> <silent> <Leader>dm :setlocal belloff=all<cr>
     augroup END
 
-    " 有具体的srouces名称会覆盖掉_source的内容
+    " 有具体的srouces名称会覆盖掉'_' source的内容
     call denite#custom#option('default', {
                 \ 'highlight_matched_char': 'MatchParen',
                 \ 'mode': 'normal'
