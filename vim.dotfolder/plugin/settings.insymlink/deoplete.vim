@@ -12,10 +12,11 @@ if g:vim_plug.is_ready('deoplete.nvim')
                 \ 'ignore_case': v:true,
                 \ 'camel_case': v:true,
                 \ })
-    " go与ggopls的配置
-    call deoplete#custom#option('omni_patterns', {
-                \ 'go': '[^. *\t]\.\w*',
-                \ })
+    " " go与gopls的配置
+    " call deoplete#custom#option('omni_patterns', {
+    "             \ 'go': '[^. *\t]\.\w*',
+    "             \ })
+
     " " call deoplete#custom#option('keyword_patterns', {
     " " \ '_': '[a-zA-Z_]\k*',
     " \ 'tex': '\\?[a-zA-Z_]\w*',

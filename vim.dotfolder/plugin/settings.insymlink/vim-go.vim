@@ -8,6 +8,12 @@ augroup vim_go_augroup
     if g:vim_plug.is_ready('denite.nvim')
         autocmd FileType go nnoremap <buffer> <leader>dd :Denite decls:%<CR>
     endif
+    if g:vim_plug.is_ready('deoplete.nvim')
+        " go与gopls的配置
+        call deoplete#custom#option('omni_patterns', {
+                    \ 'go': '[^. *\t]\.\w*',
+                    \ })
+    endif
     autocmd FileType go setlocal nospell
     " autocmd FileType go setlocal updatetime=300
     " autocmd FileType go setlocal autowrite
