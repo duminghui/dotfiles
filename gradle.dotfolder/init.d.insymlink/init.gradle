@@ -1,18 +1,23 @@
 allprojects {
-    def ALIYUN_REPOSITORY_URL = 'http://maven.aliyun.com/repository/public'
-    def ALIYUN_JCENTER_URL = 'http://maven.aliyun.com/repository/jcenter'
+    def ALIYUN_REPOSITORY_URL = 'https://maven.aliyun.com/repository/public'
+    def ALIYUN_JCENTER_URL = 'https://maven.aliyun.com/repository/jcenter'
+    def ALIYUN_GOOGLE_URL = 'https://maven.aliyun.com/repository/google'
+    def map=[
+    'htts://repo1.maven.org/maven2':ALIYUN_REPOSITORY_URL,
+    'https://jcenter.bintray.com':ALIYUN_JCENTER_URL,
+    'https://dl.google.com':ALIYUN_GOOGLE_URL
+    ]
     buildscript {
         repositories {
             all { ArtifactRepository repo ->
                 if(repo instanceof MavenArtifactRepository){
                     def url = repo.url.toString()
-                    if(url.startsWith('https://repo1.maven.org/maven2')){
-                        project.logger.lifecycle "WARNING: BuildScript Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL."
-                        remove repo
-                    }
-                    if(url.startsWith('https://jcenter.bintray.com/')){
-                        project.logger.lifecycle "WARNING: BuildScript Repository ${repo.url} replaced by $ALIYUN_JCENTER_URL."
-                        remove repo
+                    map.each{ key,value->
+                        if(url.startsWith(key)){
+                            project.logger.lifecycle "WARNING: BuildScript Repository ${url} replaced by ${value}."
+                            remove repo
+                            return
+                        }
                     }
                 }
             }
@@ -22,24 +27,21 @@ allprojects {
             maven {
                 url ALIYUN_JCENTER_URL
             }
-            // mavenLocal()
-            // maven(){
-                // name "public-Nexus Maven Repo"
-                // url 'http://127.0.0.1:8081/nexus/content/groups/public'
-            // }
+            maven {
+                url ALIYUN_GOOGLE_URL
+            }
         }
     }
     repositories {
         all { ArtifactRepository repo ->
             if(repo instanceof MavenArtifactRepository){
                 def url = repo.url.toString()
-                if(url.startsWith('https://repo1.maven.org/maven2')){
-                    project.logger.lifecycle "WARNING: Repository ${repo.url} replaced by $ALIYUN_REPOSITORY_URL."
-                    remove repo
-                }
-                if(url.startsWith('https://jcenter.bintray.com/')){
-                    project.logger.lifecycle "WARNING: Repository ${repo.url} replaced by $ALIYUN_JCENTER_URL."
-                    remove repo
+                map.each{ key,value->
+                    if(url.startsWith(key)){
+                        project.logger.lifecycle "WARNING: Repository ${url} replaced by ${value}."
+                        remove repo
+                        return
+                    }
                 }
             }
         }
@@ -49,11 +51,9 @@ allprojects {
         maven {
             url ALIYUN_JCENTER_URL
         }
-        // mavenLocal()
-        // maven(){
-            // name "public-Nexus Maven Repo"
-            // url 'http://127.0.0.1:8081/nexus/content/groups/public'
-        // }
+        maven {
+            url ALIYUN_GOOGLE_URL
+        }
     }
 
     task showRepos {
