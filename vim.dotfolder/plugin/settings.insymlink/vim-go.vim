@@ -51,8 +51,8 @@ augroup vim_go_augroup
 augroup END
 
 let g:go_version_warning = 1
-let g:go_null_module_warning = 1
 let g:go_code_completion_enabled = 1
+let g:go_null_module_warning = 1
 let g:go_test_show_name = 0
 let g:go_test_timeout= '10s'
 " let g:go_play_browser_command = 'firefox-developer %URL% &'
@@ -148,8 +148,8 @@ let g:go_alternate_mode = "edit"
 let g:go_gocode_propose_builtins = 1
 let g:go_gocode_propose_source = 1
 let g:go_gocode_unimported_packages = 1
-" let g:go_gocode_socket_type = 'tcp'
 let g:go_gocode_socket_type = 'unix'
+let g:go_gocode_socket_type = 'tcp'
 
 let g:go_template_autocreate = 1
 " let g:go_template_file = "hello_world.go"
