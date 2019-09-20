@@ -12,7 +12,6 @@ if g:vim_plug.is_ready('deoplete.nvim')
                 \ 'auto_complete_delay': 300,
                 \ 'auto_refresh_delay': 20,
                 \ 'camel_case': v:true,
-                \ 'candidate_marks': ['A','S','D','F','G'],
                 \ 'ignore_case': v:true,
                 \ 'ignore_sources': {},
                 \ 'max_list': 300,
@@ -29,11 +28,11 @@ if g:vim_plug.is_ready('deoplete.nvim')
                 \ 'yarp': v:false,
                 \ })
 
-    inoremap <expr>A pumvisible() ? deoplete#insert_candidate(0) : 'A'
-    inoremap <expr>S pumvisible() ? deoplete#insert_candidate(1) : 'S'
-    inoremap <expr>D pumvisible() ? deoplete#insert_candidate(2) : 'D'
-    inoremap <expr>F pumvisible() ? deoplete#insert_candidate(3) : 'F'
-    inoremap <expr>G pumvisible() ? deoplete#insert_candidate(4) : 'G'
+    " inoremap <expr>A pumvisible() ? deoplete#insert_candidate(0) : 'A'
+    " inoremap <expr>S pumvisible() ? deoplete#insert_candidate(1) : 'S'
+    " inoremap <expr>D pumvisible() ? deoplete#insert_candidate(2) : 'D'
+    " inoremap <expr>F pumvisible() ? deoplete#insert_candidate(3) : 'F'
+    " inoremap <expr>G pumvisible() ? deoplete#insert_candidate(4) : 'G'
 
     " " go与gopls的配置
     " call deoplete#custom#option('omni_patterns', {
