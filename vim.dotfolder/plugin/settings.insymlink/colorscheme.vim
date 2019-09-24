@@ -27,6 +27,8 @@ call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg
     " highlight VertSplit ctermfg=247
 " endif
 if has('nvim')
-    set guicursor=
+    set guicursor=n-v-c:hor25,i-ci-ve:hor25,r-cr:hor25,o:hor50
+    "             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/Cursor
+    "             \,sm:block-blinkwait175-blinkoff150-blinkon175
     " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 endif
