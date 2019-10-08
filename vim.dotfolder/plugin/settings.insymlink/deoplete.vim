@@ -73,7 +73,7 @@ if g:vim_plug.is_ready('deoplete.nvim')
     inoremap <silent><expr> <TAB>
                 \ pumvisible() ? "\<C-n>" :
                 \ <SID>check_back_space() ? "\<TAB>" :
-                \ deoplete#mappings#manual_complete()
+                \ deoplete#manual_complete()
 
     function! s:check_back_space() abort "{{{
         let col = col('.') - 1

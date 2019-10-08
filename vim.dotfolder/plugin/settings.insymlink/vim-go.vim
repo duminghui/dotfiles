@@ -9,7 +9,8 @@ augroup vim_go_augroup
         autocmd FileType go nnoremap <buffer> <leader>dd :Denite decls:%<CR>
     endif
     if g:vim_plug.is_ready('deoplete.nvim')
-        " go与gopls的配置
+        " go与gopls的配置 但是用了这个之后ctrl-j,k就不起作用了
+        " 不用这个第三方的依赖就不能显示子成员
         call deoplete#custom#option('omni_patterns', {
                     \ 'go': '[^. *\t]\.\w*',
                     \ })
