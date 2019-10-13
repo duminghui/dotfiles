@@ -64,7 +64,7 @@ let g:go_auto_type_info = 0
 let g:go_info_mode = 'gopls'
 " let g:go_info_mode = 'guru'
 " let g:go_info_mode = 'gocode'
-let g:go_auto_sameids = 1
+let g:go_auto_sameids = 0
 let g:go_updatetime = 300
 
 let g:go_jump_to_error = 1
@@ -82,6 +82,7 @@ let g:go_mod_fmt_autosave = 1
 let g:go_doc_keywordprg_enabled = 1
 let g:go_doc_max_height = 20
 let g:go_doc_url = 'https://godoc.org'
+let g:go_doc_popup_window = 0
 
 let g:go_def_mode = 'gopls'
 " let g:go_def_mode = 'godef'
@@ -95,7 +96,7 @@ let g:go_def_mapping_enabled = 1
 let g:go_def_reuse_buffer = 1
 
 " let g:go_bin_path = ""
-" let go_search_bin_path_first = 1
+let go_search_bin_path_first = 1
 
 let g:go_snippet_engine = "automatic"
 
@@ -140,6 +141,7 @@ let g:go_term_mode = "split"
 let g:go_term_height = 15
 let g:go_term_width = 30
 let g:go_term_enabled = 1
+let g:go_term_close_on_exit = 1
 
 let g:go_alternate_mode = "edit"
 " let g:go_gorename_prefill = 'expand("<cword>") =~# "^[A-Z]"' .
@@ -147,15 +149,15 @@ let g:go_alternate_mode = "edit"
 "             \ ': go#util#camelcase(expand("<cword>"))'
 
 let g:go_gocode_propose_builtins = 1
-let g:go_gocode_propose_source = 1
-let g:go_gocode_unimported_packages = 1
+let g:go_gocode_propose_source = 0
+let g:go_gocode_unimported_packages = 0
 let g:go_gocode_socket_type = 'unix'
-let g:go_gocode_socket_type = 'tcp'
+" let g:go_gocode_socket_type = 'tcp'
 
 let g:go_template_autocreate = 1
 " let g:go_template_file = "hello_world.go"
 " let g:go_template_test_file = "hello_world_test.go"
-let g:go_template_use_pkg = 1
+let g:go_template_use_pkg = 0
 
 let g:go_decls_includes = 'func,type'
 "`ctrlp.vim` or `fzf`.
@@ -181,7 +183,6 @@ let g:go_highlight_space_tab_error = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
-let g:go_highlight_function_arguments = 1
 let g:go_highlight_function_parameters = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
