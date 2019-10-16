@@ -1,70 +1,55 @@
-host github.com
-AddKeysToAgent yes
-UseKeychain yes
-user git
-hostname ssh.github.com
-port 443
-identityfile ~/.ssh/github
+Host github.com
+    AddKeysToAgent yes
+    UseKeychain yes
+    User git
+    HostName ssh.github.com
+    Port 443
+    IdentityFile ~/.ssh/github
 
-host git.coding.net
-AddKeysToAgent yes
-UseKeychain yes
-user git
-hostname git.coding.net
-# port 22
-identityfile ~/.ssh/coding
+Host git.coding.net
+    AddKeysToAgent yes
+    UseKeychain yes
+    User git
+    HostName git.coding.net
+#   Port 22
+    IdentityFile ~/.ssh/coding
 
-host aliyun
-AddKeysToAgent yes
-UseKeychain yes
-user root
-hostname myaliyun.com
-identityfile ~/.ssh/aliyun.pem
+Host vps1
+    AddKeysToAgent yes
+    UseKeychain yes
+    User root
+    Port 212
+    HostName myvps1.com
+    IdentityFile ~/.ssh/vps1
 
-host vps1
-AddKeysToAgent yes
-UseKeychain yes
-user root
-port 212
-hostname myvps1.com
-identityfile ~/.ssh/vps1
+Host 192.168.1.200
+    AddKeysToAgent yes
+    UseKeychain yes
+    User git
+    Port 222
+    HostName 192.168.1.200
+    IdentityFile ~/.ssh/s200
 
-host vps2
-AddKeysToAgent yes
-UseKeychain yes
-user root
-port 212
-hostname myvps2.com
-identityfile ~/.ssh/vps1
+Host s200
+    AddKeysToAgent yes
+    UseKeychain yes
+    User root
+    Port 22
+    HostName 192.168.1.200
+    IdentityFile ~/.ssh/s200
 
-host 192.168.1.200
-AddKeysToAgent yes
-UseKeychain yes
-user git
-port 222
-hostname 192.168.1.200
-identityfile ~/.ssh/jujian
+Host s204
+    AddKeysToAgent yes
+    UseKeychain yes
+    User root
+    Port 22
+    HostName 192.168.1.204
+    IdentityFile ~/.ssh/s204
 
-host server200
-AddKeysToAgent yes
-UseKeychain yes
-user root
-port 22
-hostname 192.168.1.200
-identityfile ~/.ssh/jujian
-
-host jujian.release
-AddKeysToAgent yes
-UseKeychain yes
-user root
-port 22
-hostname 47.107.128.125
-identityfile ~/.ssh/jujianrelease.pem
-
-host jujian.release.2
-AddKeysToAgent yes
-UseKeychain yes
-user root
-port 22
-hostname 47.112.197.225
-identityfile ~/.ssh/jujianrelease.pem
+Host gs225
+    AddKeysToAgent yes
+    UseKeychain yes
+    User root
+    Port 22
+    HostName gs225
+    IdentityFile ~/.ssh/gs225

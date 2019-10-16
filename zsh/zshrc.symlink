@@ -48,7 +48,7 @@ ZSH_CUSTOM=$HOME/.custom-zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autojump gem git gradle osx pod ruby xcode tmux vi-mode ssh-agent docker docker-compose docker-machine)
 
-zstyle :omz:plugins:ssh-agent identities github coding vps1 jujian
+zstyle :omz:plugins:ssh-agent identities github coding vps1 s200 s204 gs225
 
 # User configuration
 
@@ -103,15 +103,11 @@ unset config_files
 
 export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
 
-# [ -s "$HOME/.dnx/dnvm/dnvm.sh" ] && . "$HOME/.dnx/dnvm/dnvm.sh" # Load dnvm
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="/Users/dumh/.sdkman"
-# [[ -s "/Users/dumh/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dumh/.sdkman/bin/sdkman-init.sh"
-
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
 bindkey '^s' autosuggest-accept
-command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
