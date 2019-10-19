@@ -49,6 +49,8 @@ Host s204
 Host gs225
     AddKeysToAgent yes
     UseKeychain yes
+    # PreferredAuthentications password
+    # PubkeyAuthentication no
     User root
     Port 22
     HostName gs225
