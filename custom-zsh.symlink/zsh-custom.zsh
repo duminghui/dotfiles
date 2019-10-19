@@ -184,7 +184,7 @@ zle -N self-insert check-cmd-self-insert
 zle -N backward-delete-char check-cmd-backward-delete-char
 #}}}
 # man 手册显示彩色
-man() {
+manc() {
   env GROFF_NO_SGR=1 \
     LESS_TERMCAP_mb=$'\E[1;36m' \
     LESS_TERMCAP_md=$'\E[1;36m' \
