@@ -288,7 +288,7 @@ set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+set listchars=tab:›■,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 if &term == 'xterm' || &term == 'screen'
     set t_Co=256            " Enable 256 colors to stop the CSApprox warning and make xterm vim shine
 endif
@@ -547,7 +547,7 @@ if !has('nvim')
         let common_dir = parent . '/.' . prefix
 
         for [dirname, settingname] in items(dir_list)
-            let directory = common_dir . dirname . '/'
+            let directory = common_dir . '/' . '.' . dirname . '/'
             if exists("*mkdir")
                 if !isdirectory(directory)
                     call mkdir(directory)
