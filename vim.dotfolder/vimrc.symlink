@@ -113,15 +113,6 @@ Plug 'gcmt/wildfire.vim'
 " Plug 'maralla/completor.vim', g:vim_plug.cond(0)
 " 还没有完成和ultisnips整合，先不用
 " Plug 'ervandew/supertab'
-" 另一个自动补全工具,先试试
-" Plug 'prabirshrestha/asyncomplete.vim', g:vim_plug.cond(0)
-" Plug 'prabirshrestha/async.vim', g:vim_plug.cond(0)
-" Plug 'prabirshrestha/vim-lsp', g:vim_plug.cond(0)
-" Plug 'prabirshrestha/asyncomplete-lsp.vim', g:vim_plug.cond(0)
-" Plug 'prabirshrestha/asyncomplete-buffer.vim', g:vim_plug.cond(0)
-" Plug 'prabirshrestha/asyncomplete-ultisnips.vim', g:vim_plug.cond(0)
-" Plug 'yami-beta/asyncomplete-omni.vim', g:vim_plug.cond(0)
-" Plug 'prabirshrestha/asyncomplete-gocode.vim', g:vim_plug.cond(0)
 Plug 'Shougo/deoplete.nvim', g:vim_plug.cond(1,
             \ has('nvim') ? {'do': ':UpdateRemotePlugins' } : {})
 " 这个插件会引起在编辑.vimrc文件的时候,第一次保存之后重新载入文件,fold会全部折叠
@@ -139,7 +130,7 @@ Plug 'tpope/vim-commentary', g:vim_plug.cond(1)
 Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
 " Plug 'vim-syntastic/syntastic',g:vim_plug.cond(1)
 " 在vim 8上使用的格式检测的,使用job
-Plug 'w0rp/ale', g:vim_plug.cond(1)
+Plug 'dense-analysis/ale', g:vim_plug.cond(1)
 Plug 'Valloric/ListToggle'
 "在sign上显示版本控制相关的标记
 " Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
@@ -152,7 +143,7 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'mattn/webapi-vim'
 Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
 " Goland
-Plug 'zchee/deoplete-go', g:vim_plug.cond(1, {'for': ['go','gomod','gohtmltmpl','gotexttmpl'], 'do': 'make'})
+Plug 'deoplete-plugins/deoplete-go', g:vim_plug.cond(1, {'for': ['go','gomod','gohtmltmpl','gotexttmpl'], 'do': 'make'})
 " Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': 'go', 'do': ':GoUpdateBinaries'})
 Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': ['go','gomod','gohtmltmpl','gotexttmpl']})
 " 分割或合并strcut显示
