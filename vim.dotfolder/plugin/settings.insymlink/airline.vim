@@ -60,7 +60,7 @@ if g:vim_plug.is_ready('vim-airline')
     " endfunction
     " 是否显示语法错误 在error位置显示
     let g:airline#extensions#syntastic#enabled = 1
-    let g:airline#extensions#ale#enable = 1
+    let g:airline#extensions#ale#enabled = 1
 
     " 是否在状态栏显示修改状态(添加，修改，删除)
     let g:airline#extensions#hunks#enabled = 1

@@ -148,10 +148,11 @@ let g:go_alternate_mode = "edit"
 "             \ '? go#util#pascalcase(expand("<cword>"))' .
 "             \ ': go#util#camelcase(expand("<cword>"))'
 
-let g:go_gocode_propose_builtins = 1
-let g:go_gocode_propose_source = 0
-let g:go_gocode_unimported_packages = 0
-let g:go_gocode_socket_type = 'unix'
+" not support for gocode
+" let g:go_gocode_propose_builtins = 1
+" let g:go_gocode_propose_source = 0
+" let g:go_gocode_unimported_packages = 0
+" let g:go_gocode_socket_type = 'unix'
 " let g:go_gocode_socket_type = 'tcp'
 
 let g:go_template_autocreate = 1
