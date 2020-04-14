@@ -53,7 +53,6 @@ augroup END
 
 let g:go_version_warning = 1
 let g:go_code_completion_enabled = 1
-let g:go_null_module_warning = 1
 let g:go_test_show_name = 0
 let g:go_test_timeout= '10s'
 " let g:go_play_browser_command = 'firefox-developer %URL% &'
@@ -63,7 +62,6 @@ let g:go_play_open_browser = 1
 let g:go_auto_type_info = 0
 let g:go_info_mode = 'gopls'
 " let g:go_info_mode = 'guru'
-" let g:go_info_mode = 'gocode'
 let g:go_auto_sameids = 0
 let g:go_updatetime = 300
 
@@ -75,7 +73,9 @@ let g:go_fmt_command = 'goimports' "gofmt
 let g:go_fmt_options = {}
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_experimental = 0
-
+let g:go_imports_autosave = 1
+let g:go_imports_mode = 'gopls'
+let g:go_imports_mode = 'goimports'
 let g:go_mod_fmt_autosave = 1
 
 " 使用K查看Doc
@@ -87,8 +87,13 @@ let g:go_doc_popup_window = 0
 let g:go_def_mode = 'gopls'
 " let g:go_def_mode = 'godef'
 " let g:go_def_mode = 'guru'
+let g:go_referrers_mode = 'gopls'
+let g:go_referrers_mode = 'guru'
 
-" 使用CTRL-]:GoDef  CTRL-t :GoDefPop
+let g:go_implements_mode = 'gopls'
+let g:go_implements_mode = 'guru'
+
+" 使用CTRL-]:GoDef  CTRL-t:GoDefPop
 let g:go_def_mapping_enabled = 1
 
 " Use this option to jump to an existing buffer for the split, vsplit and tab
@@ -117,8 +122,7 @@ let g:go_textobj_include_variable = 1
 let g:go_metalinter_autosave = 0
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
-let g:go_metalinter_disabled = []
-let g:go_metalinter_command = "gometalinter"
+let g:go_metalinter_command = "gopls"
 let g:go_metalinter_command = "golangci-lint"
 let g:go_metalinter_deadline = "5s"
 
@@ -144,16 +148,27 @@ let g:go_term_enabled = 1
 let g:go_term_close_on_exit = 1
 
 let g:go_alternate_mode = "edit"
+let g:go_rename_command = 'gopls'
+let g:go_rename_command = 'gorename'
 " let g:go_gorename_prefill = 'expand("<cword>") =~# "^[A-Z]"' .
 "             \ '? go#util#pascalcase(expand("<cword>"))' .
 "             \ ': go#util#camelcase(expand("<cword>"))'
 
-" not support for gocode
-" let g:go_gocode_propose_builtins = 1
-" let g:go_gocode_propose_source = 0
-" let g:go_gocode_unimported_packages = 0
-" let g:go_gocode_socket_type = 'unix'
-" let g:go_gocode_socket_type = 'tcp'
+let g:go_gopls_enabled = 1
+let g:go_gopls_options = []
+
+let g:go_gopls_analyses = v:true
+let g:go_gopls_analyses = v:false
+let g:go_gopls_analyses = v:null
+
+let g:go_gopls_complete_unimported = v:null
+let g:go_gopls_deep_completion = v:null
+let g:go_gopls_matcher = v:null
+let g:go_gopls_staticcheck = v:null
+let g:go_gopls_use_placeholders = v:null
+let g:go_gopls_temp_modfile = v:null
+let g:go_gopls_local = v:null
+let g:go_diagnostics_enabled = 0
 
 let g:go_template_autocreate = 1
 " let g:go_template_file = "hello_world.go"
@@ -171,6 +186,8 @@ let g:go_statusline_duration = 60000
 
 let g:go_addtags_transform = 'camelcase'
 let g:go_addtags_transform = 'snakecase'
+
+let g:go_addtags_skip_unexported = 0
 
 " let g:go_debug = []
 
@@ -196,5 +213,7 @@ let g:go_highlight_format_strings = 1
 let g:go_highlight_variable_declarations = 1
 " Highlight variable names in variable assignments (`x` in `x =`).
 let g:go_highlight_variable_assignments = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_diagnostic_warnings = 1
 
 " endif

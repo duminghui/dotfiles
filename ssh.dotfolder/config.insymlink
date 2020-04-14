@@ -38,6 +38,22 @@ Host s200
     HostName 192.168.1.200
     IdentityFile ~/.ssh/s200
 
+Host s115
+    AddKeysToAgent yes
+    UseKeychain yes
+    User root
+    Port 22
+    HostName 192.168.1.115
+    IdentityFile ~/.ssh/s115
+
+Host s116
+    AddKeysToAgent yes
+    UseKeychain yes
+    User root
+    Port 22
+    HostName 192.168.1.116
+    IdentityFile ~/.ssh/s116
+
 Host s204
     AddKeysToAgent yes
     UseKeychain yes
