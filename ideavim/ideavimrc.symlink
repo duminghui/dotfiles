@@ -29,3 +29,4 @@ map <leader>o :action OverrideMethods<CR>
 map <leader>h :action TypeHierarchy<CR>
 map <leader>s :action Android.SyncProject<CR>
 
+set ideajoin
