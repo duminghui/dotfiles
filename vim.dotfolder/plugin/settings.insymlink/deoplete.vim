@@ -68,7 +68,7 @@ if g:vim_plug.is_ready('deoplete.nvim')
     " echo deoplete#custom#_get()
     " echo deoplete#custom#_get_source_vars('omni')
     " echo deoplete#custom#_get_option('min_pattern_length')
-    noremap <leader>deo :echo deoplete#custom#_get()<cr>
+    noremap <leader>deo :echo json_encode(deoplete#custom#_get())<cr>
 
     inoremap <silent><expr> <TAB>
                 \ pumvisible() ? "\<C-n>" :

@@ -10,8 +10,8 @@ set hlsearch
 set wrapscan
 set ruler
 set matchpairs=(:),{:},[:],<:>,?:\:
-" set number
-" set relativenumber
+set number
+set relativenumber
 syntax on
 set shiftwidth=4
 set softtabstop=4
