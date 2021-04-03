@@ -23,7 +23,7 @@ if g:vim_plug.is_ready('nerdtree')
     let NERDTreeWinSize=33
     let NERDTreeHijackNetrw=1
     let g:nerdtree_tabs_open_on_gui_startup=1
-    let g:NERDTreeIndicatorMapCustom = {
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ "Modified"  : "~",
                 \ "Staged"    : "+",
                 \ "Untracked" : "✭",
@@ -35,6 +35,18 @@ if g:vim_plug.is_ready('nerdtree')
                 \ 'Ignored'   : '☒',
                 \ "Unknown"   : "?"
                 \ }
+    " let g:NERDTreeIndicatorMapCustom = {
+    "             \ "Modified"  : "~",
+    "             \ "Staged"    : "+",
+    "             \ "Untracked" : "✭",
+    "             \ "Renamed"   : "➜",
+    "             \ "Unmerged"  : "═",
+    "             \ "Deleted"   : "_",
+    "             \ "Dirty"     : "✗",
+    "             \ "Clean"     : "✔︎",
+    "             \ 'Ignored'   : '☒',
+    "             \ "Unknown"   : "?"
+    "             \ }
     " let g:NERDTreeIndicatorMapCustom = {
     "             \ "Modified"  : "✹",
     "             \ "Staged"    : "✚",
