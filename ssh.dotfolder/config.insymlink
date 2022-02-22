@@ -1,6 +1,16 @@
+Host github-spider.com
+    AddKeysToAgent yes
+    UseKeychain yes
+    PreferredAuthentications publickey
+    User git
+    HostName ssh.github.com
+    Port 443
+    IdentityFile ~/.ssh/github-spider
+
 Host github.com
     AddKeysToAgent yes
     UseKeychain yes
+    PreferredAuthentications publickey
     User git
     HostName ssh.github.com
     Port 443
@@ -22,52 +32,3 @@ Host vps1
     HostName myvps1.com
     IdentityFile ~/.ssh/vps1
 
-Host 192.168.1.200
-    AddKeysToAgent yes
-    UseKeychain yes
-    User git
-    Port 222
-    HostName 192.168.1.200
-    IdentityFile ~/.ssh/s200
-
-Host s200
-    AddKeysToAgent yes
-    UseKeychain yes
-    User root
-    Port 22
-    HostName 192.168.1.200
-    IdentityFile ~/.ssh/s200
-
-Host s115
-    AddKeysToAgent yes
-    UseKeychain yes
-    User root
-    Port 22
-    HostName 192.168.1.115
-    IdentityFile ~/.ssh/s115
-
-Host s116
-    AddKeysToAgent yes
-    UseKeychain yes
-    User root
-    Port 22
-    HostName 192.168.1.116
-    IdentityFile ~/.ssh/s116
-
-Host s204
-    AddKeysToAgent yes
-    UseKeychain yes
-    User root
-    Port 22
-    HostName 192.168.1.204
-    IdentityFile ~/.ssh/s204
-
-Host gs225
-    AddKeysToAgent yes
-    UseKeychain yes
-    # PreferredAuthentications password
-    # PubkeyAuthentication no
-    User root
-    Port 22
-    HostName gs225
-    IdentityFile ~/.ssh/gs225

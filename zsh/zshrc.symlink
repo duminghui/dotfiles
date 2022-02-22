@@ -46,9 +46,9 @@ ZSH_CUSTOM=$HOME/.custom-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump gem git gradle osx pod ruby xcode tmux vi-mode ssh-agent docker docker-compose docker-machine)
+plugins=(autojump gem git gradle macos pod ruby xcode tmux vi-mode ssh-agent docker docker-compose docker-machine)
 
-zstyle :omz:plugins:ssh-agent identities github coding vps1 s200 s204 gs225
+zstyle :omz:plugins:ssh-agent identities github github-spider coding vps1
 
 # User configuration
 
