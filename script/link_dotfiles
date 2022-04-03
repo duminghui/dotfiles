@@ -150,9 +150,9 @@ install_insymlinks(){
 
     local overwrite_all=false backup_all=false skip_all=false
 
-    for src in $(find -L $DOTFILES_ROOT/*.dotfolder -name '*.insymlink')
+    for src in $(find -L $DOTFILES_ROOT/*.dot -path '*/*.skip' -prune -o -name '*.insymlink' -not -path '*.git*' -print)
     do
-        dst=`echo $src | sed 's/\/\([0-9a-zA-Z_.]\{1,\}\)\.dotfolder/\/.\1/g'`
+        dst=`echo $src | sed 's/\/\([0-9a-zA-Z_.]\{1,\}\)\.dot/\/.\1/g'`
         dst="$HOME${dst#$DOTFILES_ROOT}"
         dst="${dst%.insymlink}"
         parentfolder="${dst%$(basename $dst)}"
