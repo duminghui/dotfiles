@@ -38,7 +38,7 @@ autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.',  [0
 " Restore cursor to file in previous editing session {{{
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
 " Restore cursor to file position in previous editing session
-if !exists('g:vscode') 
+if !exists('g:vscode')
     function! ResCur()
         if line("'\"") <= line("$")
             silent! normal! g`"
@@ -62,7 +62,7 @@ if !exists('g:vscode')
         set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
     endif
 endif
-set nobackup
+" set nobackup
 
 " }}}
 
@@ -77,6 +77,7 @@ set showmode                    " Display the current mode
 set cmdheight=2
 set cursorline                  " Highlight current line
 set cursorcolumn                " Highlight current column
+set columns=120
 set colorcolumn=+1
 " 设置窗口的分配线和fold线
 set fillchars=vert:\|,fold:-
@@ -109,6 +110,7 @@ set laststatus=2 "两行状态行+一行命令行
 " endif
 
 set backspace=indent,eol,start  " Backspace for dummies
+set lines=30
 set linespace=0                 " No extra spaces between rows
 set number                      " Line numbers on
 set relativenumber              "显示相对行号
@@ -122,6 +124,7 @@ set wildmenu                    " Show list instead of just completing
 set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scroll=13
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
 set list
@@ -221,6 +224,54 @@ map zh zH
 
 " }}}
 
+" Initialize directories {{{
+if !has('nvim')
+    function! InitializeDirectories()
+        let parent = $HOME
+        let prefix = 'vim'
+        let dir_list = {
+                    \ 'backup': 'backupdir',
+                    \ 'views': 'viewdir',
+                    \ 'swap': 'directory' }
+
+        if has('persistent_undo')
+            let dir_list['undo'] = 'undodir'
+        endif
+
+        let common_dir = parent . '/.' . prefix
+
+        for [dirname, settingname] in items(dir_list)
+            let directory = common_dir . '/' . '.' . dirname . '/'
+            if exists("*mkdir")
+                if !isdirectory(directory)
+                    call mkdir(directory)
+                endif
+            endif
+            if !isdirectory(directory)
+                echo "Warning: Unable to create backup directory: " . directory
+                echo "Try: mkdir -p " . directory
+            else
+                let directory = substitute(directory, " ", "\\\\ ", "g")
+                exec "set " . settingname . "=" . directory
+            endif
+        endfor
+    endfunction
+    call InitializeDirectories()
+else
+    set backupdir-=.
+    for backupdir in split(&backupdir,',')
+        if exists("*mkdir")
+            if !isdirectory(backupdir)
+                call mkdir(backupdir)
+            endif
+        endif
+        if !isdirectory(backupdir)
+            echo "Warning: Unable to create backup directory: " . backupdir
+            echo "Try: mkdir -p " . backupdir
+        endif
+    endfor
+endif
+" }}}
 
 
 "###################
@@ -249,6 +300,3 @@ call plug#end()
 
 " luochen1990/rainbow
 let g:rainbow_active = 1
-
-
-
