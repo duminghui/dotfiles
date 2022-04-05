@@ -9,25 +9,35 @@ typeset +H _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%} "
 typeset +H _return_status="%{$fg_bold[red]%}%(?..⍉)%{$reset_color%}"
 typeset +H _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
 
+# PROMPT='
+# $(_user_host)${_current_dir} $(git_prompt_info) $(ruby_prompt_info)
+# %{%(!.${fg[red]}.${fg[white]})%}▶%{$reset_color%} '
+
+# PROMPT2='%{%(!.${fg[red]}.${fg[white]})%}◀%{$reset_color%} '
+
+# RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
+
 # %D YYYY-MM-DD
 # %T h:m
 # %* h:m:s
 typeset +H _time_string="%{$fg[magenta]%}%T%{$reset_color%}"
 # typeset +H _time_string="%{$fg[magenta]%}%*%{$reset_color%}"
 
-# PROMPT='
-# $(_user_host)${_current_dir} $(git_prompt_info) $(ruby_prompt_info)
-# %{%(!.${fg[red]}.${fg[white]})%}▶%{$reset_color%} '
-
 # 把前面的换行去掉
 PROMPT='$(_user_host)[${_current_dir}] $(git_prompt_info) $(ruby_prompt_info)
 %{%(!.${fg[red]}.${fg[green]})%}⦿%{$reset_color%} '
 
-# PROMPT2='%{%(!.${fg[red]}.${fg[green]})%}◀%{$reset_color%} '
-
 PROMPT2='%{%(!.${fg[red]}.${fg[green]})%} ⦿%{$reset_color%} '
 
-RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status} [${_time_string}]%{$(echotc DO 1)%}'
+# RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status} [${_time_string}]%{$(echotc DO 1)%}'
+RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status} [${_time_string}]%{$(echotc DO 1)%}'
+
+
+function _vi_status() {
+  if {echo $fpath | grep -q "plugins/vi-mode"}; then
+    echo "$(vi_mode_prompt_info)"
+  fi
+}
 
 function _user_host() {
   local me
@@ -71,6 +81,9 @@ function _git_time_since_commit() {
   fi
 }
 
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+INSERT_MODE_INDICATOR="%{$fg_bold[green]%}+%{$reset_color%}"
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
 
 # Git prompt settings

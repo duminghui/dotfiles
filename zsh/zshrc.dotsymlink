@@ -1,6 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# vi-mode config
+# 在theme中添加一样起作用
+# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+# VI_MODE_SET_CURSOR=true
+# MODE_INDICATOR='%B%F{red}<%b<<%f'
+# INSERT_MODE_INDICATOR="%F{yellow}+%f"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -87,7 +94,7 @@ export DOTFILES=$HOME/.dotfiles
 # all of our zsh files
 typeset -U config_files
 config_files=(`find ~/.dotfiles \( -path "*/.git" -o -path "*/custom-zsh.dotsymlink" \) -prune -o -name "*.zsh" -print`)
-echo "config files:" $config_files
+echo "[Config Files]" $config_files
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
@@ -101,13 +108,14 @@ do
 done
 unset config_files
 
-export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -s "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
 bindkey '^s' autosuggest-accept
 
+# 这个会让新终端加载的时候慢
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
