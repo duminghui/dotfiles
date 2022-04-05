@@ -46,7 +46,7 @@ ZSH_CUSTOM=$HOME/.custom-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autojump gem git gradle macos pod ruby xcode tmux vi-mode ssh-agent docker docker-compose docker-machine)
+plugins=(git macos tmux vi-mode ssh-agent docker docker-compose)
 
 zstyle :omz:plugins:ssh-agent identities github github-spider coding vps1
 
@@ -86,12 +86,12 @@ source $ZSH/oh-my-zsh.sh
 export DOTFILES=$HOME/.dotfiles
 # all of our zsh files
 typeset -U config_files
-config_files=(`find ~/.dotfiles \( -path "*/.git" -o -path "*/custom-zsh.symlink" \) -prune -o -name "*.zsh" -print`)
-echo $config_files
+config_files=(`find ~/.dotfiles \( -path "*/.git" -o -path "*/custom-zsh.dotsymlink" \) -prune -o -name "*.zsh" -print`)
+echo "config files:" $config_files
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
-  source  $file
+  source $file
 done
 
 # load everything but the path and completion files
