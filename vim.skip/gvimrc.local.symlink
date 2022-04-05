@@ -1,8 +1,0 @@
-"use for gvim
-let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
-
-set guifont=Monaco:h12
-set noantialias
-set guioptions-=r
-set guioptions-=l
-set guioptions-=L

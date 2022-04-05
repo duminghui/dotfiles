@@ -36,7 +36,7 @@ fail () {
 }
 
 setup_gitconfig () {
-  if ! [ -f git/gitconfig.local.symlink ]
+  if ! [ -f git/gitconfig.local.dotsymlink ]
   then
     info 'setup gitconfig'
 
@@ -51,7 +51,7 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.dotsymlink.example > git/gitconfig.local.dotsymlink
 
     success 'gitconfig'
   fi
@@ -132,29 +132,29 @@ link_file () {
   fi
 }
 
-install_dotfiles () {
-  info 'installing dotfiles'
+install_dotsymlink () {
+  info 'installing dot symlink to "$HOME"'
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  # for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
-  for src in $(find -L "$DOTFILES_ROOT" -maxdepth 2 -path '*/*.skip' -prune -o -name '*.symlink' -not -path '*.git*' -print)
+  # for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.dotsymlink' -not -path '*.git*')
+  for src in $(find -L "$DOTFILES_ROOT" -maxdepth 2 -path '*/*.skip' -prune -o -name '*.dotsymlink' -not -path '*.git*' -print)
   do
-    dst="$HOME/.$(basename "${src%.symlink}")"
+    dst="$HOME/.$(basename "${src%.dotsymlink}")"
     link_file "$src" "$dst"
   done
 }
 
-install_insymlinks(){
+install_symlinks(){
     info "installing symlinks in dotfolders"
 
     local overwrite_all=false backup_all=false skip_all=false
 
-    for src in $(find -L $DOTFILES_ROOT/*.dot -path '*/*.skip' -prune -o -name '*.insymlink' -not -path '*.git*' -print)
+    for src in $(find -L $DOTFILES_ROOT/*.dot -path '*/*.skip' -prune -o -name '*.symlink' -not -path '*.git*' -print)
     do
         dst=`echo $src | sed 's/\/\([0-9a-zA-Z_.]\{1,\}\)\.dot/\/.\1/g'`
         dst="$HOME${dst#$DOTFILES_ROOT}"
-        dst="${dst%.insymlink}"
+        dst="${dst%.symlink}"
         parentfolder="${dst%$(basename $dst)}"
         if [ ! -d $parentfolder ]
         then
@@ -166,8 +166,8 @@ install_insymlinks(){
 }
 
 setup_gitconfig
-install_insymlinks
-install_dotfiles
+install_symlinks
+install_dotsymlink
 
 echo ''
 echo '  All dotfiles linked!'
