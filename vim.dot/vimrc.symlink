@@ -3,17 +3,11 @@
 " }}}
 call utils#init()
 call g:vim_plug.autoinstall()
-autocmd! BufEnter * call g:vim_plug.show_mes()
+autocmd! BufEnter * call g:vim_plug.show_msg()
 
 " Install Plugs {{{
 " PlugInstall
-" call plug#begin()
-
-if has('nvim')
-    call plug#begin('~/.local/share/nvim/plugged')
-else
-    call plug#begin('~/.vim/plugged')
-endif
+call plug#begin()
 
 " Yet Another Remote Plugin Framework for Neovim {{{
 Plug 'roxma/nvim-yarp', g:vim_plug.cond(!has('nvim'))
@@ -22,9 +16,7 @@ Plug 'roxma/vim-hug-neovim-rpc', g:vim_plug.cond(!has('nvim'))
 
 " Color Themes {{{
 " Plug 'powerline/fonts'
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'spf13/vim-colors', g:vim_plug.cond(1)
-" Plug 'w0ng/vim-hybrid', g:vim_plug.cond(1)
+" 选择vim主题
 Plug 'flazz/vim-colorschemes', g:vim_plug.cond(0)
 Plug 'kristijanhusak/vim-hybrid-material', g:vim_plug.cond(1)
 Plug 'rakr/vim-one', g:vim_plug.cond(1)
@@ -38,10 +30,6 @@ Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(0)
 Plug 'vim-airline/vim-airline', g:vim_plug.cond(1)
 Plug 'vim-airline/vim-airline-themes', g:vim_plug.cond(1)
 Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
-" Plug 'ctrlpvim/ctrlp.vim', g:vim_plug.cond(0)
-" Plug 'tacahiroy/ctrlp-funky', g:vim_plug.cond(0)
-Plug 'Shougo/denite.nvim', g:vim_plug.cond(1,
-            \ has('nvim') ? {'do': ':UpdateRemotePlugins'} : {})
 Plug 'bling/vim-bufferline', g:vim_plug.cond(1)
 Plug 'scrooloose/nerdtree', g:vim_plug.cond(1)
 Plug 'vimcn/NERD_tree.vim.cnx', g:vim_plug.cond(1)
@@ -50,10 +38,6 @@ Plug 'jistr/vim-nerdtree-tabs', g:vim_plug.cond(1)
 Plug 'Xuyuanp/nerdtree-git-plugin', g:vim_plug.cond(1)
 " tmux中在vim的pane下显示一个小窗口运行
 " Plug 'benmills/vimux',g:vim_plug.cond(0)
-" auto mkview loadview
-" 这个不用, 会影响nerdtree和tagbar的展示
-" Plug 'vim-scripts/restore_view.vim', g:vim_plug.cond(0)
-" Plug 'vim-scripts/sessionman.vim', g:vim_plug.cond(0)
 Plug 'mbbill/undotree', g:vim_plug.cond(1)
 " 使用[]做快捷键
 Plug 'tpope/vim-unimpaired', g:vim_plug.cond(1)
@@ -71,17 +55,20 @@ Plug 'bronson/vim-visual-star-search', g:vim_plug.cond(1)
 
 " type expend {{{
 
-" 这个会影响OmniSharp/omnisharp-vim启动server，会启动两次mono,暂时不使用
 " Plug 'bogado/file-line', g:vim_plug.cond(0)
 " 回到normal模式时,暂入法自动转换为英文格式
-Plug 'CodeFalling/fcitx-vim-osx'
+" Plug 'CodeFalling/fcitx-vim-osx'
 Plug 'tpope/vim-repeat'
 " Plug 'matchit.zip', g:vim_plug.cond(0)
 " """""""""""""""""""""""""
 Plug 'tpope/vim-surround', g:vim_plug.cond(1)
 Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
 Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
-Plug 'easymotion/vim-easymotion'
+" use normal easymotion when in vim mode
+Plug 'easymotion/vim-easymotion', g:vim_plug.cond(!exists('g:vscode'))
+" use vscode easymotion when in vscode mode
+Plug 'asvetliakov/vim-easymotion', g:vim_plug.cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
+" Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
 
@@ -92,8 +79,6 @@ Plug 'tommcdo/vim-exchange'
 " 使用c,d,s等操作时不改变缓存区
 Plug 'svermeulen/vim-easyclip', g:vim_plug.cond(0)
 
-" 英文输入修正
-" Plug 'tpope/vim-abolish', g:vim_plug.cond(0)
 " 对齐插件
 Plug 'godlygeek/tabular'
 " 以表格的方式输入数据
@@ -109,28 +94,9 @@ Plug 'gcmt/wildfire.vim'
 " }}}
 
 " Program Utils {{{
-" Plug 'Valloric/YouCompleteMe', g:vim_plug.cond(0, {'do':  './install.py'})
-" Plug 'maralla/completor.vim', g:vim_plug.cond(0)
-" 还没有完成和ultisnips整合，先不用
-" Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', g:vim_plug.cond(1,
-            \ has('nvim') ? {'do': ':UpdateRemotePlugins' } : {})
-" 这个插件会引起在编辑.vimrc文件的时候,第一次保存之后重新载入文件,fold会全部折叠
-Plug 'Shougo/neosnippet.vim', g:vim_plug.cond(1)
-Plug 'Shougo/neosnippet-snippets', g:vim_plug.cond(1)
-" Plug 'SirVer/ultisnips', g:vim_plug.cond(0)
-" Plug 'honza/vim-snippets', g:vim_plug.cond(0)
-Plug 'Shougo/context_filetype.vim', g:vim_plug.cond(1)
-" deoplete source: vim
-Plug 'Shougo/neco-vim', g:vim_plug.cond(1)
 Plug 'scrooloose/nerdcommenter', g:vim_plug.cond(1)
-Plug 'vimcn/NERD_commenter.cnx', g:vim_plug.cond(1)
 Plug 'tpope/vim-commentary', g:vim_plug.cond(1)
-" Plug 'majutsushi/tagbar'
 Plug 'majutsushi/tagbar',  g:vim_plug.cond(executable('ctags'))
-" Plug 'vim-syntastic/syntastic',g:vim_plug.cond(1)
-" 在vim 8上使用的格式检测的,使用job
-Plug 'dense-analysis/ale', g:vim_plug.cond(1)
 Plug 'Valloric/ListToggle'
 "在sign上显示版本控制相关的标记
 " Plug 'mhinz/vim-signify',  g:vim_plug.cond(0)
@@ -141,28 +107,11 @@ Plug 'kshenoy/vim-signature', g:vim_plug.cond(1)
 " 标记、跳转冲突的 <<<<<<,========,>>>>>>>
 Plug 'rhysd/conflict-marker.vim'
 Plug 'mattn/webapi-vim'
-Plug 'udalov/kotlin-vim', {'for': 'kotlin'}
-" Goland
-" Plug 'deoplete-plugins/deoplete-go', g:vim_plug.cond(1, {'for': ['go','gomod','gohtmltmpl','gotexttmpl'], 'do': 'make'})
-" Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': 'go', 'do': ':GoUpdateBinaries'})
-Plug 'fatih/vim-go', g:vim_plug.cond(1, {'for': ['go','gomod','gohtmltmpl','gotexttmpl']})
-" 分割或合并strcut显示
-Plug 'AndrewRadev/splitjoin.vim', g:vim_plug.cond(1)
-" Plug 'OmniSharp/omnisharp-vim',  {'do': 'cd server;xbuild',  'for': 'cs'}
-" Plug 'tpope/vim-dispatch', g:vim_plug.cond(1, {'for': 'cs'})
-" Plug 'OrangeT/vim-csharp', {'for': 'cs'}
-" 着色器高亮
-" Plug 'vim-scripts/ShaderHighLight', {'for': ['cg', 'hlsl', 'glsl', 'shaderlab']}
 Plug 'tpope/vim-markdown', {'for': 'markdown'}
 Plug 'spf13/vim-preview', {'for': 'markdown'}
 Plug 'keith/tmux.vim', {'for': 'tmux'}
 
 " }}}
-"""""""""""""""""""""""""""""""
-" 中文档
-" Plug 'vimct/vimcdoc',  g:vim_plug.cond(!has('nvim'))
-" Plug 'vimcn/vimcdoc',  g:vim_plug.cond(1)
-"""""""""""""""""""""""
 call plug#end()
 " }}}
 
