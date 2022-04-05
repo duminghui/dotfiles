@@ -1,9 +1,19 @@
 # AVIT ZSH Theme
 
+function get_time_stamp {
+  echo "%*"
+}
+
 # settings
 typeset +H _current_dir="%{$fg_bold[blue]%}%3~%{$reset_color%} "
 typeset +H _return_status="%{$fg_bold[red]%}%(?..⍉)%{$reset_color%}"
 typeset +H _hist_no="%{$fg[grey]%}%h%{$reset_color%}"
+
+# %D YYYY-MM-DD
+# %T h:m
+# %* h:m:s
+typeset +H _time_string="%{$fg[magenta]%}%T%{$reset_color%}"
+# typeset +H _time_string="%{$fg[magenta]%}%*%{$reset_color%}"
 
 # PROMPT='
 # $(_user_host)${_current_dir} $(git_prompt_info) $(ruby_prompt_info)
@@ -17,7 +27,7 @@ PROMPT='$(_user_host)[${_current_dir}] $(git_prompt_info) $(ruby_prompt_info)
 
 PROMPT2='%{%(!.${fg[red]}.${fg[green]})%} ⦿%{$reset_color%} '
 
-RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status}%{$(echotc DO 1)%}'
+RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status} [${_time_string}]%{$(echotc DO 1)%}'
 
 function _user_host() {
   local me
