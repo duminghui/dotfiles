@@ -3,7 +3,9 @@
 " }}}
 call utils#init()
 call g:vim_plug.autoinstall()
-autocmd! BufEnter * call g:vim_plug.show_msg()
+if !exists('g:vscode')
+    autocmd! BufEnter * call g:vim_plug.show_msg()
+endif
 
 " Install Plugs {{{
 " PlugInstall
