@@ -95,7 +95,22 @@ endif
 set ruler "显示最后一行的状态
 set laststatus=2 "两行状态行+一行命令行
 
+" if has('statusline')
+"     set laststatus=2
+
+"     " Broken down into easily includeable segments
+"     set statusline=%<%f\                     " Filename
+"     set statusline+=%w%h%m%r                 " Options
+"     if g:vim_plug.is_ready('vim-fugitive')
+"         set statusline+=%{fugitive#statusline()} " Git Hotness
+"     endif
+"     set statusline+=\ [%{&ff}/%Y]            " Filetype
+"     set statusline+=\ [%{getcwd()}]          " Current dir
+"     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+" endif
+
 set backspace=indent,eol,start  " Backspace for dummies
+set lines=30
 set linespace=0                 " No extra spaces between rows
 set number                      " Line numbers on
 set relativenumber              "显示相对行号
@@ -258,6 +273,12 @@ else
 endif
 " }}}
 
+if (has("win64"))
+    augroup im
+        autocmd!
+        autocmd InsertLeave,BufEnter * :silent :!im-select.exe 1033
+    augroup END
+endif
 
 "###################
 "##  插件管理器  ###
@@ -279,7 +300,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 

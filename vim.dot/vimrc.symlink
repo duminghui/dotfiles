@@ -129,8 +129,10 @@ scriptencoding utf-8
 " * register使用copy-paste
 set clipboard=unnamed
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+if !exists('g:vscode')
 " 防止打开一个新buffer的时候自动选择当前文件的目录
-autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+endif
 "set autowrite                       " Automatically write a file when leaving a modified buffer
 " 控制状态栏显示的选项 :h shortmess
 set shortmess+=filmnrwxoOtT         " Abbrev. of messages (avoids 'hit enter')
@@ -146,20 +148,23 @@ set iskeyword-=-                    " '-' is an end of word designator
 " set it to the first line when editing a git commit message
 autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.',  [0,  1,  1,  0])
 
+if !exists('g:vscode')
 " Restore cursor to file in previous editing session {{{
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
 " Restore cursor to file position in previous editing session
-function! ResCur()
-    if line("'\"") <= line("$")
-        silent! normal! g`"
-        return 1
-    endif
-endfunction
+    function! ResCur()
+        if line("'\"") <= line("$")
+            silent! normal! g`"
+            return 1
+        endif
+    endfunction
 
-augroup resCur
-    autocmd!
-    autocmd BufWinEnter * call ResCur()
-augroup END
+    augroup resCur
+        autocmd!
+        autocmd BufWinEnter * call ResCur()
+    augroup END
+endif
+
 " }}}
 
 " Setting up the directories {{{
