@@ -29,15 +29,7 @@ PROMPT='$(_user_host)[${_current_dir}] $(git_prompt_info) $(ruby_prompt_info)
 
 PROMPT2='%{%(!.${fg[red]}.${fg[green]})%} ⦿%{$reset_color%} '
 
-# RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status} [${_time_string}]%{$(echotc DO 1)%}'
-RPROMPT='$(_vi_status)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status} [${_time_string}]%{$(echotc DO 1)%}'
-
-
-function _vi_status() {
-  if {echo $fpath | grep -q "plugins/vi-mode"}; then
-    echo "$(vi_mode_prompt_info)"
-  fi
-}
+RPROMPT='$(vi_mode_prompt_info)%{$(echotc UP 1)%}$(_git_time_since_commit) $(git_prompt_status) ${_return_status} [${_time_string}]%{$(echotc DO 1)%}'
 
 function _user_host() {
   local me
@@ -83,7 +75,7 @@ function _git_time_since_commit() {
 
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
-INSERT_MODE_INDICATOR="%{$fg_bold[green]%}+%{$reset_color%}"
+# INSERT_MODE_INDICATOR="%{$fg_bold[green]%}+%{$reset_color%}"
 MODE_INDICATOR="%{$fg_bold[yellow]%}❮%{$reset_color%}%{$fg[yellow]%}❮❮%{$reset_color%}"
 
 # Git prompt settings
