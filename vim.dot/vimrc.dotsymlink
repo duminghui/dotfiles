@@ -3,9 +3,8 @@
 " }}}
 call utils#init()
 call g:vim_plug.autoinstall()
-if !exists('g:vscode')
-    autocmd! BufEnter * call g:vim_plug.show_msg()
-endif
+
+autocmd! BufEnter * call g:vim_plug.show_msg()
 
 " Install Plugs {{{
 " PlugInstall
@@ -32,7 +31,7 @@ Plug 'edkolev/tmuxline.vim', g:vim_plug.cond(0)
 Plug 'vim-airline/vim-airline', g:vim_plug.cond(1)
 Plug 'vim-airline/vim-airline-themes', g:vim_plug.cond(1)
 Plug 'vim-ctrlspace/vim-ctrlspace', g:vim_plug.cond(1)
-Plug 'bling/vim-bufferline', g:vim_plug.cond(!exists('g:vscode'))
+Plug 'bling/vim-bufferline'
 Plug 'scrooloose/nerdtree', g:vim_plug.cond(1)
 Plug 'vimcn/NERD_tree.vim.cnx', g:vim_plug.cond(1)
 Plug 'jistr/vim-nerdtree-tabs', g:vim_plug.cond(1)
@@ -67,10 +66,7 @@ Plug 'tpope/vim-surround', g:vim_plug.cond(1)
 Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
 Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
 " use normal easymotion when in vim mode
-Plug 'easymotion/vim-easymotion', g:vim_plug.cond(!exists('g:vscode'))
-" use vscode easymotion when in vscode mode
-Plug 'asvetliakov/vim-easymotion', g:vim_plug.cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
-" Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
 
@@ -131,10 +127,8 @@ scriptencoding utf-8
 " * register使用copy-paste
 set clipboard=unnamed
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-if !exists('g:vscode')
 " 防止打开一个新buffer的时候自动选择当前文件的目录
-    autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-endif
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 "set autowrite                       " Automatically write a file when leaving a modified buffer
 " 控制状态栏显示的选项 :h shortmess
 set shortmess+=filmnrwxoOtT         " Abbrev. of messages (avoids 'hit enter')
@@ -150,22 +144,20 @@ set iskeyword-=-                    " '-' is an end of word designator
 " set it to the first line when editing a git commit message
 autocmd FileType gitcommit autocmd! BufEnter COMMIT_EDITMSG call setpos('.',  [0,  1,  1,  0])
 
-if !exists('g:vscode')
 " Restore cursor to file in previous editing session {{{
 " http://vim.wikia.com/wiki/Restore_cursor_to_file_position_in_previous_editing_session
 " Restore cursor to file position in previous editing session
-    function! ResCur()
-        if line("'\"") <= line("$")
-            silent! normal! g`"
-            return 1
-        endif
-    endfunction
+function! ResCur()
+    if line("'\"") <= line("$")
+        silent! normal! g`"
+        return 1
+    endif
+endfunction
 
-    augroup resCur
-        autocmd!
-        autocmd BufWinEnter * call ResCur()
-    augroup END
-endif
+augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
+augroup END
 
 " }}}
 
@@ -193,30 +185,12 @@ set cursorcolumn                " Highlight current column"
 set colorcolumn=+1
 " 设置窗口的分配线和fold线
 set fillchars=vert:\|,fold:-
-" 把这三行移到vim-colors-solarized.vim中进行配置才能起作用
-" highlight clear SignColumn      " SignColumn should match background
-" highlight clear LineNr          " Current line number row will have same background color in relative mode
-" "highlight clear CursorLineNr    " Remove highlight color from current line number
 
 if has('cmdline_info')
     set ruler                   " Show the ruler
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
     set showcmd                 " Show partial commands in status line and  Selected characters/lines in visual mode
 endif
-
-" if has('statusline')
-"     set laststatus=2
-
-"     " Broken down into easily includeable segments
-"     set statusline=%<%f\                     " Filename
-"     set statusline+=%w%h%m%r                 " Options
-"     if g:vim_plug.is_ready('vim-fugitive')
-"         set statusline+=%{fugitive#statusline()} " Git Hotness
-"     endif
-"     set statusline+=\ [%{&ff}/%Y]            " Filetype
-"     set statusline+=\ [%{getcwd()}]          " Current dir
-"     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
-" endif
 
 set backspace=indent,eol,start  " Backspace for dummies
 set linespace=0                 " No extra spaces between rows
@@ -399,12 +373,6 @@ map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscr
 nnoremap [b :bprev<CR>
 nnoremap ]b :bnext<CR>
 
-" motion.txt
-" map [[ ?{<CR>w99[{
-" map ][ /{<CR>b99]}
-" map ]] j0[[%/{<CR>
-" map [] k$][%?}<CR>
-
 " Toggle background {{{
 " Allow to trigger background
 function! ToggleBG()
@@ -418,31 +386,19 @@ function! ToggleBG()
 endfunction
 noremap <leader>bg :call ToggleBG()<CR>
 
-    " }}}
-
 " }}}
 
-" Misc {{{
-" OmniComplete{{{
-" if has("autocmd") && exists("+omnifunc")
-    " autocmd Filetype *
-    "             \if &omnifunc == "" |
-    "             \setlocal omnifunc=syntaxcomplete#Complete |
-    "             \endif
-" endif
+" }}}
 
 hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
 hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
 hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
 
 " Some convenient mappings
-"inoremap <expr> <Esc>      pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <CR>     pumvisible() ? "\<C-y>" : "\<CR>"
 
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-" inoremap <expr> <C-d>      pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
-" inoremap <expr> <C-u>      pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
 
 " Automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -526,21 +482,6 @@ else
 endif
 " }}}
 
-" Strip whitespace {{{
-" function! StripTrailingWhitespace()
-"     " Preparation: save last search, and cursor position.
-"     let _s=@/
-"     let l = line(".")
-"     let c = col(".")
-"     " do the business:
-"     %s/\s\+$//e
-"     " clean up: restore previous search history, and cursor position
-"     let @/=_s
-"     call cursor(l, c)
-" endfunction
-" autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-" }}}
-
 " Shell command {{{
 function! s:RunShellCommand(cmdline)
     botright new
@@ -564,3 +505,637 @@ command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
 " }}}
 " }}}
+
+" Input Method
+if (has("win64"))
+    augroup im
+        autocmd!
+        autocmd InsertLeave,BufEnter * :silent :!im-select.exe 1033
+    augroup END
+endif
+
+" colorscheme
+if (empty($TMUX))
+    if (has("nvim"))
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    if (has("termguicolors"))
+        set termguicolors
+    endif
+endif
+" set background=dark
+set background=light
+syntax enable
+colorscheme one
+
+call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg']},  {'ctermfg' :  167,  'guifg' :  '#A54242'})
+if has('nvim')
+    " 配置光标样式
+    set guicursor=n-v-c:hor25,i-ci-ve:hor25,r-cr:hor25,o:hor50
+                \,a:blinkwait700-blinkoff400-blinkon250-Cursor/Cursor
+                \,sm:block-blinkwait175-blinkoff150-blinkon175
+    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+endif
+" colorscheme end
+
+
+" 'vim-airline/vim-airline' start
+" 'vim-airline/vim-airline-themes'
+if g:vim_plug.is_ready('vim-airline')
+    set laststatus=2
+    let g:airline_powerline_fonts = 1
+    set t_Co=256
+
+    " let g:airline_theme='powerlineish'
+    " let g:airline_theme='hybridline'
+    " let g:airline_theme='hybrid'
+    " let g:airline_theme='badwolf'
+    " let g:airline_theme='darkone'
+    let g:airline_theme='one'
+    " let g:airline_theme='onehalflight'
+    " let g:airline_theme='onehalfdark'
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    let g:airline_left_sep = ''
+    let g:airline_left_sep = "\ue0b0"
+    let g:airline_left_alt_sep = ''
+    let g:airline_left_alt_sep = "\ue0b1"
+    let g:airline_left_alt_sep = '|'
+    let g:airline_right_sep = ''
+    let g:airline_right_sep = "\ue0b2"
+    let g:airline_right_alt_sep = ''
+    let g:airline_right_alt_sep = "\ue0b3"
+    let g:airline_right_alt_sep = '|'
+    let g:airline_symbols.crypt = '🔒'
+    let g:airline_symbols.readonly = ''
+    let g:airline_symbols.readonly = "\ue0a2"
+    let g:airline_symbols.maxlinenr = ''
+    let g:airline_symbols.maxlinenr = "\ue0a1"
+    let g:airline_symbols.linenr = '☰'
+    let g:airline_symbols.branch = ''
+    let g:airline_symbols.branch = "\ue0a0"
+    let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.spell = 'Ꞩ'
+    let g:airline_symbols.notexists = '∄'
+    let g:airline_symbols.whitespace = 'Ξ'
+
+    " let g:airline_extensions = []
+
+    " let g:airline#extensions#default#layout = [
+          " \ [ 'a', 'b', 'c'  ],
+          " \ [ 'x', 'y', 'z', 'warning','error'  ]
+          " \ ]
+    let g:airline_section_z='%3p%%(%o) %#__accent_bold#%{g:airline_symbols.linenr}%4l%#__restore__#%#__accent_bold#/%L%{g:airline_symbols.maxlinenr}%#__restore__# :%3v'
+    let g:airline#extensions#bufferline#enabled = 1
+    let g:airline#extensions#bufferline#overwrite_variables = 1
+
+    let g:airline#extensions#branch#enabled = 1
+    let g:airline#extensions#branch#empty_message = ''
+    let g:airline#extensions#branch#use_vcscommand = 0
+    let g:airline#extensions#branch#displayed_head_limit = 10
+    let g:airline#extensions#branch#format = 2
+    " let g:airline#extensions#branch#format = 'CustomBranchName'
+    " function! CustomBranchName(name)
+    "     return '[' . a:name .']'
+    " endfunction
+    " 是否显示语法错误 在error位置显示
+    let g:airline#extensions#syntastic#enabled = 1
+    let g:airline#extensions#ale#enabled = 1
+
+    " 是否在状态栏显示修改状态(添加，修改，删除)
+    let g:airline#extensions#hunks#enabled = 1
+    " 如果状态的数值为0，则不显示相应的状态数
+    let g:airline#extensions#hunks#non_zero_only = 1
+
+    let g:airline#extensions#whitespace#enabled = 1
+
+    let g:airline#extensions#tabline#enabled = 1
+    "是否显示buffers列表
+    let g:airline#extensions#tabline#show_splits = 1
+    " 交换buffers和tabs的显示位置
+    let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
+    " 显示buffers_label在tabline上
+    let g:airline#extensions#tabline#show_buffers = 1
+    " 如果之前没有tab在新建一个tab时，已经打开的buffers会收集到一个新tab中(1),否则还是以buffer_list的形式展示
+    let g:airline#extensions#tabline#show_tabs = 1
+    let g:airline#extensions#tabline#exclude_preview = 1
+    let g:airline#extensions#tabline#tab_nr_type = 2
+    let g:airline#extensions#tabline#show_tab_nr = 1
+    " 是否显示tab（far right）这个决定是否显示右上角的buffer_label/tab_lable
+    let g:airline#extensions#tabline#show_tab_type = 1
+    " let g:airline#extensions#tabline#show_tab_type = 0
+    let g:airline#extensions#tabline#buf_label_first = 1
+    let g:airline#extensions#tabline#current_first = 1
+    let g:airline#extensions#tabline#show_close_button = 0
+    " 配置buffers显示的标签
+    let g:airline#extensions#tabline#buffers_label = 'b'
+    let g:airline#extensions#tabline#tabs_label = 't'
+
+    let g:airline#extensions#tabline#buffer_nr_show = 1
+    let g:airline#extensions#tabline#buffer_nr_format = '%s: '
+
+    " let g:airline#extensions#tabline#formatter = 'default'
+    " let g:airline#extensions#tabline#formatter = 'unique_tail'
+    let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+    " let g:airline#extensions#tabline#fnamemod=':p:.'
+    " let g:airline#extensions#tabline#fnamemod=':p:~'
+    " let g:airline#extensions#tabline#fnamemod=':t'
+    "是否将父目录的文件名省略到一个字符显示
+    let g:airline#extensions#tabline#fnamecollapse = 1
+    " 处于非活动状态的buffer文件名截取到指定位数
+    let g:airline#extensions#tabline#fnametruncate = 0
+
+    let g:airline#extensions#tabline#buffer_min_count = 0
+    let g:airline#extensions#tabline#tab_min_count = 0
+    " let g:airline#extensions#tabline#ignore_bufadd_pat =
+    " \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree'
+    " let airline#extensions#tabline#disable_refresh = 0
+    " 这个好像没起作用，在代码中没有看到这个的引用
+    " let g:airline#extensions#ctrlspace#enabled = 1
+    " let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+    " let g:airline_exclude_preview = 1
+
+    " 以下四项如果不配置默认使用ariline相关的配置
+    " let g:airline#extensions#tabline#left_sep = '⮀'
+    " let g:airline#extensions#tabline#left_alt_sep = '|'
+    " let g:airline#extensions#tabline#right_sep = '⮂'
+    " let g:airline#extensions#tabline#right_alt_sep = '|'
+
+    let g:airline#extensions#tabline#buffer_idx_format = {
+                \ '0': '0 ',
+                \ '1': '1 ',
+                \ '2': '2 ',
+                \ '3': '3 ',
+                \ '4': '4 ',
+                \ '5': '5 ',
+                \ '6': '6 ',
+                \ '7': '7 ',
+                \ '8': '8 ',
+                \ '9': '9 '
+                \}
+    let g:airline#extensions#tabline#buffer_idx_mode = 1
+    nmap <leader>1 <Plug>AirlineSelectTab1
+    nmap <leader>2 <Plug>AirlineSelectTab2
+    nmap <leader>3 <Plug>AirlineSelectTab3
+    nmap <leader>4 <Plug>AirlineSelectTab4
+    nmap <leader>5 <Plug>AirlineSelectTab5
+    nmap <leader>6 <Plug>AirlineSelectTab6
+    nmap <leader>7 <Plug>AirlineSelectTab7
+    nmap <leader>8 <Plug>AirlineSelectTab8
+    nmap <leader>9 <Plug>AirlineSelectTab9
+    nmap <leader>- <Plug>AirlineSelectPrevTab
+    nmap <leader>+ <Plug>AirlineSelectNextTab
+
+    let g:airline#extensions#tmuxline#enabled = 0
+    let g:airline#extensions#tmuxline#snapshot_file = '~/.tmux.conf.colors.new'
+endif
+" 'vim-airline/vim-airline' end
+
+
+" 'jiangmiao/auto-pairs'
+if g:vim_plug.is_ready('auto-pairs')
+    let g:AutoPairsShortcutToggle='<c-a>'
+    " let g:AutoPairsShortcutFastWrap='<c-p>'
+    " noremap <M-x> :echo "ALT-X pressed"<cr>
+    " noremap <c-p> :echo "CTRL-P pressed"<cr>
+    " exec "set <M-x>=\e]{0}x~"
+    set ttimeout ttimeoutlen=100
+
+
+endif
+
+" 'bling/vim-bufferline'
+if g:vim_plug.is_ready('vim-bufferline')
+    let g:bufferline_echo = 0
+    let g:bufferline_rotate = 1
+    let g:bufferline_fixed_index =  0 "always first
+    let g:bufferline_fname_mod = ':t:s?^$?[No Name]?'
+endif
+
+" 'vim-ctrlspace/vim-ctrlspace'
+if g:vim_plug.is_ready('vim-ctrlspace')
+    let g:CtrlSpaceUseTabline = 0
+    set showtabline=0
+    if has('gui_running')
+        let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
+    endif
+endif
+
+" 'Valloric/ListToggle'
+if g:vim_plug.is_ready('ListToggle')
+    let g:lt_location_list_toggle_map = '<leader>l'
+    let g:lt_quickfix_list_toggle_map = '<leader>q'
+    let g:lt_height = 5
+endif
+
+" 'scrooloose/nerdtree'
+" 'jistr/vim-nerdtree-tabs'
+if g:vim_plug.is_ready('nerdtree')
+    let g:NERDShutUp=1
+    map <C-e> <plug>NERDTreeTabsToggle<CR>
+    map <leader>e :NERDTreeFind<CR>
+    nmap <leader>nt :NERDTreeFind<CR>
+    let NERDTreeStatusline="%{exists('b:NERDTree')?b:NERDTree.root.path.str():''}"
+    " let NERDTreeStatusline="NERDTree"
+    let NERDTreeShowBookmarks=0
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.DS_Store$']
+    let NERDTreeChDirMode=0
+    let NERDTreeChDirMode=2
+    let NERDTreeDirArrows=1
+    let NERDTreeMinimalUI=0
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeQuitOnOpen=0
+    let NERDTreeAutoCenter=1
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+    let NERDTreeWinSize=33
+    let NERDTreeHijackNetrw=1
+    let g:nerdtree_tabs_open_on_gui_startup=1
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ "Modified"  : "~",
+                \ "Staged"    : "+",
+                \ "Untracked" : "✭",
+                \ "Renamed"   : "➜",
+                \ "Unmerged"  : "═",
+                \ "Deleted"   : "_",
+                \ "Dirty"     : "✗",
+                \ "Clean"     : "✔︎",
+                \ 'Ignored'   : '☒',
+                \ "Unknown"   : "?"
+                \ }
+    " let g:NERDTreeIndicatorMapCustom = {
+    "             \ "Modified"  : "~",
+    "             \ "Staged"    : "+",
+    "             \ "Untracked" : "✭",
+    "             \ "Renamed"   : "➜",
+    "             \ "Unmerged"  : "═",
+    "             \ "Deleted"   : "_",
+    "             \ "Dirty"     : "✗",
+    "             \ "Clean"     : "✔︎",
+    "             \ 'Ignored'   : '☒',
+    "             \ "Unknown"   : "?"
+    "             \ }
+    " let g:NERDTreeIndicatorMapCustom = {
+    "             \ "Modified"  : "✹",
+    "             \ "Staged"    : "✚",
+    "             \ "Untracked" : "✭",
+    "             \ "Renamed"   : "➜",
+    "             \ "Unmerged"  : "═",
+    "             \ "Deleted"   : "✖",
+    "             \ "Dirty"     : "✗",
+    "             \ "Clean"     : "✔︎",
+    "             \ 'Ignored'   : '☒',
+    "             \ "Unknown"   : "?"
+    "             \ }
+endif
+" 'scrooloose/nerdtree' end
+
+" 'luochen1990/rainbow'
+if g:vim_plug.is_ready('rainbow')
+    let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+endif
+
+" 'godlygeek/tabular'
+if g:vim_plug.is_ready('tabular')
+    nmap <Leader>a& :Tabularize /&<CR>
+    vmap <Leader>a& :Tabularize /&<CR>
+    nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    nmap <Leader>a=> :Tabularize /=><CR>
+    vmap <Leader>a=> :Tabularize /=><CR>
+    nmap <Leader>a: :Tabularize /:<CR>
+    vmap <Leader>a: :Tabularize /:<CR>
+    nmap <Leader>a:: :Tabularize /:\zs<CR>
+    vmap <Leader>a:: :Tabularize /:\zs<CR>
+    nmap <Leader>a, :Tabularize /,<CR>
+    vmap <Leader>a, :Tabularize /,<CR>
+    nmap <Leader>a,, :Tabularize /,\zs<CR>
+    vmap <Leader>a,, :Tabularize /,\zs<CR>
+    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    nmap <Leader>a* :Tabularize /*<CR>
+    vmap <Leader>a* :Tabularize /*<CR>
+    nmap <Leader>aa :Tabularize assignment<CR>
+    vmap <Leader>aa :Tabularize assignment<CR>
+    nmap <Leader>ap :Tabularize argument_list<CR>
+    vmap <Leader>ap :Tabularize argument_list<CR>
+    nmap <Leader>ams :Tabularize multiple_spaces<CR>
+    vmap <Leader>ams :Tabularize multiple_spaces<CR>
+    nmap <Leader>at :Tabularize ternary_operator<CR>
+    vmap <Leader>at :Tabularize ternary_operator<CR>
+endif
+" 'godlygeek/tabular' end
+
+" 'majutsushi/tagbar'
+if g:vim_plug.is_ready('tagbar')
+    " autocmd FileType go :TagbarOpen
+    let g:tagbar_width = 33
+    let g:tagbar_zoomwidth = 1
+    let g:tagbar_foldlevel = 9
+    let g:tagbar_autoclose = 0
+    let g:tagbar_autofocus = 0
+    let g:tagbar_expand = 1
+    let g:tagbar_compact = 0
+    let g:tagbar_autoshowtag = 1
+    let g:tagbar_iconchars = ['▶', '▼']  " (default on Linux and Mac OS X)
+    let g:tagbar_iconchars = ['▸', '▾']
+    let g:tagbar_iconchars = ['▷', '◢']
+
+    nnoremap <silent> <leader>tb :TagbarToggle<CR>
+    " tagbar-extend kinds部分的解释
+    let g:tagbar_type_go = {
+                \ 'ctagstype' : 'go',
+                \ 'kinds'     : [
+                \ 'p:package',
+                \ 'i:imports',
+                \ 'c:constants',
+                \ 'v:variables',
+                \ 't:types',
+                \ 'n:interfaces',
+                \ 'w:fields',
+                \ 'e:embedded',
+                \ 'm:methods',
+                \ 'r:constructor',
+                \ 'f:functions',
+                \ '?:unknown',
+                \ ],
+                \ 'sro' : '.',
+                \ 'kind2scope' : {
+                \ 't' : 'ctype',
+                \ 'n' : 'ntype'
+                \ },
+                \ 'scope2kind' : {
+                \ 'ctype' : 't',
+                \ 'ntype' : 'n'
+                \ },
+                \ 'ctagsbin'  : 'gotags',
+                \ 'ctagsargs' : '-sort -silent'
+                \ }
+
+endif
+" 'majutsushi/tagbar' end
+
+" 'edkolev/tmuxline.vim'
+if g:vim_plug.is_ready('tmuxline.vim')
+    let g:tmuxline_powerline_separators = 0
+    let g:tmuxline_separators = {
+                \ 'left'      : '\ue0b0',
+                \ 'left_alt'  : '|',
+                \ 'right'     : '\ue0b2',
+                \ 'right_alt' : '|',
+                \ 'space'     : ' '
+                \ }
+    let g:tmuxline_preset = {
+                \ 'a'           : ['#{?client_prefix,#{socket_path} | #S | #{session_attached}⨳ | ⑇,#{socket_path} | #S | #{session_attached}⨳}'],
+                \ 'win'         : ['#I:#W'],
+                \ 'cwin'        : ['#I:#W'],
+                \ 'z'           : ['#{?client_prefix,⑇ | %R,%R}'],
+                \ 'options'     : {'status-justify'              : 'left'},
+                \ 'win_options' : {'window-status-activity-attr' : 'none'}
+                \ }
+    nnoremap <expr> <Leader>mtc exists(':TmuxlineSnapshot') ? ":TmuxlineSnapshot! ~/.tmux.conf.colors<CR>" : ":echo ':TmuxlineSnapshot Not Exist'<CR>"
+endif
+
+" 'mbbill/undotree'
+if g:vim_plug.is_ready('undotree')
+    nnoremap <Leader>u :UndotreeToggle<CR>
+    " If undotree is opened, it is likely one wants to interact with it.
+    let g:undotree_SetFocusWhenToggle=1
+endif
+
+" 'svermeulen/vim-easyclip'
+if g:vim_plug.is_ready('vim-easyclip')
+    nnoremap gm m
+    let g:EasyClipUsePasteToggleDefaults = 0
+    nmap ]y <plug>EasyClipSwapPasteForward
+    nmap [y <plug>EasyClipSwapPasteBackwards
+endif
+
+" 'tpope/vim-fugitive'
+if g:vim_plug.is_ready('vim-fugitive')
+    " nnoremap <silent> <leader>gs :Gstatus<CR>
+    " nnoremap <silent> <leader>gd :Gdiff<CR>
+    " nnoremap <silent> <leader>gc :Gcommit<CR>
+    " nnoremap <silent> <leader>gb :Gblame<CR>
+    " nnoremap <silent> <leader>gl :Glog<CR>
+    " nnoremap <silent> <leader>gp :Git push<CR>
+    " nnoremap <silent> <leader>gr :Gread<CR>
+    " nnoremap <silent> <leader>gw :Gwrite<CR>
+    " nnoremap <silent> <leader>ge :Gedit<CR>
+    " " Mnemonic _i_nteractive
+    " nnoremap <silent> <leader>gi :Git add -p %<CR>
+endif
+
+" 'airblade/vim-gitgutter'
+if g:vim_plug.is_ready('vim-gitgutter')
+    " 是否让SignColumn的highlight和LineNr的一至(默认是1)
+    let g:gitgutter_override_sign_column_highlight=0
+    " let g:gitgutter_highlight_lines=1
+    let g:gitgutter_signs=1
+    " call g:gitgutter#highlight#define_sign_column_highlight()
+    " call g:utils.generate_diff_groups_highlight()
+    " highlight link GitGutterAdd          MyDiffAdd
+    " highlight link GitGutterChange       MyDiffChange
+    " highlight link GitGutterDelete       MyDiffDelete
+    " highlight link GitGutterChangeDelete MyDiffChangeDelete
+endif
+
+" 'nathanaelkane/vim-indent-guides'
+if g:vim_plug.is_ready('vim-indent-guides')
+    let g:indent_guides_enable_on_vim_startup = 0
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_color_change_percent = 10
+    let g:indent_guides_space_guides = 1
+    let g:indent_guides_tab_guides = 1
+    let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+    " let g:indent_guides_exclude_filetypes = ['help']
+    "<leader>ig
+    let g:indent_guides_default_mapping = 1
+endif
+
+" vim-plug
+let g:plug_window='tabnew'
+
+function! s:plug_gx()
+    let line = getline('.')
+    let sha = matchstr(line, '^ \X*\zs\x\{7}\ze ')
+    let name = empty(sha) ? matchstr(line, '^[-x+] \zs[^:]\+\ze:')
+                \ : getline(search('^- .*:$', 'bn'))[2:-2]
+	" for [key, value] in items(g:plugs)
+        " echom key . ':' . get(value,'uri','')
+    " endfor
+    let uri = get(get(g:plugs, name, {}), 'uri', '')
+    if uri !~ 'github.com'
+        return
+    endif
+    let repo = matchstr(uri, '[^:/]*/' . name . '.git')
+    let url = empty(sha) ? 'https://github.com/' . repo
+                \ : printf('https://github.com/%s/commit/%s', repo, sha)
+    call netrw#BrowseX(url, 0)
+endfunction
+
+augroup PlugGx
+    autocmd!
+    autocmd FileType vim-plug nnoremap <buffer> <silent> gx :call <sid>plug_gx()<cr>
+augroup END
+
+function! s:plug_doc()
+  let name = matchstr(getline('.'), '^- \zs\S\+\ze:')
+  if has_key(g:plugs, name)
+    for doc in split(globpath(g:plugs[name].dir, 'doc/*.txt'), '\n')
+      execute 'tabe' doc
+    endfor
+  endif
+endfunction
+
+augroup PlugHelp
+  autocmd!
+  autocmd FileType vim-plug nnoremap <buffer> <silent> H :call <sid>plug_doc()<cr>
+augroup END
+
+function! s:scroll_preview(down)
+  silent! wincmd P
+  if &previewwindow
+    execute 'normal!' a:down ? "\<c-e>" : "\<c-y>"
+    wincmd p
+  endif
+endfunction
+
+" J / K to scroll the preview window
+" CTRL-N / CTRL-P to move between the commits
+" CTRL-J / CTRL-K to move between the commits and synchronize the preview window
+
+function! s:setup_extra_keys()
+  nnoremap <silent> <buffer> J :call <sid>scroll_preview(1)<cr>
+  nnoremap <silent> <buffer> K :call <sid>scroll_preview(0)<cr>
+  nnoremap <silent> <buffer> <c-n> :call search('^  \X*\zs\x')<cr>
+  nnoremap <silent> <buffer> <c-p> :call search('^  \X*\zs\x', 'b')<cr>
+  nmap <silent> <buffer> <c-j> <c-n>o
+  nmap <silent> <buffer> <c-k> <c-p>o
+endfunction
+
+augroup PlugDiffExtra
+  autocmd!
+  autocmd FileType vim-plug call s:setup_extra_keys()
+augroup END
+
+"  需要vim作特别的配置，暂时不用
+" ----------------------------------------------------------------------------
+" vimawesome.com
+" ----------------------------------------------------------------------------
+" function! VimAwesomeComplete() abort
+"   let prefix = matchstr(strpart(getline('.'), 0, col('.') - 1), '[.a-zA-Z0-9_/-]*$')
+"   echohl WarningMsg
+"   echo 'Downloading plugin list from VimAwesome'
+"   echohl None
+" ruby << EOF
+"   require 'json'
+"   require 'open-uri'
+
+"   query = VIM::evaluate('prefix').gsub('/', '%20')
+"   items = 1.upto(max_pages = 3).map do |page|
+"     Thread.new do
+"       url  = "http://vimawesome.com/api/plugins?page=#{page}&query=#{query}"
+"       data = open(url).read
+"       json = JSON.parse(data, symbolize_names: true)
+"       json[:plugins].map do |info|
+"         pair = info.values_at :github_owner, :github_repo_name
+"         next if pair.any? { |e| e.nil? || e.empty? }
+"         {word: pair.join('/'),
+"          menu: info[:category].to_s,
+"          info: info.values_at(:short_desc, :author).compact.join($/)}
+"       end.compact
+"     end
+"   end.each(&:join).map(&:value).inject(:+)
+"   VIM::command("let cands = #{JSON.dump items}")
+" EOF
+"   if !empty(cands)
+"     inoremap <buffer> <c-v> <c-n>
+"     augroup _VimAwesomeComplete
+"       autocmd!
+"       autocmd CursorMovedI,InsertLeave * iunmap <buffer> <c-v>
+"             \| autocmd! _VimAwesomeComplete
+"     augroup END
+
+"     call complete(col('.') - strchars(prefix), cands)
+"   endif
+"   return ''
+" endfunction
+
+" augroup VimAwesomeComplete
+"   autocmd!
+"   autocmd FileType vim inoremap <c-x><c-v> <c-r>=VimAwesomeComplete()<cr>
+" augroup END
+
+" vim-plug end
+
+ " 'kshenoy/vim-signature'
+ if g:vim_plug.is_ready('vim-signature')
+    let g:SignaturePrioritizeMarks = 1
+    let g:SignatureMarkTextHLDynamic = 1
+    let g:SignatureMarkerTextHLDynamic = 1
+    let g:SignatureUnconditionallyRecycleMarks = 0
+    " autocmd! BufReadPost * silent SignatureRefresh
+endif
+
+" 'mhinz/vim-signify'
+if g:vim_plug.is_ready('vim-signify')
+    nnoremap <silent> <leader>gg :SignifyToggle<CR>
+endif
+
+" 'reedes/vim-textobj-quote'
+if g:vim_plug.is_ready('vim-textobj-quote')
+    augroup textobj_quote
+        autocmd!
+        autocmd FileType markdown call textobj#quote#init()
+        autocmd FileType textile call textobj#quote#init()
+        autocmd FileType text call textobj#quote#init({'educate': 0})
+    augroup END
+endif
+
+" 'reedes/vim-textobj-sentence'
+if g:vim_plug.is_ready('vim-textobj-sentence')
+    augroup textobj_sentence
+        autocmd!
+        autocmd FileType markdown call textobj#sentence#init()
+        autocmd FileType textile call textobj#sentence#init()
+        autocmd FileType text call textobj#sentence#init()
+    augroup END
+endif
+
+" benmills/vimux
+if g:vim_plug.is_ready('vimux')
+    " Run the current file with rspec
+    map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+
+    " Prompt for a command to run
+    map <Leader>vp :VimuxPromptCommand<CR>
+
+    " Run last command executed by VimuxRunCommand
+    map <Leader>vl :VimuxRunLastCommand<CR>
+
+    " Inspect runner pane
+    map <Leader>vi :VimuxInspectRunner<CR>
+
+    " Close vim tmux runner opened by VimuxRunCommand
+    map <Leader>vq :VimuxCloseRunner<CR>
+
+    " Interrupt any command running in the runner pane
+    map <Leader>vx :VimuxInterruptRunner<CR>
+
+    " Zoom the runner pane (use <bind-key> z to restore runner pane)
+    map <Leader>vz :call VimuxZoomRunner()<CR>
+endif
+
+" 'gcmt/wildfire.vim'
+if g:vim_plug.is_ready('wildfire.vim')
+    let g:wildfire_objects = {
+                \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+                \ "html,xml" : ["at"],
+                \ }
+endif
+
+

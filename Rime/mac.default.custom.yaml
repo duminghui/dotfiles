@@ -1,0 +1,21 @@
+patch:
+  menu/page_size: 7
+  switcher/hotkeys:
+    - F4
+  # 中文状态下
+  # commit_code 上屏英文转英文
+  # commit_text 上屏中文转英文
+  # inline_asscii 上屏英文转中文
+  # clear 清除当前输入
+  # noop 啥也不做
+  # Shift_L和Shift_R区分不了
+  # Control_R 识别不了
+  ascii_composer/switch_key/Shift_L: commit_code
+  ascii_composer/switch_key/Shift_R: inline_ascii
+  ascii_composer/switch_key/Control_L: commit_text
+  ascii_composer/switch_key/Control_R: clear
+  ascii_composer/switch_key/Caps_Lock: noopS
+  schema_list:
+    - schema: wubi86
+    - schema: wubi_pinyin
+    - schema: wubi_trad
