@@ -47,12 +47,13 @@ set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
 set iskeyword-=-                    " '-' is an end of word designator
 
-set unbackup                  " Backups are nice ...
+set backup                  " Backups are nice ...
 if has('persistent_undo')
     set undofile                " So is persistent undo ...
     set undolevels=1000         " Maximum number of changes that can be undone
     set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 endif
+set nobackup
 
 " set textwidth=80
 set linebreak
@@ -207,14 +208,36 @@ else
 endif
 " }}}
 
-set nobackup
-
 if (has("win64"))
     augroup im
         autocmd!
         autocmd InsertLeave,BufEnter * :silent :!im-select.exe 1033
     augroup END
 endif
+
+
+" colorscheme
+if (empty($TMUX))
+    if (has("nvim"))
+        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    endif
+    if (has("termguicolors"))
+        set termguicolors
+    endif
+endif
+set background=dark
+" set background=light
+syntax enable
+
+call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg']},  {'ctermfg' :  167,  'guifg' :  '#A54242'})
+if has('nvim')
+    " 配置光标样式
+    set guicursor=n-v-c:hor25,i-ci-ve:hor25,r-cr:hor25,o:hor50
+                \,a:blinkwait700-blinkoff400-blinkon250-Cursor/Cursor
+                \,sm:block-blinkwait175-blinkoff150-blinkon175
+    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
+endif
+" colorscheme end
 
 
 if g:vim_plug.is_ready('auto-pairs')
