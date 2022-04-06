@@ -5,6 +5,7 @@ Plug 'bronson/vim-trailing-whitespace', g:vim_plug.cond(1)
 Plug 'tpope/vim-surround', g:vim_plug.cond(1)
 Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
 Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
+Plug 'easymotion/vim-easymotion', g:vim_plug.cond(!exists('g:vscode'))
 Plug 'asvetliakov/vim-easymotion', g:vim_plug.cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
