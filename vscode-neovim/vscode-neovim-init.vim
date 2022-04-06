@@ -10,7 +10,6 @@ Plug 'asvetliakov/vim-easymotion', g:vim_plug.cond(exists('g:vscode'), { 'as': '
 Plug 'haya14busa/vim-easyoperator-line'
 Plug 'haya14busa/vim-easyoperator-phrase'
 Plug 'tommcdo/vim-exchange'
-" 对齐插件
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-lastpat'
@@ -229,25 +228,8 @@ set background=dark
 " set background=light
 syntax enable
 
-call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg']},  {'ctermfg' :  167,  'guifg' :  '#A54242'})
-if has('nvim')
-    " 配置光标样式
-    " set guicursor=n-v-c:hor25,i-ci-ve:hor25,r-cr:hor25,o:hor50
-    "             \,a:blinkwait700-blinkoff400-blinkon250-Cursor/Cursor
-    "             \,sm:block-blinkwait175-blinkoff150-blinkon175
-    " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
-endif
 " colorscheme end
 
-
-if g:vim_plug.is_ready('auto-pairs')
-    let g:AutoPairsShortcutToggle='<c-a>'
-    " let g:AutoPairsShortcutFastWrap='<c-p>'
-    " noremap <M-x> :echo "ALT-X pressed"<cr>
-    " noremap <c-p> :echo "CTRL-P pressed"<cr>
-    " exec "set <M-x>=\e]{0}x~"
-    set ttimeout ttimeoutlen=100
-endif
 
 " 'reedes/vim-textobj-quote'
 if g:vim_plug.is_ready('vim-textobj-quote')
