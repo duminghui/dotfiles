@@ -11,15 +11,17 @@ ZSH_THEME_TERM_TITLE_IDLE="%~"
 
 #关于历史纪录的配置 {{{
 #历史纪录条目数量
-export HISTSIZE=10000
+export HISTSIZE=1000
 #注销后保存的历史纪录条目数量
-export SAVEHIST=10000
+export SAVEHIST=1000
 #历史纪录文件
 #export HISTFILE=~/.zhistory
 #以附加的方式写入历史纪录
 setopt INCAPPENDHISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
 setopt HISTIGNOREDUPS
+#不保留重复的历史记录项
+setopt hist_ignore_all_dups
 
 #为历史纪录中的命令添加时间戳
 setopt EXTENDED_HISTORY
