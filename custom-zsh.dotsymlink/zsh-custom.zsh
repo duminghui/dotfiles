@@ -5,6 +5,10 @@
 # zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+# 在vi normal mode下显示<<<
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+
 #修改了下面这个地方，标题栏不显示%n%m:
 #ZSH_THEME_TERM_TITLE_IDLE="%n@%m: %~"
 ZSH_THEME_TERM_TITLE_IDLE="%~"
