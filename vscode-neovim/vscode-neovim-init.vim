@@ -1,22 +1,25 @@
 call utils#init()
 call plug#begin()
 
-Plug 'bronson/vim-trailing-whitespace', g:vim_plug.cond(1)
+" Plug 'bronson/vim-trailing-whitespace', g:vim_plug.cond(1)
 Plug 'tpope/vim-surround', g:vim_plug.cond(1)
-Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
-Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
+" Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
+" Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
 Plug 'easymotion/vim-easymotion', g:vim_plug.cond(!exists('g:vscode'))
 Plug 'asvetliakov/vim-easymotion', g:vim_plug.cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
-Plug 'haya14busa/vim-easyoperator-line'
-Plug 'haya14busa/vim-easyoperator-phrase'
+" Plug 'haya14busa/vim-easyoperator-line'
+" Plug 'haya14busa/vim-easyoperator-phrase'
+
+" 交换两个textobject的位置, 第一次使用cx{motion}选择源目标,
+" 第二次使用选择目标位置,cxx:line,X:Visual mode, cxc:clean
 Plug 'tommcdo/vim-exchange'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-lastpat'
-Plug 'reedes/vim-textobj-sentence'
-Plug 'reedes/vim-textobj-quote'
+" Plug 'kana/vim-textobj-user'
+" Plug 'kana/vim-textobj-indent'
+" Plug 'kana/vim-textobj-lastpat'
+" Plug 'reedes/vim-textobj-sentence'
+" Plug 'reedes/vim-textobj-quote'
 "  i', i", i), i], i}, ip and it.
-Plug 'gcmt/wildfire.vim'
+" Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-commentary', g:vim_plug.cond(1)
 call plug#end()
 
@@ -207,12 +210,12 @@ else
 endif
 " }}}
 
-if (has("win64"))
-    augroup im
-        autocmd!
-        autocmd InsertLeave,BufEnter * :silent :!im-select.exe 1033
-    augroup END
-endif
+" if (has("win64"))
+"     augroup im
+"         autocmd!
+"         autocmd InsertLeave,BufEnter * :silent :!im-select.exe 1033
+"     augroup END
+" endif
 
 
 " colorscheme
