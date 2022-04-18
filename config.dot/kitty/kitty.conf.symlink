@@ -6,9 +6,7 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      Fira Code
-# font_family      Fira Code Regular
-# font_family      Fira Code Retina
+font_family      Fira Code Terminal
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -117,15 +115,22 @@ adjust_column_width 0
 #
 
 font_features FiraCode-Bold          +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
-font_features FiraCodeRoman-Bold     +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 font_features FiraCode-Light         +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
-font_features FiraCodeRoman-Medium   +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 font_features FiraCode-Medium        +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
-font_features FiraCodeRoman-Regular  +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 font_features FiraCode-Regular       +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 font_features FiraCode-Retina        +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 font_features FiraCode-SemiBold      +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+
+font_features FiraCodeRoman-Bold     +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+font_features FiraCodeRoman-Medium   +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+font_features FiraCodeRoman-Regular  +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 font_features FiraCodeRoman-SemiBold +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+
+font_features FiraCodeTerminal-Light         +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+font_features FiraCodeTerminalRoman-Bold     +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+font_features FiraCodeTerminalRoman-Medium   +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+font_features FiraCodeTerminalRoman-Regular  +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
+font_features FiraCodeTerminalRoman-SemiBold +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 
 
 #: E.g. font_features none
