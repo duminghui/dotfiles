@@ -52,6 +52,8 @@ Plug 'nelstrom/vim-qargs', g:vim_plug.cond(0)
 " 搜索时高亮显示要搜索的字符 :OverCommandLine
 Plug 'osyo-manga/vim-over', g:vim_plug.cond(1)
 Plug 'bronson/vim-visual-star-search', g:vim_plug.cond(1)
+" 显示顔色值对应的顔色
+Plug 'rrethy/vim-hexokinase', {'do': 'make hexokinase'}
 "}}}
 
 " type expend {{{
@@ -964,7 +966,7 @@ function! s:plug_gx()
     let sha = matchstr(line, '^ \X*\zs\x\{7}\ze ')
     let name = empty(sha) ? matchstr(line, '^[-x+] \zs[^:]\+\ze:')
                 \ : getline(search('^- .*:$', 'bn'))[2:-2]
-	" for [key, value] in items(g:plugs)
+    " for [key, value] in items(g:plugs)
         " echom key . ':' . get(value,'uri','')
     " endfor
     let uri = get(get(g:plugs, name, {}), 'uri', '')
@@ -1138,4 +1140,7 @@ if g:vim_plug.is_ready('wildfire.vim')
                 \ }
 endif
 
+if !has('nvim')
+    let g:Hexokinase_highlighters=['backgroundfull']
+endif
 
