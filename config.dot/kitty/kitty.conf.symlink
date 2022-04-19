@@ -132,7 +132,6 @@ font_features FiraCodeTerminalRoman-Medium   +ss01 +ss02 +ss04 +ss06 +ss07 +ss08
 font_features FiraCodeTerminalRoman-Regular  +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 font_features FiraCodeTerminalRoman-SemiBold +ss01 +ss02 +ss04 +ss06 +ss07 +ss08 +ss09 +ss10 +cv01 +cv02 +cv05 +cv09 +zero +cv15 +cv17 +cv18 +cv25 +cv26 +cv28 +cv29 +cv32 +onum
 
-
 #: E.g. font_features none
 
 #: Choose exactly which OpenType features to enable or disable. This
