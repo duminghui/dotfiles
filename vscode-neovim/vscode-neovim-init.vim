@@ -5,14 +5,14 @@ call plug#begin()
 Plug 'tpope/vim-surround', g:vim_plug.cond(1)
 " Plug 'jiangmiao/auto-pairs', g:vim_plug.cond(1)
 " Plug 'terryma/vim-multiple-cursors', g:vim_plug.cond(1)
-Plug 'easymotion/vim-easymotion', g:vim_plug.cond(!exists('g:vscode'))
+" Plug 'easymotion/vim-easymotion', g:vim_plug.cond(!exists('g:vscode'))
 Plug 'asvetliakov/vim-easymotion', g:vim_plug.cond(exists('g:vscode'), { 'as': 'vsc-easymotion' })
 " Plug 'haya14busa/vim-easyoperator-line'
 " Plug 'haya14busa/vim-easyoperator-phrase'
 
 " 交换两个textobject的位置, 第一次使用cx{motion}选择源目标,
 " 第二次使用选择目标位置,cxx:line,X:Visual mode, cxc:clean
-Plug 'tommcdo/vim-exchange'
+" Plug 'tommcdo/vim-exchange'
 " Plug 'kana/vim-textobj-user'
 " Plug 'kana/vim-textobj-indent'
 " Plug 'kana/vim-textobj-lastpat'
@@ -20,7 +20,7 @@ Plug 'tommcdo/vim-exchange'
 " Plug 'reedes/vim-textobj-quote'
 "  i', i", i), i], i}, ip and it.
 " Plug 'gcmt/wildfire.vim'
-Plug 'tpope/vim-commentary', g:vim_plug.cond(1)
+" Plug 'tpope/vim-commentary', g:vim_plug.cond(1)
 call plug#end()
 
 " General {{{
@@ -111,6 +111,8 @@ set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 " Remove trailing whitespaces and ^M chars
 " To disable the stripping of whitespace, add the following to your
 
+" }}}
+
 " Key (re)Mappings {{{
 let mapleader = ','
 noremap \ ,
@@ -122,17 +124,17 @@ noremap k gk
 noremap gk k
 
 " Stupid shift key fixes
-if has("user_commands")
-    command! -bang -nargs=* -complete=file E e<bang> <args>
-    command! -bang -nargs=* -complete=file W w<bang> <args>
-    command! -bang -nargs=* -complete=file Wq wq<bang> <args>
-    command! -bang -nargs=* -complete=file WQ wq<bang> <args>
-    command! -bang Wa wa<bang>
-    command! -bang WA wa<bang>
-    command! -bang Q q<bang>
-    command! -bang QA qa<bang>
-    command! -bang Qa qa<bang>
-endif
+" if has("user_commands")
+"     command! -bang -nargs=* -complete=file E e<bang> <args>
+"     command! -bang -nargs=* -complete=file W w<bang> <args>
+"     command! -bang -nargs=* -complete=file Wq wq<bang> <args>
+"     command! -bang -nargs=* -complete=file WQ wq<bang> <args>
+"     command! -bang Wa wa<bang>
+"     command! -bang WA wa<bang>
+"     command! -bang Q q<bang>
+"     command! -bang QA qa<bang>
+"     command! -bang Qa qa<bang>
+" endif
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
@@ -147,16 +149,16 @@ set completeopt=menuone
 
 " autoread {{{
 set autoread
-if !has("gui_running")
-    augroup checktime
-        autocmd!
-        autocmd BufEnter     * silent! checktime
-        autocmd CursorHold   * silent! checktime
-        autocmd CursorHoldI  * silent! checktime
-        autocmd CursorMoved  * silent! checktime
-        autocmd CursorMovedI * silent! checktime
-    augroup END
-endif
+" if !has("gui_running")
+"     augroup checktime
+"         autocmd!
+"         autocmd BufEnter     * silent! checktime
+"         autocmd CursorHold   * silent! checktime
+"         autocmd CursorHoldI  * silent! checktime
+"         autocmd CursorMoved  * silent! checktime
+"         autocmd CursorMovedI * silent! checktime
+"     augroup END
+" endif
 " }}}
 
 " }}}
@@ -233,6 +235,10 @@ syntax enable
 
 " colorscheme end
 
+xmap gc  <Plug>VSCodeCommentary
+nmap gc  <Plug>VSCodeCommentary
+omap gc  <Plug>VSCodeCommentary
+nmap gcc <Plug>VSCodeCommentaryLine
 
 " " 'reedes/vim-textobj-quote'
 " if g:vim_plug.is_ready('vim-textobj-quote')
