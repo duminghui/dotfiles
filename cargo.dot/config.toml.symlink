@@ -8,3 +8,6 @@ registry = "git://mirrors.ustc.edu.cn/crates.io-index"
 [http]
 multiplexing = false
 
+[build]
+rustc-wrapper = "sccache"
+
