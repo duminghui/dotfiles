@@ -504,15 +504,16 @@ command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
 " }}}
 " }}}
 
-" Input Method
+" Input Method Toggle {{{
 if (has("win64"))
     augroup im
         autocmd!
         autocmd InsertLeave,BufEnter * :silent :!im-select.exe 1033
     augroup END
 endif
+" }}}
 
-" colorscheme
+" colorscheme {{{
 if (empty($TMUX))
     if (has("nvim"))
         let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -521,12 +522,14 @@ if (empty($TMUX))
         set termguicolors
     endif
 endif
-" set background=dark
-set background=light
+set background=dark
+" set background=light
 syntax enable
 colorscheme one
 
-call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg']},  {'ctermfg' :  167,  'guifg' :  '#A54242'})
+"  call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg']},  {'ctermfg' :  167,  'guifg' :  '#A54242'})
+call g:utils.generate_highlight('CursorLineNr',  {'LineNr':  ['ctermbg',  'guibg']},  {'ctermfg' :  167,  'guifg' :  '#FFD700'})
+
 if has('nvim')
     " 配置光标样式
     set guicursor=n-v-c:hor25,i-ci-ve:hor25,r-cr:hor25,o:hor50
@@ -535,9 +538,9 @@ if has('nvim')
     " let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 endif
 " colorscheme end
+" }}}
 
-
-" 'vim-airline/vim-airline' start
+" 'vim-airline/vim-airline' {{{
 " 'vim-airline/vim-airline-themes'
 if g:vim_plug.is_ready('vim-airline')
     set laststatus=2
@@ -548,10 +551,10 @@ if g:vim_plug.is_ready('vim-airline')
     " let g:airline_theme='hybridline'
     " let g:airline_theme='hybrid'
     " let g:airline_theme='badwolf'
-    " let g:airline_theme='darkone'
+    "  let g:airline_theme='darkone'
     let g:airline_theme='one'
-    " let g:airline_theme='onehalflight'
-    " let g:airline_theme='onehalfdark'
+    "  let g:airline_theme='onehalflight'
+    "  let g:airline_theme='onehalfdark'
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}
     endif
@@ -689,9 +692,9 @@ if g:vim_plug.is_ready('vim-airline')
     let g:airline#extensions#tmuxline#snapshot_file = '~/.tmux.conf.colors.new'
 endif
 " 'vim-airline/vim-airline' end
+" }}}
 
-
-" 'jiangmiao/auto-pairs'
+" 'jiangmiao/auto-pairs' {{{
 if g:vim_plug.is_ready('auto-pairs')
     let g:AutoPairsShortcutToggle='<c-a>'
     " let g:AutoPairsShortcutFastWrap='<c-p>'
@@ -699,19 +702,19 @@ if g:vim_plug.is_ready('auto-pairs')
     " noremap <c-p> :echo "CTRL-P pressed"<cr>
     " exec "set <M-x>=\e]{0}x~"
     set ttimeout ttimeoutlen=100
-
-
 endif
+" }}}
 
-" 'bling/vim-bufferline'
+" 'bling/vim-bufferline' {{{
 if g:vim_plug.is_ready('vim-bufferline')
     let g:bufferline_echo = 0
     let g:bufferline_rotate = 1
     let g:bufferline_fixed_index =  0 "always first
     let g:bufferline_fname_mod = ':t:s?^$?[No Name]?'
 endif
+" }}}
 
-" 'vim-ctrlspace/vim-ctrlspace'
+" 'vim-ctrlspace/vim-ctrlspace' {{{
 if g:vim_plug.is_ready('vim-ctrlspace')
     let g:CtrlSpaceUseTabline = 0
     set showtabline=0
@@ -719,15 +722,17 @@ if g:vim_plug.is_ready('vim-ctrlspace')
         let g:CtrlSpaceSymbols = { "File": "◯", "CTab": "▣", "Tabs": "▢" }
     endif
 endif
+" }}}
 
-" 'Valloric/ListToggle'
+" 'Valloric/ListToggle' {{{
 if g:vim_plug.is_ready('ListToggle')
     let g:lt_location_list_toggle_map = '<leader>l'
     let g:lt_quickfix_list_toggle_map = '<leader>q'
     let g:lt_height = 5
 endif
+" }}}
 
-" 'scrooloose/nerdtree'
+" 'scrooloose/nerdtree' {{{
 " 'jistr/vim-nerdtree-tabs'
 if g:vim_plug.is_ready('nerdtree')
     let g:NERDShutUp=1
@@ -789,13 +794,15 @@ if g:vim_plug.is_ready('nerdtree')
     "             \ }
 endif
 " 'scrooloose/nerdtree' end
+" }}}
 
-" 'luochen1990/rainbow'
+" 'luochen1990/rainbow' {{{
 if g:vim_plug.is_ready('rainbow')
     let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
 endif
+" }}}
 
-" 'godlygeek/tabular'
+" 'godlygeek/tabular' {{{
 if g:vim_plug.is_ready('tabular')
     nmap <Leader>a& :Tabularize /&<CR>
     vmap <Leader>a& :Tabularize /&<CR>
@@ -825,8 +832,9 @@ if g:vim_plug.is_ready('tabular')
     vmap <Leader>at :Tabularize ternary_operator<CR>
 endif
 " 'godlygeek/tabular' end
+" }}}
 
-" 'majutsushi/tagbar'
+" 'majutsushi/tagbar' {{{
 if g:vim_plug.is_ready('tagbar')
     " autocmd FileType go :TagbarOpen
     let g:tagbar_width = 33
@@ -874,8 +882,9 @@ if g:vim_plug.is_ready('tagbar')
 
 endif
 " 'majutsushi/tagbar' end
+" }}}
 
-" 'edkolev/tmuxline.vim'
+" 'edkolev/tmuxline.vim' {{{
 if g:vim_plug.is_ready('tmuxline.vim')
     let g:tmuxline_powerline_separators = 0
     let g:tmuxline_separators = {
@@ -895,23 +904,26 @@ if g:vim_plug.is_ready('tmuxline.vim')
                 \ }
     nnoremap <expr> <Leader>mtc exists(':TmuxlineSnapshot') ? ":TmuxlineSnapshot! ~/.tmux.conf.colors<CR>" : ":echo ':TmuxlineSnapshot Not Exist'<CR>"
 endif
+" }}}
 
-" 'mbbill/undotree'
+" 'mbbill/undotree' {{{
 if g:vim_plug.is_ready('undotree')
     nnoremap <Leader>u :UndotreeToggle<CR>
     " If undotree is opened, it is likely one wants to interact with it.
     let g:undotree_SetFocusWhenToggle=1
 endif
+" }}}
 
-" 'svermeulen/vim-easyclip'
+" 'svermeulen/vim-easyclip' {{{
 if g:vim_plug.is_ready('vim-easyclip')
     nnoremap gm m
     let g:EasyClipUsePasteToggleDefaults = 0
     nmap ]y <plug>EasyClipSwapPasteForward
     nmap [y <plug>EasyClipSwapPasteBackwards
 endif
+" }}}
 
-" 'tpope/vim-fugitive'
+" 'tpope/vim-fugitive' {{{
 if g:vim_plug.is_ready('vim-fugitive')
     " nnoremap <silent> <leader>gs :Gstatus<CR>
     " nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -925,8 +937,9 @@ if g:vim_plug.is_ready('vim-fugitive')
     " " Mnemonic _i_nteractive
     " nnoremap <silent> <leader>gi :Git add -p %<CR>
 endif
+" }}}
 
-" 'airblade/vim-gitgutter'
+" 'airblade/vim-gitgutter' {{{
 if g:vim_plug.is_ready('vim-gitgutter')
     " 是否让SignColumn的highlight和LineNr的一至(默认是1)
     let g:gitgutter_override_sign_column_highlight=0
@@ -939,8 +952,9 @@ if g:vim_plug.is_ready('vim-gitgutter')
     " highlight link GitGutterDelete       MyDiffDelete
     " highlight link GitGutterChangeDelete MyDiffChangeDelete
 endif
+" }}}
 
-" 'nathanaelkane/vim-indent-guides'
+" 'nathanaelkane/vim-indent-guides' {{{
 if g:vim_plug.is_ready('vim-indent-guides')
     let g:indent_guides_enable_on_vim_startup = 0
     let g:indent_guides_start_level = 2
@@ -953,8 +967,9 @@ if g:vim_plug.is_ready('vim-indent-guides')
     "<leader>ig
     let g:indent_guides_default_mapping = 1
 endif
+" }}}
 
-" vim-plug
+" vim-plug {{{
 let g:plug_window='tabnew'
 
 function! s:plug_gx()
@@ -1069,8 +1084,9 @@ augroup END
 " augroup END
 
 " vim-plug end
+" }}}
 
- " 'kshenoy/vim-signature'
+" 'kshenoy/vim-signature' {{{
  if g:vim_plug.is_ready('vim-signature')
     let g:SignaturePrioritizeMarks = 1
     let g:SignatureMarkTextHLDynamic = 1
@@ -1078,13 +1094,15 @@ augroup END
     let g:SignatureUnconditionallyRecycleMarks = 0
     " autocmd! BufReadPost * silent SignatureRefresh
 endif
+" }}}
 
-" 'mhinz/vim-signify'
+" 'mhinz/vim-signify' {{{
 if g:vim_plug.is_ready('vim-signify')
     nnoremap <silent> <leader>gg :SignifyToggle<CR>
 endif
+" }}}
 
-" 'reedes/vim-textobj-quote'
+" 'reedes/vim-textobj-quote' {{{
 if g:vim_plug.is_ready('vim-textobj-quote')
     augroup textobj_quote
         autocmd!
@@ -1093,8 +1111,9 @@ if g:vim_plug.is_ready('vim-textobj-quote')
         autocmd FileType text call textobj#quote#init({'educate': 0})
     augroup END
 endif
+" }}}
 
-" 'reedes/vim-textobj-sentence'
+" 'reedes/vim-textobj-sentence' {{{
 if g:vim_plug.is_ready('vim-textobj-sentence')
     augroup textobj_sentence
         autocmd!
@@ -1103,8 +1122,9 @@ if g:vim_plug.is_ready('vim-textobj-sentence')
         autocmd FileType text call textobj#sentence#init()
     augroup END
 endif
+" }}}
 
-" benmills/vimux
+" benmills/vimux {{{
 if g:vim_plug.is_ready('vimux')
     " Run the current file with rspec
     map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
@@ -1127,17 +1147,22 @@ if g:vim_plug.is_ready('vimux')
     " Zoom the runner pane (use <bind-key> z to restore runner pane)
     map <Leader>vz :call VimuxZoomRunner()<CR>
 endif
+" }}}
 
-" 'gcmt/wildfire.vim'
+" 'gcmt/wildfire.vim' {{{
 if g:vim_plug.is_ready('wildfire.vim')
     let g:wildfire_objects = {
                 \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
                 \ "html,xml" : ["at"],
                 \ }
 endif
+" }}}
 
+" 'rrethy/vim-hexokinase' {{{
 if !has('nvim')
     let g:Hexokinase_highlighters=['backgroundfull']
 else
     let g:Hexokinase_highlighters=['background']
 endif
+" }}}
+
