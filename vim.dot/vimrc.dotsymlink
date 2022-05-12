@@ -1138,5 +1138,6 @@ endif
 
 if !has('nvim')
     let g:Hexokinase_highlighters=['backgroundfull']
+else
+    let g:Hexokinase_highlighters=['background']
 endif
-
