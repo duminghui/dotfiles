@@ -44,7 +44,7 @@ set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatib
 set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
 " set spell                           " Spell checking on
-set hidden                          " Allow buffer switching without saving
+"  set hidden                          " Allow buffer switching without saving
 set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
 set iskeyword-=-                    " '-' is an end of word designator
@@ -63,7 +63,7 @@ set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
 set cmdheight=2
 set cursorline                  " Highlight current line
-set cursorcolumn                " Highlight current column
+"  set cursorcolumn                " Highlight current column
 set colorcolumn=+1
 " 设置窗口的分配线和fold线
 set fillchars=vert:\|,fold:-
@@ -239,23 +239,3 @@ xmap gc  <Plug>VSCodeCommentary
 nmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
-
-" " 'reedes/vim-textobj-quote'
-" if g:vim_plug.is_ready('vim-textobj-quote')
-"     augroup textobj_quote
-"         autocmd!
-"         autocmd FileType markdown call textobj#quote#init()
-"         autocmd FileType textile call textobj#quote#init()
-"         autocmd FileType text call textobj#quote#init({'educate': 0})
-"     augroup END
-" endif
-
-" " 'reedes/vim-textobj-sentence'
-" if g:vim_plug.is_ready('vim-textobj-sentence')
-"     augroup textobj_sentence
-"         autocmd!
-"         autocmd FileType markdown call textobj#sentence#init()
-"         autocmd FileType textile call textobj#sentence#init()
-"         autocmd FileType text call textobj#sentence#init()
-"     augroup END
-" endif
