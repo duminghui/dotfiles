@@ -113,6 +113,8 @@ local defaults = {
         -- runs conditionally
         ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
         ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
+        -- cmap w!! w !sudo tee % >/dev/null
+        ["w!!"] = { 'w !sudo tee % >/dev/null', generic_opts_any },
     },
 }
 
