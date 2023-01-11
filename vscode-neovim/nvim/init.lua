@@ -62,7 +62,7 @@ vim.keymap.set("n", "gr", "<Cmd>call VSCodeNotify('editor.action.referenceSearch
 vim.keymap.set("n", "gI", "<Cmd>call VSCodeNotify('editor.action.peekImplementation')<CR>", keymap_opts)
 vim.keymap.set("n", "gnr", "<Cmd>call VSCodeNotify('editor.action.rename')<CR>", keymap_opts)
 
-vim.keymap.set("n", "<leader><leader>a", "<cmd>HopAnywhere<CR>", keymap_opts)
+-- vim.keymap.set("n", "<leader><leader>a", "<cmd>HopAnywhere<CR>", keymap_opts)
 vim.keymap.set("n", "<leader><leader>s", "<cmd>HopChar1<CR>", keymap_opts)
 vim.keymap.set("n", "<leader><leader>t", "<cmd>HopChar2<CR>", keymap_opts)
 vim.keymap.set("n", "<leader><leader>w", "<cmd>HopWord<CR>", keymap_opts)
