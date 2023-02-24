@@ -3,11 +3,11 @@ local icons = require("xxx.core.icons")
 local M = {}
 
 local function telescope_find_files(_)
-  require("xxx.plugin-config.nvimtree-rc").start_telescope "find_files"
+  require("xxx.plugin-config.nvim-tree-rc").start_telescope "find_files"
 end
 
 local function telescope_live_grep(_)
-  require("xxx.plugin-config.nvimtree-rc").start_telescope "live_grep"
+  require("xxx.plugin-config.nvim-tree-rc").start_telescope "live_grep"
 end
 
 M.opts = {

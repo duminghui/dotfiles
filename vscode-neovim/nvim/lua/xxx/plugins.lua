@@ -1,9 +1,6 @@
 local plugins = {
     { 'wbthomason/packer.nvim' },
 
-    -- Log --
-    { "Tastyep/structlog.nvim" },
-
     {
         'phaazon/hop.nvim',
         branch = 'v2', -- optional but strongly recommended

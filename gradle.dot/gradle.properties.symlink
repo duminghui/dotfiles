@@ -10,12 +10,9 @@
 # This option should only be used with decoupled projects. More details, visit
 # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
 # org.gradle.parallel=true
-#Fri Oct 19 17:59:06 CST 2018
+#Sun Feb 12 17:21:18 CST 2023
+JAVA_MAX_HEAP_SIZE=6g
 org.gradle.daemon=true
 org.gradle.parallel=true
-NEXUS_USERNAME=admin
 org.gradle.jvmargs=-Xmx6144m -XX\:MaxPermSize\=2048m -XX\:+HeapDumpOnOutOfMemoryError
-JAVA_MAX_HEAP_SIZE=6g
 org.gradle.configureondemand=false
-NEXUS_PASSWORD=admin123
-JAVA8_HOME=/Library/Java/Home

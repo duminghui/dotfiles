@@ -26,12 +26,6 @@ require("xxx.bootstrap"):init_rtp(root_dir, nvim_base_dir)
 
 local Log = require("xxx.core.log")
 
--- must call trace for init Log
-local logger = Log:get_logger()
-if not logger then
-    print("get_logger nil")
-end
-
 require("xxx.config.options").load_defaults()
 require("xxx.core.autocmds").load_defaults()
 
@@ -42,7 +36,6 @@ require("xxx.plugin-loader").init()
 local plugins = require "xxx.plugins"
 require("xxx.plugin-loader").load({ plugins = plugins })
 
-Log:set_level(Xvim.log.level)
 
 Log:debug "Starting XVim"
 
