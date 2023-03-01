@@ -3,7 +3,8 @@
 #-------------------------------------
 #brew安装zsh-completions
 # zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+
+fpath=("$(brew --prefix)/share/zsh-completions" $fpath)
 
 # 在vi normal mode下显示<<<
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
