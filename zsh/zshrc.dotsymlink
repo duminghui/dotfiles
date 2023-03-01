@@ -101,4 +101,4 @@ do
 done
 unset config_files
 
-
+source /Users/dumh/.docker/init-zsh.sh || true # Added by Docker Desktop
