@@ -57,13 +57,6 @@ plugins=(git macos tmux vi-mode ssh-agent docker docker-compose)
 
 zstyle :omz:plugins:ssh-agent identities github github-spider coding vps1
 
-# User configuration
-
-# export NO_BUCKD=1
-#export PATH="/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/android-sdk/tools:/usr/local/opt/android-sdk/platform-tools:/usr/local/opt/maven/libexec/bin:/usr/local/opt/gradle/bin:/Library/Java/JavaVirtualMachines/jdk.latest/Contents/Home/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -108,10 +101,4 @@ do
 done
 unset config_files
 
-export PATH="/usr/local/bin:$PATH"
-
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-[[ -s "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
-bindkey '^s' autosuggest-accept
 
