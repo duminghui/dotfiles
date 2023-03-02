@@ -17,11 +17,11 @@ M.opts = {
     end)
   end,
   -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
-  ignore_ft_on_setup = {
-    "startify",
-    "dashboard",
-    "alpha",
-  },
+  -- ignore_ft_on_setup = {
+  --   "startify",
+  --   "dashboard",
+  --   "alpha",
+  --  },
   auto_reload_on_write = true,
   hijack_directories = {
     enable = false,

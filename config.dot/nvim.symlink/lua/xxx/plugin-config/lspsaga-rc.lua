@@ -79,16 +79,24 @@ M.opts = {
   -- and set it to your custom winbar or some winbar plugins.
   -- if in_cusomt = true you must set in_enable to false
   symbol_in_winbar = {
-    in_custom = true, -- 使用自定义可以一直显示winbar
-    enable = false,
-    separator = '  ',
+    -- in_custom = true, -- 使用自定义可以一直显示winbar
+    -- enable = false,
+    -- separator = '  ',
+    -- show_file = true,
+    -- -- define how to customize filename, eg: %:., %
+    -- -- if not set, use default value `%:t`
+    -- -- more information see `vim.fn.expand` or `expand`
+    -- -- ## only valid after set `show_file = true`
+    -- file_formatter = "%:.",
+    -- click_support = false,
+    enable = true,
+    separator = " ",
+    ignore_patterns={},
+    hide_keyword = true,
     show_file = true,
-    -- define how to customize filename, eg: %:., %
-    -- if not set, use default value `%:t`
-    -- more information see `vim.fn.expand` or `expand`
-    -- ## only valid after set `show_file = true`
-    file_formatter = "%:.",
-    click_support = false,
+    folder_level = 2,
+    respect_root = false,
+    color_mode = true,
   },
   -- show outline
   show_outline = {
@@ -169,7 +177,8 @@ local function config_winbar_or_statusline()
   else
     local ok, lspsaga = pcall(require, 'lspsaga.symbolwinbar')
     local sym
-    if ok then sym = lspsaga.get_symbol_node() end
+    -- if ok then sym = lspsaga.get_symbol_node() end
+    if ok then sym = lspsaga:get_winbar() end
     local win_val = ''
     win_val = get_file_name(true) -- set to true to include path
     if sym ~= nil then win_val = win_val .. sym end
@@ -199,15 +208,15 @@ function M.setup()
     return
   end
 
-  if vim.fn.has "nvim-0.8" ~= 1 then
-    M.opts.symbol_in_winbar.in_custom = false
-    M.opts.symbol_in_winbar.enable = false
-  end
+  -- if vim.fn.has "nvim-0.8" ~= 1 then
+  --   M.opts.symbol_in_winbar.in_custom = false
+  --   M.opts.symbol_in_winbar.enable = false
+  -- end
 
   lspsaga.setup(M.opts)
-  if M.opts.symbol_in_winbar.in_custom then
-    set_breadcrumbs_autocmd()
-  end
+  -- if M.opts.symbol_in_winbar.in_custom then
+  --   set_breadcrumbs_autocmd()
+  -- end
 end
 
 return M
