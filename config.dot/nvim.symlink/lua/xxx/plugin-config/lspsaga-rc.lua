@@ -204,7 +204,7 @@ function M.setup()
     M.opts.symbol_in_winbar.enable = false
   end
 
-  lspsaga.init_lsp_saga(M.opts)
+  lspsaga.setup(M.opts)
   if M.opts.symbol_in_winbar.in_custom then
     set_breadcrumbs_autocmd()
   end

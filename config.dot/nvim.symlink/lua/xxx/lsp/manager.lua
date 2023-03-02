@@ -79,18 +79,13 @@ local function launch_server(server_name, config)
             end)()
         if vim.fn.executable(command[1]) ~= 1 then
             local msg = string.format("[%q] is either not installed, missing from PATH, or not executable.", server_name)
-            vim.schedule(function()
-                vim.notify(msg, vim.log.levels.WARN)
-            end)
-            Log:debug(msg)
+            Log:warn(msg)
         end
         require("lspconfig")[server_name].setup(config)
         buf_try_add(server_name)
     end)
     if not ok then
-        vim.schedule(function()
-            vim.notify("launch_server failed", vim.log.levels.ERROR)
-        end)
+        Log:error("launch_server failed")
     end
 end
 
@@ -176,7 +171,6 @@ function M.setup(server_name, user_config)
             -- end)
         else
             local msg = server_name .. " is not managed by the automatic installer"
-            Log:debug(msg)
             vim.schedule(function()
                 vim.notify_once(msg, vim.log.levels.WARN, { title = notify_title })
             end)

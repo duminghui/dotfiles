@@ -54,7 +54,6 @@ function plugin_loader.init()
     local status_ok, packer = pcall(require, "packer")
     if status_ok then
         packer.on_complete = vim.schedule_wrap(function()
-            print("Packer operation complete")
             Log:debug "Packer operation complete"
             vim.api.nvim_exec_autocmds("User", { pattern = "PackerComplete" })
         end)
@@ -102,7 +101,7 @@ end
 function plugin_loader.load(configurations)
     configurations = configurations or {}
     local plugins = configurations.plugins or {}
-    Log:debug "loading plugins configuration"
+    -- Log:debug "loading plugins configuration"
     local packer_available, packer = pcall(require, "packer")
     if not packer_available then
         Log:warn "skipping loading plugins until Packer is installed"

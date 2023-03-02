@@ -16,6 +16,7 @@ M.opts = {
       return a.name < b.name
     end)
   end,
+  -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup
   ignore_ft_on_setup = {
     "startify",
     "dashboard",
@@ -159,6 +160,14 @@ M.opts = {
 M.nvimtree_setup_called = false
 
 function M.setup()
+
+  if M.nvimtree_setup_called then
+    Log:debug "[XXX] ignoring repeated setup call for nvim-tree, see kyazdani42/nvim-tree.lua#1308"
+    return
+  end
+
+  M.nvimtree_setup_called = true
+
   local status_ok, nvim_tree = safe_require("nvim-tree")
   if not status_ok then
     return
@@ -166,36 +175,6 @@ function M.setup()
 
   local nt_notify = require("nvim-tree.notify")
 
-
-  local function notify_level(log_level)
-    local msg_hl = ""
-    if log_level == vim.log.levels.DEBUG then
-      msg_hl = "MoreMsg"
-    elseif log_level == vim.log.levels.INFO then
-      msg_hl = "ModeMsg"
-    elseif log_level == vim.log.levels.WARN then
-      msg_hl = "WarningMsg"
-    elseif log_level == vim.log.levels.ERROR then
-      msg_hl = "ErrorMsg"
-    end
-    return function(msg)
-      vim.schedule(function()
-        vim.api.nvim_echo({ { msg, msg_hl } }, false, {})
-      end)
-    end
-  end
-
-  nt_notify.warn = notify_level(vim.log.levels.WARN)
-  nt_notify.error = notify_level(vim.log.levels.ERROR)
-  nt_notify.info = notify_level(vim.log.levels.INFO)
-  nt_notify.debug = notify_level(vim.log.levels.DEBUG)
-
-  if M.nvimtree_setup_called then
-    Log:debug "ignoring repeated setup call for nvim-tree, see kyazdani42/nvim-tree.lua#1308"
-    return
-  end
-
-  M.nvimtree_setup_called = true
 
   -- for 'project' module
   M.opts.sync_root_with_cwd = true

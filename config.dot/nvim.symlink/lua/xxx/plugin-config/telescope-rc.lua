@@ -242,7 +242,7 @@ function M.setup()
 
     -- require("telescope").load_extension "projects"
 
-    require("telescope").load_extension "notify"
+    -- require("telescope").load_extension "notify"
 
     -- require("telescope").load_extension "fzf"
     -- local _, nvim_lsp = pcall(require, "lspconfig")

@@ -6,14 +6,13 @@ local plugins = {
   },
 
   { 'wbthomason/packer.nvim' },
-  { "Tastyep/structlog.nvim" },
   -- Log --
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("xxx.plugin-config.nvim-notify-rc").setup()
-    end,
-  },
+  -- {
+  --   "rcarriga/nvim-notify",
+  --   config = function()
+  --     require("xxx.plugin-config.nvim-notify-rc").setup()
+  --   end,
+  -- },
   {
     -- nvim/ftdetect will not work
     "nathom/filetype.nvim", -- Replace default filetype.vim which is slower

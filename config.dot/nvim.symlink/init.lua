@@ -1,11 +1,11 @@
 local in_headless = #vim.api.nvim_list_uis() == 0
+local Log = require("xxx.core.log")
 
-if in_headless then
-    print("in headless")
-end
+-- if in_headless then
+    -- Log:debug("in headless")
+-- end
 
 local function use_impatient()
-    local Log = require("xxx.core.log")
     Log:debug(string.format("in_headless: %s", in_headless))
     if not in_headless then
         Log:debug("Use impatient")
@@ -65,12 +65,6 @@ end
 use_impatient()
 
 local Log = require("xxx.core.log")
-
--- must call trace for init Log
-local logger = Log:get_logger()
-if not logger then
-    print("get_logger nil")
-end
 
 -- local config = require("xxx.config")
 

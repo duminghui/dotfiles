@@ -198,11 +198,11 @@ function M.setup()
     return
   end
   onedarkpro.setup(M.opts)
-  vim.api.nvim_command('colorscheme onedarkpro')
+  vim.api.nvim_command('colorscheme onedark_vivid')
 
-  vim.g.colors_name = "onedarkpro"
+  vim.g.colors_name = "onedark_vivid"
 
-  local colors = onedarkpro.get_colors(vim.g.onedarkpro_theme)
+  local colors = require("onedarkpro.helpers").get_colors(vim.g.onedarkpro_theme)
 
   require("xxx.plugin-config.colorscheme.colors").generate_colors_with(colors);
 
