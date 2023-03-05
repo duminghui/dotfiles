@@ -1,8 +1,9 @@
 local M = {}
+local Log = require "xxx.core.log"
 
-if vim.fn.has "nvim-0.7" ~= 1 then
+if vim.fn.has "nvim-0.8" ~= 1 then
     vim.notify(
-        "Please upgrade your Neovim base installation. Lunarvim requires v0.7+",
+        "Please upgrade your Neovim base installation. Lunarvim requires v0.8+",
         vim.log.levels.WARN)
     vim.wait(5000, function() end)
     vim.cmd "cquit"
@@ -18,7 +19,7 @@ end
 ---Initialize the `&runtimepath` variables and prepare for startup
 ---@return table
 function M:init_rtp(root_dir, base_dir)
-    print(vim.loop.os_uname().version)
+    Log:debug(vim.loop.os_uname().version)
     self.root_dir = root_dir
     -- base_dir: root_dir/nvim
     self.base_dir = base_dir
@@ -60,6 +61,8 @@ function M:init_rtp(root_dir, base_dir)
 
     -- print("####: ", vim.call("stdpath", "data"))
     -- print("####: ", vim.fn.stdpath("data"))
+    --
+    -- print(self.data_dir)
 
     vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site"))
     vim.opt.rtp:remove(join_paths(vim.call("stdpath", "data"), "site", "after"))

@@ -1,5 +1,4 @@
 local M = {}
-local Log = require "xxx.core.log"
 M.opts = {
     -- whether to map keybinds or not. default true
     default_mappings = true,
@@ -62,7 +61,6 @@ function M.setup()
     if not status_ok then
         return
     end
-    Log:debug("XXXXXXX")
     marks.setup(M.opts)
 end
 

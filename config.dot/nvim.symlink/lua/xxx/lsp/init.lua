@@ -5,7 +5,6 @@ local autocmds = require "xxx.core.autocmds"
 local utils = require("xxx.utils")
 local lsp_opts = require "xxx.lsp.config"
 
-
 function M.add_lsp_buffer_options(bufnr)
     for k, v in pairs(lsp_opts.buffer_options) do
         vim.api.nvim_buf_set_option(bufnr, k, v)
@@ -88,9 +87,9 @@ function M.setup()
     local templates = require("xxx.lsp.templates")
     templates.set_ftplugin_dir(lsp_opts.templates_dir)
 
-    if not utils.is_directory(lsp_opts.templates_dir) then
+    -- if not utils.is_directory(lsp_opts.templates_dir) then
         templates.generate_templates()
-    end
+    -- end
 
     -- diagnostics signs
     for _, sign in ipairs(lsp_opts.diagnostics.signs.values) do
@@ -102,6 +101,7 @@ function M.setup()
     -- require("nlspsettings").setup(lsp_opts.nlsp_settings.setup)
 
     require("mason-lspconfig").setup(lsp_opts.mason_lspconfig.setup)
+
     local util = require "lspconfig.util"
     -- automatic_installation is handled by lsp-manager
     util.on_setup = nil

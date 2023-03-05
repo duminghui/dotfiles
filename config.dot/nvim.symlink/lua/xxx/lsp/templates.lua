@@ -4,6 +4,7 @@ local Log = require "xxx.core.log"
 local utils = require "xxx.utils"
 local lsp_utils = require "xxx.lsp.utils"
 local lsp_opts = require "xxx.lsp.config"
+local fmt = string.format
 
 local ftplugin_dir = ""
 
@@ -23,7 +24,7 @@ function M.remove_template_files()
         vim.fn.delete(file)
     end
     vim.fn.delete(ftplugin_dir, "d")
-    Log:info("delete ftplugin template files end")
+    Log:info(fmt("delete ftplugin template files end: %s", ftplugin_dir))
 end
 
 local skipped_filetypes = lsp_opts.automatic_configuration.skipped_filetypes
@@ -84,7 +85,7 @@ function M.generate_templates(servers_names)
     for _, server in ipairs(servers_names) do
         M.generate_ftplugin(server, ftplugin_dir)
     end
-    Log:debug "Templates installation is complete"
+    Log:debug(fmt("Templates installation is complete(%s)",vim.fn.len(servers_names)))
 end
 
 return M

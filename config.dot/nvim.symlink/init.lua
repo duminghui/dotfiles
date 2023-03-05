@@ -54,9 +54,6 @@ local root_dir = nvim_base_dir:match("(.*[/\\])"):sub(1, -2)
 
 require "xxx.core.globals"
 
--- 全局
-require "xxx.config.config"
-
 if vim.fn.has("win32") ~= 0 then
     -- 配置rpt
     require("xxx.bootstrap"):init_rtp(root_dir, nvim_base_dir)
@@ -86,7 +83,7 @@ local commands = require "xxx.core.commands"
 commands.load_defaults()
 
 -- --Lsp配置
-require("xxx.lsp").setup()
+-- require("xxx.lsp").setup()
 
 -- local ProgressNotify = require("xxx.core.progress-notify")
 -- local notif = ProgressNotify:new()

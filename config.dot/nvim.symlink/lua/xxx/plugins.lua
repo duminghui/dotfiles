@@ -298,7 +298,6 @@ local plugins = {
       "williamboman/mason-lspconfig.nvim",
       requires = {
         { "neovim/nvim-lspconfig" },
-
       },
     },
     {
@@ -481,7 +480,8 @@ local plugins = {
     },
     config = function()
       require("xxx.plugin-config.go-rc").setup()
-    end
+    end,
+    disable = true,
   },
 
   {
@@ -495,7 +495,9 @@ local plugins = {
     },
     config = function()
       require("xxx.plugin-config.rs-rust-tools-rc").setup()
-    end
+    end,
+    disable = true,
+
   },
 
   {
@@ -507,6 +509,7 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.rs-crates-rc').setup()
     end,
+    disable = true,
   },
 }
 return plugins

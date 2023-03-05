@@ -48,7 +48,7 @@ function plugin_loader.init()
         vim.cmd "packadd packer.nvim"
         -- IMPORTANT: we only set this the very first time to avoid constantly triggering the rollback function
         -- https://github.com/wbthomason/packer.nvim/blob/c576ab3f1488ee86d60fd340d01ade08dcabd256/lua/packer.lua#L998-L995
-        init_opts.snapshot = default_snapshot
+        -- init_opts.snapshot = default_snapshot
     end
 
     local status_ok, packer = pcall(require, "packer")
@@ -86,11 +86,10 @@ function plugin_loader.compile()
         callback = function()
             if utils.is_file(compile_path) then
                 Log:debug "finished compiling packer_compiled.lua"
-                print("finished compiling packer_compiled.lua")
             end
         end,
     })
-    pcall_packer_command "compile"
+    -- pcall_packer_command "compile"
 end
 
 function plugin_loader.recompile()
@@ -111,6 +110,7 @@ function plugin_loader.load(configurations)
         packer.reset()
         packer.startup(function(use)
             for _, plugin in ipairs(plugins) do
+                -- Log:debug(vim.inspect(plugin))
                 use(plugin)
             end
         end)

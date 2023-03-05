@@ -1,4 +1,5 @@
 local M = {}
+local Log = require "xxx.core.log"
 local icons = require("xxx.core.icons")
 
 M.opts = {
@@ -61,8 +62,9 @@ function M.setup()
     return
   end
 
+  -- Log:debug("XX")
+
   mason.setup(M.opts)
-  require("mason-lspconfig").setup()
 
 end
 
