@@ -69,9 +69,9 @@ local options = {
       priority = 30,
       values = {
         { name = "DiagnosticSignError", text = icons.diagnostics.BoldError },
-        { name = "DiagnosticSignWarn",  text = icons.diagnostics.BoldWarning },
-        { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo",  text = icons.diagnostics.BoldInformation },
+        { name = "DiagnosticSignWarn", text = icons.diagnostics.BoldWarning },
+        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignInfo", text = icons.diagnostics.BoldInformation },
       },
     },
     virtual_text = {

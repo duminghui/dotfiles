@@ -1,6 +1,11 @@
 local plugins = {
   { "folke/lazy.nvim", tag = "stable" },
   { "nvim-lua/plenary.nvim", lazy = true },
+  {
+    -- Automatically detects which indents should be used in the current buffer
+    "tpope/vim-sleuth",
+    event = "BufEnter",
+  },
   -- Icons
   {
     "nvim-tree/nvim-web-devicons",
