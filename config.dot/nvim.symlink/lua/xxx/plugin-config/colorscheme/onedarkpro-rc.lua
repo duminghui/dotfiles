@@ -68,11 +68,10 @@ M.opts = {
     }, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
     highlights = {
         -- Editor
-        -- CursorLineNr = { fg = "#FFD700" },
-        CursorColumn = { link = "CursorLine" },
         FloatBorder = { fg = "${gray}", bg = "${float_bg}", blend = 9 },
         BufferlineOffset = { fg = "${purple}", style = "bold" },
-        CursorLineNR = {
+        CursorColumn = { link = "CursorLine" },
+        CursorLineNr = {
             -- fg = "${purple}",
             fg = "#FFD700",
             bg = "${cursorline}",
@@ -172,6 +171,9 @@ M.opts = {
         TelescopeMatching = { fg = "${blue}" },
         TelescopeNormal = { bg = "${telescope_results}" },
         TelescopeSelection = { bg = "${telescope_prompt}" },
+        NvimTreeRootFolder = { fg = "${yellow}" },
+        NvimTreeFolderIcon = { fg = "${yellow}" },
+        NvimTreeOpenedFolderName = { fg = "${yellow}" }
     }, -- Override default highlight and/or filetype groups
 }
 
