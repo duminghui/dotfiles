@@ -139,6 +139,10 @@ M.opts = {
         -- Neotree
         NeoTreeRootName = { fg = "${purple}", style = "bold" },
         NeoTreeFileNameOpened = { fg = "${purple}", style = "italic" },
+        -- Nvim-Tree
+        NvimTreeRootFolder = { fg = "${yellow}" },
+        NvimTreeFolderIcon = { fg = "${yellow}" },
+        NvimTreeOpenedFolderName = { fg = "${yellow}" },
         -- Telescope
         -- TelescopeBorder = {
         --     fg = "${telescope_results}",
@@ -171,9 +175,6 @@ M.opts = {
         TelescopeMatching = { fg = "${blue}" },
         TelescopeNormal = { bg = "${telescope_results}" },
         TelescopeSelection = { bg = "${telescope_prompt}" },
-        NvimTreeRootFolder = { fg = "${yellow}" },
-        NvimTreeFolderIcon = { fg = "${yellow}" },
-        NvimTreeOpenedFolderName = { fg = "${yellow}" }
     }, -- Override default highlight and/or filetype groups
 }
 
