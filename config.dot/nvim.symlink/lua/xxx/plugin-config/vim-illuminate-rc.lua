@@ -45,10 +45,7 @@ M.opts = {
 }
 
 function M.setup()
-    local status_ok, illuminate = safe_require("illuminate")
-    if not status_ok then
-        return
-    end
+    local illuminate = require("illuminate")
 
     illuminate.configure(M.opts)
 

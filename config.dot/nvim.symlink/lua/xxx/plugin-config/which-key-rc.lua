@@ -2,18 +2,18 @@ local M = {}
 
 M.opts = {
     plugins = {
-        marks = true, -- shows a list of your marks on ' and `
+        marks = true,     -- shows a list of your marks on ' and `
         registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
         -- No actual key bindings are created
         presets = {
-            operators = true, -- adds help for operators like d, y, ...
-            motions = false, -- adds help for motions
-            text_objects = true, -- help for text objects triggered after entering an operator
-            windows = true, -- default bindings on <c-w>
-            nav = false, -- misc bindings to work with windows
-            z = true, -- bindings for folds, spelling and others prefixed with z
-            g = false, -- bindings for prefixed with g
+            operators = true,                            -- adds help for operators like d, y, ...
+            motions = false,                             -- adds help for motions
+            text_objects = true,                         -- help for text objects triggered after entering an operator
+            windows = true,                              -- default bindings on <c-w>
+            nav = false,                                 -- misc bindings to work with windows
+            z = true,                                    -- bindings for folds, spelling and others prefixed with z
+            g = false,                                   -- bindings for prefixed with g
         },
         spelling = { enabled = true, suggestions = 20 }, -- use which-key for spelling hints
     },
@@ -21,30 +21,30 @@ M.opts = {
         breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
         -- separator = "➜", -- symbol used between a key and it's label
         separator = " ", -- symbol used between a key and it's label
-        group = "+", -- symbol prepended to a group
+        group = "+",      -- symbol prepended to a group
     },
     popup_mappings = {
         scroll_down = "<c-d>", -- binding to scroll down inside the popup
-        scroll_up = "<c-u>", -- binding to scroll up inside the popup
+        scroll_up = "<c-u>",   -- binding to scroll up inside the popup
     },
     window = {
         -- border = "single", -- none, single, double, shadow
-        border = "none", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+        border = "none",          -- none, single, double, shadow
+        position = "bottom",      -- bottom, top
+        margin = { 1, 0, 1, 0 },  -- extra window margin [top, right, bottom, left]
         padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
         winblend = 9,
     },
     layout = {
-        height = { min = 4, max = 25 }, -- min and max height of the columns
-        width = { min = 20, max = 50 }, -- min and max width of the columns
-        spacing = 3, -- spacing between columns
-        align = "left", -- align columns left, center or right
+        height = { min = 4, max = 25 },                                           -- min and max height of the columns
+        width = { min = 20, max = 50 },                                           -- min and max width of the columns
+        spacing = 3,                                                              -- spacing between columns
+        align = "left",                                                           -- align columns left, center or right
     },
     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-    show_help = true, -- show help message on the command line when the popup is visible
-    triggers = "auto", -- automatically setup triggers
+    ignore_missing = false,                                                       -- enable this to hide mappings for which you didn't specify a label
+    show_help = true,                                                             -- show help message on the command line when the popup is visible
+    triggers = "auto",                                                            -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
     triggers_blacklist = {
         -- list of mode / prefixes that should never be hooked by WhichKey
@@ -56,12 +56,12 @@ M.opts = {
 }
 
 M.v_opts = {
-    mode = "v", -- VISUAL mode
+    mode = "v",     -- VISUAL mode
     prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
+    buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true,  -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
+    nowait = true,  -- use `nowait` when creating keymaps
 }
 
 M.v_mappings = {
@@ -69,12 +69,12 @@ M.v_mappings = {
 }
 
 M.n_opts = {
-    mode = "n", -- NORMAL mode
+    mode = "n",     -- NORMAL mode
     prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
+    buffer = nil,   -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true,  -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
+    nowait = true,  -- use `nowait` when creating keymaps
 }
 
 M.n_mappings = {
@@ -230,7 +230,6 @@ M.n_mappings = {
         -- +lsp
         w = { "<cmd>Trouble workspace_diagnostics<CR>", "Workspace Diagnostics" },
         d = { "<cmd>Trouble document_diagnostics<CR>", "Buffer Diagnostics" },
-
         --  lsp/config.lua: gr
         r = { "<cmd>Trouble lsp_references<CR>", "References" },
         -- use lsp's gd=, not use this
@@ -255,7 +254,8 @@ M.n_mappings = {
         i = { "<cmd>lua require('xxx.core.info').toggle_popup(vim.bo.filetype)<CR>", "Toggle XVim Info" },
         l = {
             name = "+logs",
-            d = { "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(require('xxx.core.log').get_path())<CR>",
+            d = {
+                "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(require('xxx.core.log').get_path())<CR>",
                 "View default log" },
             D = { "<cmd>lua vim.fn.execute('edit ' .. require('xxx.core.log').get_path())<CR>", "Open the default log" },
             l = { "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(vim.lsp.get_log_path())<CR>",
@@ -264,7 +264,8 @@ M.n_mappings = {
             n = { "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(os.getenv('NVIM_LOG_FILE'))<CR>",
                 "View Neovim log" },
             N = { "<cmd>edit $NVIM_LOG_FILE<CR>", "Open the Neovim logfile" },
-            p = { "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(vim.fn.stdpath('cache') .. '/packer.nvim.log')<CR>",
+            p = {
+                "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(vim.fn.stdpath('cache') .. '/packer.nvim.log')<CR>",
                 "View Packer log" },
             P = { "<cmd>lua vim.fn.execute('edit ' .. vim.fn.stdpath('cache') .. '/packer.nvim.log')<CR>",
                 "Open the Packer logfile" }
@@ -272,15 +273,11 @@ M.n_mappings = {
         n = { "<cmd>Telescope notify<cr>", "View Notifications" },
         r = { require("xxx.lsp.templates").remove_template_files, "Remove lsp ftplugin files" },
     },
-
 }
 
 
 function M.setup()
-    local status_ok, which_key = safe_require("which-key")
-    if not status_ok then
-        return
-    end
+    local which_key = require("which-key")
     which_key.setup(M.opts)
     which_key.register(M.n_mappings, M.n_opts)
 end

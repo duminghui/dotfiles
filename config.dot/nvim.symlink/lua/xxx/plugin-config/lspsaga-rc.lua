@@ -91,7 +91,7 @@ M.opts = {
     -- click_support = false,
     enable = true,
     separator = " ",
-    ignore_patterns={},
+    ignore_patterns = {},
     hide_keyword = true,
     show_file = true,
     folder_level = 2,
@@ -119,7 +119,6 @@ M.opts = {
   -- the related filetypes into this table
   -- like server_filetype_map = { metals = { "sbt", "scala" } }
   server_filetype_map = {},
-
 }
 
 -- Example:
@@ -203,10 +202,7 @@ local function set_breadcrumbs_autocmd()
 end
 
 function M.setup()
-  local status_ok, lspsaga = safe_require("lspsaga")
-  if not status_ok then
-    return
-  end
+  local lspsaga = require("lspsaga")
 
   -- if vim.fn.has "nvim-0.8" ~= 1 then
   --   M.opts.symbol_in_winbar.in_custom = false

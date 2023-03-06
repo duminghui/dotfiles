@@ -1,11 +1,6 @@
 local M = {}
 
 function M.setup()
-  local status_ok, _ = safe_require("luasnip")
-  if not status_ok then
-    return
-  end
-
   local utils = require "xxx.utils"
   local paths = {}
   paths[#paths + 1] = join_paths(vim.fn.stdpath("data"), "site", "pack", "packer", "start", "friendly-snippets")
@@ -18,7 +13,6 @@ function M.setup()
     paths = paths,
   }
   require("luasnip.loaders.from_snipmate").lazy_load()
-
 end
 
 return M

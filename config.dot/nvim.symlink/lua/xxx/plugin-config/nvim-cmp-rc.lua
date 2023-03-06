@@ -373,10 +373,7 @@ function M.opts()
 end
 
 function M.setup()
-  local status_ok, cmp = safe_require("cmp")
-  if not status_ok then
-    return
-  end
+  local cmp = require("cmp")
   -- vim.opt.completeopt = "menu,menuone,noselect"
   local opts = M.opts()
   cmp.setup(opts)

@@ -3,7 +3,6 @@ local Log = require "xxx.core.log"
 
 --- Load the default set of autogroups and autocommands.
 function M.load_defaults()
-
   vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = {
       "Jaq",
@@ -135,10 +134,38 @@ function M.load_defaults()
           vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
           vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
           vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
-
         end
       }
     },
+    { -- taken from AstroNvim
+      "BufEnter",
+      {
+        group = "_dir_opened",
+        once = true,
+        callback = function(args)
+          local bufname = vim.api.nvim_buf_get_name(args.buf)
+          if require("xxx.utils").is_directory(bufname) then
+            vim.api.nvim_del_augroup_by_name "_dir_opened"
+            vim.cmd "do User DirOpened"
+            vim.api.nvim_exec_autocmds("BufEnter", {})
+          end
+        end,
+      },
+    },
+    { -- taken from AstroNvim
+      { "BufRead", "BufWinEnter", "BufNewFile" },
+      {
+        group = "_file_opened",
+        once = true,
+        callback = function(args)
+          local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+          if not (vim.fn.expand "%" == "" or buftype == "nofile") then
+            vim.cmd "do User FileOpened"
+            -- require("lvim.lsp").setup()
+          end
+        end,
+      },
+    }
     -- {
     --     { "BufNewFile", "BufRead" },
     --     {

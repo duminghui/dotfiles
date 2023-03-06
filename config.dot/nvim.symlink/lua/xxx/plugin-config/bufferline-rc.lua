@@ -180,10 +180,10 @@ M.opts = {
         --     return string.format('%s', opts.raise(opts.id))
         -- end,
 
-        close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
+        close_command = 'bdelete! %d',           -- can be a string | function, see "Mouse actions"
         right_mouse_command = 'vert sbuffer %d', -- can be a string | function, see "Mouse actions"
-        left_mouse_command = 'buffer %d', -- can be a string | function, see "Mouse actions"
-        middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+        left_mouse_command = 'buffer %d',        -- can be a string | function, see "Mouse actions"
+        middle_mouse_command = nil,              -- can be a string | function, see "Mouse actions"
         -- indicator = {
         --     icon = '▎', -- this should be omitted if indicator style is not 'icon'
         --     style = 'underline', -- can also be 'underline'|'none',
@@ -245,8 +245,8 @@ M.opts = {
                 padding = 1,
             },
         },
-        color_icons = true, -- whether or not to add the filetype icon highlights
-        show_buffer_icons = true, -- disable filetype icons for buffers
+        color_icons = true,              -- whether or not to add the filetype icon highlights
+        show_buffer_icons = true,        -- disable filetype icons for buffers
         show_buffer_close_icons = true,
         show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
         show_close_icon = false,
@@ -613,7 +613,6 @@ M.opts = {
             fg = win_separator_fg,
             bg = separator_background_color,
         },
-
     },
     -- highlights = {
     --     fill = {
@@ -938,10 +937,7 @@ M.opts = {
 
 
 function M.setup()
-    local status_ok, bufferline = safe_require('bufferline')
-    if not status_ok then
-        return
-    end
+    local bufferline = require('bufferline')
     bufferline.setup(M.opts)
 end
 

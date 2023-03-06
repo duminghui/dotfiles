@@ -58,12 +58,12 @@ M.opts = {
     mappings = {
       custom_only = false,
       list = {
-        { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
-        { key = "h", action = "close_node" },
-        { key = "v", action = "vsplit" },
-        { key = "C", action = "cd" },
-        { key = "gtf", action = "telescope_find_files", action_cb = telescope_find_files },
-        { key = "gtg", action = "telescope_live_grep", action_cb = telescope_live_grep },
+        { key = { "l", "<CR>", "o" }, action = "edit",                 mode = "n" },
+        { key = "h",                  action = "close_node" },
+        { key = "v",                  action = "vsplit" },
+        { key = "C",                  action = "cd" },
+        { key = "gtf",                action = "telescope_find_files", action_cb = telescope_find_files },
+        { key = "gtg",                action = "telescope_live_grep",  action_cb = telescope_live_grep },
       },
     },
     number = false,
@@ -160,7 +160,6 @@ M.opts = {
 M.nvimtree_setup_called = false
 
 function M.setup()
-
   if M.nvimtree_setup_called then
     Log:debug "[XXX] ignoring repeated setup call for nvim-tree, see kyazdani42/nvim-tree.lua#1308"
     return
@@ -168,12 +167,9 @@ function M.setup()
 
   M.nvimtree_setup_called = true
 
-  local status_ok, nvim_tree = safe_require("nvim-tree")
-  if not status_ok then
-    return
-  end
+  local nvim_tree = require("nvim-tree")
 
-  local nt_notify = require("nvim-tree.notify")
+  local _ = require("nvim-tree.notify")
 
 
   -- for 'project' module

@@ -77,10 +77,7 @@ M.opts = {
 }
 
 function M.setup()
-  local status_ok, gitsigns = safe_require("gitsigns")
-  if not status_ok then
-    return
-  end
+  local gitsigns = require("gitsigns")
   gitsigns.setup(M.opts)
 end
 

@@ -5,10 +5,7 @@ M.opts  = {
 }
 
 function M.setup()
-  local status_ok, hop = safe_require("hop")
-  if not status_ok then
-    return
-  end
+  local hop = require("hop")
   hop.setup(M.opts)
 end
 

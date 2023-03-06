@@ -12,12 +12,8 @@ M.opts = {
 }
 
 function M.setup()
-    local status_ok, devicons = safe_require("nvim-web-devicons")
-    if not status_ok then
-        return
-    end
+    local devicons = require("nvim-web-devicons")
     devicons.setup(M.opts)
-
 end
 
 return M

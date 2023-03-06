@@ -69,9 +69,9 @@ local options = {
             priority = 30,
             values = {
                 { name = "DiagnosticSignError", text = icons.diagnostics.BoldError },
-                { name = "DiagnosticSignWarn", text = icons.diagnostics.BoldWarning },
-                { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-                { name = "DiagnosticSignInfo", text = icons.diagnostics.BoldInformation },
+                { name = "DiagnosticSignWarn",  text = icons.diagnostics.BoldWarning },
+                { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+                { name = "DiagnosticSignInfo",  text = icons.diagnostics.BoldInformation },
             },
         },
         virtual_text = {
@@ -101,7 +101,6 @@ local options = {
         --- use gq for formatting
         formatexpr = "v:lua.vim.lsp.formatexpr(#{timeout_ms:500})",
     },
-
     ---@usage list of settings of mason_lspconfig
     mason_lspconfig = {
         setup = {
@@ -112,7 +111,6 @@ local options = {
             },
         },
     },
-
     nlsp_settings = {
         setup = {
             config_home = join_paths(vim.fn.stdpath("config"), "lsp-settings"),
@@ -130,6 +128,5 @@ local options = {
         },
         config = {},
     },
-
 }
 return options

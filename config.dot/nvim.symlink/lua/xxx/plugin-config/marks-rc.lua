@@ -57,10 +57,7 @@ M.opts = {
 }
 
 function M.setup()
-    local status_ok, marks = safe_require("marks")
-    if not status_ok then
-        return
-    end
+    local marks = require("marks")
     marks.setup(M.opts)
 end
 

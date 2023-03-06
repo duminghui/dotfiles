@@ -60,7 +60,6 @@ local function set_highlight()
   for i = 1, 6 do
     local c_key = string.format("c%s", i)
     vim.cmd(string.format("highlight IndentBlanklineIndent%s guifg=%s gui=nocombine", i, colors[c_key]))
-
   end
 
 
@@ -76,10 +75,7 @@ function M.setup()
   -- vim.opt.listchars:append "space:⋅"
   -- vim.opt.listchars:append "eol:↴"
   --   vim.pretty_print(M.opts)
-  local status_ok, indent_blankline = safe_require("indent_blankline")
-  if not status_ok then
-    return
-  end
+  local indent_blankline = require("indent_blankline")
 
   indent_blankline.setup(M.opts)
 

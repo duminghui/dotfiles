@@ -13,15 +13,10 @@ M.opts = {
   highlights = {
     CursorLineNr = { fg = "#FFD700" },
   },
-
 }
 
 function M.setup()
-
-  local status_ok, onedark = safe_require("onedark")
-  if not status_ok then
-    return
-  end
+  local onedark = require("onedark")
   onedark.setup(M.opts)
   onedark.load()
 

@@ -41,10 +41,7 @@ M.opts = {
 }
 
 function M.setup()
-    local status_ok, harpoon = safe_require("harpoon")
-    if not status_ok then
-        return
-    end
+    local harpoon = require("harpoon")
     harpoon.setup(M.opts)
 end
 

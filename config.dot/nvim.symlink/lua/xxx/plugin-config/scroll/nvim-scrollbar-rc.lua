@@ -32,16 +32,11 @@ M.opts = {
 }
 
 function M.setup()
-  local ok, scrollbar = safe_require("scrollbar")
-  if not ok then
-    return
-  end
-
+  local scrollbar = require("scrollbar")
 
   scrollbar.setup(M.opts)
 
   require("xxx.plugin-config.scroll.nvim-hlslens-rc").integrate_with_scrollbar()
-
 end
 
 return M

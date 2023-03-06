@@ -20,10 +20,7 @@ function M.integrate_with_scrollbar()
 end
 
 function M.setup()
-  local ok, _ = safe_require("hlslens")
-  if not ok then
-    return
-  end
+  local _ = require("hlslens")
 
   -- hlslens.setup(M.opts)
   M.integrate_with_scrollbar()
@@ -40,7 +37,6 @@ function M.setup()
   vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
   vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
   vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-
 end
 
 return M

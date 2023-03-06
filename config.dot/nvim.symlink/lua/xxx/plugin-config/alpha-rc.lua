@@ -71,10 +71,7 @@ local function configure_additional_autocmds()
 end
 
 function M.setup()
-    local status_ok, alpha = safe_require("alpha")
-    if not status_ok then
-        return
-    end
+    local alpha  = require("alpha")
 
     local mode   = M.opts.mode
     local config = M.opts[mode].config

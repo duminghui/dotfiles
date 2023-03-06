@@ -46,10 +46,10 @@ function M:init_rtp(root_dir, base_dir)
             path = self.config_dir
         elseif what == "data" then
             path = self.data_dir
-            -- what_msg = what .. "  "
+        elseif what == "state" then
+            path = self.data_dir
         elseif what == "cache" then
             path = _G.get_cache_dir()
-            -- what_msg = what .. " "
         elseif what == "log" then
             path = self.data_dir
         else

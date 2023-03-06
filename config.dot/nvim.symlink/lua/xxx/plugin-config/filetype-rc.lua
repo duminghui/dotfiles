@@ -18,7 +18,6 @@ M.opts = {
       -- Set the filetype of any full filename matching the regex to gitconfig
       -- [".*git/config"] = "gitconfig", -- Included in the plugin
     },
-
     -- The same as the ones above except the keys map to functions
     -- function_extensions = {
     --     ["cpp"] = function()
@@ -53,10 +52,7 @@ M.opts = {
 }
 
 function M.setup()
-  local status_ok, filetype = safe_require("filetype")
-  if not status_ok then
-    return
-  end
+  local filetype = require("filetype")
   filetype.setup(M.opts)
 end
 

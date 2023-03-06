@@ -2,6 +2,7 @@
 local M = {}
 
 local icons = require("xxx.core.icons")
+local Log = require("xxx.core.log")
 
 local function get_pickers(actions)
     return {
@@ -147,21 +148,19 @@ function M.opts()
             borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
             color_devicons = true,
             set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-
             -- nvim-telescope/telescope-smart-history.nvim (No UI), use in dialog input history
             history = {
                 path = join_paths(vim.fn.stdpath("data"), "telescope_history.sqlite3"),
                 limit = 133,
             },
-
         },
         pickers = get_pickers(actions),
         extensions = {
             fzf = {
-                fuzzy = true, -- false will only do exact matching
+                fuzzy = true,                   -- false will only do exact matching
                 override_generic_sorter = true, -- override the generic sorter
-                override_file_sorter = true, -- override the file sorter
-                case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+                override_file_sorter = true,    -- override the file sorter
+                case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
             },
             ["ui-select"] = {
                 -- no use
@@ -186,7 +185,6 @@ function M.opts()
             frecency = {
                 -- default: nvim-data/file_frecency.sqlite3
                 db_root = vim.fn.stdpath("data"),
-
                 show_scores = true,
                 show_unindexed = true,
                 ignore_patterns = {
@@ -202,23 +200,19 @@ function M.opts()
                     -- ["project2"] = os.getenv("OTHER_PROJECT_DIR"),
                 },
             },
-
         },
-
     }
 end
 
--- local function load_extension(name)
---     local ok = pcall(function()
---         require("telescope").load_extension(name)
---     end)
+local function load_extension(name)
+    local ok = pcall(function()
+        require("telescope").load_extension(name)
+    end)
 
---     if not ok then
---         vim.schedule(function()
---             vim.notify("telescope load extension '" .. name .. "' failed.", vim.log.levels.WARN, { title = "Telescope" })
---         end)
---     end
--- end
+    if not ok then
+        Log:error("telescope load extension '" .. name .. "' failed.", { title = "Telescope" })
+    end
+end
 
 function M.setup()
     local status_ok, telescope = safe_require("telescope")
@@ -235,17 +229,11 @@ function M.setup()
 
     telescope.setup(M.opts())
 
-    -- load_extension "ui-select"
-    -- load_extension "notify"
-    -- load_extension "projects"
-    -- load_extension "fzf"
-
-    -- require("telescope").load_extension "projects"
-
-    -- require("telescope").load_extension "notify"
-
-    -- require("telescope").load_extension "fzf"
-    -- local _, nvim_lsp = pcall(require, "lspconfig")
+    load_extension "fzf"
+    load_extension "frecency"
+    load_extension "smart_history"
+    load_extension "harpoon"
+    load_extension "projects"
 end
 
 return M

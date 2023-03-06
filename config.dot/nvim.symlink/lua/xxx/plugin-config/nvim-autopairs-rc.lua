@@ -26,7 +26,6 @@ M.opts = {
     -- },
 
     disable_filetype = disable_filetype.autopairs,
-
     ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
     enable_moveright = true,
     ---@usage disable when recording or executing a macro
@@ -53,15 +52,9 @@ M.opts = {
     },
 }
 
-local function on_confirm_done(...)
-    require("nvim-autopairs.completion.cmp").on_confirm_done()(...)
-end
 
 function M.setup()
-    local status_ok, autopairs = safe_require("nvim-autopairs")
-    if not status_ok then
-        return
-    end
+    local autopairs = require("nvim-autopairs")
 
     autopairs.setup(M.opts)
 
@@ -77,6 +70,9 @@ function M.setup()
     -- }
 
     pcall(function()
+        local function on_confirm_done(...)
+            require("nvim-autopairs.completion.cmp").on_confirm_done()(...)
+        end
         require "nvim-autopairs.completion.cmp"
         require("cmp").event:off("confirm_done", on_confirm_done)
         require("cmp").event:on("confirm_done", on_confirm_done)

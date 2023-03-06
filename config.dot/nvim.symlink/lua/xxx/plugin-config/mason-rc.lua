@@ -6,11 +6,9 @@ M.opts = {
   ui = {
     -- Whether to automatically check for new versions when opening the :Mason window.
     check_outdated_packages_on_open = true,
-
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
     -- border = "rounded",
     border = "single",
-
     icons = {
       -- -- The list icon to use for installed packages.
       -- package_installed = "◍",
@@ -22,7 +20,6 @@ M.opts = {
       package_pending = icons.ui.Pending,
       package_uninstalled = icons.ui.Plus2
     },
-
     keymaps = {
       -- Keymap to expand a package
       toggle_package_expand = "<CR>",
@@ -57,15 +54,9 @@ M.opts = {
 }
 
 function M.setup()
-  local status_ok, mason = safe_require("mason")
-  if not status_ok then
-    return
-  end
-
-  -- Log:debug("XX")
+  local mason = require("mason")
 
   mason.setup(M.opts)
-
 end
 
 return M

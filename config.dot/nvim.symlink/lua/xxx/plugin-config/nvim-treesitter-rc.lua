@@ -93,7 +93,6 @@ M.opts = {
                 ["ac"] = "@class.outer",
                 ["ic"] = "@class.inner",
             },
-
             -- You can choose the select mode (default is charwise 'v')
             --
             -- Can also be a function which gets passed a table with the keys
@@ -126,17 +125,16 @@ M.opts = {
             goto_previous_end = {
                 ["[]"] = "@function.outer",
             },
-
         },
     },
     textsubjects = {
         enable = false,
-        keymaps = { ["."] = "textsubjects-smart", [";"] = "textsubjects-big" },
+        keymaps = { ["."] = "textsubjects-smart",[";"] = "textsubjects-big" },
     },
     playground = {
         enable = false,
         disable = {},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+        updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = false, -- Whether the query persists across vim sessions
         keybindings = {
             toggle_query_editor = "o",
@@ -153,7 +151,7 @@ M.opts = {
     },
     rainbow = {
         enable = true,
-        extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+        extended_mode = true,  -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
         max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
         colors = {
             colors.c1,
@@ -187,13 +185,13 @@ function M.setup()
         return
     end
 
-    local opts = vim.deepcopy(M.opts)
 
     -- 这个一定要放在setup前面
-    vim.opt.runtimepath:append(M.opts.parser_install_dir)
+    -- vim.opt.rpt:append(M.opts.parser_install_dir)
+    vim.opt.rtp:prepend(M.opts.parser_install_dir) -- treesitter needs to be before nvim's runtime in rtp
 
     -- 在其他方再运行configs.setup() 会影响到自定义安装路径
-    configs.setup(opts)
+    configs.setup(M.opts)
 
     set_rainbow_highlight()
 
@@ -202,8 +200,6 @@ function M.setup()
     -- 在lsp中配置
     -- set foldmethod=expr
     -- set foldexpr=nvim_treesitter#foldexpr()
-
-
 end
 
 return M

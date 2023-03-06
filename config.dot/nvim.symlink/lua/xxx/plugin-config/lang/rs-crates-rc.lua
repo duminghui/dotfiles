@@ -8,10 +8,7 @@ M.opts = {
 }
 
 function M.setup()
-    local status_ok, crates = safe_require("crates")
-    if not status_ok then
-        return
-    end
+    local crates = require("crates")
     crates.setup(M.opts)
 end
 

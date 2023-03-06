@@ -23,6 +23,7 @@ local defaults = {
     "help",
     "Jaq",
     "lab",
+    'lazy',
     'lazygit',
     "lir",
     'lspsaga',
@@ -82,7 +83,7 @@ local function gen_filetypes(include_filetypes, new_exclude_filetypes)
     return result_filetypes
 end
 
-local M = {}
+local M            = {}
 
 M.autopairs        = gen_filetypes()
 M.breadcrumbs      = gen_filetypes()
@@ -93,7 +94,7 @@ M.indent_blankline = gen_filetypes({ "Markdown" })
 M.lspsaga          = gen_filetypes({ "Markdown" })
 M.scrollbar        = gen_filetypes()
 
-M.lualine = {
+M.lualine          = {
     "alpha",
     "TelescopePrompt",
     "packer",
