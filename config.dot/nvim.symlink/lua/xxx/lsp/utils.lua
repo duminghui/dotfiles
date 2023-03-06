@@ -146,7 +146,8 @@ end
 
 function M.setup_codelens_refresh(client, bufnr)
     if not client.supports_method "textDocument/codeLens" then
-        Log:debug("skipping setup for document_codelens, method 'textDocument/codeLens' not supported by " .. client.name)
+        Log:debug("skipping setup for document_codelens, method 'textDocument/codeLens' not supported by " ..
+            client.name)
         return
     end
     local group = "lsp_code_lens_refresh"

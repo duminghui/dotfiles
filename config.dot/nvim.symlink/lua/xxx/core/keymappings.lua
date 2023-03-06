@@ -43,44 +43,38 @@ local defaults = {
         ["<A-Left>"] = "<C-\\><C-N><C-w>h",
         ["<A-Right>"] = "<C-\\><C-N><C-w>l",
     },
-
     normal_mode = {
         -- don't yank with x
         -- ["x"]  = { '"_x', silent_opts },
         -- Increment/decrement
-        ["+"]  = { "<C-a>" },
-        ["-"]  = { "<C-x>" },
-        ["j"]  = { "gj", silent_opts },
-        ["gj"] = { "j", silent_opts },
-        ["k"]  = { "gk", silent_opts },
-        ["gk"] = { "k", silent_opts },
-        ["zl"] = { "zL", silent_opts },
-        ["zh"] = { "zH", silent_opts },
+        ["+"]         = { "<C-a>" },
+        ["-"]         = { "<C-x>" },
+        ["j"]         = { "gj", silent_opts },
+        ["gj"]        = { "j", silent_opts },
+        ["k"]         = { "gk", silent_opts },
+        ["gk"]        = { "k", silent_opts },
+        ["zl"]        = { "zL", silent_opts },
+        ["zh"]        = { "zH", silent_opts },
         -- ["Y"] = { "y$", silent_opts }, -- neovim buildin
 
         -- Better window movement
-        ["<C-h>"] = "<C-w>h",
-        ["<C-j>"] = "<C-w>j",
-        ["<C-k>"] = "<C-w>k",
-        ["<C-l>"] = "<C-w>l",
-
+        ["<C-h>"]     = "<C-w>h",
+        ["<C-j>"]     = "<C-w>j",
+        ["<C-k>"]     = "<C-w>k",
+        ["<C-l>"]     = "<C-w>l",
         -- Resize with arrows
-        ["<C-Up>"] = ":resize -2<CR>",
-        ["<C-Down>"] = ":resize +2<CR>",
-        ["<C-Left>"] = ":vertical resize +2<CR>",
+        ["<C-Up>"]    = ":resize -2<CR>",
+        ["<C-Down>"]  = ":resize +2<CR>",
+        ["<C-Left>"]  = ":vertical resize +2<CR>",
         ["<C-Right>"] = ":vertical resize -2<CR>",
-
         -- Move current line / block with Alt-j/k a la vscode.
-        ["<A-j>"] = ":m .+1<CR>==",
-        ["<A-k>"] = ":m .-2<CR>==",
-
+        ["<A-j>"]     = ":m .+1<CR>==",
+        ["<A-k>"]     = ":m .-2<CR>==",
         -- QuickFix
         -- ["]q"] = ":cnext<CR>",
         -- ["[q"] = ":cprev<CR>",
-        ["<C-q>"] = ":call QuickFixToggle()<CR>",
-
+        ["<C-q>"]     = ":call QuickFixToggle()<CR>",
     },
-
     term_mode = {
         -- Terminal window navigation
         ["<C-h>"] = "<C-\\><C-N><C-w>h",
@@ -88,33 +82,28 @@ local defaults = {
         ["<C-k>"] = "<C-\\><C-N><C-w>k",
         ["<C-l>"] = "<C-\\><C-N><C-w>l",
     },
-
     visual_mode = {
         -- Better indenting
         ["<"] = "<gv",
         [">"] = ">gv",
-
         -- ["p"] = '"0p',
         -- ["P"] = '"0P',
     },
-
     visual_block_mode = {
         -- Move selected line / block of text in visual mode
         ["K"] = ":move '<-2<CR>gv-gv",
         ["J"] = ":move '>+1<CR>gv-gv",
-
         -- Move current line / block with Alt-j/k ala vscode.
         ["<A-j>"] = ":m '>+1<CR>gv-gv",
         ["<A-k>"] = ":m '<-2<CR>gv-gv",
     },
-
     command_mode = {
         -- navigate tab completion with <c-j> and <c-k>
         -- runs conditionally
         ["<C-j>"] = { 'pumvisible() ? "\\<C-n>" : "\\<C-j>"', { expr = true, noremap = true } },
         ["<C-k>"] = { 'pumvisible() ? "\\<C-p>" : "\\<C-k>"', { expr = true, noremap = true } },
         -- cmap w!! w !sudo tee % >/dev/null
-        ["w!!"] = { 'w !sudo tee % >/dev/null', generic_opts_any },
+        -- ["w!!"] = { 'w !sudo tee % >/dev/null', generic_opts_any },
     },
 }
 

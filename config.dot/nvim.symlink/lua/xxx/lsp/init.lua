@@ -2,7 +2,6 @@ local M = {}
 local Log = require "xxx.core.log"
 local autocmds = require "xxx.core.autocmds"
 
-local utils = require("xxx.utils")
 local lsp_opts = require "xxx.lsp.config"
 
 function M.add_lsp_buffer_options(bufnr)
@@ -48,8 +47,6 @@ function M.common_on_attach(client, bufnr)
     lu.setup_document_symbols(client, bufnr)
 
     lu.setup_fold()
-
-
 end
 
 function M.get_common_opts()
@@ -87,9 +84,7 @@ function M.setup()
     local templates = require("xxx.lsp.templates")
     templates.set_ftplugin_dir(lsp_opts.templates_dir)
 
-    -- if not utils.is_directory(lsp_opts.templates_dir) then
-        templates.generate_templates()
-    -- end
+    templates.generate_templates()
 
     -- diagnostics signs
     for _, sign in ipairs(lsp_opts.diagnostics.signs.values) do
