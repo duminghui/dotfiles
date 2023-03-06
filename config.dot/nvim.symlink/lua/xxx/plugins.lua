@@ -197,7 +197,7 @@ local plugins = {
     {
         -- highlight, linter, formater, indent framework
         "nvim-treesitter/nvim-treesitter",
-        -- run = ":TSUpdate",
+        -- build = ":TSUpdate",
         config = function()
             require("xxx.plugin-config.nvim-treesitter-rc").setup()
         end,
