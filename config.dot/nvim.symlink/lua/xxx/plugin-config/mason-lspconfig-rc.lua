@@ -8,7 +8,7 @@ function M.setup()
   settings.current.automatic_installation = false
 
   -- 在mason配置后才能获取到列表
-  print(vim.inspect(require("mason-lspconfig").get_available_servers()))
+  -- print(vim.inspect(require("mason-lspconfig").get_available_servers()))
 end
 
 return M
