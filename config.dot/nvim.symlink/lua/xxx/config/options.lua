@@ -130,13 +130,13 @@ function M.load_default_options()
   end
 
   vim.o.sessionoptions =
-  "buffers,curdir,folds,globals,tabpages,winpos,winsize"                        -- Session options to store in the session
+  "buffers,curdir,folds,globals,tabpages,winpos,winsize" -- Session options to store in the session
 
-  vim.opt.backupdir = join_paths(data_dir, "backups")                           -- Use backup files
-  vim.opt.directory = join_paths(data_dir, "swaps")                             -- Use Swap files
-  vim.opt.undofile = true                                                       -- Maintain undo history between sessions
-  vim.opt.undolevels = 1000                                                     -- Ensure we can undo a lot! **
-  vim.opt.undodir = join_paths(data_dir, "undos")                               -- Set the undo directory
+  vim.opt.backupdir = join_paths(data_dir, "backups")    -- Use backup files
+  vim.opt.directory = join_paths(data_dir, "swaps")      -- Use Swap files
+  vim.opt.undofile = true                                -- Maintain undo history between sessions
+  vim.opt.undolevels = 1000                              -- Ensure we can undo a lot! **
+  vim.opt.undodir = join_paths(data_dir, "undos")        -- Set the undo directory
   vim.opt.viewdir = join_paths(data_dir, "views")
 
   --[[
@@ -158,8 +158,8 @@ function M.load_default_options()
   vim.o.termguicolors = true -- True color support
   vim.opt.cursorline = true
   vim.opt.cursorcolumn = true
-  vim.opt.cursorlineopt =
-  "screenline,number"                         -- Highlight the screen line of the cursor with CursorLine and the line number with CursorLineNr **
+  -- Highlight the screen line of the cursor with CursorLine and the line number with CursorLineNr **
+  vim.opt.cursorlineopt = "screenline,number"
 
   -- Enables pseudo-transparency for the |popup-menu|.
   -- cmp's menu, doc view

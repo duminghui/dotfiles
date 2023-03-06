@@ -57,13 +57,6 @@ local opts = {
   settings = {
     Lua = {
       telemetry = { enable = false },
-      format = {
-        enable = true,
-        defaultConfig = {
-          indent_style = "space",
-          indent_size = "2",
-        },
-      },
       runtime = {
         version = "LuaJIT",
         special = {
