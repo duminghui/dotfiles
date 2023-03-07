@@ -32,3 +32,11 @@ Host vps1
     HostName myvps1.com
     IdentityFile ~/.ssh/vps1
 
+Host video-api-server
+    AddKeysToAgent yes
+    UseKeychain yes
+    User root
+    Port 22
+    HostName video-api-server
+    IdentityFile ~/.ssh/video-api-server.pem
+
