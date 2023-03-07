@@ -48,7 +48,7 @@ M.opts = {
   },
   git = {
     enable = true,
-    ignore = true,
+    ignore = false,
     show_on_dirs = true,
     show_on_open_dirs = true,
     timeout = 200,
@@ -90,8 +90,8 @@ M.opts = {
     },
     icons = {
       webdev_colors = true,
-      git_placement = "after",
-      modified_placement = "before",
+      git_placement = "before",
+      modified_placement = "after",
       show = {
         git = true,
         folder = true,
@@ -120,9 +120,12 @@ M.opts = {
         },
       },
     },
-    highlight_git = true,
+    add_trailing = false,
     group_empty = false,
-    root_folder_modifier = ":t",
+    highlight_git = true,
+    highlight_opened_files = "none",
+    highlight_modified = "none",
+    root_folder_label = ":t",
   },
   filters = {
     dotfiles = false,
