@@ -155,6 +155,7 @@ local plugins = {
     config = function()
       require("xxx.plugin-config.nvim-cmp-rc").setup()
     end,
+    cmd = { "CmpStatus" },
     dependencies = {
       -- cmp sources --
       { "hrsh7th/cmp-nvim-lsp" },
