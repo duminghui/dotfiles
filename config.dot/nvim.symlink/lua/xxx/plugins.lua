@@ -417,7 +417,7 @@ local plugins = {
     config = function()
       require("xxx.plugin-config.lang.rs-rust-tools-rc").setup()
     end,
-    enabled = false,
+    enabled = true,
     ft = { "rust" },
   },
 
@@ -428,7 +428,7 @@ local plugins = {
     config = function()
       require("xxx.plugin-config.lang.rs-crates-rc").setup()
     end,
-    enabled = false,
+    enabled = true,
     event = { "BufRead Cargo.toml" },
   },
 }

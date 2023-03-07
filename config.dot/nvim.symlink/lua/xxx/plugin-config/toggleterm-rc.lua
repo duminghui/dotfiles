@@ -8,14 +8,14 @@ M.opts = {
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   shade_terminals = true,
-  shading_factor = 2,     -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  shading_factor = 2, -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
   start_in_insert = true,
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   persist_size = false,
   -- direction = 'vertical' | 'horizontal' | 'window' | 'float',
   direction = "float",
   close_on_exit = true, -- close the terminal window when the process exits
-  shell = vim.o.shell,  -- change the default shell
+  shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
   float_opts = {
     -- The border key is *almost* the same as 'nvim_win_open'
@@ -39,23 +39,23 @@ M.opts = {
   -- TODO: pls add mappings in which key and refactor this
   execs = {
     { vim.o.shell, "<M-1>", "Horizontal Terminal", "horizontal", 10 },
-    { vim.o.shell, "<M-2>", "Vertical Terminal",   "vertical",   60 },
-    { vim.o.shell, "<M-3>", "Float Terminal",      "float",      nil },
+    { vim.o.shell, "<M-2>", "Vertical Terminal", "vertical", 60 },
+    { vim.o.shell, "<M-3>", "Float Terminal", "float", nil },
   },
 }
 
 function M.setup()
-  local toggleterm = require("toggleterm")
+  local toggleterm = require "toggleterm"
   toggleterm.setup(M.opts)
   for i, exec in pairs(M.opts.execs) do
     local opts = {
-      cmd       = exec[1],
-      keymap    = exec[2],
-      label     = exec[3],
+      cmd = exec[1],
+      keymap = exec[2],
+      label = exec[3],
       -- NOTE: unable to consistently bind id/count <= 9, see #2146
-      count     = i + 100,
+      count = i + 100,
       direction = exec[4] or M.opts.direction,
-      size      = exec[5] or M.opts.size,
+      size = exec[5] or M.opts.size,
     }
     M.add_exec(opts)
   end
@@ -66,14 +66,9 @@ function M.add_exec(opts)
   if vim.fn.executable(binary) ~= 1 then
     Log:debug("Skipping configuring executable " .. binary .. ". Please make sure it is installed properly.")
   end
-  vim.keymap.set(
-    { "n", "t" },
-    opts.keymap,
-    function()
-      M._exec_toggle { cmd = opts.cmd, count = opts.count, direction = opts.direction, size = opts.size }
-    end,
-    { desc = opts.label, noremap = true, silent = true }
-  )
+  vim.keymap.set({ "n", "t" }, opts.keymap, function()
+    M._exec_toggle { cmd = opts.cmd, count = opts.count, direction = opts.direction, size = opts.size }
+  end, { desc = opts.label, noremap = true, silent = true })
 end
 
 function M._exec_toggle(opts)
@@ -116,8 +111,7 @@ function M.lazygit_toggle()
     on_open = function(_)
       vim.cmd "startinsert!"
     end,
-    on_close = function(_)
-    end,
+    on_close = function(_) end,
     count = 99,
   }
   lazygit:toggle()

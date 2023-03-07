@@ -1,10 +1,10 @@
 local Log = require "xxx.core.log"
-local colors = require("xxx.core.colors")
+local colors = require "xxx.core.colors"
 
 local M = {}
 
 M.opts = {
-  parser_install_dir = join_paths(vim.fn.stdpath("data"), "parsers"),
+  parser_install_dir = join_paths(vim.fn.stdpath "data", "parsers"),
   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ensure_installed = { 'lua' },
   ensure_installed = {},
@@ -102,11 +102,10 @@ M.opts = {
       -- mapping query_strings to modes.
 
       -- operator-pending use selection_modes :h operator
-      selection_modes =
-      {
+      selection_modes = {
         -- ['@parameter.outer'] = 'v', -- charwise
-        ['@function.outer'] = 'V', -- linewise
-        ['@function.inner'] = 'V', -- linewise
+        ["@function.outer"] = "V", -- linewise
+        ["@function.inner"] = "V", -- linewise
         -- ['@class.outer'] = '<c-v>', -- blockwise
       },
     },
@@ -129,12 +128,12 @@ M.opts = {
   },
   textsubjects = {
     enable = false,
-    keymaps = { ["."] = "textsubjects-smart",[";"] = "textsubjects-big" },
+    keymaps = { ["."] = "textsubjects-smart", [";"] = "textsubjects-big" },
   },
   playground = {
     enable = false,
     disable = {},
-    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
+    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
     keybindings = {
       toggle_query_editor = "o",
@@ -151,7 +150,7 @@ M.opts = {
   },
   rainbow = {
     enable = true,
-    extended_mode = true,  -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
     max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
     colors = {
       colors.c1,
@@ -180,12 +179,7 @@ function M.setup()
     return
   end
 
-  local status_ok, configs = safe_require("nvim-treesitter.configs")
-  if not status_ok then
-    return
-  end
-
-
+  local configs = require "nvim-treesitter.configs"
   -- 这个一定要放在setup前面
   -- vim.opt.rpt:append(M.opts.parser_install_dir)
   vim.opt.rtp:prepend(M.opts.parser_install_dir) -- treesitter needs to be before nvim's runtime in rtp

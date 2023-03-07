@@ -44,6 +44,7 @@ M.opts = {
   hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
   show_help = true, -- show help message on the command line when the popup is visible
+  show_keys = true, -- show the currently pressed key and its label as a message in the command line
   triggers = "auto", -- automatically setup triggers
   -- triggers = {"<leader>"} -- or specify a list manually
   triggers_blacklist = {
@@ -102,20 +103,34 @@ M.n_mappings = {
   },
   a = {
     name = "Lspsaga",
-    o = { "<cmd>LSoutlineToggle<CR>", "Outline" },
     r = { "<cmd>Lspsaga rename<CR>", "Rename" },
-    K = { "<cmd>Lspsaga hover_doc<CR>", "Hover Doc" },
-    k = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Prev Diagnostic" },
-    j = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic" },
-    l = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Line Diagnostics" },
-    c = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Cursor Diagnostics" },
-    a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
-    -- b = { "<cmd>Lspsaga range_code_action<CR>", "Range Code Action(Deprecated)" },
-    p = { "<cmd>Lspsaga peek_definition<CR>", "Peek Definition" },
-    -- f = { "<cmd>Lspsaga preview_definition<CR>", "Preview Definition(Deprecated)" },
-    -- g = { "<cmd>Lspsaga open_floaterm<CR>", "Open Floaterm" },
-    -- h = { "<cmd>Lspsaga close_floaterm<CR>", "Close Floaterm" },
+    R = { "<cmd>Lspsaga rename ++project<CR>", "Rename(Project)" },
+    o = { "<cmd>Lspsaga outline<CR>", "Outline" },
+    k = { "<cmd>Lspsaga hover_doc<CR>", "Hover Doc" },
+    K = { "<cmd>Lspsaga hover_doc ++keep<CR>", "Hover Doc(Keep)" },
     f = { "<cmd>Lspsaga lsp_finder<CR>", "Lsp Finder" },
+    a = { "<cmd>Lspsaga code_action<CR>", "Code Action" },
+    T = { "<cmd>Lspsaga term_toggle<CR>", "Term Toggle" },
+    c = {
+      name = "Calls",
+      o = { "<cmd>Lspsaga outgoing_calls<CR>", "Outgoing Calls" },
+      i = { "<cmd>Lspsaga incoming_calls<CR>", "Incoming Calls" },
+    },
+    D = { "<cmd>Lspsaga peek_definition<CR>", "Peek Definition" },
+    d = { "<cmd>Lspsaga goto_definition<CR>", "Goto Definition" },
+    p = { "<cmd>Lspsaga diagnostic_jump_prev<CR>", "Prev Diagnostic" },
+    n = { "<cmd>Lspsaga diagnostic_jump_next<CR>", "Next Diagnostic" },
+    t = {
+      name = "Type Definition",
+      D = { "<cmd>Lspsaga peek_type_definition<CR>", "Peek Type Definition" },
+      d = { "<cmd>Lspsaga goto_type_definition<CR>", "Goto Type Definition" },
+    },
+    s = {
+      name = "Show Diagnostics",
+      l = { "<cmd>Lspsaga show_line_diagnostics<CR>", "Diagnostics(Line)" },
+      b = { "<cmd>Lspsaga show_buf_diagnostics<CR>", "Diagnostics(Buffer)" },
+      c = { "<cmd>Lspsaga show_cursor_diagnostics<CR>", "Diagnostics(Cursor)" },
+    },
   },
   b = {
     name = "Buffers",
@@ -130,17 +145,7 @@ M.n_mappings = {
     D = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by directory" },
     L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language" },
   },
-  P = {
-    name = "Packer",
-    c = { "<cmd>PackerCompile<CR>", "Compile" },
-    C = { "<cmd>PackerClean<CR>", "Clean" },
-    i = { "<cmd>PackerInstall<CR>", "Install" },
-    r = { "<cmd>lua require 'xxx.plugin-loader'.recompile()<CR>", "Re-compile" },
-    S = { "<cmd>PackerSync<CR>", "Sync" },
-    s = { "<cmd>PackerStatus<CR>", "Status" },
-    u = { "<cmd>PackerUpdate<CR>", "Update" },
-    p = { "<cmd>PackerSnapshot default.json<CR>", "Snapshot default.json" },
-  },
+  P = {},
   g = {
     name = "Git",
     g = { "<cmd>lua require 'xxx.plugin-config.toggleterm-rc'.lazygit_toggle()<CR>", "Lazygit" },
@@ -221,9 +226,6 @@ M.n_mappings = {
     c = { "<cmd>SessionManager load_current_dir_session<CR>", "Load Current Dir Session" },
     s = { "<cmd>SessionManager save_current_session<CR>", "Save Current Session" },
     d = { "<cmd>SessionManager delete_session<CR>", "Delete Session" },
-    -- t = { "<cmd>SessionToggle<CR>", "Session Toggle" },
-    -- l = { "<cmd>Telescope persisted<CR>", "Session list" },
-    -- s = { "<cmd>SessionSave<CR>", "Save Current Session" },
   },
   t = {
     name = "Trouble",
@@ -233,7 +235,7 @@ M.n_mappings = {
     d = { "<cmd>Trouble document_diagnostics<CR>", "Buffer Diagnostics" },
     --  lsp/config.lua: gr
     r = { "<cmd>Trouble lsp_references<CR>", "References" },
-    -- use lsp's gd=, not use this
+    -- use lsp's gd, not use this
     x = { "<cmd>Trouble lsp_definitions<CR>", "Definitions" },
     D = { "<cmd>Trouble lsp_type_definitions<CR>", "Type Definitions" },
     q = { "<cmd>Trouble quickfix<CR>", "Quickfix" },
@@ -289,7 +291,7 @@ M.n_mappings = {
 }
 
 function M.setup()
-  local which_key = require("which-key")
+  local which_key = require "which-key"
   which_key.setup(M.opts)
   which_key.register(M.n_mappings, M.n_opts)
 end

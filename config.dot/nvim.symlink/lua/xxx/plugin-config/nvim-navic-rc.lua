@@ -1,6 +1,6 @@
 local M = {}
 
-local icons = require("xxx.core.icons")
+local icons = require "xxx.core.icons"
 local icons_kind = icons.kind
 
 M.opts = {
@@ -47,13 +47,9 @@ M.opts = {
 }
 
 function M.setup()
-  local status_ok, navic = safe_require("nvim-navic")
-  if not status_ok then
-    return
-  end
+  local navic = require "nvim-navic"
   -- M.create_winbar()
   navic.setup(M.opts)
-
 end
 
 M.winbar_filetype_exclude = require("xxx.config.exclude-filetypes").breadcrumbs
@@ -93,7 +89,7 @@ M.get_filename = function()
 
   if not f.isempty(filename) then
     local file_icon, file_icon_color =
-    require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+      require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
 
     local hl_group = "FileIconColor" .. extension
 
@@ -197,6 +193,5 @@ M.create_winbar = function()
     )
   end
 end
-
 
 return M

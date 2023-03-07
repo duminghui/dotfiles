@@ -3,48 +3,13 @@ local Log = require "xxx.core.log"
 
 --- Load the default set of autogroups and autocommands.
 function M.load_defaults()
-  vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = {
-      "Jaq",
-      "qf",
-      -- "help",
-      "man",
-      "lspinfo",
-      "spectre_panel",
-      "lir",
-      "DressingSelect",
-      "tsplayground",
-      -- "Markdown",
-    },
-    callback = function()
-      vim.cmd [[
-      nnoremap <silent> <buffer> q :close<CR>
-      nnoremap <silent> <buffer> <esc> :close<CR>
-      set nobuflisted
-    ]]
-    end,
-  })
-
-  vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = {
-      "alpha",
-    },
-    callback = function()
-      vim.cmd [[
-      nnoremap <silent> <buffer> q :qa<CR>
-      nnoremap <silent> <buffer> <esc> :qa<CR>
-      set nobuflisted
-    ]]
-    end,
-  })
-
-  vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "lir" },
-    callback = function()
-      vim.opt_local.number = false
-      vim.opt_local.relativenumber = false
-    end,
-  })
+  -- vim.api.nvim_create_autocmd({ "FileType" }, {
+  --   pattern = { "lir" },
+  --   callback = function()
+  --     vim.opt_local.number = false
+  --     vim.opt_local.relativenumber = false
+  --   end,
+  -- })
 
   -- TODO: figure out what keeps overriding laststatus
   -- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
@@ -55,6 +20,48 @@ function M.load_defaults()
   -- })
 
   local definitions = {
+    {
+      "FileType",
+      {
+        group = "_buffer_mappings",
+        pattern = {
+          "alpha",
+        },
+        callback = function()
+          vim.cmd [[
+            nnoremap <silent> <buffer> q :qa<CR>
+            nnoremap <silent> <buffer> <esc> :qa<CR>
+            set nobuflisted
+          ]]
+        end,
+      },
+    },
+    {
+      "FileType",
+      {
+        group = "_buffer_mappings",
+        pattern = {
+          "Jaq",
+          "qf",
+          -- "help",
+          "man",
+          "floaterm",
+          "lspinfo",
+          "lsp-installer",
+          "lir",
+          "DressingSelect",
+          "null-ls-info",
+          "tsplayground",
+        },
+        callback = function()
+          vim.cmd [[
+            nnoremap <silent> <buffer> q :close<CR>
+            nnoremap <silent> <buffer> <esc> :close<CR>
+            set nobuflisted
+          ]]
+        end,
+      },
+    },
     {
       "TextYankPost",
       {
@@ -90,22 +97,6 @@ function M.load_defaults()
         callback = function()
           vim.opt_local.listchars = "tab:› ,trail:•,extends:#,nbsp:."
         end,
-      }
-    },
-    {
-      "FileType",
-      {
-        group = "_buffer_mappings",
-        pattern = {
-          "qf",
-          -- "help",
-          "man",
-          "floaterm",
-          "lspinfo",
-          "lsp-installer",
-          "null-ls-info",
-        },
-        command = "nnoremap <silent> <buffer> q :close<CR>",
       },
     },
     {
@@ -134,8 +125,8 @@ function M.load_defaults()
           vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
           vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
           vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
-        end
-      }
+        end,
+      },
     },
     { -- taken from AstroNvim
       "BufEnter",
@@ -165,7 +156,7 @@ function M.load_defaults()
           end
         end,
       },
-    }
+    },
     -- {
     --     { "BufNewFile", "BufRead" },
     --     {

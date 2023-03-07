@@ -1,7 +1,7 @@
 -- https://github.com/sumneko/lua-language-server/wiki/Settings
 local default_workspace = {
   library = {
-    vim.fn.expand("$VIMRUNTIME"),
+    vim.fn.expand "$VIMRUNTIME",
     require("neodev.config").types(),
   },
   -- too big
@@ -26,9 +26,9 @@ local function add_packages_to_workspace(packages, config)
   end
 end
 
-local lspconfig = require("lspconfig")
+local lspconfig = require "lspconfig"
 
-local make_on_new_config = function(on_new_config, _)
+local function make_on_new_config(on_new_config, _)
   return lspconfig.util.add_hook_before(on_new_config, function(new_config, _)
     local server_name = new_config.name
     if server_name ~= "lua_ls" then
@@ -50,7 +50,7 @@ local opts = {
   commands = {
     XXXCmd = {
       function()
-        print("this is XXX Cmd in sumneko_lua.lua, client.config.commands")
+        print "this is XXX Cmd in sumneko_lua.lua, client.config.commands"
       end,
     },
   },
