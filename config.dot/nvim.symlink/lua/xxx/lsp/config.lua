@@ -41,7 +41,7 @@ local skipped_servers = {
   "vuels",
 }
 
-local skipped_filetypes = { "markdown", "rst", "plaintext", "toml" }
+local skipped_filetypes = { "markdown", "rst", "plaintext" }
 
 local diagnostic_float = {
   focusable = false,
@@ -60,10 +60,10 @@ local diagnostic_float = {
   end,
 }
 
-local icons = require("xxx.core.icons")
+local icons = require "xxx.core.icons"
 
 local options = {
-  templates_dir = join_paths(vim.fn.stdpath("data"), "site", "after", "ftplugin"),
+  templates_dir = join_paths(vim.fn.stdpath "data", "site", "after", "ftplugin"),
   diagnostics = {
     signs = {
       priority = 30,
@@ -113,7 +113,7 @@ local options = {
   },
   nlsp_settings = {
     setup = {
-      config_home = join_paths(vim.fn.stdpath("config"), "lsp-settings"),
+      config_home = join_paths(vim.fn.stdpath "config", "lsp-settings"),
       -- set to false to overwrite schemastore.nvim
       ignored_servers = {},
       append_default_schemas = true,

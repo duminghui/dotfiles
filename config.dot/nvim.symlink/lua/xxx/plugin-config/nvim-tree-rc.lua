@@ -1,5 +1,5 @@
-local Log = require("xxx.core.log")
-local icons = require("xxx.core.icons")
+local Log = require "xxx.core.log"
+local icons = require "xxx.core.icons"
 local M = {}
 
 local function telescope_find_files(_)
@@ -48,22 +48,29 @@ M.opts = {
   },
   git = {
     enable = true,
-    ignore = false,
+    ignore = true,
+    show_on_dirs = true,
+    show_on_open_dirs = true,
     timeout = 200,
   },
+  modified = {
+    enable = false,
+    show_on_dirs = true,
+    show_on_open_dirs = true,
+  },
   view = {
-    width = 30,
+    width = 33,
     hide_root_folder = false,
     side = "left",
     mappings = {
       custom_only = false,
       list = {
-        { key = { "l", "<CR>", "o" }, action = "edit",                 mode = "n" },
-        { key = "h",                  action = "close_node" },
-        { key = "v",                  action = "vsplit" },
-        { key = "C",                  action = "cd" },
-        { key = "gtf",                action = "telescope_find_files", action_cb = telescope_find_files },
-        { key = "gtg",                action = "telescope_live_grep",  action_cb = telescope_live_grep },
+        { key = { "l", "<CR>", "o" }, action = "edit", mode = "n" },
+        { key = "h", action = "close_node" },
+        { key = "v", action = "vsplit" },
+        { key = "C", action = "cd" },
+        { key = "gtf", action = "telescope_find_files", action_cb = telescope_find_files },
+        { key = "gtg", action = "telescope_live_grep", action_cb = telescope_live_grep },
       },
     },
     number = false,
@@ -72,9 +79,10 @@ M.opts = {
   },
   renderer = {
     indent_markers = {
-      enable = false,
+      enable = true,
       icons = {
-        corner = "└",
+        -- corner = "└",
+        corner = "│",
         edge = "│",
         item = "│",
         none = " ",
@@ -82,6 +90,8 @@ M.opts = {
     },
     icons = {
       webdev_colors = true,
+      git_placement = "after",
+      modified_placement = "before",
       show = {
         git = true,
         folder = true,
@@ -98,7 +108,8 @@ M.opts = {
           renamed = icons.git.FileRenamed,
           deleted = icons.git.FileDeleted,
           untracked = icons.git.FileUntracked,
-          ignored = icons.git.FileIgnored,
+          -- ignored = icons.git.FileIgnored,
+          ignored = "",
         },
         folder = {
           default = icons.ui.Folder,
@@ -156,7 +167,6 @@ M.opts = {
   },
 }
 
-
 M.nvimtree_setup_called = false
 
 function M.setup()
@@ -167,10 +177,9 @@ function M.setup()
 
   M.nvimtree_setup_called = true
 
-  local nvim_tree = require("nvim-tree")
+  local nvim_tree = require "nvim-tree"
 
-  local _ = require("nvim-tree.notify")
-
+  local _ = require "nvim-tree.notify"
 
   -- for 'project' module
   M.opts.sync_root_with_cwd = true
@@ -182,7 +191,6 @@ function M.setup()
     update_root = true,
   }
 
-
   nvim_tree.setup(M.opts)
 end
 
@@ -193,7 +201,7 @@ function M.start_telescope(telescope_mode)
   local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
   require("telescope.builtin")[telescope_mode] {
     cwd = basedir,
-    theme = "cursor"
+    theme = "cursor",
   }
 end
 
