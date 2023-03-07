@@ -124,6 +124,12 @@ local options = {
     setup = {
       sources = {
         require("null-ls").builtins.formatting.stylua,
+        -- require("null-ls").builtins.formatting.rustfmt.with {
+        -- 不起作用
+        --   generator_opts = {
+        --     args = { "+nightly", "--emit=stdout" },
+        --   },
+        -- },
       },
     },
     config = {},

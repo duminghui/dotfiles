@@ -194,7 +194,8 @@ M.n_mappings = {
     I = { "<cmd>Mason<CR>", "Mason Info" },
     c = { "<cmd>CmpStatus<CR>", "Cmp Status" },
     -- P = { "<cmd>lua =vim.lsp.get_active_clients()[1].config.settings<CR>", "Clients[1] Settings" },
-    P = { "<cmd>lua =vim.lsp.get_active_clients()[1].config<CR>", "Clients[1] Config" },
+    -- P = { "<cmd>lua =vim.lsp.get_active_clients()[1].config<CR>", "Clients[1] Config" },
+    P = { require("xxx.lsp.info").print_clients_config, "Clients Config" },
     C = { "<cmd>lua =vim.lsp.get_active_clients()[1].server_capabilities<CR>", "Clients[1] Server Capabilities" },
   },
   s = {
