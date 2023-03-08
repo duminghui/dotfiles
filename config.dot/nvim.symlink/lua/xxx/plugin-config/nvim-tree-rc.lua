@@ -138,11 +138,11 @@ M.opts = {
   },
   log = {
     enable = false,
-    truncate = false,
+    truncate = true,
     types = {
-      all = false,
+      all = true,
       config = false,
-      copy_paste = false,
+      copy_paste = true,
       diagnostics = false,
       git = false,
       profile = false,

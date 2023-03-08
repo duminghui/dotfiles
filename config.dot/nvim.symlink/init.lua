@@ -45,8 +45,14 @@ Log:debug "Starting XVim"
 local commands = require "xxx.core.commands"
 commands.load_defaults()
 
--- --Lsp配置
-require("xxx.lsp").setup()
+if not vim.g.vscode then
+  -- --Lsp配置
+  require("xxx.lsp").setup()
+else
+  -- 不显竖的光标所在行
+  vim.opt.cursorcolumn = false
+  require("xxx.vscode").keymappings()
+end
 
 -- local ProgressNotify = require("xxx.core.progress-notify")
 -- local notif = ProgressNotify:new()
