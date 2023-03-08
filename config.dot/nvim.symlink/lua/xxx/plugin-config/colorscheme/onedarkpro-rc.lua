@@ -147,12 +147,12 @@ M.opts = {
     NvimTreeGitDirty = { fg = "${yellow}" },
     -- Telescope
     -- TelescopeBorder = {
-    --     fg = "${telescope_results}",
-    --     bg = "${telescope_results}",
+    --   fg = "${telescope_results}",
+    --   bg = "${telescope_results}",
     -- },
     -- TelescopePromptBorder = {
-    --     fg = "${telescope_prompt}",
-    --     bg = "${telescope_prompt}",
+    --   fg = "${telescope_prompt}",
+    --   bg = "${telescope_prompt}",
     -- },
     TelescopePromptCounter = { fg = "${fg}" },
     TelescopePromptNormal = { fg = "${fg}", bg = "${telescope_prompt}" },

@@ -148,6 +148,7 @@ function M.opts()
       winblend = 9,
       border = {},
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      -- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
       color_devicons = true,
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
       -- nvim-telescope/telescope-smart-history.nvim (No UI), use in dialog input history
