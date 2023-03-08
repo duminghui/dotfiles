@@ -259,7 +259,12 @@ M.n_mappings = {
       "Grep XVim files",
     },
     k = { "<cmd>Telescope keymaps<CR>", "Keymapings" },
-    i = { "<cmd>lua require('xxx.core.info').toggle_popup(vim.bo.filetype)<CR>", "Toggle XVim Info" },
+    i = {
+      function()
+        require("xxx.core.info").toggle_popup(vim.bo.filetype)
+      end,
+      "Toggle XVim Info",
+    },
     l = {
       name = "+logs",
       d = {
