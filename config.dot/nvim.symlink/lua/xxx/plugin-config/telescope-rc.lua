@@ -37,6 +37,7 @@ local function get_pickers(actions)
       show_pluto = true,
       show_moon = true,
     },
+    keymaps = {},
     git_files = {
       theme = "dropdown",
       hidden = true,
@@ -114,6 +115,7 @@ function M.opts()
           -- ["<CR>"] = actions.select_default,
         },
         n = {
+          q = actions.close,
           -- ["<C-n>"] = actions.move_selection_next,
           -- ["<C-p>"] = actions.move_selection_previous,
           -- ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,

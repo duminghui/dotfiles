@@ -83,7 +83,7 @@ M.n_mappings = {
   ["/"] = { ":nohlsearch<CR>", "No Highlight" },
   w = { "<cmd>w!<CR>", "Save" },
   c = { "<cmd>BufferKill<CR>", "Close Buffer(Keep window)" },
-  q = { "<cmd>lua require('xxx.utils.functions').smart_quit()<CR>", "Quit current window" },
+  q = { require("xxx.utils.functions").smart_quit, "Quit current window" },
   e = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
   f = { require("xxx.plugin-config.telescope-rc.custom-finders").find_project_files, "Find File" },
   G = { "1<c-g>", "Buffer path info" },
@@ -148,7 +148,7 @@ M.n_mappings = {
   P = {},
   g = {
     name = "Git",
-    g = { "<cmd>lua require 'xxx.plugin-config.toggleterm-rc'.lazygit_toggle()<CR>", "Lazygit" },
+    g = { require("xxx.plugin-config.toggleterm-rc").lazygit_toggle, "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message=false})<CR>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message=false})<CR>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
@@ -173,7 +173,7 @@ M.n_mappings = {
   },
   l = {
     name = "LSP",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code Action" },
+    a = { vim.lsp.buf.code_action, "Code Action" },
     -- d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
     d = { "<cmd>Trouble document_diagnostics<CR>", "Buffer Diagnostics" },
     -- w = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
@@ -193,10 +193,8 @@ M.n_mappings = {
     i = { "<cmd>LspInfo<CR>", "Lsp Info" },
     I = { "<cmd>Mason<CR>", "Mason Info" },
     c = { "<cmd>CmpStatus<CR>", "Cmp Status" },
-    -- P = { "<cmd>lua =vim.lsp.get_active_clients()[1].config.settings<CR>", "Clients[1] Settings" },
-    -- P = { "<cmd>lua =vim.lsp.get_active_clients()[1].config<CR>", "Clients[1] Config" },
     P = { require("xxx.lsp.info").print_clients_config, "Clients Config" },
-    C = { "<cmd>lua =vim.lsp.get_active_clients()[1].server_capabilities<CR>", "Clients[1] Server Capabilities" },
+    C = { require("xxx.lsp.info").print_clients_server_capabilities, "Clients Server Capabilities" },
   },
   s = {
     name = "Search",
@@ -233,14 +231,15 @@ M.n_mappings = {
     t = { "<cmd>TroubleToggle<CR>", "TroubleToggle" },
     -- +lsp
     w = { "<cmd>Trouble workspace_diagnostics<CR>", "Workspace Diagnostics" },
-    d = { "<cmd>Trouble document_diagnostics<CR>", "Buffer Diagnostics" },
+    x = { "<cmd>Trouble document_diagnostics<CR>", "Buffer Diagnostics" },
     --  lsp/config.lua: gr
     r = { "<cmd>Trouble lsp_references<CR>", "References" },
     -- use lsp's gd, not use this
-    x = { "<cmd>Trouble lsp_definitions<CR>", "Definitions" },
+    d = { "<cmd>Trouble lsp_definitions<CR>", "Definitions" },
     D = { "<cmd>Trouble lsp_type_definitions<CR>", "Type Definitions" },
     q = { "<cmd>Trouble quickfix<CR>", "Quickfix" },
     l = { "<cmd>Trouble loclist<CR>", "Loclist" },
+    i = { "<cmd>Trouble lsp_implmentations<CR>", "Implementations" },
   },
   T = {
     name = "Treesitter",
@@ -251,11 +250,11 @@ M.n_mappings = {
     name = "XVim",
     [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
     f = {
-      "<cmd>lua require('xxx.plugin-config.telescope-rc.custom-finders').find_xvim_files()<CR>",
+      require("xxx.plugin-config.telescope-rc.custom-finders").find_xvim_files,
       "Find XVim files",
     },
     g = {
-      "<cmd>lua require('xxx.plugin-config.telescope-rc.custom-finders').grep_xvim_files()<CR>",
+      require("xxx.plugin-config.telescope-rc.custom-finders").grep_xvim_files,
       "Grep XVim files",
     },
     k = { "<cmd>Telescope keymaps<CR>", "Keymapings" },
@@ -267,29 +266,25 @@ M.n_mappings = {
     },
     l = {
       name = "+logs",
-      d = {
-        "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(require('xxx.core.log').get_path())<CR>",
-        "View default log",
-      },
-      D = { "<cmd>lua vim.fn.execute('edit ' .. require('xxx.core.log').get_path())<CR>", "Open the default log" },
       l = {
-        "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(vim.lsp.get_log_path())<CR>",
+        function()
+          require("xxx.plugin-config.toggleterm-rc").toggle_log_view(vim.lsp.get_log_path())
+        end,
         "View LSP log",
       },
-      L = { "<cmd>lua vim.fn.execute('edit ' .. vim.lsp.get_log_path())<CR>", "Open the LSP logfile" },
+      L = {
+        function()
+          vim.fn.execute("edit " .. vim.lsp.get_log_path())
+        end,
+        "Open the LSP logfile",
+      },
       n = {
-        "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(os.getenv('NVIM_LOG_FILE'))<CR>",
+        function()
+          require("xxx.plugin-config.toggleterm-rc").toggle_log_view(os.getenv "NVIM_LOG_FILE")
+        end,
         "View Neovim log",
       },
       N = { "<cmd>edit $NVIM_LOG_FILE<CR>", "Open the Neovim logfile" },
-      p = {
-        "<cmd>lua require('xxx.plugin-config.toggleterm-rc').toggle_log_view(vim.fn.stdpath('cache') .. '/packer.nvim.log')<CR>",
-        "View Packer log",
-      },
-      P = {
-        "<cmd>lua vim.fn.execute('edit ' .. vim.fn.stdpath('cache') .. '/packer.nvim.log')<CR>",
-        "Open the Packer logfile",
-      },
     },
     n = { "<cmd>Telescope notify<cr>", "View Notifications" },
     r = { require("xxx.lsp.templates").remove_template_files, "Remove lsp ftplugin files" },

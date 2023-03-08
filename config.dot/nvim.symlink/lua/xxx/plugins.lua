@@ -40,7 +40,6 @@ local plugins = {
   {
     -- bufferline color and show work: load order colorscheme->bufferline->alpha-nvim
     "akinsho/bufferline.nvim",
-    -- tag = "v2.*",
     branch = "main",
     event = "User FileOpened",
     dependencies = { "nvim-web-devicons" },
@@ -425,7 +424,7 @@ local plugins = {
   {
     -- rust crates manager
     "saecki/crates.nvim",
-    tag = "v0.3.0",
+    version = "0.3.0",
     config = function()
       require("xxx.plugin-config.lang.rs-crates-rc").setup()
     end,

@@ -192,7 +192,7 @@ function M.setup_format_on_save(client, bufnr, callback)
   end
 
   vim.api.nvim_create_augroup(group, { clear = false })
-  vim.api.nvim_create_autocmd("BufWritePre", {
+  vim.api.nvim_create_autocmd(events, {
     group = group,
     buffer = bufnr,
     callback = callback,

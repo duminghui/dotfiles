@@ -1,6 +1,7 @@
 local M = {}
 
 local lsp = require "xxx.lsp"
+local ra_opt = require "xxx.lsp.providers.rust_analyzer"
 
 M.opts = {
   tools = {
@@ -12,19 +13,10 @@ M.opts = {
       auto_focus = true,
     },
   },
-  server = {
+  server = vim.tbl_deep_extend("keep", {
     standalone = false,
-    settings = {
-      ["rust-analyzer"] = {
-        rustfmt = {
-          extraArgs = { "+nightly" },
-          -- overrideCommand = "XXXXX",
-        },
-      },
-    },
-    capabilities = lsp.common_capabilities(),
     on_attach = function(client, bufnr)
-      require("xxx.lsp").common_on_attach(client, bufnr)
+      lsp.common_on_attach(client, bufnr)
       local keymappings = require "xxx.lsp.keymappings"
       keymappings.set_keymap(bufnr, "n", "gA", ":RustHoverActions<CR>", "RustHoverActions")
       keymappings.set_keymap(bufnr, "n", "gC", ":RustOpenCargo<CR>", "RustOpenCargo")
@@ -33,7 +25,7 @@ M.opts = {
       keymappings.set_keymap(bufnr, "n", "gM", ":RustExandMacro<CR>", "RustExandMacro")
       keymappings.set_keymap(bufnr, "n", "gK", ":RustOpenExternalDocs<CR>", "Open doc in docs.rs")
     end,
-  },
+  }, ra_opt),
 }
 
 function M.setup()
