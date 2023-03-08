@@ -191,7 +191,7 @@ function M.setup()
   M.opts.update_focused_file = {
     enable = true,
     update_cwd = true,
-    update_root = true,
+    update_root = false,
   }
 
   nvim_tree.setup(M.opts)
