@@ -30,6 +30,7 @@ end
 require("xxx.config.options").load_defaults()
 require("xxx.core.keymappings").load_defaults()
 require("xxx.core.autocmds").load_defaults()
+require("xxx.core.commands").load_defaults()
 
 local plugin_loader = require "xxx.plugin-loader"
 
@@ -41,9 +42,6 @@ local plugins = require "xxx.plugins"
 plugin_loader.load { plugins }
 
 Log:debug "Starting XVim"
-
-local commands = require "xxx.core.commands"
-commands.load_defaults()
 
 if not vim.g.vscode then
   -- --Lsp配置
