@@ -65,17 +65,17 @@ local defaults = {
 local function gen_filetypes(include_filetypes, new_exclude_filetypes)
   include_filetypes = include_filetypes or {}
   new_exclude_filetypes = new_exclude_filetypes or {}
-  if #include_filetypes == 0 then
-    return vim.deepcopy(defaults)
-  end
 
   local result_filetypes = {}
 
+  -- 如果在需要包含的列表中, 则不添加
   for _, ft in ipairs(defaults) do
     if not vim.tbl_contains(include_filetypes, ft) then
       table.insert(result_filetypes, ft)
     end
   end
+
+  -- 如果在新增的排除列表中, 而且不在排除列表中则添加
   for _, ft in ipairs(new_exclude_filetypes) do
     if not vim.tbl_contains(defaults, ft) then
       table.insert(result_filetypes, ft)
