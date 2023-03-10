@@ -4,6 +4,10 @@
 #brew安装zsh-completions
 # zsh-completions
 if type brew &>/dev/null; then
+    [[ -s "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
+        bindkey '^s' autosuggest-accept
+
     FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
@@ -204,14 +208,3 @@ manc() {
     LESS_TERMCAP_us=$'\E[1;33m' \
     man "$@"
 }
-#alias .='pwd'
-#export LC_ALL=zh_US.UTF-8
-#用于vim YCM 不配置会使vim启动报错
-#export DYLD_FORCE_FLAT_NAMESPACE=1
-#alias vim='DYLD_FORCE_FLAT_NAMESPACE=1 vim'
-#alias vimdiff='vim'
-#alias view='vim'
-#alias rvim='vim'
-#alias rview='vim'
-#alias ex='vim'
-#alias vi='vim'

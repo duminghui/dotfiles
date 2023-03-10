@@ -1,0 +1,6 @@
+[user]
+        name = {{git_user_name}}
+        email = {{git_user_email}}
+[credential]
+        helper = {{git_credential_helper}}
+

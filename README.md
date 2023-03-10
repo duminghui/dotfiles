@@ -1,4 +1,10 @@
-# dotfiles
+# now use dotter manager dotfiles
+
+[SuperCuber/dotter]
+
+[SuperCuber/dotter]:https://github.com/SuperCuber/dotter
+
+# dotfiles (not use)
 base on [holman/dotfiles]
 
 ## my custom
