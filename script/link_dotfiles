@@ -48,10 +48,10 @@ setup_gitconfig () {
 
     user ' - What is your github author name?'
     read -e git_authorname
-    user ' - What is your github author email?'
+    user ' - What is your github author email? (xxx@users.noreply.github.com)'
     read -e git_authoremail
 
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.dotsymlink.example > git/gitconfig.local.dotsymlink
+    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.template > git/gitconfig.local.dotsymlink
 
     success 'gitconfig'
   fi

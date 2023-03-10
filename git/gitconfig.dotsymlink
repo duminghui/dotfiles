@@ -1,8 +1,10 @@
+[include]
+    path = ~/.gitconfig.local
 [hub]
     protocol = https
 [alias]
     co = checkout
-    count   = !git shortlog -sn
+    count = !git shortlog -sn
 [color]
     diff = auto
     status = auto
@@ -26,9 +28,4 @@
     #
     # Setting to git 2.0 default to suppress warning message
     default = simple
-[user]
-    name = dumh
-    email = duminghui@users.noreply.github.com
-[credential]
-    helper = osxkeychain
 
