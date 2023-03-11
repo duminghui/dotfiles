@@ -20,10 +20,14 @@ nvim = { target = "~/.config/nvim", type = "symbolic", recurse = false }
 "pip.conf" = "~/.config/pip/pip.conf"
 "rust/rustfmt.toml" = "~/Library/Application Support/rustfmt/rustfmt.toml"
 ssh-config = "~/.ssh/config"
+"starship.toml" = "~/.config/starship.toml"
 "tmux/tmux.conf" = "~/.tmux.conf"
 "tmux/tmux.conf.colors" = "~/.tmux.conf.colors"
 
 [default.variables]
+
+[fish.files]
+fish = { target = "~/.config/fish", type = "symbolic", recurse = false }
 
 [zsh.files]
 "zsh/zprofile" = "~/.zprofile"

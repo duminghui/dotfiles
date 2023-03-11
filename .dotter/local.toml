@@ -1,0 +1,10 @@
+includes = []
+
+packages = ["default", "fish", "zsh"]
+
+[files]
+
+[variables]
+git_credential_helper = "osxkeychain"
+git_user_name = "dumh"
+git_user_email = "duminghui@users.noreply.github.com"
