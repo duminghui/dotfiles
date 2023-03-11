@@ -6,7 +6,7 @@
 if type brew &>/dev/null; then
     [[ -s "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
         ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
-        bindkey '^s' autosuggest-accept
+        bindkey '^f' autosuggest-accept
 
     FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
     FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
