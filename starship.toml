@@ -77,11 +77,12 @@ format = '[$symbol$branch(:$remote_branch)]($style) '
 style = "bold green"
 
 [git_commit]
-only_detached = true # 只有一直显示时才显示tag
+format = '[\($hash$tag\)]($style) '
+only_detached = true                # 只有一直显示时才显示tag
 tag_disabled = false
 
 [git_status]
-format = '[($all_status )]($style)[$ahead_behind](bold cyan) '
+format = '[($all_status )]($style)[($ahead_behind )](bold cyan)'
 up_to_date = "[✔](bold green)"
 ahead = '⇡${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
