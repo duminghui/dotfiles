@@ -26,7 +26,17 @@ test -e /opt/homebrew/bin/brew; and eval "$(/opt/homebrew/bin/brew shellenv)"
 # set -U fisher_path ~/.config/fish/fisher
 
 ### starship ###
-type -q starship; and starship init fish | source
+if type -q starship
+    function starship_transient_prompt_func
+        starship module directory
+        starship module character
+    end
+    function starship_transient_rprompt_func
+        starship module time
+    end
+    starship init fish | source
+    enable_transience
+end
 
 ### alias abbr ###
 abbr -a proxy-on export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
