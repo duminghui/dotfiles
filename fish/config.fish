@@ -8,7 +8,7 @@ set -gx LANG zh_CN.UTF-8
 set -gx LC_CTYPE zh_CN.UTF-8
 
 # https://the.exa.website/docs/colour-themes
-set -gx LS_COLORS 'di=34:ln=35:so=32:pi=33:ex=31:bd=34:cd=34:su=0:sg=0:tw=0:ow=0:'
+# set -gx LS_COLORS 'di=34:ln=35:so=32:pi=33:ex=31:bd=34:cd=34:su=0:sg=0:tw=0:ow=0:'
 
 
 ### homeberw ###
