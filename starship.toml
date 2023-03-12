@@ -31,7 +31,6 @@ $python\
 $rust\
 $conda\
 $memory_usage\
-$cmd_duration\
 $line_break\
 $jobs\
 $battery\
@@ -40,7 +39,9 @@ $shell\
 $character"""
 
 
-right_format = "$time"
+right_format = """
+$cmd_duration\
+$time"""
 
 [username]
 format = '\[[$user]($style)\]'
@@ -172,6 +173,7 @@ style = "bold red"
 
 [cmd_duration]
 format = "[$duration]($style) "
+style = "yellow bold"
 
 [time]
 format = '\[[$time]($style)\]'
