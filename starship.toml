@@ -176,7 +176,7 @@ format = "[$duration]($style) "
 [time]
 format = '\[[$time]($style)\]'
 disabled = false
-style = "bold black"
+style = "cyan dimmed"
 
 
 [shell]
