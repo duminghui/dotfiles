@@ -112,7 +112,7 @@ function M.load_default_options()
   vim.opt.sidescrolloff = 8 -- The minimal number of columns to keep to the left and to the right of the cursor if 'nowrap' is set **
   vim.opt.splitbelow = true -- Put new windows below current
   vim.opt.splitright = true -- Put new windows right of current
-  vim.opt.textwidth = 120 -- Total allowed width on the screen
+  -- vim.opt.textwidth = 120 -- Total allowed width on the screen
   vim.opt.timeout = true -- This option and 'timeoutlen' determine the behavior when part of a mapped key sequence has been received. This is on by default but being explicit! **
   vim.opt.timeoutlen = 500 -- Time in milliseconds to wait for a mapped sequence to complete. **
   vim.opt.ttimeoutlen = 10 -- Time in milliseconds to wait for a key code sequence to complete **
@@ -165,7 +165,15 @@ function M.load_default_options()
   vim.opt.winblend = 9
 
   -------------------- Program OPTIONS ----------------------
-  -- vim.opt.formatoptions =   -- 包含在使用o进入下一行或enter进入下一行时是否自动添加注释符
+  -- 包含在使用o进入下一行或enter进入下一行时是否自动添加注释符
+  -- t: Auto-wrap text using 'textwidth'
+  -- c: Auto-wrap comments using 'textwidth', inserting the currment comment leader automatically
+  -- r: 回车后自动添加注释符
+  -- o: 用o或O进入后自动添加注释
+  -- j: 使用j合并下一行时, 自动删除注释
+  -- q: 使用gq命令时也格式化注释
+  -- l: 当一个长行长度>'textwidth'时进入insert mod不自动生成新行(当有t或c选项时)
+  vim.opt.formatoptions = "rjl"
 
   --------------------------------------------------------
 

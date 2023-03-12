@@ -116,18 +116,18 @@ local plugins = {
     dependencies = { "nvim-hlslens", "cinnamon.nvim" },
   },
   {
-    "kevinhwang91/nvim-hlslens", -- Highlight searches
-    cond = to_load,
-    config = function()
-      require("xxx.plugin-config.scroll.nvim-hlslens-rc").setup()
-    end,
-    lazy = true,
-  },
-  {
     "declancm/cinnamon.nvim", -- Smooth scrolling
     cond = to_load,
     config = function()
       require("xxx.plugin-config.scroll.cinnamon-rc").setup()
+    end,
+    lazy = true,
+  },
+  {
+    "kevinhwang91/nvim-hlslens", -- Highlight searches
+    cond = to_load,
+    config = function()
+      require("xxx.plugin-config.scroll.nvim-hlslens-rc").setup()
     end,
     lazy = true,
   },
@@ -445,7 +445,6 @@ local plugins = {
     -- https://github.com/golang/tools/blob/master/gopls/doc/settings.md
     "ray-x/go.nvim",
     cond = to_load,
-    -- disable = true,
     dependencies = {
       "ray-x/guihua.lua", -- recommanded if need floating window support
     },

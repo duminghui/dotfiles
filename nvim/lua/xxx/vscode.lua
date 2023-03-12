@@ -23,4 +23,9 @@ function M.keymappings()
   vim.keymap.set("n", "<leader><leader>w", "<cmd>HopWord<CR>", keymap_opts)
   vim.keymap.set("n", "<leader><leader>l", "<cmd>HopLineStart<CR>", keymap_opts)
 end
+
+function M.setup()
+  vim.opt.cursorcolumn = false
+  M.keymappings()
+end
 return M

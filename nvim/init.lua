@@ -49,7 +49,7 @@ if not vim.g.vscode then
 else
   -- 不显竖的光标所在行
   vim.opt.cursorcolumn = false
-  require("xxx.vscode").keymappings()
+  require("xxx.vscode").setup()
 end
 
 -- local ProgressNotify = require("xxx.core.progress-notify")
