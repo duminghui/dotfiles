@@ -165,11 +165,12 @@ M.n_mappings = {
     d = { "<cmd>Gitsigns diffthis HEAD<CR>", "Git Diff" },
   },
   m = {
-    name = "Harpoon Marks",
-    a = { "<cmd>lua require 'harpoon.mark'.add_file()<CR>", "Add file" },
-    l = { "<cmd>Telescope harpoon marks<CR>", "List file" },
-    n = { "<cmd>lua require 'harpoon.ui'.nav_next()<CR>", "Next mark" },
-    p = { "<cmd>lua require 'harpoon.ui'.nav_prev()<CR>", "Previous mark" },
+    name = "Marks",
+    a = { "<cmd>lua require 'harpoon.mark'.add_file()<CR>", "Add file(Harpoon)" },
+    l = { "<cmd>Telescope harpoon marks<CR>", "List file(Harpoon)" },
+    n = { "<cmd>lua require 'harpoon.ui'.nav_next()<CR>", "Next mark(Harpoon)" },
+    p = { "<cmd>lua require 'harpoon.ui'.nav_prev()<CR>", "Previous mark(Harpoon)" },
+    d = { "<Plug>(Marks-deleteline)", "Delete mark at current line" },
     -- ["2"] = { "<cmd>lua require 'harpoon.ui'.nav_file(2)<CR>", "Goto 2" },
   },
   l = {

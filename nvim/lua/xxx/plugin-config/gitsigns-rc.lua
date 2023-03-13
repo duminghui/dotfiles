@@ -1,8 +1,10 @@
 local M = {}
 
-local icons = require("xxx.core.icons")
+local icons = require "xxx.core.icons"
 
 M.opts = {
+  signcolumn = true,
+  sign_priority = 60,
   signs = {
     add = {
       hl = "GitSignsAdd",
@@ -44,7 +46,6 @@ M.opts = {
     noremap = true,
     buffer = true,
   },
-  signcolumn = true,
   word_diff = false,
   attach_to_untracked = true,
   current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
@@ -70,14 +71,13 @@ M.opts = {
     interval = 1000,
     follow_files = true,
   },
-  sign_priority = 6,
   update_debounce = 200,
   status_formatter = nil, -- Use default
   yadm = { enable = false },
 }
 
 function M.setup()
-  local gitsigns = require("gitsigns")
+  local gitsigns = require "gitsigns"
   gitsigns.setup(M.opts)
 end
 
