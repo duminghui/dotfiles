@@ -3,6 +3,18 @@ end
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+
+# Emulates vim's cursor shape behavior
+# Set the normal and visual mode cursors to a block
+set fish_cursor_default block
+# Set the insert mode cursor to a line
+set fish_cursor_insert line
+# Set the replace mode cursor to an underscore
+set fish_cursor_replace_one underscore
+# The following variable can be used to configure cursor shape in
+# visual mode, but due to fish_cursor_default, is redundant here
+set fish_cursor_visual block
+
 ### system ###
 set -gx LANG zh_CN.UTF-8
 set -gx LC_CTYPE zh_CN.UTF-8
@@ -20,10 +32,7 @@ set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 test -e /opt/homebrew/bin/brew; and eval "$(/opt/homebrew/bin/brew shellenv)"
 
-### fisher ###
-# curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-# curl -sSL https://git.io/fisher_path.fish --create-dirs -o $__fish_config_dir/conf.d/fisher_path.fish
-# set -U fisher_path ~/.config/fish/fisher
+### oh-my-fish ###
 
 ### starship ###
 if type -q starship
@@ -53,7 +62,6 @@ end
 set -gx EDITOR nvim
 set -gx DISABLE_AUTO_TITLE true
 
-
 ### rust ####
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
@@ -73,8 +81,10 @@ if type -q brew
 end
 
 ### gradle ###
-set -gx GRADLE_HOME (brew --prefix)/opt/gradle
-set -gx PATH $GRADLE_HOME/bin $PATH
+if type -q brew
+    set -gx GRADLE_HOME (brew --prefix)/opt/gradle
+    set -gx PATH $GRADLE_HOME/bin $PATH
+end
 
 ### android ###
 set -gx JAVA_HOME /Library/Java/Home

@@ -22,7 +22,6 @@ nvim = { target = "~/.config/nvim", type = "symbolic", recurse = false }
 ssh-config = "~/.ssh/config"
 "starship.toml" = "~/.config/starship.toml"
 "tmux/tmux.conf" = "~/.tmux.conf"
-"tmux/tmux.conf.colors" = "~/.tmux.conf.colors"
 
 [default.variables]
 
