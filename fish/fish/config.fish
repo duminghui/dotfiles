@@ -22,7 +22,6 @@ set -gx LC_CTYPE zh_CN.UTF-8
 # https://the.exa.website/docs/colour-themes
 # set -gx LS_COLORS 'di=34:ln=35:so=32:pi=33:ex=31:bd=34:cd=34:su=0:sg=0:tw=0:ow=0:'
 
-
 ### homeberw ###
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
@@ -41,7 +40,6 @@ if type -q starship
         starship module character
     end
     function starship_transient_rprompt_func
-        starship module cmd_duration
         starship module time
     end
     starship init fish | source
@@ -54,13 +52,13 @@ abbr -a proxy-off set -e https_proxy http_proxy all_proxy
 abbr -a ipinfo curl cip.cc
 
 if type -q exa
-    abbr ll "exa -lg -smodified --icons"
-    abbr lla "exa -lga -smodified --icons"
+    alias ll "exa -lg -smodified --time-style=long-iso --icons"
+    abbr lla "ll -a"
 end
 
 ### tmux ###
-set -gx EDITOR nvim
-set -gx DISABLE_AUTO_TITLE true
+# set -gx EDITOR nvim
+# set -gx DISABLE_AUTO_TITLE true
 
 ### rust ####
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static

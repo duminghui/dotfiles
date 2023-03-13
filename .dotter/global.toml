@@ -21,7 +21,7 @@ nvim = { target = "~/.config/nvim", type = "symbolic", recurse = false }
 "rust/rustfmt.toml" = "~/Library/Application Support/rustfmt/rustfmt.toml"
 ssh-config = "~/.ssh/config"
 "starship.toml" = "~/.config/starship.toml"
-"tmux/tmux.conf" = "~/.tmux.conf"
+tmux = { target = "~/.config/tmux", type = "symbolic", recurse = false }
 
 [default.variables]
 
