@@ -31,6 +31,15 @@ set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 
 test -e /opt/homebrew/bin/brew; and eval "$(/opt/homebrew/bin/brew shellenv)"
 
+### rust ####
+set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
+set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
+set -gx CARGO_HTTP_MULTIPLEXING false
+set -gx SCCACHE_DIR ~/.cache/sccache
+set -gx SCCACHE_CACHE_SIZE "3G"
+
+set -gx PATH ~/.cargo/bin $PATH
+
 ### oh-my-fish ###
 
 ### starship ###
@@ -59,15 +68,6 @@ end
 ### tmux ###
 # set -gx EDITOR nvim
 # set -gx DISABLE_AUTO_TITLE true
-
-### rust ####
-set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
-set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
-set -gx CARGO_HTTP_MULTIPLEXING false
-set -gx SCCACHE_DIR ~/.cache/sccache
-set -gx SCCACHE_CACHE_SIZE "3G"
-
-set -gx PATH ~/.cargo/bin $PATH
 
 ### golang ###
 if type -q brew
