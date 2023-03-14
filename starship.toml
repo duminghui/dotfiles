@@ -2,8 +2,6 @@
 
 add_newline = false
 
-
-# Which is equivalent to
 format = """
 $sudo\
 $username\
@@ -37,7 +35,6 @@ $battery\
 $container\
 $shell\
 $character"""
-
 
 right_format = """
 $cmd_duration\
