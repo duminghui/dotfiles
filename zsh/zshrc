@@ -46,11 +46,11 @@ ENABLE_CORRECTION="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-# 这个文件夹要存在, 否则使用oh-my-zsh做为文件夹名
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+# 这个文件夹要存在, 否则使用oh-my-zsh做为文件夹名, 这个有bug
+# ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 
 # 文件夹不存在,放到ZDOTFILE下
-ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
+# ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump", 这个有bug, 如果前后运行的zsh版本不同有错误提示
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.config/zsh/custom-zsh
