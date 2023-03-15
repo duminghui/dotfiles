@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.config/oh-my-zsh
 
 # vi-mode config
 # 在theme中添加一样起作用
@@ -46,8 +46,14 @@ ENABLE_CORRECTION="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+# 这个文件夹要存在, 否则使用oh-my-zsh做为文件夹名
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+
+# 文件夹不存在,放到ZDOTFILE下
+ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
+
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=$HOME/.custom-zsh
+ZSH_CUSTOM=$HOME/.config/zsh/custom-zsh
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -82,26 +88,21 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export DOTFILES=$HOME/.dotfiles
+# export DOTFILES=$HOME/.dotfiles
 # all of our zsh files
-typeset -U config_files
-config_files=(`find ~/.dotfiles \( -path "*/.git" -o -path "*/custom-zsh.dotsymlink" \) -prune -o -name "*.zsh" -print`)
-echo "[Config Files]" $config_files
+# typeset -U config_files
+# config_files=(`find ~/.dotfiles/zsh \( -path "*/.git" -o -path "*/custom-zsh" \) -prune -o -name "*.zsh" -print`)
+# echo "[Config Files]" $config_files
 # load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
+# for file in ${(M)config_files:#*/path.zsh}
+# do
+#   source $file
+# done
 
 # load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
-unset config_files
-
-if [ -f ~/.docker/init-zsh.sh ]; then
-  source ~/.docker/init-zsh.sh || true # Added by Docker Desktop
-fi
+# for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+# do
+#   source $file
+# done
+# unset config_files

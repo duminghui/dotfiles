@@ -30,7 +30,7 @@ tmux = { target = "~/.config/tmux", type = "symbolic", recurse = false }
 "fish/omf" = { target = "~/.config/omf", type = "symbolic", recurse = false }
 
 [zsh.files]
-"zsh/zprofile" = "~/.zprofile"
 "zsh/zshenv" = "~/.zshenv"
-"zsh/zshrc" = "~/.zshrc"
-"zsh/custom-zsh" = { target = "~/.custom-zsh", type = "symbolic", recurse = false }
+"zsh" = { target = "~/.config/zsh", type = "symbolic", recurse = false }
+"zsh/zshrc" = "~/.config/zsh/.zshrc"
+"zsh/zprofile" = "~/.config/zsh/.zprofile"
