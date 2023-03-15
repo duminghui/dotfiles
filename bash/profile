@@ -1,3 +1,1 @@
 . "$HOME/.cargo/env"
-
-source /Users/dumh/.docker/init-bash.sh || true # Added by Docker Desktop
