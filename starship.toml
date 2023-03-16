@@ -62,11 +62,15 @@ style = "yellow bold"
 
 [directory]
 truncation_length = 7
-format = '\[[$path]($style)[$read_only]($read_only_style)\] '
+format = '\[[$path]($style)[( $read_only)]($read_only_style)\] '
 style = "blue"
 # truncation_symbol = ".../"
+
 truncate_to_repo = false
 repo_root_format = '\[[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)\] '
+read_only = ""
+read_only_style = "yellow"
+
 # 下面两个有值, 在git目录下路径会显示不出来, 比如~/.config/nvim
 # before_repo_root_style = ""
 # repo_root_style = ""
@@ -85,18 +89,20 @@ style = "bold green"
 format = '[\($hash$tag\)]($style) '
 only_detached = true                # 只有一直显示时才显示tag
 tag_disabled = false
+style = "green"
 
 [git_status]
 format = '[($all_status )]($style)[($ahead_behind )](bold cyan)'
-up_to_date = "[✔](bold green)"
+up_to_date = "[✔](green)"
 ahead = '⇡${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
+style = "red bold"
 
 [docker_context]
 format = "[$symbol$context]($style) "
 symbol = "🐳 "
-style = "blue bold"
+style = "blue"
 
 [package]
 format = '[$symbol$version]($style) '
@@ -104,25 +110,26 @@ format = '[$symbol$version]($style) '
 symbol = " "
 # symbol = " "
 version_format = "$raw"
-style = "208 bold"
+# style = "208"
+style = "208"
 
 [cmake]
 format = "[$symbol($version )]($style)"
 symbol = "△ "
-style = "bold blue"
+style = "blue"
 
 [dart]
 format = "[$symbol($version )]($style)"
 # symbol = "🎯 "
 # symbol = ""
 symbol = ""
-style = "bold blue"
+style = "blue"
 
 [golang]
 format = "[$symbol($version )]($style)"
 # symbol = "🐹 "
 symbol = " "
-style = "bold cyan"
+style = "cyan"
 
 [java]
 format = "[$symbol($version )]($style)"
@@ -133,39 +140,40 @@ style = "red dimmed"
 [kotlin]
 format = "[$symbol($version )]($style)"
 symbol = "🅺 "
-style = "bold blue"
+style = "blue"
 
 [gradle]
 format = "[$symbol($version )]($style)"
 symbol = "🅶 "
-style = "bold bright-cyan"
+style = "bright-cyan"
 
 [lua]
 format = "[$symbol($version )]($style)"
 # symbol = "🌖 "
 symbol = " "
-style = "bold blue"
+style = "blue"
 
 [nodejs]
 format = "[$symbol($version )]($style)"
 symbol = " "
-style = "bold green"
+style = "green"
 
 [python]
 format = '[$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)'
 symbol = "🐍 "
 # symbol = " "
-style = "yellow bold"
+style = "yellow"
 
 [rust]
 format = '[$symbol($version )]($style)'
-symbol = "🦀 "
-style = "bold red"
+symbol = " "
+# symbol = "🦀 "
+style = "red"
 
 [conda]
 format = "[$symbolenvironment](style) "
 symbol = "🅒 "
-style = "green bold"
+style = "green"
 
 [memory_usage]
 format = '$symbol[$ram( | $swap)]($style) '
@@ -186,7 +194,6 @@ format = '\[[$time]($style)\]'
 disabled = false
 style = "cyan dimmed"
 
-
 [shell]
 disabled = true
-style = "white bold"
+style = "white"
