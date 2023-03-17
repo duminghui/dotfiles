@@ -63,15 +63,16 @@ if type -q exa
     abbr lla "ll -a"
 end
 
-if type -q tmuxinator
-    abbr mux tmuxinator
-end
 
 ### tmuxinator ###
 type -q nvim; and set -gx EDITOR nvim
 # why add this in https://github.com/tmuxinator/tmuxinator
 set -gx DISABLE_AUTO_TITLE true
 set -gx TMUX_CONF ~/.config/tmux/tmux.conf
+# set -gx TERM xterm-256color
+if type -q tmuxinator
+    abbr mux tmuxinator
+end
 
 ### golang ###
 if type -q brew; and test -d (brew --prefix)/opt/go/libexecx
