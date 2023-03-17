@@ -25,6 +25,15 @@ local plugins = {
     end,
     priority = 1000,
   },
+  {
+    "folke/which-key.nvim",
+    cond = to_load,
+    config = function()
+      require("xxx.plugin-config.which-key-rc").setup()
+    end,
+    cmd = "WhichKey",
+    keys = "<leader>",
+  },
 
   {
     "Shatur/neovim-session-manager",
@@ -32,7 +41,7 @@ local plugins = {
     config = function()
       require("xxx.plugin-config.session.session-manager-rc").setup()
     end,
-    event = "VimEnter",
+    cmd = "SessionManager",
   },
   {
     "goolord/alpha-nvim",
@@ -66,7 +75,7 @@ local plugins = {
       require("xxx.plugin-config.statusline.lualine-rc").setup()
     end,
     dependencies = { "nvim-web-devicons" },
-    event = "VimEnter",
+    event = "VeryLazy",
   },
 
   {
@@ -83,9 +92,10 @@ local plugins = {
   {
     "phaazon/hop.nvim",
     branch = "v2", -- optional but strongly recommended
-    config = function()
-      require("xxx.plugin-config.hop-rc").setup()
-    end,
+    config = true,
+    opts = {
+      multi_windows = false,
+    },
     cmd = { "HopAnywhere", "HopChar1", "HopChar2", "HopWord", "HopLineStart", "HopLine", "HopVertical", "HopPattern" },
   },
   {
@@ -162,6 +172,34 @@ local plugins = {
       require("xxx.plugin-config.mason-rc").setup()
     end,
     cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+  },
+  {
+    -- include breadcrumbs
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    cond = to_load,
+    config = function()
+      require("xxx.plugin-config.lspsaga-rc").setup()
+    end,
+    event = "User FileOpened",
+    cmd = "Lspsaga",
+  },
+  {
+    -- Standalone UI for nvim-lsp progress.
+    "j-hui/fidget.nvim",
+    cond = to_load,
+    config = function()
+      require("xxx.plugin-config.fidget-rc").setup()
+    end,
+    event = "User FileOpened",
+  },
+  {
+    "folke/trouble.nvim",
+    cond = to_load,
+    config = function()
+      require("xxx.plugin-config.trouble-rc").setup()
+    end,
+    cmd = { "Trouble", "TroubleToggle" },
   },
 
   -- Install nvim-cmp, and buffer source as a dependency
@@ -241,9 +279,10 @@ local plugins = {
     -- 代码吸顶
     "nvim-treesitter/nvim-treesitter-context",
     cond = to_load,
-    config = function()
-      require("xxx.plugin-config.nvim-treesitter-context-rc").setup()
-    end,
+    config = true,
+    opts = {
+      mode = "topline",
+    },
     event = "BufEnter",
   },
   {
@@ -282,41 +321,13 @@ local plugins = {
   },
 
   {
-    -- include breadcrumbs
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    cond = to_load,
-    config = function()
-      require("xxx.plugin-config.lspsaga-rc").setup()
-    end,
-    event = "User FileOpened",
-    cmd = "Lspsaga",
-  },
-  {
-    -- Standalone UI for nvim-lsp progress.
-    "j-hui/fidget.nvim",
-    cond = to_load,
-    config = function()
-      require("xxx.plugin-config.fidget-rc").setup()
-    end,
-    event = "User FileOpened",
-  },
-  {
-    "folke/trouble.nvim",
-    cond = to_load,
-    config = function()
-      require("xxx.plugin-config.trouble-rc").setup()
-    end,
-    event = "User FileOpened",
-  },
-  {
     "stevearc/overseer.nvim", -- Task runner and job management
     -- INFO: Overseer lazy loads itself
     cond = to_load,
     config = function()
       require("xxx.plugin-config.overseer-rc").setup()
     end,
-    event = "User FileOpened",
+    cmd = { "OverseerOpen", "OverseerRun", "OverseerToggle" },
   },
 
   ---
@@ -333,6 +344,7 @@ local plugins = {
       require("xxx.plugin-config.telescope-rc").setup()
     end,
     cmd = "Telescope",
+    event = "VimEnter",
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -428,16 +440,6 @@ local plugins = {
       "ToggleTermSendVisualLines",
       "ToggleTermSendVisualSelection",
     },
-  },
-
-  {
-    "folke/which-key.nvim",
-    cond = to_load,
-    config = function()
-      require("xxx.plugin-config.which-key-rc").setup()
-    end,
-    cmd = "WhichKey",
-    event = "VeryLazy",
   },
 
   --------------- languages --------------------

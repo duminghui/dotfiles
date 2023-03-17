@@ -63,6 +63,10 @@ if type -q exa
     abbr lla "ll -a"
 end
 
+if type -q tmuxinator
+    abbr mux tmuxinator
+end
+
 ### tmuxinator ###
 type -q nvim; and set -gx EDITOR nvim
 # why add this in https://github.com/tmuxinator/tmuxinator
