@@ -36,55 +36,18 @@ local plugin_loader = require "xxx.plugin-loader"
 
 plugin_loader.init()
 
---插件配置
-local plugins = require "xxx.plugins"
-
-plugin_loader.load { plugins }
-
-Log:debug "Starting XVim"
-
 if not vim.g.vscode then
+  local plugins = require "xxx.plugins"
+  plugin_loader.load { plugins }
   -- --Lsp配置
   require("xxx.lsp").setup()
 else
+  local plugins = require "xxx.vscode.plugins"
+  plugin_loader.load { plugins }
+
   -- 不显竖的光标所在行
   vim.opt.cursorcolumn = false
   require("xxx.vscode").setup()
 end
 
--- local ProgressNotify = require("xxx.core.progress-notify")
--- local notif = ProgressNotify:new()
--- vim.defer_fn(function()
---     notif:start("this is a test", "This is a test")
---     vim.defer_fn(function()
---         notif:finish("This is end", "warn", "XX")
---     end, 2000)
--- end, 1000)
---
-
--- local nvim_lsp = require "lspconfig"
-
--- local on_attach = function(client) end
-
--- nvim_lsp.rust_analyzer.setup {
---   on_attach = on_attach,
---   settings = {
---     ["rust-analyzer"] = {
---       imports = {
---         granularity = {
---           group = "module",
---         },
---         prefix = "self",
---       },
---       cargo = {
---         buildScripts = {
---           enable = true,
---         },
---       },
---       procMacro = {
---         enable = true,
---       },
---       linkedProjects = {},
---     },
---   },
--- }
+Log:debug "Starting XVim"

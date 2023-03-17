@@ -1,17 +1,14 @@
-local to_load = not vim.g.vscode
 local plugins = {
   { "folke/lazy.nvim", tag = "stable" },
-  { "nvim-lua/plenary.nvim", cond = to_load, lazy = true },
+  { "nvim-lua/plenary.nvim", lazy = true },
   {
     -- Automatically detects which indents should be used in the current buffer
     "tpope/vim-sleuth",
-    cond = to_load,
     event = "BufEnter",
   },
   -- Icons
   {
     "nvim-tree/nvim-web-devicons",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.web-devicons-rc").setup()
     end,
@@ -19,7 +16,6 @@ local plugins = {
   },
   {
     "olimorris/onedarkpro.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.colorscheme.onedarkpro-rc").setup()
     end,
@@ -27,7 +23,6 @@ local plugins = {
   },
   {
     "folke/which-key.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.which-key-rc").setup()
     end,
@@ -37,7 +32,6 @@ local plugins = {
 
   {
     "Shatur/neovim-session-manager",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.session.session-manager-rc").setup()
     end,
@@ -45,7 +39,6 @@ local plugins = {
   },
   {
     "goolord/alpha-nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.alpha-rc").setup()
     end,
@@ -55,7 +48,6 @@ local plugins = {
   {
     -- bufferline color and show work: load order colorscheme->bufferline->alpha-nvim
     "akinsho/bufferline.nvim",
-    cond = to_load,
     branch = "main",
     dependencies = { "nvim-web-devicons" },
     config = function()
@@ -65,12 +57,10 @@ local plugins = {
   },
   {
     "famiu/bufdelete.nvim", -- Easily close buffers whilst preserving your window layouts
-    cond = to_load,
     cmd = { "Bdelete", "Bwipeout" },
   },
   {
     "nvim-lualine/lualine.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.statusline.lualine-rc").setup()
     end,
@@ -81,7 +71,6 @@ local plugins = {
   {
     -- NvimTree
     "kyazdani42/nvim-tree.lua",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.nvim-tree-rc").setup()
     end,
@@ -100,7 +89,6 @@ local plugins = {
   },
   {
     "chentoast/marks.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.marks-rc").setup()
     end,
@@ -109,7 +97,6 @@ local plugins = {
   {
     -- Highlight hex and rgb colors within Neovim
     "NvChad/nvim-colorizer.lua",
-    cond = to_load,
     config = function()
       require("colorizer").setup()
     end,
@@ -118,7 +105,6 @@ local plugins = {
 
   {
     "petertriho/nvim-scrollbar", -- A scrollbar for the current window
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.scroll.nvim-scrollbar-rc").setup()
     end,
@@ -127,7 +113,6 @@ local plugins = {
   },
   {
     "declancm/cinnamon.nvim", -- Smooth scrolling
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.scroll.cinnamon-rc").setup()
     end,
@@ -135,7 +120,6 @@ local plugins = {
   },
   {
     "kevinhwang91/nvim-hlslens", -- Highlight searches
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.scroll.nvim-hlslens-rc").setup()
     end,
@@ -146,19 +130,16 @@ local plugins = {
 
   {
     "neovim/nvim-lspconfig",
-    cond = to_load,
     dependencies = { "mason-lspconfig.nvim" },
     lazy = true,
   },
   {
     -- null-ls是一个将非LSP的包与nvim内置LSP客户端整合的插件
     "jose-elias-alvarez/null-ls.nvim",
-    cond = to_load,
     lazy = true,
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.mason-lspconfig-rc").setup()
     end,
@@ -167,7 +148,6 @@ local plugins = {
   },
   {
     "williamboman/mason.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.mason-rc").setup()
     end,
@@ -177,7 +157,6 @@ local plugins = {
     -- include breadcrumbs
     "glepnir/lspsaga.nvim",
     branch = "main",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.lspsaga-rc").setup()
     end,
@@ -187,7 +166,6 @@ local plugins = {
   {
     -- Standalone UI for nvim-lsp progress.
     "j-hui/fidget.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.fidget-rc").setup()
     end,
@@ -195,7 +173,6 @@ local plugins = {
   },
   {
     "folke/trouble.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.trouble-rc").setup()
     end,
@@ -206,7 +183,6 @@ local plugins = {
 
   {
     "hrsh7th/nvim-cmp",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.nvim-cmp-rc").setup()
     end,
@@ -227,7 +203,6 @@ local plugins = {
   {
     -- Code snippets
     "L3MON4D3/LuaSnip",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.luasnip-rc").setup()
     end,
@@ -239,14 +214,12 @@ local plugins = {
   {
     -- vim functions for dev
     "folke/neodev.nvim",
-    cond = to_load,
     lazy = true,
   },
 
   -- Autopairs
   {
     "windwp/nvim-autopairs",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.nvim-autopairs-rc").setup()
     end,
@@ -259,7 +232,6 @@ local plugins = {
     -- highlight, linter, formater, indent framework
     "nvim-treesitter/nvim-treesitter",
     -- build = ":TSUpdate",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.nvim-treesitter-rc").setup()
     end,
@@ -278,7 +250,6 @@ local plugins = {
   {
     -- 代码吸顶
     "nvim-treesitter/nvim-treesitter-context",
-    cond = to_load,
     config = true,
     opts = {
       mode = "topline",
@@ -289,13 +260,11 @@ local plugins = {
     -- tsx 注释增强
     -- Lazy loaded by Comment.nvim pre_hook
     "JoosepAlviste/nvim-ts-context-commentstring",
-    cond = to_load,
     lazy = true,
   },
   {
     -- 高亮显示相同的单词
     "RRethy/vim-illuminate",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.vim-illuminate-rc").setup()
     end,
@@ -303,7 +272,6 @@ local plugins = {
   },
   {
     "lukas-reineke/indent-blankline.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.indent-blankline-rc").setup()
     end,
@@ -311,19 +279,16 @@ local plugins = {
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects", -- Syntax aware text-objects, select, move, swap, and peek support.
-    cond = to_load,
     lazy = true,
   },
   {
     "p00f/nvim-ts-rainbow",
-    cond = to_load,
     lazy = true,
   },
 
   {
     "stevearc/overseer.nvim", -- Task runner and job management
     -- INFO: Overseer lazy loads itself
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.overseer-rc").setup()
     end,
@@ -339,7 +304,6 @@ local plugins = {
     -- :Telescope find_files<cr>
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.telescope-rc").setup()
     end,
@@ -349,25 +313,22 @@ local plugins = {
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",
-    cond = to_load,
     lazy = true,
   },
   { "tami5/sqlite.lua", lazy = true },
   {
     "nvim-telescope/telescope-frecency.nvim", -- Get frequently opened files
-    cond = to_load,
     dependencies = "sqlite.lua",
     lazy = true,
   },
   {
     "nvim-telescope/telescope-smart-history.nvim", -- Show project dependant history
-    cond = to_load,
+
     dependencies = "sqlite.lua",
     lazy = true,
   },
   {
     "ThePrimeagen/harpoon", -- Mark buffers for faster navigation
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.harpoon-rc").setup()
     end,
@@ -376,7 +337,6 @@ local plugins = {
 
   {
     "ahmedkhalf/project.nvim", -- Automatically set the cwd to the project root
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.project-rc").setup()
     end,
@@ -389,7 +349,6 @@ local plugins = {
   {
     -- vim.ui.select, vim.ui.input hooks
     "stevearc/dressing.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.dressing-rc").setup()
     end,
@@ -399,7 +358,6 @@ local plugins = {
   -- Comments
   {
     "numToStr/Comment.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.comment-rc").setup()
     end,
@@ -412,12 +370,11 @@ local plugins = {
     config = function()
       require("nvim-surround").setup()
     end,
-    event = { "BufEnter" },
+    keys = { "ys", "cs", "ds" },
   },
 
   {
     "lewis6991/gitsigns.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.gitsigns-rc").setup()
     end,
@@ -428,7 +385,6 @@ local plugins = {
   {
     "akinsho/toggleterm.nvim",
     branch = "main",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.toggleterm-rc").setup()
     end,
@@ -446,7 +402,6 @@ local plugins = {
   {
     -- https://github.com/golang/tools/blob/master/gopls/doc/settings.md
     "ray-x/go.nvim",
-    cond = to_load,
     dependencies = {
       "ray-x/guihua.lua", -- recommanded if need floating window support
     },
@@ -459,7 +414,6 @@ local plugins = {
 
   {
     "simrat39/rust-tools.nvim",
-    cond = to_load,
     config = function()
       require("xxx.plugin-config.lang.rs-rust-tools-rc").setup()
     end,
@@ -470,7 +424,6 @@ local plugins = {
   {
     -- rust crates manager
     "saecki/crates.nvim",
-    cond = to_load,
     version = "0.3.0",
     config = function()
       require("xxx.plugin-config.lang.rs-crates-rc").setup()
