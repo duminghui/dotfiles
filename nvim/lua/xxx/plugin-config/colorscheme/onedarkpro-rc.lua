@@ -46,7 +46,7 @@ M.opts = {
     underline = false, -- Use the colorscheme's opinionated underline styles?
     undercurl = false, -- Use the colorscheme's opinionated undercurl styles?
     cursorline = true, -- Use cursorline highlighting?
-    transparency = false, -- Use a transparent background?
+    transparency = true, -- Use a transparent background?
     terminal_colors = false, -- Use the colorscheme's colors for Neovim's :terminal?
     window_unfocused_color = false, -- When the window is out of focus, change the normal background?
   },
@@ -189,7 +189,49 @@ function M.setup()
 
   local colors = require("onedarkpro.helpers").get_colors(vim.g.onedarkpro_theme)
 
-  require("xxx.plugin-config.colorscheme.colors").generate_colors_with(colors)
+  -- local default_colors = {
+  --   bg = "#282c34",
+  --   fg = "#abb2bf",
+  --   red = "#ef596f",
+  --   orange = "#d19a66",
+  --   yellow = "#e5c07b",
+  --   green = "#89ca78",
+  --   cyan = "#2bbac5",
+  --   blue = "#61afef",
+  --   purple = "#d55fde",
+  --   white = "#abb2bf",
+  --   black = "#282c34",
+  --   gray = "#5c6370",
+  --   highlight = "#e2be7d",
+  --   comment = "#7f848e",
+  --   none = "NONE",
+  -- }
+
+  local universal_colors = {
+    yellow = colors.yellow,
+    orange = colors.orange,
+    red = colors.red,
+    magenta = "magenta",
+    violet = "violet",
+    blue = colors.blue,
+    cyan = colors.cyan,
+    green = colors.green,
+    purple = colors.purple,
+    bufferline = {
+      text = "#7f848e",
+      text_selected = "#282c34",
+      tag_fg = "#7f848e",
+      tag_bg = colors.base03:to_rgb(),
+      modified = colors.red,
+      pick = colors.purple,
+    },
+    statuline = {
+      mode_fg = "#282c34",
+      fg = "#5c7370",
+      bg = "#2e323b",
+    },
+  }
+  require("xxx.plugin-config.colorscheme.colors").set_colors(universal_colors)
 
   -- vim.cmd(string.format("highlight CursorLineNr guifg=%s", "#FFD700"))
   -- 会把整个替换掉

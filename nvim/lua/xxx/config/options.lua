@@ -84,8 +84,9 @@ function M.load_default_options()
 
   -- vim.opt.laststatus = 3 -- Use global statusline **
 
-  vim.opt.mouse = "a" -- Use the mouse in all modes
-  vim.opt.mousemoveevent = true -- for bufferline hover
+  -- vim.opt.mouse = "a" -- Use the mouse in all modes
+  vim.opt.mouse = "" -- disable mouse in all modes
+  vim.opt.mousemoveevent = false -- for bufferline hover
   vim.opt.scrolljump = 1
   vim.opt.scrolloff = 6 -- Set the cursor 6 lines down instead of directly at the top of the file
 
@@ -163,6 +164,9 @@ function M.load_default_options()
   vim.opt.pumblend = 9
   -- Enables pseudo-transparency for a floating window.
   vim.opt.winblend = 9
+  -- A list of words that change how |cmdline-completion| is done.
+  -- The following values are supported:
+  vim.opt.wildoptions = "pum"
 
   -------------------- Program OPTIONS ----------------------
   -- 包含在使用o进入下一行或enter进入下一行时是否自动添加注释符
@@ -176,6 +180,10 @@ function M.load_default_options()
   vim.opt.formatoptions = "rjl"
 
   --------------------------------------------------------
+
+  -- Undercurl
+  vim.cmd [[let &t_Cs = "\e[4:3m"]]
+  vim.cmd [[let &t_Ce = "\e[4:0m"]]
 
   -- vim.opt.shortmess:append 'fxtOrmnlTwoi'
 

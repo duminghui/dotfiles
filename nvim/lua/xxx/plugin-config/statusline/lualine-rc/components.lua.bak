@@ -1,21 +1,15 @@
 local colors = require("xxx.plugin-config.colorscheme.colors").colors()
 local icons = require "xxx.core.icons"
 
-local com_fg = colors.statuline.fg
-local com_bg = colors.statuline.bg
-
-local red = colors.red
-local green = colors.green
-local blue = colors.blue
-local yellow = colors.yellow
+local com_bg = colors.statusline_bg
 
 local left_sep_both = {
-  left = " ",
+  left = "",
   right = "",
 }
 
 local right_seq_both = {
-  left = " ",
+  left = "",
   right = "",
 }
 
@@ -32,7 +26,7 @@ M.mode = {
 
 M.filename = {
   "filename",
-  color = { fg = com_fg, bg = com_bg },
+  color = { fg = colors.gray, bg = com_bg },
   newfile_status = true,
   symbols = {
     modified = icons.ui.Circle,
@@ -45,7 +39,7 @@ M.filename = {
 
 M.branch = {
   "git_branch",
-  color = { fg = com_fg, bg = com_bg },
+  color = { fg = colors.gray, bg = com_bg },
   icon = icons.git.Branch,
   separator = left_sep_both,
 }
@@ -70,9 +64,9 @@ M.diff = {
     removed = icons.git.BoldLineRemove .. " ",
   },
   diff_color = {
-    added = { fg = green },
-    modified = { fg = yellow },
-    removed = { fg = red },
+    added = { fg = colors.green },
+    modified = { fg = colors.yellow },
+    removed = { fg = colors.red },
   },
   cond = nil,
   colored = true,
@@ -105,7 +99,7 @@ M.treesitter = {
     local buf = vim.api.nvim_get_current_buf()
     local ts = vim.treesitter.highlighter.active[buf]
     return {
-      fg = ts and not vim.tbl_isempty(ts) and blue or red,
+      fg = ts and not vim.tbl_isempty(ts) and colors.blue or colors.red,
       bg = com_bg,
     }
   end,
@@ -128,7 +122,7 @@ M.lsp_clients = {
   icon = nil,
   color = function()
     return {
-      fg = is_lsp_client_attached() and green or yellow,
+      fg = is_lsp_client_attached() and colors.green or colors.orange,
       bg = com_bg,
     }
   end,
@@ -145,7 +139,7 @@ M.session_status = {
   end,
   color = function()
     return {
-      fg = is_in_session() and green or red,
+      fg = is_in_session() and colors.green or colors.red,
       bg = com_bg,
     }
   end,
@@ -154,21 +148,23 @@ M.session_status = {
 
 M.file_info = {
   "file_info",
-  color = { fg = com_fg, bg = com_bg },
+  color = { fg = colors.gray, bg = com_bg },
   separator = right_seq_both,
+}
+
+local right_seq_left = {
+  left = "",
 }
 
 M.location = {
   "location",
-  color = { fg = com_bg, bg = green },
-  separator = {
-    left = " ",
-  },
+  color = { fg = colors.bg, bg = colors.green },
+  separator = right_seq_left,
 }
 
 M.progress = {
   "file_progress",
-  color = { fg = com_bg, bg = yellow },
+  color = { fg = colors.bg, bg = colors.orange },
 }
 
 M.scrollbar = {
@@ -188,7 +184,7 @@ M.overseer = {
     [STATUS.SUCCESS] = icons.ui.BoldCircleCheck,
     [STATUS.RUNNING] = icons.ui.Run,
   },
-  color = { fg = com_fg, bg = com_bg },
+  color = { fg = colors.gray, bg = com_bg },
   icons_enabled = true,
   separator = right_seq_both,
 }

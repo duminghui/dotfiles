@@ -1,33 +1,34 @@
 local colors = require("xxx.plugin-config.colorscheme.colors").colors()
+
+-- local fg = "#657b83"
+-- local fg = "#282c34"
+local fg = colors.statuline.mode_fg
+local bg = nil
+local purple = colors.purple
+local green = colors.green
+local yellow = colors.yellow
+
 return {
-    normal = {
-        a = { bg = colors.purple, fg = colors.bg, gui = 'bold' },
-        b = { bg = colors.bg, fg = colors.gray },
-        c = { bg = colors.bg, fg = colors.gray }
-    },
-    insert = {
-        a = { bg = colors.green, fg = colors.bg, gui = 'bold' },
-        -- b = { bg = colors.lightgray, fg = colors.white },
-        -- c = { bg = colors.lightgray, fg = colors.white }
-    },
-    visual = {
-        a = { bg = colors.orange, fg = colors.bg, gui = 'bold' },
-        -- b = { bg = colors.lightgray, fg = colors.white },
-        -- c = { bg = colors.inactivegray, fg = colors.black }
-    },
-    replace = {
-        a = { bg = colors.green, fg = colors.bg, gui = 'bold' },
-        -- b = { bg = colors.lightgray, fg = colors.white },
-        -- c = { bg = colors.black, fg = colors.white }
-    },
-    command = {
-        a = { bg = colors.purple, fg = colors.bg, gui = 'bold' },
-        -- b = { bg = colors.lightgray, fg = colors.white },
-        -- c = { bg = colors.inactivegray, fg = colors.black }
-    },
-    -- inactive = {
-    --     a = { bg = colors.darkgray, fg = colors.gray, gui = 'bold' },
-    --     b = { bg = colors.darkgray, fg = colors.gray },
-    --     c = { bg = colors.darkgray, fg = colors.gray }
-    -- }
+  normal = {
+    a = { bg = purple, fg = fg, gui = "bold" },
+    b = { bg = bg, fg = fg },
+    c = { bg = bg, fg = fg },
+  },
+  insert = {
+    a = { bg = green, fg = fg, gui = "bold" },
+  },
+  visual = {
+    a = { bg = yellow, fg = fg, gui = "bold" },
+  },
+  replace = {
+    a = { bg = green, fg = fg, gui = "bold" },
+  },
+  command = {
+    a = { bg = purple, fg = fg, gui = "bold" },
+  },
+  -- inactive = {
+  --     a = { bg = "darkgray", fg = gray, gui = 'bold' },
+  --     b = { bg = "darkgray", fg = gray },
+  --     c = { bg = "darkgray", fg = gray }
+  -- }
 }

@@ -62,6 +62,7 @@ local defaults = {
     ["<C-j>"] = "<C-w>j",
     ["<C-k>"] = "<C-w>k",
     ["<C-l>"] = "<C-w>l",
+
     -- Resize with arrows
     ["<C-Up>"] = ":resize -2<CR>",
     ["<C-Down>"] = ":resize +2<CR>",

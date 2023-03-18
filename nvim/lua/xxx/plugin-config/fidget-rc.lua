@@ -23,8 +23,8 @@ M.opts = {
   },
   window = {
     relative = "win", -- where to anchor, either "win" or "editor"
-    -- blend = 100, -- &winblend for the window
-    blend = 33, -- &winblend for the window
+    blend = Xvim.winblend, -- &winblend for the window
+    -- blend = 33, -- &winblend for the window
     zindex = nil, -- the zindex value for the window
     border = "none", -- style of border for the fidget window
   },

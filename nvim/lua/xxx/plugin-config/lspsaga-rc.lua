@@ -71,7 +71,7 @@ M.opts = {
   diagnostic = {
     on_insert = true, -- true it works like the emacs helix show diagnostic in right but in line
     on_insert_follow = true, -- ture whill follow current line. false will on top right
-    insert_winblend = 9, -- default is 0, whne it's to 100 whill completely transparent. the color whill changed a little light. 0 will use the NormalFloat group. it will link to Normal by Lspsaga
+    insert_winblend = Xvim.winblend, -- default is 0, whne it's to 100 whill completely transparent. the color whill changed a little light. 0 will use the NormalFloat group. it will link to Normal by Lspsaga
     show_virt_line = true, -- show a line when using diagnostic
     show_code_action = true,
     show_source = true,
@@ -161,8 +161,11 @@ M.opts = {
     -- This option only works in Neovim 0.9
     title = true,
     -- Border type can be single, double, rounded, solid, shadow.
-    border = "shadow",
-    winblend = 9,
+    border = "single",
+    winblend = Xvim.winblend,
+    colors = {
+      normal_bg = "#002b36",
+    },
     expand = "",
     collapse = "",
     code_action = "💡",

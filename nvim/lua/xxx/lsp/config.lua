@@ -46,7 +46,6 @@ local skipped_filetypes = { "markdown", "rst", "plaintext" }
 local diagnostic_float = {
   focusable = false,
   style = "minimal",
-  -- border = "rounded",
   border = "single",
   source = "always",
   header = "",

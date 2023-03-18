@@ -1,5 +1,23 @@
 local plugins = {
   { "folke/lazy.nvim", tag = "stable" },
+
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("xxx.plugin-config.which-key-rc").setup()
+    end,
+    cmd = "WhichKey",
+    keys = "<leader>",
+  },
+
+  {
+    "christoomey/vim-tmux-navigator",
+    cond = function()
+      return os.getenv "TERM" == "screen-256color"
+    end,
+    event = "VeryLazy",
+  },
+
   { "nvim-lua/plenary.nvim", lazy = true },
   {
     -- Automatically detects which indents should be used in the current buffer
@@ -14,20 +32,25 @@ local plugins = {
     end,
     lazy = true,
   },
+
   {
     "olimorris/onedarkpro.nvim",
     config = function()
       require("xxx.plugin-config.colorscheme.onedarkpro-rc").setup()
     end,
+    enabled = false,
     priority = 1000,
   },
+
+  { "tjdevries/colorbuddy.nvim", lazy = true },
+
   {
-    "folke/which-key.nvim",
+    "svrana/neosolarized.nvim",
     config = function()
-      require("xxx.plugin-config.which-key-rc").setup()
+      require("xxx.plugin-config.colorscheme.neosolarized-rc").setup()
     end,
-    cmd = "WhichKey",
-    keys = "<leader>",
+    enabled = true,
+    priority = 1000,
   },
 
   {

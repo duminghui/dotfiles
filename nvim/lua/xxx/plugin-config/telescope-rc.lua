@@ -145,7 +145,7 @@ function M.opts()
         "dotbot",
       },
       path_display = { "smart" },
-      winblend = 9,
+      winblend = Xvim.winblend, -- 透明模式下设为0
       border = {},
       borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
       -- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },

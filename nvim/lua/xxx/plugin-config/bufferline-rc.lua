@@ -3,442 +3,76 @@ local icons = require "xxx.core.icons"
 
 local M = {}
 
+local function fix_highlight(name, fg, bg)
+  local hl = {}
+  hl[name] = { fg = fg, bg = bg }
+  hl[name .. "_visible"] = { fg = fg }
+  hl[name .. "_selected"] = { fg = fg }
+  return hl
+end
+
 local function highlights()
-  -- if true then
-  --   return {}
-  -- end
   local colors = require("xxx.plugin-config.colorscheme.colors").colors()
-  -- local bg_color = colors.bg
-  -- local com_bg = colors.statusline_bg
-  -- local group_bg = colors.cyan
-  -- local group_label = "#FFFFFF"
-  -- local normal_fg = colors.white
-  -- local visible_fg = colors.white
-  -- local selected_fg = "#FFD700"
-  -- local pick_selected_fg = colors.purple
-  -- local duplicate_fg = colors.blue
-  -- local hint_selected_fg = colors.cyan
-  -- local info_selected_fg = colors.blue
-  -- local warning_selected_fg = colors.yellow
-  -- local error_selected_fg = colors.red
-  -- local modified_fg = colors.red
-  -- local underline_sp = colors.purple
-  -- local has_underline_indicator = false
+  local tag_fg = colors.bufferline.tag_fg
+  local tag_bg = colors.bufferline.tag_bg
+  local text_fg = colors.bufferline.text
+  local text_selected = colors.bufferline.text_selected
+  local c_modified = colors.bufferline.modified
+  local c_pick = colors.bufferline.pick
 
-  local lazy = require "bufferline.lazy"
-  local bl_colors = lazy.require "bufferline.colors"
-  local hex = bl_colors.get_color
-  local shade = bl_colors.shade_color
+  -- visible代表的意思是指如果焦点正在一个buffer上, 然后跳转到其他的window, 这个buffer就是visible的状态
+  ------------------- 所有highlight属性
+  -- fill
+  -- background 不在visible和selected状态下标签标的highlight
+  -- tab{,selected,close}
+  -- close_button{,visible,selected}
+  -- buffer(visible,selected)
+  -- numbers{,visible,selected}
+  -- diagnostic{,visible,selected} -- 这个不知道在哪里起作用
+  -- hint{,visible,selected} hint_diagnostic{,visible,selected}
+  -- info{,visible,selected} info_diagnostic{,visible,selected}
+  -- warning{,visible,selected} warning_diagnostic{,visible,selected}
+  -- error{,visible,selected} error_diagnostic{,visible,selected}
+  -- modified{,visible,selected}
+  -- duplicate{,visible,selected}
+  -- separator{,visible,selected}
+  -- indicator_selected
+  -- pick{,visible,selected}
+  -- offset_separator
+  -------------------
 
-  local comment_fg = hex {
-    name = "Comment",
-    attribute = "fg",
-    fallback = { name = "Normal", attribute = "fg" },
-  }
-
-  local normal_fg = hex { name = "Normal", attribute = "fg" }
-  local normal_bg = hex { name = "Normal", attribute = "bg" }
-  -- local string_fg = hex({ name = "String", attribute = "fg" })
-
-  local error_hl = "DiagnosticError"
-  local warning_hl = "DiagnosticWarn"
-  local info_hl = "DiagnosticInfo"
-  local hint_hl = "DiagnosticHint"
-
-  local error_fg = hex {
-    name = error_hl,
-    attribute = "fg",
-    fallback = { name = "Error", attribute = "fg" },
-  }
-
-  local warning_fg = hex {
-    name = warning_hl,
-    attribute = "fg",
-    fallback = { name = "WarningMsg", attribute = "fg" },
-  }
-
-  local info_fg = hex {
-    name = info_hl,
-    attribute = "fg",
-    fallback = { name = "Normal", attribute = "fg" },
-  }
-
-  local hint_fg = hex {
-    name = hint_hl,
-    attribute = "fg",
-    fallback = { name = "Directory", attribute = "fg" },
-  }
-
-  local tabline_sel_bg = hex {
-    name = "TabLineSel",
-    attribute = "bg",
-    not_match = normal_bg,
-    fallback = {
-      name = "TabLineSel",
-      attribute = "fg",
-      not_match = normal_bg,
-      fallback = { name = "WildMenu", attribute = "fg" },
-    },
-  }
-
-  -- local normal_fg = colors.white
-  -- local normal_bg = colors.bg
-  -- local comment_fg = colors.white
-  local modified_fg = colors.red
-
-  local pick_fg = colors.purple
-
-  local has_underline_indicator = false
-  local underline_sp = has_underline_indicator and colors.green or nil
-
-  -- local hint_fg = colors.cyan
-  -- local info_fg = colors.blue
-  -- local warning_fg = colors.yellow
-  -- local error_fg = colors.red
-
-  -- local tabline_sel_bg = normal_fg
-  local win_separator_fg = colors.orange
-
-  local is_bright_background = bl_colors.color_is_bright(normal_bg)
-  local separator_shading = is_bright_background and -20 or -45
-  local background_shading = is_bright_background and -12 or -25
-  local diagnostic_shading = is_bright_background and -12 or -25
-
-  local visible_bg = shade(normal_bg, -8)
-  local duplicate_color = shade(comment_fg, -5)
-  local separator_background_color = shade(normal_bg, separator_shading)
-  local background_color = shade(normal_bg, background_shading)
-
-  -- diagnostic colors by default are a few shades darker
-  local normal_diagnostic_fg = shade(normal_fg, diagnostic_shading)
-  local comment_diagnostic_fg = shade(comment_fg, diagnostic_shading)
-  local hint_diagnostic_fg = shade(hint_fg, diagnostic_shading)
-  local info_diagnostic_fg = shade(info_fg, diagnostic_shading)
-  local warning_diagnostic_fg = shade(warning_fg, diagnostic_shading)
-  local error_diagnostic_fg = shade(error_fg, diagnostic_shading)
-
-  return {
+  local hl = {
     fill = {
-      fg = comment_fg,
-      bg = separator_background_color,
+      bg = tag_fg,
     },
-    group_separator = {
-      fg = comment_fg,
-      bg = separator_background_color,
-    },
-    group_label = {
-      bg = comment_fg,
-      fg = separator_background_color,
-    },
-    tab = {
-      fg = comment_fg,
-      bg = background_color,
-    },
-    tab_selected = {
-      fg = tabline_sel_bg,
-      bg = normal_bg,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    tab_close = {
-      fg = comment_fg,
-      bg = background_color,
-    },
-    close_button = {
-      fg = comment_fg,
-      bg = background_color,
-    },
-    close_button_visible = {
-      fg = comment_fg,
-      bg = visible_bg,
-    },
-    close_button_selected = {
-      fg = normal_fg,
-      bg = normal_bg,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
+    -- buffer 标签栏,不在visible和selected状态下
     background = {
-      fg = comment_fg,
-      bg = background_color,
+      fg = text_fg, -- text color
+      bg = tag_bg,
     },
-    buffer = {
-      fg = comment_fg,
-      bg = background_color,
-    },
-    buffer_visible = {
-      fg = comment_fg,
-      bg = visible_bg,
-    },
+    buffer_visible = {},
     buffer_selected = {
-      fg = normal_fg,
-      bg = normal_bg,
+      fg = text_selected,
       bold = true,
-      italic = true,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    numbers = {
-      fg = comment_fg,
-      bg = background_color,
-    },
-    numbers_selected = {
-      fg = normal_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    numbers_visible = {
-      fg = comment_fg,
-      bg = visible_bg,
-    },
-    diagnostic = {
-      fg = comment_diagnostic_fg,
-      bg = background_color,
-    },
-    diagnostic_visible = {
-      fg = comment_diagnostic_fg,
-      bg = visible_bg,
-    },
-    diagnostic_selected = {
-      fg = normal_diagnostic_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    hint = {
-      fg = comment_fg,
-      sp = hint_fg,
-      bg = background_color,
-    },
-    hint_visible = {
-      fg = comment_fg,
-      bg = visible_bg,
-    },
-    hint_selected = {
-      fg = hint_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or hint_fg,
-    },
-    hint_diagnostic = {
-      fg = comment_diagnostic_fg,
-      sp = hint_diagnostic_fg,
-      bg = background_color,
-    },
-    hint_diagnostic_visible = {
-      fg = comment_diagnostic_fg,
-      bg = visible_bg,
-    },
-    hint_diagnostic_selected = {
-      fg = hint_diagnostic_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or hint_diagnostic_fg,
-    },
-    info = {
-      fg = comment_fg,
-      sp = info_fg,
-      bg = background_color,
-    },
-    info_visible = {
-      fg = comment_fg,
-      bg = visible_bg,
-    },
-    info_selected = {
-      fg = info_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or info_fg,
-    },
-    info_diagnostic = {
-      fg = comment_diagnostic_fg,
-      sp = info_diagnostic_fg,
-      bg = background_color,
-    },
-    info_diagnostic_visible = {
-      fg = comment_diagnostic_fg,
-      bg = visible_bg,
-    },
-    info_diagnostic_selected = {
-      fg = info_diagnostic_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or info_diagnostic_fg,
-    },
-    warning = {
-      fg = comment_fg,
-      sp = warning_fg,
-      bg = background_color,
-    },
-    warning_visible = {
-      fg = comment_fg,
-      bg = visible_bg,
-    },
-    warning_selected = {
-      fg = warning_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or warning_fg,
-    },
-    warning_diagnostic = {
-      fg = comment_diagnostic_fg,
-      sp = warning_diagnostic_fg,
-      bg = background_color,
-    },
-    warning_diagnostic_visible = {
-      fg = comment_diagnostic_fg,
-      bg = visible_bg,
-    },
-    warning_diagnostic_selected = {
-      fg = warning_diagnostic_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or warning_diagnostic_fg,
-    },
-    error = {
-      fg = comment_fg,
-      bg = background_color,
-      sp = error_fg,
-    },
-    error_visible = {
-      fg = comment_fg,
-      bg = visible_bg,
-    },
-    error_selected = {
-      fg = error_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or error_fg,
-    },
-    error_diagnostic = {
-      fg = comment_diagnostic_fg,
-      bg = background_color,
-      sp = error_diagnostic_fg,
-    },
-    error_diagnostic_visible = {
-      fg = comment_diagnostic_fg,
-      bg = visible_bg,
-    },
-    error_diagnostic_selected = {
-      fg = error_diagnostic_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      underline = has_underline_indicator,
-      sp = underline_sp or error_diagnostic_fg,
-    },
-    modified = {
-      fg = modified_fg,
-      bg = background_color,
-    },
-    modified_visible = {
-      fg = modified_fg,
-      bg = visible_bg,
-    },
-    modified_selected = {
-      fg = modified_fg,
-      bg = normal_bg,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    duplicate_selected = {
-      fg = duplicate_color,
-      italic = true,
-      bg = normal_bg,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    duplicate_visible = {
-      fg = duplicate_color,
-      italic = true,
-      bg = visible_bg,
-    },
-    duplicate = {
-      fg = duplicate_color,
-      italic = true,
-      bg = background_color,
-    },
-    separator_selected = {
-      fg = separator_background_color,
-      bg = normal_bg,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    separator_visible = {
-      fg = separator_background_color,
-      bg = visible_bg,
-    },
-    separator = {
-      fg = separator_background_color,
-      bg = background_color,
-    },
-    tab_separator = {
-      -- fg = separator_background_color,
-      fg = background_color,
-      bg = background_color,
-    },
-    tab_separator_selected = {
-      -- fg = separator_background_color,
-      -- bg = normal_bg,
-      fg = background_color,
-      bg = background_color,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    indicator_selected = {
-      fg = tabline_sel_bg,
-      bg = normal_bg,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    indicator_visible = {
-      fg = visible_bg,
-      bg = visible_bg,
-    },
-    pick_selected = {
-      fg = pick_fg,
-      bg = normal_bg,
-      bold = true,
-      italic = true,
-      sp = underline_sp,
-      underline = has_underline_indicator,
-    },
-    pick_visible = {
-      fg = pick_fg,
-      bg = visible_bg,
-      bold = true,
-      italic = true,
-    },
-    pick = {
-      fg = pick_fg,
-      bg = background_color,
-      bold = true,
-      italic = true,
-    },
-    offset_separator = {
-      fg = win_separator_fg,
-      bg = separator_background_color,
     },
   }
+
+  local modified_hl = fix_highlight("modified", c_modified, tag_bg)
+  local separator_hl = fix_highlight("separator", tag_fg, tag_bg)
+  local pick_hl = fix_highlight("pick", c_pick, tag_bg)
+
+  hl = vim.tbl_deep_extend("force", hl, modified_hl, separator_hl, pick_hl)
+
+  -- fix diagnostic highlight
+  local diagnostic_names = { "hint", "info", "warning", "error" }
+  for _, name in ipairs(diagnostic_names) do
+    -- text
+    hl[name] = { bg = tag_bg }
+    local diagnostic_name = name .. "_diagnostic"
+    hl[diagnostic_name] = { bg = tag_bg }
+  end
+
+  return hl
 end
 
 local function is_ft(b, ft)
@@ -462,10 +96,10 @@ local function diagnostics_indicator(_, _, diagnostics, _)
       if count > 9 then
         count_str = "9+"
       end
-      table.insert(result, symbols[type] .. "" .. count_str)
+      table.insert(result, symbols[type] .. " " .. count_str)
     end
   end
-  return #result > 0 and table.concat(result, "") or ""
+  return #result > 0 and table.concat(result, " ") or ""
 end
 
 local function custom_filter(buf, buf_nums)
@@ -504,7 +138,7 @@ M.opts = {
     --     icon = '▎', -- this should be omitted if indicator style is not 'icon'
     --     style = 'underline', -- can also be 'underline'|'none',
     -- },
-    indicator = "",
+    -- indicator = "",
     buffer_close_icon = icons.ui.Close,
     modified_icon = icons.ui.Circle,
     close_icon = icons.ui.BoldClose,
@@ -579,34 +213,6 @@ M.opts = {
       delay = 200,
       reveal = { "close" },
     },
-    -- sort_by = 'id',
-    -- groups = {
-    --     options = {
-    --         toggle_hidden_on_enter = true,
-    --     },
-    --     items = {
-    --         {
-    --             name = "Docs",
-    --             matcher = function(buf)
-    --                 return buf.filename:match("%.md") or buf.filename:match("%.txt")
-    --             end,
-    --             -- highlight = { fg = colors.purple }, -- Optional ** color bug **
-    --             separator = {
-    --                 style = require("bufferline.groups").separator.pill
-    --             },
-    --         },
-    --         {
-    --             name = "Go",
-    --             matcher = function(buf)
-    --                 return buf.filename:match("go.mod") or buf.filename:match("%.go")
-    --             end,
-    --             -- highlight = { fg = "#FFD700", bg = com_bg }, -- Optional
-    --             separator = {
-    --                 style = require("bufferline.groups").separator.pill
-    --             },
-    --         }
-    --     },
-    -- },
   },
   highlights = highlights(),
 }
