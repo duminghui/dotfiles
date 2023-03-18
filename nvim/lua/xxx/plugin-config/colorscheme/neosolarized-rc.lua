@@ -40,10 +40,11 @@ function M.setup()
   Group.new("FloatTitle", colors.base00, colors.none, styles.none)
   -- signcolumn ~ color
   Group.new("EndOfBuffer", colors.base03, colors.none, styles.none)
+  Group.new("PmenuSel", colors.base03, colors.base1, styles.reverse)
 
   -- Nvim-Tree
   vim.cmd "highlight link NvimTreeFolderName NvimTreeNormal"
-  Group.new("NvimTreeRootFolder", colors.red, colors.none, styles.none)
+  Group.new("NvimTreeRootFolder", colors.yellow, colors.none, styles.none)
   Group.new("NvimTreeFolderIcon", colors.yellow, colors.none, styles.none)
   vim.cmd "highlight link NvimTreeOpenedFolderName NvimTreeNormal"
   Group.new("NvimTreeGitDirty", colors.yellow, colors.none, styles.none)
