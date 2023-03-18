@@ -64,9 +64,9 @@ M.opts = {
     -- Options for telescope selector
     -- These are passed into the telescope picker directly. Can be used like:
     -- telescope = require('telescope.themes').get_ivy({...})
-    telescope = require("telescope.themes").get_dropdown({
+    telescope = require("telescope.themes").get_dropdown {
       initial_mode = "normal",
-    }),
+    },
     -- Options for fzf selector
     fzf = {
       window = {
@@ -143,7 +143,7 @@ M.opts = {
 }
 
 function M.setup()
-  local dressing = require("dressing")
+  local dressing = require "dressing"
   dressing.setup(M.opts)
 end
 

@@ -1,5 +1,5 @@
 local M = {}
-local icons = require("xxx.core.icons")
+local icons = require "xxx.core.icons"
 
 M.opts = {
   char = icons.ui.LineLeft,
@@ -55,13 +55,12 @@ local function set_highlight()
   -- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-  local colors = require("xxx.core.colors")
+  local colors = require "xxx.core.colors"
 
   for i = 1, 6 do
     local c_key = string.format("c%s", i)
     vim.cmd(string.format("highlight IndentBlanklineIndent%s guifg=%s gui=nocombine", i, colors[c_key]))
   end
-
 
   vim.cmd [[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]]
 
@@ -75,7 +74,7 @@ function M.setup()
   -- vim.opt.listchars:append "space:⋅"
   -- vim.opt.listchars:append "eol:↴"
   --   vim.pretty_print(M.opts)
-  local indent_blankline = require("indent_blankline")
+  local indent_blankline = require "indent_blankline"
 
   indent_blankline.setup(M.opts)
 

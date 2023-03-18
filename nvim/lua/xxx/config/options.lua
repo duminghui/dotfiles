@@ -159,6 +159,7 @@ function M.load_default_options()
   -- Highlight the screen line of the cursor with CursorLine and the line number with CursorLineNr **
   vim.opt.cursorlineopt = "screenline,number"
 
+  -- 如果背景是深色, 再开启这个, 背景就会变成黑色的
   -- Enables pseudo-transparency for the |popup-menu|.
   -- cmp's menu, doc view
   vim.opt.pumblend = 9

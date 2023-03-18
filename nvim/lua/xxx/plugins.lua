@@ -104,10 +104,9 @@ local plugins = {
   {
     "phaazon/hop.nvim",
     branch = "v2", -- optional but strongly recommended
-    config = true,
-    opts = {
-      multi_windows = false,
-    },
+    config = function()
+      require("xxx.plugin-config.hop-rc").setup()
+    end,
     cmd = { "HopAnywhere", "HopChar1", "HopChar2", "HopWord", "HopLineStart", "HopLine", "HopVertical", "HopPattern" },
   },
   {
@@ -273,10 +272,9 @@ local plugins = {
   {
     -- 代码吸顶
     "nvim-treesitter/nvim-treesitter-context",
-    config = true,
-    opts = {
-      mode = "topline",
-    },
+    config = function()
+      require("xxx.plugin-config.nvim-treesitter-context-rc").setup()
+    end,
     event = "BufEnter",
   },
   {

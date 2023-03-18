@@ -11,7 +11,7 @@ function M.setup()
 
   Color.new("black", "#000000")
   Color.new("white", "FFFFFF")
-  Color.new("gold1", "#FFD700")
+  -- Color.new("gold", "#FFD700")
 
   -- Color.new("base03", "#002b36")
   -- Color.new("base02", "#073642")
@@ -30,26 +30,44 @@ function M.setup()
   -- Color.new("cyan", "#2aa198")
   -- Color.new("green", "#719e07")
 
-  Group.new("Normal", colors.base1, colors.NONE, styles.NONE)
-  Group.new("CursorLine", colors.NONE, colors.base03, styles.NONE, colors.base01)
-  Group.new("CursorLineNr", colors.gold1, colors.base03, styles.NONE, colors.base01)
-  Group.link("CursorColumn", n.groups.CursorLine)
-  Group.new("Visual", colors.NONE, colors.base03, styles.reverse)
+  Group.new("Normal", colors.base1, colors.none, styles.none)
+  Group.new("CursorLine", colors.none, colors.base03, styles.none, colors.base01)
+  Group.new("CursorLineNr", colors.gold, colors.base03, styles.none, colors.base01)
+  Group.link("CursorColumn", groups.CursorLine)
+  Group.new("Visual", colors.none, colors.base03, styles.reverse)
+  vim.cmd "highlight link TreesitterContextLineNumber TreesitterContext"
+  -- fix dressing float title color
+  Group.new("FloatTitle", colors.base00, colors.none, styles.none)
+  -- signcolumn ~ color
+  Group.new("EndOfBuffer", colors.base03, colors.none, styles.none)
+
+  -- Nvim-Tree
+  vim.cmd "highlight link NvimTreeFolderName NvimTreeNormal"
+  Group.new("NvimTreeRootFolder", colors.red, colors.none, styles.none)
+  Group.new("NvimTreeFolderIcon", colors.yellow, colors.none, styles.none)
+  vim.cmd "highlight link NvimTreeOpenedFolderName NvimTreeNormal"
+  Group.new("NvimTreeGitDirty", colors.yellow, colors.none, styles.none)
+  Group.new("NvimTreeGitNew", colors.green, colors.none, styles.none)
+
+  -- Telescope
+  Group.new("TelescopePromptTitle", colors.base1, colors.purple, styles.none)
+  Group.new("TelescopePreviewTitle", colors.base02, colors.green, styles.none)
+  Group.new("TelescopeResultsTitle", colors.base02, colors.yellow, styles.none)
 
   local cError = groups.Error.fg
   local cInfo = groups.Information.fg
   local cWarn = groups.Warning.fg
   local cHint = groups.Hint.fg
 
-  Group.new("DiagnosticVirtualTextError", cError, cError:dark():dark():dark():dark(), styles.NONE)
-  Group.new("DiagnosticVirtualTextWarn", cWarn, cWarn:dark():dark(), styles.NONE)
-  Group.new("DiagnosticVirtualTextInfo", cInfo, cInfo:dark():dark():dark(), styles.NONE)
-  Group.new("DiagnosticVirtualTextHint", cHint, cHint:dark():dark():dark(), styles.NONE)
-  Group.new("DiagnosticUnderlineError", colors.NONE, colors.NONE, styles.undercurl, cError)
-  Group.new("DiagnosticUnderlineWarn", colors.NONE, colors.NONE, styles.undercurl, cWarn)
-  Group.new("DiagnosticUnderlineInfo", colors.NONE, colors.NONE, styles.undercurl, cInfo)
-  Group.new("DiagnosticUnderlineHint", colors.NONE, colors.NONE, styles.undercurl, cHint)
-  Group.new("HoverBorder", colors.yellow, colors.NONE, styles.NONE)
+  Group.new("DiagnosticVirtualTextError", cError, cError:dark():dark():dark():dark(), styles.none)
+  Group.new("DiagnosticVirtualTextWarn", cWarn, cWarn:dark():dark(), styles.none)
+  Group.new("DiagnosticVirtualTextInfo", cInfo, cInfo:dark():dark():dark(), styles.none)
+  Group.new("DiagnosticVirtualTextHint", cHint, cHint:dark():dark():dark(), styles.none)
+  Group.new("DiagnosticUnderlineError", colors.none, colors.none, styles.undercurl, cError)
+  Group.new("DiagnosticUnderlineWarn", colors.none, colors.none, styles.undercurl, cWarn)
+  Group.new("DiagnosticUnderlineInfo", colors.none, colors.none, styles.undercurl, cInfo)
+  Group.new("DiagnosticUnderlineHint", colors.none, colors.none, styles.undercurl, cHint)
+  Group.new("HoverBorder", colors.yellow, colors.none, styles.none)
 
   local universal_colors = {
     yellow = colors.yellow:to_rgb(),
@@ -76,5 +94,8 @@ function M.setup()
     },
   }
   require("xxx.plugin-config.colorscheme.colors").set_colors(universal_colors)
+  vim.opt.pumblend = 9
+  vim.opt.winblend = 9
+  Xvim.which_key_winblend = 9
 end
 return M

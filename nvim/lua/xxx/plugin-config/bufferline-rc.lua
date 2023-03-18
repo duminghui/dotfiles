@@ -18,6 +18,7 @@ local function highlights()
   local text_fg = colors.bufferline.text
   local text_selected = colors.bufferline.text_selected
   local c_modified = colors.bufferline.modified
+  local c_duplicate = colors.blue
   local c_pick = colors.bufferline.pick
 
   -- visible代表的意思是指如果焦点正在一个buffer上, 然后跳转到其他的window, 这个buffer就是visible的状态
@@ -58,10 +59,11 @@ local function highlights()
   }
 
   local modified_hl = fix_highlight("modified", c_modified, tag_bg)
+  local duplicate_hl = fix_highlight("duplicate", c_duplicate, tag_bg)
   local separator_hl = fix_highlight("separator", tag_fg, tag_bg)
   local pick_hl = fix_highlight("pick", c_pick, tag_bg)
 
-  hl = vim.tbl_deep_extend("force", hl, modified_hl, separator_hl, pick_hl)
+  hl = vim.tbl_deep_extend("force", hl, modified_hl, duplicate_hl, separator_hl, pick_hl)
 
   -- fix diagnostic highlight
   local diagnostic_names = { "hint", "info", "warning", "error" }

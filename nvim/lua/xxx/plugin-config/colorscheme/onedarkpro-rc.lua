@@ -219,19 +219,23 @@ function M.setup()
     purple = colors.purple,
     bufferline = {
       text = "#7f848e",
-      text_selected = "#282c34",
-      tag_fg = "#7f848e",
-      tag_bg = colors.base03:to_rgb(),
+      text_selected = "#abb2bf",
+      -- tag_fg = "#16181c",
+      tag_fg = "#2e322b",
+      tag_bg = "#1E2127",
       modified = colors.red,
       pick = colors.purple,
     },
     statuline = {
       mode_fg = "#282c34",
-      fg = "#5c7370",
+      fg = "#5c6370",
       bg = "#2e323b",
     },
   }
   require("xxx.plugin-config.colorscheme.colors").set_colors(universal_colors)
+  vim.opt.pumblend = 0
+  vim.opt.winblend = 0
+  Xvim.which_key_winblend = 0
 
   -- vim.cmd(string.format("highlight CursorLineNr guifg=%s", "#FFD700"))
   -- 会把整个替换掉
