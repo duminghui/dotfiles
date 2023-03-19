@@ -10,7 +10,8 @@ function M.setup()
   local Color, colors, Group, groups, styles = require("colorbuddy").setup()
 
   Color.new("black", "#000000")
-  Color.new("white", "FFFFFF")
+  Color.new("white", "#FFFFFF")
+  Color.new("bg1", "#001b21")
   -- Color.new("gold", "#FFD700")
 
   -- Color.new("base03", "#002b36")
@@ -38,9 +39,9 @@ function M.setup()
   vim.cmd "highlight link TreesitterContextLineNumber TreesitterContext"
   -- fix dressing float title color
   Group.new("FloatTitle", colors.base00, colors.none, styles.none)
-  -- signcolumn ~ color
-  Group.new("EndOfBuffer", colors.base03, colors.none, styles.none)
   Group.new("PmenuSel", colors.base03, colors.base1, styles.reverse)
+  -- signcolumn ~ color
+  Group.new("EndOfBuffer", colors.bg1, colors.none, styles.none)
 
   -- Nvim-Tree
   vim.cmd "highlight link NvimTreeFolderName NvimTreeNormal"
