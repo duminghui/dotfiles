@@ -207,7 +207,7 @@ M.opts = {
     -- persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "slant", -- slant, thin, {'any','any'}
+    separator_style = "slope", -- "slant" | "slope" | "thick" | "thin" | "padded_slant" | { "any", "any" },
     -- enforce_regular_tabs = false,
     always_show_bufferline = true,
     hover = {

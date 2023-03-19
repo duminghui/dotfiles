@@ -32,7 +32,7 @@ function M.setup()
 
   Group.new("Normal", colors.base1, colors.none, styles.none)
   Group.new("CursorLine", colors.none, colors.base03, styles.none, colors.base01)
-  Group.new("CursorLineNr", colors.gold, colors.base03, styles.none, colors.base01)
+  Group.new("CursorLineNr", colors.gold, colors.base03, styles.bold, colors.base01)
   Group.link("CursorColumn", groups.CursorLine)
   Group.new("Visual", colors.none, colors.base03, styles.reverse)
   vim.cmd "highlight link TreesitterContextLineNumber TreesitterContext"
@@ -79,14 +79,15 @@ function M.setup()
     blue = colors.blue:to_rgb(),
     cyan = colors.cyan:to_rgb(),
     green = colors.green:to_rgb(),
-    purple = "#d55fde",
+    -- purple = "#d55fde",
+    purple = colors.magenta:to_rgb(),
     bufferline = {
       text = colors.base00:to_rgb(),
       text_selected = colors.base1:to_rgb(),
       tag_fg = colors.base02:to_rgb(),
       tag_bg = colors.base03:to_rgb(),
       modified = colors.red:dark():dark():to_rgb(),
-      pick = colors.cyan:to_rgb(),
+      pick = colors.magenta:to_rgb(),
     },
     statuline = {
       mode_fg = colors.base03:to_rgb(),
@@ -97,6 +98,7 @@ function M.setup()
   require("xxx.plugin-config.colorscheme.colors").set_colors(universal_colors)
   vim.opt.pumblend = 9
   vim.opt.winblend = 9
+  Xvim.winblend = 0
   Xvim.which_key_winblend = 9
 end
 return M

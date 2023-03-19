@@ -1,5 +1,7 @@
+# vim: ft=toml
+
 [include]
-    path = ~/.gitconfig.local
+    path = ~/.config/git/config.local
 [hub]
     protocol = https
 [alias]
@@ -11,7 +13,6 @@
     branch = auto
     ui = true
 [core]
-    excludesfile = ~/.gitignore
     editor = nvim
     autocrlf = input
 [pager]
@@ -33,4 +34,4 @@
     default = simple
 
 [init]
-	defaultBranch = main
+    defaultBranch = main

@@ -38,7 +38,7 @@ local plugins = {
     config = function()
       require("xxx.plugin-config.colorscheme.onedarkpro-rc").setup()
     end,
-    enabled = false,
+    enabled = Xvim.colorscheme == "one",
     priority = 1000,
   },
 
@@ -49,7 +49,7 @@ local plugins = {
     config = function()
       require("xxx.plugin-config.colorscheme.neosolarized-rc").setup()
     end,
-    enabled = true,
+    enabled = Xvim.colorscheme == "neo",
     priority = 1000,
   },
 

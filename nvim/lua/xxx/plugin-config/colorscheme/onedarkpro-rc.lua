@@ -46,21 +46,17 @@ M.opts = {
     underline = false, -- Use the colorscheme's opinionated underline styles?
     undercurl = false, -- Use the colorscheme's opinionated undercurl styles?
     cursorline = true, -- Use cursorline highlighting?
-    transparency = true, -- Use a transparent background?
+    transparency = false, -- Use a transparent background?
     terminal_colors = false, -- Use the colorscheme's colors for Neovim's :terminal?
     window_unfocused_color = false, -- When the window is out of focus, change the normal background?
   },
   colors = {
     onedark_vivid = {
-      vim = "#81b766", -- green
-      brackets = "#abb2bf", -- fg / gray
+      -- vim = "#81b766", -- green
+      -- brackets = "#abb2bf", -- fg / gray
       cursorline = "#2e323b",
-      indentline = "#3c414d",
+      -- indentline = "#3c414d",
       ghost_text = "#555961",
-      bufferline_text_focus = "#949aa2",
-      statusline_bg = "#2e323b", -- gray
-      -- bg_statusline = "#2e323b", -- gray
-      -- bg_statusline = "#FFFFFF", -- gray
 
       telescope_prompt = "#2e323b",
       telescope_results = "#21252d",
@@ -220,8 +216,8 @@ function M.setup()
     bufferline = {
       text = "#7f848e",
       text_selected = "#abb2bf",
-      -- tag_fg = "#16181c",
-      tag_fg = "#2e322b",
+      -- text_selected = "#949aa2",
+      tag_fg = "#16181c",
       tag_bg = "#1E2127",
       modified = colors.red,
       pick = colors.purple,
@@ -233,10 +229,10 @@ function M.setup()
     },
   }
   require("xxx.plugin-config.colorscheme.colors").set_colors(universal_colors)
-  vim.opt.pumblend = 0
-  vim.opt.winblend = 0
-  Xvim.which_key_winblend = 0
-
+  vim.opt.pumblend = 9
+  vim.opt.winblend = 9
+  Xvim.which_key_winblend = 9
+  Xvim.winblend = 9
   -- vim.cmd(string.format("highlight CursorLineNr guifg=%s", "#FFD700"))
   -- 会把整个替换掉
   -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFE700" })
