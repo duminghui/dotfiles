@@ -22,6 +22,7 @@ nvim = { target = "~/.config/nvim", type = "symbolic", recurse = false }
 ssh-config = "~/.ssh/config"
 "starship.toml" = "~/.config/starship.toml"
 tmux = { target = "~/.config/tmux", type = "symbolic", recurse = false }
+kitty = { target = "~/.config/kitty", type = "symbolic", recurse = false }
 
 [default.variables]
 

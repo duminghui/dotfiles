@@ -419,6 +419,13 @@ local plugins = {
     },
   },
 
+  {
+    -- kitty syntax
+    "fladson/vim-kitty",
+    lazy = true,
+    ft = "kitty",
+  },
+
   --------------- languages --------------------
   {
     -- https://github.com/golang/tools/blob/master/gopls/doc/settings.md
