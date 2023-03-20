@@ -24,6 +24,7 @@ set -gx LC_CTYPE zh_CN.UTF-8
 
 ### homeberw ###
 set -gx HOMEBREW_NO_AUTO_UPDATE true
+set -gx HOMEBREW_NO_INSTALL_CLEANUP true
 set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
 set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
 set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
