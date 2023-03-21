@@ -15,6 +15,7 @@ condarc = "~/.condarc"
 # "kitty.config" = "~/.kitty"
 "nodejs/npmrc" = "~/.npmrc"
 "nodejs/yarnrc" = "~/.yarnrc"
+"nodejs/yarnrc.yml" = "~/.yarnrc.yml"
 nvim = { target = "~/.config/nvim", type = "symbolic", recurse = false }
 "pip.conf" = "~/.config/pip/pip.conf"
 "rust/cargo-config.toml" = "~/.cargo/config.toml"

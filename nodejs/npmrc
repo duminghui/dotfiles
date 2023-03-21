@@ -1,5 +1,5 @@
+logs-max=1
 registry=https://registry.npmmirror.com/
+disturl=https://npmmirror.com/mirrors/node
 ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/
-
 sass_binary_site=https://npmmirror.com/mirrors/node-sass
-disturl=https://npmmirror.com/package/dist

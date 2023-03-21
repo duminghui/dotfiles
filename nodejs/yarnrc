@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-registry "https://registry.npmmirror.com/"
+registry "https://registry.npmmirror.com"
 disturl "https://npmmirror.com/package/dist"
 lastUpdateCheck 1640182256636

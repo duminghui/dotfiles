@@ -18,6 +18,10 @@ set fish_cursor_visual underscore
 ### system ###
 set -gx LANG zh_CN.UTF-8
 set -gx LC_CTYPE zh_CN.UTF-8
+set -gx XDG_DATA_HOME $HOME/.local/share
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_STATE_HOME $HOME/.local/state
+set -gx XDG_CACHE_HOME $HOME/.cache
 
 # https://the.exa.website/docs/colour-themes
 # set -gx LS_COLORS 'di=34:ln=35:so=32:pi=33:ex=31:bd=34:cd=34:su=0:sg=0:tw=0:ow=0:'
@@ -36,7 +40,7 @@ test -x /opt/homebrew/bin/brew; and eval "$(/opt/homebrew/bin/brew shellenv)"
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
 set -gx CARGO_HTTP_MULTIPLEXING false
-set -gx SCCACHE_DIR ~/.cache/sccache
+set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
 set -gx SCCACHE_CACHE_SIZE "3G"
 
 set -gx PATH ~/.cargo/bin $PATH
@@ -69,7 +73,7 @@ end
 type -q nvim; and set -gx EDITOR nvim
 # why add this in https://github.com/tmuxinator/tmuxinator
 set -gx DISABLE_AUTO_TITLE true
-set -gx TMUX_CONF ~/.config/tmux/tmux.conf
+set -gx TMUX_CONF $XDG_CONFIG_HOME/tmux/tmux.conf
 # set -gx TERM xterm-256color
 if type -q tmuxinator
     abbr mux tmuxinator
@@ -104,12 +108,13 @@ test -d $NDK_HOME; and set -gx PATH $NDK_HOME $PATH
 
 ### flutter ###
 set -gx PUB_HOSTED_URL https://pub.flutter-io.cn
-set -gx PUB_CACHE ~/.pub-cache
+set -gx PUB_CACHE ~$XDG_CACHE_HOME/pub-cache
 set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
 test -d ~/Library/flutter/bin; and set -gx PATH ~/Library/flutter/bin $PATH
 
 ### nodejs ###
-set -gx  NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node/
+set -gx NVM_DIR $XDG_DATA_HOME/nvm
+set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node/
 
 # test -e ~/.docker/init-fish.sh; and source ~/.docker/init-fish.sh
 

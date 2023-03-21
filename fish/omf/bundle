@@ -1,2 +1,4 @@
+package foreign-env
 package https://github.com/jethrokuan/z
+package nvm
 theme default
