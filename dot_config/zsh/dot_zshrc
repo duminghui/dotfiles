@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.config/oh-my-zsh
+export ZSH="$ZDOTDIR/ohmyzsh"
 
 # vi-mode config
 # 在theme中添加一样起作用

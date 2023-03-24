@@ -17,6 +17,11 @@ gpg --edit-key xxx
 gpg > true
 
 ```
+```
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+
+```
 
 # dotfiles (not use)
 base on [holman/dotfiles]
