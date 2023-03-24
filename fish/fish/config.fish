@@ -32,6 +32,8 @@ end
 if type -q exa
     alias ll "exa -lg -smodified --time-style=long-iso --icons"
     abbr lla "ll -a"
+else
+    abbr lla "ls -alrth"
 end
 
 ### alias abbr ###
