@@ -1,8 +1,22 @@
-# now use dotter manager dotfiles
+# Use chezmoi
 
-[SuperCuber/dotter]
+[chezmoi]
 
-[SuperCuber/dotter]:https://github.com/SuperCuber/dotter
+[chezmoi]:https://www.chezmoi.io
+
+## gpg
+gpg生成的key有过期时间
+```
+gpg --gen-key
+
+gpg --armor --output public-key.txt --export XXXXXXXX
+gpg --armor --output private-key.txt --export-secret-keys XXXXXXXX
+
+gpg --import private-key.txt
+gpg --edit-key xxx
+gpg > true
+
+```
 
 # dotfiles (not use)
 base on [holman/dotfiles]

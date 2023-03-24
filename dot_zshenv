@@ -1,6 +1,5 @@
 export ZDOTDIR=$HOME/.config/zsh
 
-# 这个要放在这里, 新安装的时候没有oh-my-zsh, 会找不到dotter的路径
 export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_INSTALL_CLEANUP=true
 export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.ustc.edu.cn/brew.git"

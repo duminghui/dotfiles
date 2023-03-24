@@ -1,7 +1,6 @@
-# vim: ft=toml
-
-[include]
-    path = ~/.config/git/config.local
+[user]
+    name = {{ .GIT_USER_NAME }}
+    email = {{ .GIT_USER_EMAIL }}
 [hub]
     protocol = https
 [alias]

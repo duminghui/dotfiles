@@ -1,0 +1,12 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+setfile -md '01/01/2023 00:00:00' ~/.profile
+setfile -md '01/01/2023 00:00:00' ~/.bashrc
+setfile -md '01/01/2023 00:00:00' ~/.bash_profile
+setfile -md '01/01/2023 00:00:00' ~/.zshenv
+setfile -md '01/01/2023 00:00:00' ~/.yarnrc.yml
+setfile -md '01/01/2023 00:00:00' ~/.ideavimrc
+setfile -md '01/01/2023 00:00:00' ~/.condarc
+
+{{ end -}}
