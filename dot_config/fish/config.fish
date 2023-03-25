@@ -16,6 +16,9 @@ set fish_cursor_replace_one underscore
 # visual mode, but due to fish_cursor_default, is redundant here
 set fish_cursor_visual underscore
 
+# set fish_color_autosuggestion brgreen
+set fish_color_autosuggestion 586e75 brblack #brgreen
+
 ### starship ###
 if type -q starship
     function starship_transient_prompt_func
