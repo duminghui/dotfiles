@@ -113,7 +113,7 @@ M.opts = {
         },
         folder = {
           default = icons.ui.Folder,
-          open = icons.ui.FolderOpen2,
+          open = icons.ui.FolderOpen,
           empty = icons.ui.EmptyFolder,
           empty_open = icons.ui.EmptyFolderOpen,
           symlink = icons.ui.FolderSymlink,

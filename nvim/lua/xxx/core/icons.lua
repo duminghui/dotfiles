@@ -139,7 +139,6 @@ return {
     Fire = "",
     Folder = "",
     FolderOpen = "",
-    FolderOpen2 = "",
     FolderSymlink = "",
     Forward = "",
     Gear = "",
