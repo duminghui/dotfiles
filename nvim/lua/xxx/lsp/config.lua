@@ -9,6 +9,7 @@ local skipped_servers = {
   "emmet_ls",
   "eslint",
   "eslintls",
+  "glint",
   "gopls",
   "golangci_lint_ls",
   "gradle_ls",
@@ -36,6 +37,7 @@ local skipped_servers = {
   "sqls",
   "stylelint_lsp",
   "svlangserver",
+  "vtsls",
   "tflint",
   "verible",
   "vuels",
@@ -123,6 +125,7 @@ local options = {
     setup = {
       sources = {
         require("null-ls").builtins.formatting.stylua,
+        require("null-ls").builtins.formatting.prettier,
         -- require("null-ls").builtins.formatting.rustfmt.with {
         -- 不起作用
         --   generator_opts = {

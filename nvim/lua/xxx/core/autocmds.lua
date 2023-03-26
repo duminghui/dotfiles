@@ -100,6 +100,14 @@ function M.load_defaults()
       },
     },
     -- {
+    --   "FileType",
+    --   {
+    --     group = "_filetype_settings",
+    --     pattern = "json",
+    --     command = "syntax match Comment +\\/\\/.\\+$+",
+    --   },
+    -- },
+    -- {
     --   { "BufWinEnter", "BufRead", "BufNewFile" },
     --   {
     --     group = "_format_options",

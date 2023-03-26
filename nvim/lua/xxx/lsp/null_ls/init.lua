@@ -1,11 +1,11 @@
 local M = {}
-local Log = require("xxx.core.log")
-local lsp_opts = require("xxx.lsp.config")
+local Log = require "xxx.core.log"
+local lsp_opts = require "xxx.lsp.config"
 
 function M.setup()
   local status_ok, null_ls = pcall(require, "null-ls")
   if not status_ok then
-    Log:error("Missing null-ls dependency")
+    Log:error "Missing null-ls dependency"
     return
   end
 

@@ -20,7 +20,6 @@ if vim.fn.has "win32" ~= 0 then
     vim.opt.rtp:append(nvim_base_dir)
   end
 
-  -- \local\nvim.x
   local root_dir = nvim_base_dir:match("(.*[/\\])"):sub(1, -2)
 
   -- 配置rpt
@@ -33,14 +32,15 @@ require("xxx.core.autocmds").load_defaults()
 require("xxx.core.commands").load_defaults()
 
 local plugin_loader = require "xxx.plugin-loader"
-
 plugin_loader.init()
 
 if not vim.g.vscode then
   local plugins = require "xxx.plugins"
   plugin_loader.load { plugins }
   -- --Lsp配置
-  require("xxx.lsp").setup()
+  if Xvim.use_lsp then
+    require("xxx.lsp").setup()
+  end
 else
   local plugins = require "xxx.vscode.plugins"
   plugin_loader.load { plugins }

@@ -16,7 +16,7 @@ return {
     File = "",
     Folder = "",
     -- Function = "",
-    Function = "",
+    Function = "ƒ", -- 
     Interface = "",
     Key = "",
     Keyword = "",
@@ -27,7 +27,8 @@ return {
     Null = "ﳠ",
     Number = "",
     Object = "",
-    Operator = "",
+    -- Operator = "",
+    Operator = "",
     Package = "",
     -- Property = "",
     Property = "",
@@ -58,7 +59,8 @@ return {
     Octoface = "", --eb27
     -- Octoface = "", --f406
     FileDeleted = "",
-    FileIgnored = "◌",
+    FileIgnored = "",
+    -- FileIgnored = "",
     FileRenamed = "➜",
     FileStaged = "S",
     FileUnmerged = "",

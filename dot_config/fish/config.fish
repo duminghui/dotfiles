@@ -33,8 +33,8 @@ if type -q starship
 end
 
 if type -q exa
-    alias ll "exa -lg -smodified --time-style=long-iso --icons"
-    abbr lla "ll -a"
+    abbr ll "exa -lg -smodified --time-style=long-iso --icons"
+    abbr lla "exa -lg -smodified --time-style=long-iso --icons -a"
 else
     abbr lla "ls -alrth"
 end

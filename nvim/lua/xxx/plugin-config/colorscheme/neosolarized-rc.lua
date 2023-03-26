@@ -102,4 +102,5 @@ function M.setup()
   Xvim.winblend = 0
   Xvim.which_key_winblend = 9
 end
+
 return M

@@ -220,6 +220,7 @@ local plugins = {
       { "saadparwaiz1/cmp_luasnip" },
     },
     event = { "InsertEnter", "CmdlineEnter" },
+    enabled = Xvim.use_lsp,
   },
 
   {
@@ -232,6 +233,7 @@ local plugins = {
       "rafamadriz/friendly-snippets",
     },
     event = "InsertEnter",
+    enabled = Xvim.use_lsp,
   },
   {
     -- vim functions for dev
@@ -344,7 +346,6 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope-smart-history.nvim", -- Show project dependant history
-
     dependencies = "sqlite.lua",
     lazy = true,
   },
@@ -458,6 +459,22 @@ local plugins = {
     end,
     enabled = true,
     event = { "BufRead Cargo.toml" },
+  },
+
+  {
+    -- for yarn
+    "lbrayner/vim-rzip",
+    ft = { "typescript", "vue" },
+  },
+
+  {
+    "neoclide/coc.nvim",
+    branch = "release",
+    config = function()
+      require("xxx.plugin-config.coc-rc").setup()
+    end,
+    event = { "InsertEnter", "CmdlineEnter" },
+    enabled = not Xvim.use_lsp,
   },
 }
 return plugins

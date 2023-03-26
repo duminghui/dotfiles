@@ -45,9 +45,8 @@ local function resolve_config(server_name, ...)
     Log:debug("custom configuration not found for: " .. server_name)
   end
 
-  defaults = vim.tbl_deep_extend("force", defaults, ...)
+  defaults = vim.tbl_deep_extend("force", ..., defaults)
   -- print("manager.lua", vim.inspect(defaults))
-
   return defaults
 end
 

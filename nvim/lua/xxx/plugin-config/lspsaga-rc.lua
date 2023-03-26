@@ -54,7 +54,7 @@ M.opts = {
   -- :Lspsaga Lightbulb
   lightbulb = {
     enable = true,
-    enable_in_insert = true,
+    enable_in_insert = false,
     sign = false,
     sign_priority = 20,
     virtual_text = true,
@@ -69,7 +69,7 @@ M.opts = {
   -- Press g to go to the action line and see the code action preview.
   -- Press o to execute the action
   diagnostic = {
-    on_insert = true, -- true it works like the emacs helix show diagnostic in right but in line
+    on_insert = false, -- true it works like the emacs helix show diagnostic in right but in line
     on_insert_follow = true, -- ture whill follow current line. false will on top right
     insert_winblend = Xvim.winblend, -- default is 0, whne it's to 100 whill completely transparent. the color whill changed a little light. 0 will use the NormalFloat group. it will link to Normal by Lspsaga
     show_virt_line = true, -- show a line when using diagnostic
