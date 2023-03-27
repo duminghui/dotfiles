@@ -5,14 +5,17 @@ M.opts = {
 }
 
 function M.setup()
-  local n = require("neosolarized").setup(M.opts)
+  require("neosolarized").setup(M.opts)
 
   local Color, colors, Group, groups, styles = require("colorbuddy").setup()
+
+  local darkgold = colors.gold:dark()
 
   Color.new("black", "#000000")
   Color.new("white", "#FFFFFF")
   Color.new("bg1", "#001b21")
   -- Color.new("gold", "#FFD700")
+  Color.new("darkgold", darkgold:to_rgb())
 
   -- Color.new("base03", "#002b36")
   -- Color.new("base02", "#073642")
@@ -50,6 +53,8 @@ function M.setup()
   Group.new("NvimTreeGitDirty", colors.yellow, colors.none, styles.none)
   Group.new("NvimTreeGitNew", colors.green, colors.none, styles.none)
 
+  -- neo-tree
+
   -- Telescope
   Group.new("TelescopePromptTitle", colors.base1, colors.purple, styles.none)
   Group.new("TelescopePreviewTitle", colors.base02, colors.green, styles.none)
@@ -57,6 +62,9 @@ function M.setup()
 
   -- TreesitterContext
   vim.cmd "highlight link TreesitterContextLineNumber TreesitterContext"
+
+  -- Trouble
+  Group.new("TroubleFoldIcon", groups.CursorLineNr)
 
   local cError = groups.Error.fg
   local cInfo = groups.Information.fg
@@ -84,12 +92,13 @@ function M.setup()
     green = colors.green:to_rgb(),
     -- purple = "#d55fde",
     purple = colors.magenta:to_rgb(),
+    darkgold = darkgold:to_rgb(),
     bufferline = {
       text = colors.base00:to_rgb(),
       text_selected = colors.base1:to_rgb(),
       tag_fg = colors.base02:to_rgb(),
       tag_bg = colors.base03:to_rgb(),
-      modified = colors.red:dark():dark():to_rgb(),
+      modified = darkgold:to_rgb(),
       pick = colors.magenta:to_rgb(),
     },
     statuline = {
@@ -98,7 +107,8 @@ function M.setup()
       bg = colors.base02:to_rgb(),
     },
   }
-  require("xxx.plugin-config.colorscheme.colors").set_colors(universal_colors)
+
+  require("xxx.core.colors").set_universal(universal_colors)
   vim.opt.pumblend = 9
   vim.opt.winblend = 9
   Xvim.winblend = 0

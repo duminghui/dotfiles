@@ -1,7 +1,5 @@
 local M = {}
 
--- local colors = require("xxx.core.colors")
-
 M.opts = {
   dark_theme = "onedark_vivid", -- The default dark theme
   light_theme = "onelight", -- The default light theme
@@ -228,7 +226,7 @@ function M.setup()
       bg = "#2e323b",
     },
   }
-  require("xxx.plugin-config.colorscheme.colors").set_colors(universal_colors)
+  require("xxx.core.colors").set_universal(universal_colors)
   vim.opt.pumblend = 9
   vim.opt.winblend = 9
   Xvim.which_key_winblend = 9

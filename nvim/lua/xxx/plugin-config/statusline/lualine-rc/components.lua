@@ -1,4 +1,4 @@
-local colors = require("xxx.plugin-config.colorscheme.colors").colors()
+local colors = require("xxx.core.colors").universal()
 local icons = require "xxx.core.icons"
 
 local com_fg = colors.statuline.fg

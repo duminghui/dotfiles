@@ -6,7 +6,7 @@ local disabled_filetypes = require("xxx.config.exclude-filetypes").lualine
 
 M.opts = {
   extensions = {
-    "nvim-tree",
+    -- "nvim-tree",
     "overseer",
   },
   options = {

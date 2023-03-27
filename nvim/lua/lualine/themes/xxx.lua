@@ -1,4 +1,4 @@
-local colors = require("xxx.plugin-config.colorscheme.colors").colors()
+local colors = require("xxx.core.colors").universal()
 
 -- local fg = "#657b83"
 -- local fg = "#282c34"

@@ -1,5 +1,5 @@
 local Log = require "xxx.core.log"
-local colors = require "xxx.core.colors"
+local colors = require("xxx.core.colors").rainbow()
 
 local M = {}
 

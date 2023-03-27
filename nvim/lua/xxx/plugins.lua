@@ -9,7 +9,6 @@ local plugins = {
     cmd = "WhichKey",
     keys = "<leader>",
   },
-
   {
     "christoomey/vim-tmux-navigator",
     cond = function()
@@ -99,6 +98,18 @@ local plugins = {
     end,
     cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFileToggle" },
     event = "User DirOpened",
+    enabled = false,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    config = function()
+      require("xxx.plugin-config.neo-tree-rc").setup()
+    end,
+    dependencies = { "nvim-web-devicons", "MunifTanjim/nui.nvim" },
+    cmd = { "NeoTreeShowToggle", "Neotree" },
+    event = "User DirOpened",
+    enabled = true,
   },
 
   {

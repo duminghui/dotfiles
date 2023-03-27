@@ -1,9 +1,12 @@
 local M = {}
 
-local disable_filetype = require("xxx.config.exclude-filetypes")
+local disable_filetype = require "xxx.config.exclude-filetypes"
 
 M.opts = {
   max_lines = 500,
+  handle = {
+    blend = 0,
+  },
   marks = {
     Cursor = {
       text = "•",
@@ -13,7 +16,7 @@ M.opts = {
       highlight = "Normal",
     },
     Search = {
-      color = "#FFD700"
+      color = "#FFD700",
     },
   },
   handlers = {
@@ -32,7 +35,7 @@ M.opts = {
 }
 
 function M.setup()
-  local scrollbar = require("scrollbar")
+  local scrollbar = require "scrollbar"
 
   scrollbar.setup(M.opts)
 

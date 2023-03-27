@@ -61,7 +61,7 @@ return {
     FileDeleted = "",
     FileIgnored = "",
     -- FileIgnored = "",
-    FileRenamed = "➜",
+    FileRenamed = "",
     FileStaged = "S",
     FileUnmerged = "",
     FileUnstaged = "",

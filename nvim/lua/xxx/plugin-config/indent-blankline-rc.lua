@@ -55,7 +55,7 @@ local function set_highlight()
   -- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-  local colors = require "xxx.core.colors"
+  local colors = require("xxx.core.colors").rainbow()
 
   for i = 1, 6 do
     local c_key = string.format("c%s", i)

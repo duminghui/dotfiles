@@ -12,7 +12,7 @@ local function fix_highlight(name, fg, bg)
 end
 
 local function highlights()
-  local colors = require("xxx.plugin-config.colorscheme.colors").colors()
+  local colors = require("xxx.core.colors").universal()
   local tag_fg = colors.bufferline.tag_fg
   local tag_bg = colors.bufferline.tag_bg
   local text_fg = colors.bufferline.text
@@ -174,6 +174,13 @@ M.opts = {
       },
       {
         filetype = "NvimTree",
+        text = "Explorer",
+        highlight = "PanelHeading",
+        padding = 1,
+        -- separator = "┃",
+      },
+      {
+        filetype = "neo-tree",
         text = "Explorer",
         highlight = "PanelHeading",
         padding = 1,
