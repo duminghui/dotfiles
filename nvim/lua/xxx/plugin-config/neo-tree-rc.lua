@@ -175,10 +175,10 @@ M.opts = {
         -- added = "✚", -- NOTE: you can set any of these to an empty string to not show them
         -- deleted = "✖",
         -- modified = "",
-        added = "",
-        deleted = "",
-        modified = "",
-        renamed = "",
+        added = "",
+        deleted = "",
+        modified = "",
+        renamed = "",
         -- Status type
         untracked = "",
         ignored = "",
