@@ -36,7 +36,6 @@ function M.setup()
   Group.new("CursorLineNr", colors.gold, colors.base03, styles.bold, colors.base01)
   Group.link("CursorColumn", groups.CursorLine)
   Group.new("Visual", colors.none, colors.base03, styles.reverse)
-  vim.cmd "highlight link TreesitterContextLineNumber TreesitterContext"
   -- fix dressing float title color
   Group.new("FloatTitle", colors.base00, colors.none, styles.none)
   Group.new("PmenuSel", colors.base03, colors.base1, styles.reverse)
@@ -55,6 +54,9 @@ function M.setup()
   Group.new("TelescopePromptTitle", colors.base1, colors.purple, styles.none)
   Group.new("TelescopePreviewTitle", colors.base02, colors.green, styles.none)
   Group.new("TelescopeResultsTitle", colors.base02, colors.yellow, styles.none)
+
+  -- TreesitterContext
+  vim.cmd "highlight link TreesitterContextLineNumber TreesitterContext"
 
   local cError = groups.Error.fg
   local cInfo = groups.Information.fg
