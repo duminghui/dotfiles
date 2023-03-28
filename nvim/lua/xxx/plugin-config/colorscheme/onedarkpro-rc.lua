@@ -1,10 +1,10 @@
 local M = {}
 
 M.opts = {
-  dark_theme = "onedark_vivid", -- The default dark theme
-  light_theme = "onelight", -- The default light theme
+  dark_theme = 'onedark_vivid', -- The default dark theme
+  light_theme = 'onelight', -- The default light theme
   caching = false, -- Use caching for the theme?
-  cache_path = vim.fn.expand(vim.fn.stdpath "cache" .. "/onedarkpro/"), -- The path to the cache directory
+  cache_path = vim.fn.expand(vim.fn.stdpath('cache') .. '/onedarkpro/'), -- The path to the cache directory
   filetypes = {
     -- Override which filetype highlight groups are loaded
     markdown = true,
@@ -30,13 +30,13 @@ M.opts = {
   },
   styles = {
     -- Choose from "bold,italic,underline"
-    strings = "NONE", -- Style that is applied to strings.
-    comments = "italic", -- Style that is applied to comments
+    strings = 'NONE', -- Style that is applied to strings.
+    comments = 'italic', -- Style that is applied to comments
     -- comments = "NONE", -- Style that is applied to comments
-    keywords = "NONE", -- Style that is applied to keywords
-    functions = "NONE", -- Style that is applied to functions
-    variables = "NONE", -- Style that is applied to variables
-    virtual_text = "italic", -- Style that is applied to virtual text
+    keywords = 'NONE', -- Style that is applied to keywords
+    functions = 'NONE', -- Style that is applied to functions
+    variables = 'NONE', -- Style that is applied to variables
+    virtual_text = 'italic', -- Style that is applied to virtual text
   },
   options = {
     bold = false, -- Use the colorscheme's opinionated bold styles?
@@ -52,93 +52,93 @@ M.opts = {
     onedark_vivid = {
       -- vim = "#81b766", -- green
       -- brackets = "#abb2bf", -- fg / gray
-      cursorline = "#2e323b",
+      cursorline = '#2e323b',
       -- indentline = "#3c414d",
-      ghost_text = "#555961",
+      ghost_text = '#555961',
 
-      telescope_prompt = "#2e323b",
-      telescope_results = "#21252d",
+      telescope_prompt = '#2e323b',
+      telescope_results = '#21252d',
     },
   }, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   highlights = {
     -- Editor
-    FloatBorder = { fg = "${gray}", bg = "${float_bg}", blend = 9 },
-    BufferlineOffset = { fg = "${purple}", style = "bold" },
-    CursorColumn = { link = "CursorLine" },
+    FloatBorder = { fg = '${gray}', bg = '${float_bg}', blend = 9 },
+    BufferlineOffset = { fg = '${purple}', style = 'bold' },
+    CursorColumn = { link = 'CursorLine' },
     CursorLineNr = {
       -- fg = "${purple}",
-      fg = "#FFD700",
-      bg = "${cursorline}",
-      style = "bold",
+      fg = '#FFD700',
+      bg = '${cursorline}',
+      style = 'bold',
     },
-    DiffChange = { style = "underline" }, -- diff mode: Changed line |diff.txt|
-    MatchParen = { fg = "${cyan}", style = "underline" },
-    ModeMsg = { link = "LineNr" }, -- Make command line text lighter
-    Search = { bg = "${selection}", fg = "${yellow}", style = "underline" },
+    DiffChange = { style = 'underline' }, -- diff mode: Changed line |diff.txt|
+    MatchParen = { fg = '${cyan}', style = 'underline' },
+    ModeMsg = { link = 'LineNr' }, -- Make command line text lighter
+    Search = { bg = '${selection}', fg = '${yellow}', style = 'underline' },
     -- StatusLine = { bg = "NONE", fg = "NONE" }, -- 防止statusline出现^^^^^.
 
     -- ["@text.uri.markdown"] = { fg = "${purple}" },
 
     -- Aerial plugin
-    AerialClass = { fg = "${purple}", style = "bold,italic" },
-    AerialClassIcon = { fg = "${purple}" },
-    AerialConstructorIcon = { fg = "${yellow}" },
-    AerialEnumIcon = { fg = "${blue}" },
-    AerialFunctionIcon = { fg = "${red}" },
-    AerialInterfaceIcon = { fg = "${orange}" },
-    AerialMethodIcon = { fg = "${green}" },
-    AerialStructIcon = { fg = "${cyan}" },
+    AerialClass = { fg = '${purple}', style = 'bold,italic' },
+    AerialClassIcon = { fg = '${purple}' },
+    AerialConstructorIcon = { fg = '${yellow}' },
+    AerialEnumIcon = { fg = '${blue}' },
+    AerialFunctionIcon = { fg = '${red}' },
+    AerialInterfaceIcon = { fg = '${orange}' },
+    AerialMethodIcon = { fg = '${green}' },
+    AerialStructIcon = { fg = '${cyan}' },
     -- Alpha (dashboard) plugin
     AlphaHeader = {
-      fg = (vim.o.background == "dark" and "${green}" or "${red}"),
+      fg = (vim.o.background == 'dark' and '${green}' or '${red}'),
     },
     AlphaButtonText = {
-      fg = "${blue}",
-      style = "bold",
+      fg = '${blue}',
+      style = 'bold',
     },
     AlphaButtonShortcut = {
-      fg = (vim.o.background == "dark" and "${green}" or "${yellow}"),
-      style = "italic,bold",
+      fg = (vim.o.background == 'dark' and '${green}' or '${yellow}'),
+      style = 'italic,bold',
     },
-    AlphaFooter = { fg = "${gray}", style = "italic" },
+    AlphaFooter = { fg = '${gray}', style = 'italic' },
     -- Cmp
-    CmpItemAbbrMatch = { fg = "${blue}", style = "bold" },
-    CmpItemAbbrMatchFuzzy = { fg = "${blue}", style = "underline" },
-    GhostText = { fg = "${ghost_text}" },
+    CmpItemAbbrMatch = { fg = '${blue}', style = 'bold' },
+    CmpItemAbbrMatchFuzzy = { fg = '${blue}', style = 'underline' },
+    GhostText = { fg = '${ghost_text}' },
     -- Copilot
-    CopilotSuggestion = { fg = "${gray}", style = "italic" },
+    CopilotSuggestion = { fg = '${gray}', style = 'italic' },
     -- DAP
-    DebugBreakpointLine = { fg = "${red}", style = "underline" },
-    DebugHighlightLine = { fg = "${purple}", style = "italic" },
-    NvimDapVirtualText = { fg = "${cyan}", style = "italic" },
+    DebugBreakpointLine = { fg = '${red}', style = 'underline' },
+    DebugHighlightLine = { fg = '${purple}', style = 'italic' },
+    NvimDapVirtualText = { fg = '${cyan}', style = 'italic' },
     -- DAP UI
-    DapUIBreakpointsCurrentLine = { fg = "${yellow}", style = "bold" },
+    DapUIBreakpointsCurrentLine = { fg = '${yellow}', style = 'bold' },
     -- Fidget plugin
-    FidgetTitle = { fg = "${purple}" },
-    FidgetTask = { fg = "${gray}" },
+    FidgetTitle = { fg = '${purple}' },
+    FidgetTask = { fg = '${gray}' },
     -- Luasnip
-    LuaSnipChoiceNode = { fg = "${yellow}" },
-    LuaSnipInsertNode = { fg = "${yellow}" },
+    LuaSnipChoiceNode = { fg = '${yellow}' },
+    LuaSnipInsertNode = { fg = '${yellow}' },
     -- Minimap
-    MapBase = { fg = "${gray}" },
-    MapCursor = { fg = "${purple}", bg = "${cursorline}" },
+    MapBase = { fg = '${gray}' },
+    MapCursor = { fg = '${purple}', bg = '${cursorline}' },
     -- MapRange = { fg = "${fg}" },
 
     -- Navic
-    NavicText = { fg = "${gray}", style = "italic" },
+    NavicText = { fg = '${gray}', style = 'italic' },
     -- Neotest
-    NeotestAdapterName = { fg = "${purple}", style = "bold" },
-    NeotestFocused = { style = "bold" },
-    NeotestNamespace = { fg = "${blue}", style = "bold" },
+    NeotestAdapterName = { fg = '${purple}', style = 'bold' },
+    NeotestFocused = { style = 'bold' },
+    NeotestNamespace = { fg = '${blue}', style = 'bold' },
     -- Neotree
-    NeoTreeRootName = { fg = "${purple}", style = "bold" },
-    NeoTreeFileNameOpened = { fg = "${purple}", style = "italic" },
+    NeoTreeRootName = { fg = '${purple}', style = 'bold' },
+    NeoTreeFileNameOpened = { fg = '${purple}', style = 'italic' },
     -- Nvim-Tree
-    NvimTreeFolderName = { link = "NvimTreeNormal" },
-    NvimTreeRootFolder = { fg = "${purple}" },
-    NvimTreeFolderIcon = { fg = "${yellow}" },
-    NvimTreeOpenedFolderName = { link = "NvimTreeNormal" },
-    NvimTreeGitDirty = { fg = "${yellow}" },
+    NvimTreeFolderName = { link = 'NvimTreeNormal' },
+    NvimTreeRootFolder = { fg = '${purple}' },
+    NvimTreeFolderIcon = { fg = '${yellow}' },
+    NvimTreeOpenedFolderName = { link = 'NvimTreeNormal' },
+    NvimTreeGitDirty = { fg = '${yellow}' },
     -- Telescope
     -- TelescopeBorder = {
     --   fg = "${telescope_results}",
@@ -148,40 +148,40 @@ M.opts = {
     --   fg = "${telescope_prompt}",
     --   bg = "${telescope_prompt}",
     -- },
-    TelescopePromptCounter = { fg = "${fg}" },
-    TelescopePromptNormal = { fg = "${fg}", bg = "${telescope_prompt}" },
+    TelescopePromptCounter = { fg = '${fg}' },
+    TelescopePromptNormal = { fg = '${fg}', bg = '${telescope_prompt}' },
     TelescopePromptPrefix = {
-      fg = "${purple}",
-      bg = "${telescope_prompt}",
+      fg = '${purple}',
+      bg = '${telescope_prompt}',
     },
     TelescopePromptTitle = {
-      fg = "${telescope_prompt}",
-      bg = "${purple}",
+      fg = '${telescope_prompt}',
+      bg = '${purple}',
     },
     TelescopePreviewTitle = {
-      fg = "${telescope_results}",
-      bg = "${green}",
+      fg = '${telescope_results}',
+      bg = '${green}',
     },
     TelescopeResultsTitle = {
       -- fg = "${telescope_results}",
       -- bg = "${telescope_results}",
-      fg = "${telescope_results}",
-      bg = "${yellow}",
+      fg = '${telescope_results}',
+      bg = '${yellow}',
     },
-    TelescopeMatching = { fg = "${blue}" },
-    TelescopeNormal = { bg = "${telescope_results}" },
-    TelescopeSelection = { bg = "${telescope_prompt}" },
+    TelescopeMatching = { fg = '${blue}' },
+    TelescopeNormal = { bg = '${telescope_results}' },
+    TelescopeSelection = { bg = '${telescope_prompt}' },
   }, -- Override default highlight and/or filetype groups
 }
 
 function M.setup()
-  local onedarkpro = require "onedarkpro"
+  local onedarkpro = require('onedarkpro')
   onedarkpro.setup(M.opts)
-  vim.api.nvim_command "colorscheme onedark_vivid"
+  vim.api.nvim_command('colorscheme onedark_vivid')
 
-  vim.g.colors_name = "onedark_vivid"
+  vim.g.colors_name = 'onedark_vivid'
 
-  local colors = require("onedarkpro.helpers").get_colors(vim.g.onedarkpro_theme)
+  local colors = require('onedarkpro.helpers').get_colors(vim.g.onedarkpro_theme)
 
   -- local default_colors = {
   --   bg = "#282c34",
@@ -205,28 +205,28 @@ function M.setup()
     yellow = colors.yellow,
     orange = colors.orange,
     red = colors.red,
-    magenta = "magenta",
-    violet = "violet",
+    magenta = 'magenta',
+    violet = 'violet',
     blue = colors.blue,
     cyan = colors.cyan,
     green = colors.green,
     purple = colors.purple,
     bufferline = {
-      text = "#7f848e",
-      text_selected = "#abb2bf",
+      text = '#7f848e',
+      text_selected = '#abb2bf',
       -- text_selected = "#949aa2",
-      tag_fg = "#16181c",
-      tag_bg = "#1E2127",
+      tag_fg = '#16181c',
+      tag_bg = '#1E2127',
       modified = colors.red,
       pick = colors.purple,
     },
     statuline = {
-      mode_fg = "#282c34",
-      fg = "#5c6370",
-      bg = "#2e323b",
+      mode_fg = '#282c34',
+      fg = '#5c6370',
+      bg = '#2e323b',
     },
   }
-  require("xxx.core.colors").set_universal(universal_colors)
+  require('xxx.core.colors').set_universal(universal_colors)
   vim.opt.pumblend = 9
   vim.opt.winblend = 9
   Xvim.which_key_winblend = 9

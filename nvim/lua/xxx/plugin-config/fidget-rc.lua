@@ -1,16 +1,16 @@
 local M = {}
 
-local icons = require "xxx.core.icons"
+local icons = require('xxx.core.icons')
 
 M.opts = {
   text = {
     -- spinner = "pipe", -- animation shown when tasks are ongoing
     -- spinner = "moon", -- animation shown when tasks are ongoing
-    spinner = "dots_negative", -- animation shown when tasks are ongoing
+    spinner = 'dots_negative', -- animation shown when tasks are ongoing
     done = icons.ui.SquareCheck, -- character shown when all tasks are complete
     -- done = "✔", -- character shown when all tasks are complete
-    commenced = "Started", -- message shown when task starts
-    completed = "Completed", -- message shown when task completes
+    commenced = 'Started', -- message shown when task starts
+    completed = 'Completed', -- message shown when task completes
   },
   align = {
     bottom = true, -- align fidgets along bottom edge of buffer
@@ -22,11 +22,11 @@ M.opts = {
     task_decay = 1000, -- how long to keep around completed task, in ms
   },
   window = {
-    relative = "win", -- where to anchor, either "win" or "editor"
+    relative = 'win', -- where to anchor, either "win" or "editor"
     blend = Xvim.winblend, -- &winblend for the window
     -- blend = 33, -- &winblend for the window
     zindex = nil, -- the zindex value for the window
-    border = "none", -- style of border for the fidget window
+    border = 'none', -- style of border for the fidget window
   },
   fmt = {
     leftpad = true, -- right-justify text in fidget box
@@ -34,16 +34,16 @@ M.opts = {
     max_width = 0, -- maximum width of the fidget box
     -- function to format fidget title
     fidget = function(fidget_name, spinner)
-      return string.format("%s %s", spinner, fidget_name)
+      return string.format('%s %s', spinner, fidget_name)
     end,
     -- function to format each task line
     task = function(task_name, message, percentage)
-      return string.format("%s%s [%s]", message, percentage and string.format(" (%s%%)", percentage) or "", task_name)
+      return string.format('%s%s [%s]', message, percentage and string.format(' (%s%%)', percentage) or '', task_name)
     end,
   },
   sources = {
     -- Sources to configure
-    ["*"] = { -- Name of source
+    ['*'] = { -- Name of source
       ignore = false, -- Ignore notifications from this source
     },
   },
@@ -54,7 +54,7 @@ M.opts = {
 }
 
 function M.setup()
-  local fidget = require "fidget"
+  local fidget = require('fidget')
   fidget.setup(M.opts)
 end
 

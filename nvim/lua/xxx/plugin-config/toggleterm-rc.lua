@@ -1,4 +1,4 @@
-local Log = require "xxx.core.log"
+local Log = require('xxx.core.log')
 local M = {}
 
 M.opts = {
@@ -13,7 +13,7 @@ M.opts = {
   insert_mappings = true, -- whether or not the open mapping applies in insert mode
   persist_size = false,
   -- direction = 'vertical' | 'horizontal' | 'window' | 'float',
-  direction = "float",
+  direction = 'float',
   close_on_exit = true, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
@@ -23,13 +23,13 @@ M.opts = {
     -- the 'curved' border is a custom border type
     -- not natively supported but implemented in this plugin.
     -- border = 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-    border = "curved",
+    border = 'curved',
     -- width = <value>,
     -- height = <value>,
     winblend = Xvim.winblend,
     highlights = {
-      border = "Normal",
-      background = "Normal",
+      border = 'Normal',
+      background = 'Normal',
     },
   },
   -- Add executables on the config.lua
@@ -38,14 +38,14 @@ M.opts = {
   -- lvim.builtin.terminal.execs[#lvim.builtin.terminal.execs+1] = {"gdb", "tg", "GNU Debugger"}
   -- TODO: pls add mappings in which key and refactor this
   execs = {
-    { vim.o.shell, "<M-1>", "Horizontal Terminal", "horizontal", 10 },
-    { vim.o.shell, "<M-2>", "Vertical Terminal", "vertical", 60 },
-    { vim.o.shell, "<M-3>", "Float Terminal", "float", nil },
+    { vim.o.shell, '<M-1>', 'Horizontal Terminal', 'horizontal', 10 },
+    { vim.o.shell, '<M-2>', 'Vertical Terminal', 'vertical', 60 },
+    { vim.o.shell, '<M-3>', 'Float Terminal', 'float', nil },
   },
 }
 
 function M.setup()
-  local toggleterm = require "toggleterm"
+  local toggleterm = require('toggleterm')
   toggleterm.setup(M.opts)
   for i, exec in pairs(M.opts.execs) do
     local opts = {
@@ -62,17 +62,17 @@ function M.setup()
 end
 
 function M.add_exec(opts)
-  local binary = opts.cmd:match "(%S+)"
+  local binary = opts.cmd:match('(%S+)')
   if vim.fn.executable(binary) ~= 1 then
-    Log:debug("Skipping configuring executable " .. binary .. ". Please make sure it is installed properly.")
+    Log:debug('Skipping configuring executable ' .. binary .. '. Please make sure it is installed properly.')
   end
-  vim.keymap.set({ "n", "t" }, opts.keymap, function()
+  vim.keymap.set({ 'n', 't' }, opts.keymap, function()
     M._exec_toggle { cmd = opts.cmd, count = opts.count, direction = opts.direction, size = opts.size }
   end, { desc = opts.label, noremap = true, silent = true })
 end
 
 function M._exec_toggle(opts)
-  local Terminal = require("toggleterm.terminal").Terminal
+  local Terminal = require('toggleterm.terminal').Terminal
   local term = Terminal:new { cmd = opts.cmd, count = opts.count, direction = opts.direction, size = opts.size }
   term:toggle(opts.size, opts.direction)
 end
@@ -80,11 +80,11 @@ end
 function M.toggle_log_view(logfile)
   local log_viewer = Xvim.log.viewer.cmd
   if vim.fn.executable(log_viewer) ~= 1 then
-    log_viewer = "less +F"
+    log_viewer = 'less +F'
   end
-  Log:debug("attempting to open: " .. logfile)
-  log_viewer = log_viewer .. " " .. logfile
-  local term_opts = vim.tbl_deep_extend("force", M.opts, {
+  Log:debug('attempting to open: ' .. logfile)
+  log_viewer = log_viewer .. ' ' .. logfile
+  local term_opts = vim.tbl_deep_extend('force', M.opts, {
     cmd = log_viewer,
     open_mapping = Xvim.log.viewer.layout_config.open_mapping,
     direction = Xvim.log.viewer.layout_config.direction,
@@ -92,24 +92,24 @@ function M.toggle_log_view(logfile)
     size = Xvim.log.viewer.layout_config.size,
     float_opts = Xvim.log.viewer.layout_config.float_opts,
   })
-  local Terminal = require("toggleterm.terminal").Terminal
+  local Terminal = require('toggleterm.terminal').Terminal
   local log_view = Terminal:new(term_opts)
   log_view:toggle()
 end
 
 function M.lazygit_toggle()
-  local Terminal = require("toggleterm.terminal").Terminal
+  local Terminal = require('toggleterm.terminal').Terminal
   local lazygit = Terminal:new {
-    cmd = "lazygit",
+    cmd = 'lazygit',
     hidden = true,
-    direction = "float",
+    direction = 'float',
     float_opts = {
-      border = "none",
+      border = 'none',
       width = 100000,
       height = 100000,
     },
     on_open = function(_)
-      vim.cmd "startinsert!"
+      vim.cmd('startinsert!')
     end,
     on_close = function(_) end,
     count = 99,

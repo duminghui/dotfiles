@@ -1,8 +1,8 @@
 local M = {}
-local Log = require "xxx.core.log"
-local autocmds = require "xxx.core.autocmds"
+local Log = require('xxx.core.log')
+local autocmds = require('xxx.core.autocmds')
 
-local lsp_opts = require "xxx.lsp.config"
+local lsp_opts = require('xxx.lsp.config')
 
 function M.add_lsp_buffer_options(bufnr)
   for k, v in pairs(lsp_opts.buffer_options) do
@@ -12,7 +12,7 @@ end
 
 function M.common_capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+  local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
   if status_ok then
     return cmp_nvim_lsp.default_capabilities(capabilities)
   end
@@ -21,8 +21,8 @@ end
 
 function M.common_on_exit(_, _)
   -- print("common_on_exit")
-  autocmds.clear_augroup "lsp_document_highlight"
-  autocmds.clear_augroup "lsp_code_lens_refresh"
+  autocmds.clear_augroup('lsp_document_highlight')
+  autocmds.clear_augroup('lsp_code_lens_refresh')
 end
 
 -- function M.common_on_init(client, initialize_result)
@@ -31,8 +31,8 @@ function M.common_on_init(_, _)
 end
 
 function M.common_on_attach(client, bufnr)
-  -- print("common_on_attach", client.name)
-  local lu = require "xxx.lsp.utils"
+  -- print('# common_on_attach', client.name, bufnr, vim.bo.filetype)
+  local lu = require('xxx.lsp.utils')
 
   lu.setup_document_highlight(client, bufnr)
 
@@ -40,7 +40,7 @@ function M.common_on_attach(client, bufnr)
 
   lu.setup_format_on_save(client, bufnr)
 
-  require("xxx.lsp.keymappings").add_lsp_buffer_keybindings(client, bufnr)
+  require('xxx.lsp.keymappings').add_lsp_buffer_keybindings(client, bufnr)
 
   M.add_lsp_buffer_options(bufnr)
 
@@ -59,10 +59,10 @@ function M.get_common_opts()
 end
 
 function M.setup()
-  Log:debug "Setting up LSP support"
-  local lsp_status_ok, _ = pcall(require, "lspconfig")
+  Log:info('Setting up LSP support')
+  local lsp_status_ok, _ = pcall(require, 'lspconfig')
   if not lsp_status_ok then
-    Log:debug "LSP: lspconfig not ok"
+    Log:debug('LSP: lspconfig not ok')
     return
   end
 
@@ -81,7 +81,7 @@ function M.setup()
   -- }
   --
 
-  local templates = require "xxx.lsp.templates"
+  local templates = require('xxx.lsp.templates')
   templates.generate_templates()
 
   -- diagnostics signs
@@ -89,17 +89,17 @@ function M.setup()
     vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.name, numhl = sign.name })
   end
 
-  require("xxx.lsp.handlers").setup()
+  require('xxx.lsp.handlers').setup()
 
   -- require("nlspsettings").setup(lsp_opts.nlsp_settings.setup)
 
-  require("mason-lspconfig").setup(lsp_opts.mason_lspconfig.setup)
+  require('mason-lspconfig').setup(lsp_opts.mason_lspconfig.setup)
 
-  local util = require "lspconfig.util"
+  local util = require('lspconfig.util')
   -- automatic_installation is handled by lsp-manager
   util.on_setup = nil
 
-  require("xxx.lsp.null_ls").setup()
+  require('xxx.lsp.null_ls').setup()
 
   -- autocmds.configure_format_on_save(true)
 end

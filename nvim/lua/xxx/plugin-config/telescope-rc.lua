@@ -1,13 +1,13 @@
 -- local Log = require("xxx.core.log")
 local M = {}
 
-local icons = require "xxx.core.icons"
-local Log = require "xxx.core.log"
+local icons = require('xxx.core.icons')
+local Log = require('xxx.core.log')
 
 local function get_pickers(actions)
   return {
     find_files = {
-      theme = "dropdown",
+      theme = 'dropdown',
       hidden = true,
       previewer = false,
     },
@@ -21,15 +21,15 @@ local function get_pickers(actions)
       -- theme = "dropdown",
     },
     buffers = {
-      theme = "dropdown",
+      theme = 'dropdown',
       previewer = false,
-      initial_mode = "normal",
+      initial_mode = 'normal',
       mappings = {
         i = {
-          ["<C-d>"] = actions.delete_buffer,
+          ['<C-d>'] = actions.delete_buffer,
         },
         n = {
-          ["dd"] = actions.delete_buffer,
+          ['dd'] = actions.delete_buffer,
         },
       },
     },
@@ -39,46 +39,46 @@ local function get_pickers(actions)
     },
     keymaps = {},
     git_files = {
-      theme = "dropdown",
+      theme = 'dropdown',
       hidden = true,
       previewer = false,
       show_untracked = true,
     },
     lsp_references = {
       -- theme = "dropdown",
-      initial_mode = "normal",
+      initial_mode = 'normal',
     },
     lsp_definitions = {
       -- theme = "dropdown",
-      initial_mode = "normal",
+      initial_mode = 'normal',
     },
     lsp_declarations = {
       -- theme = "dropdown",
-      initial_mode = "normal",
+      initial_mode = 'normal',
     },
     lsp_implementations = {
       -- theme = "dropdown",
-      initial_mode = "normal",
+      initial_mode = 'normal',
     },
   }
 end
 
 -- Define this minimal config so that it's available if telescope is not yet available.
 function M.opts()
-  local actions = require "telescope.actions"
-  local previewers = require "telescope.previewers"
-  local sorters = require "telescope.sorters"
+  local actions = require('telescope.actions')
+  local previewers = require('telescope.previewers')
+  local sorters = require('telescope.sorters')
   return {
     defaults = {
       -- prompt_prefix = " ",
-      prompt_prefix = icons.ui.Search .. " ",
+      prompt_prefix = icons.ui.Search .. ' ',
       -- selection_caret = " ",
-      selection_caret = icons.ui.ArrowRight .. " ",
-      entry_prefix = "  ",
-      initial_mode = "insert",
-      selection_strategy = "reset",
-      sorting_strategy = "descending",
-      layout_strategy = "horizontal",
+      selection_caret = icons.ui.ArrowRight .. ' ',
+      entry_prefix = '  ',
+      initial_mode = 'insert',
+      selection_strategy = 'reset',
+      sorting_strategy = 'descending',
+      layout_strategy = 'horizontal',
       layout_config = {
         width = 0.75,
         preview_cutoff = 120,
@@ -94,23 +94,23 @@ function M.opts()
         vertical = { mirror = false },
       },
       vimgrep_arguments = {
-        "rg",
-        "--color=never",
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
-        "--column",
-        "--smart-case",
-        "--hidden",
-        "--glob=!.git/",
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '--hidden',
+        '--glob=!.git/',
       },
       mappings = {
         i = {
           -- ["<C-n>"] = actions.move_selection_next,
           -- ["<C-p>"] = actions.move_selection_previous,
           -- ["<C-c>"] = actions.close,
-          ["<C-j>"] = actions.cycle_history_next,
-          ["<C-k>"] = actions.cycle_history_prev,
+          ['<C-j>'] = actions.cycle_history_next,
+          ['<C-k>'] = actions.cycle_history_prev,
           -- ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
           -- ["<CR>"] = actions.select_default,
         },
@@ -128,32 +128,32 @@ function M.opts()
       file_sorter = sorters.get_fuzzy_file,
       generic_sorter = sorters.get_generic_fuzzy_sorter,
       file_ignore_patterns = {
-        ".git/",
-        "%.csv",
-        "%.jpg",
-        "%.jpeg",
-        "%.png",
-        "%.svg",
-        "%.otf",
-        "%.ttf",
-        "%.lock",
-        "__pycache__",
-        "%.sqlite3",
-        "%.ipynb",
-        "vendor",
-        "node_modules",
-        "dotbot",
+        '.git/',
+        '%.csv',
+        '%.jpg',
+        '%.jpeg',
+        '%.png',
+        '%.svg',
+        '%.otf',
+        '%.ttf',
+        '%.lock',
+        '__pycache__',
+        '%.sqlite3',
+        '%.ipynb',
+        'vendor',
+        'node_modules',
+        'dotbot',
       },
-      path_display = { "smart" },
+      path_display = { 'smart' },
       winblend = Xvim.winblend, -- 透明模式下设为0
       border = {},
-      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
       -- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
       color_devicons = true,
-      set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+      set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
       -- nvim-telescope/telescope-smart-history.nvim (No UI), use in dialog input history
       history = {
-        path = join_paths(vim.fn.stdpath "data", "telescope_history.sqlite3"),
+        path = join_paths(vim.fn.stdpath('data'), 'telescope_history.sqlite3'),
         limit = 133,
       },
     },
@@ -163,11 +163,11 @@ function M.opts()
         fuzzy = true, -- false will only do exact matching
         override_generic_sorter = true, -- override the generic sorter
         override_file_sorter = true, -- override the file sorter
-        case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+        case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       },
-      ["ui-select"] = {
+      ['ui-select'] = {
         -- no use
-        require("telescope.themes").get_dropdown {
+        require('telescope.themes').get_dropdown {
           -- even more opts
         },
 
@@ -187,14 +187,14 @@ function M.opts()
       },
       frecency = {
         -- default: nvim-data/file_frecency.sqlite3
-        db_root = vim.fn.stdpath "data",
+        db_root = vim.fn.stdpath('data'),
         show_scores = true,
         show_unindexed = true,
         ignore_patterns = {
-          "*.git/*",
-          "*/tmp/*",
-          "*/node_modules/*",
-          "*/vendor/*",
+          '*.git/*',
+          '*/tmp/*',
+          '*/node_modules/*',
+          '*/vendor/*',
         },
         workspaces = {
           -- ["nvim"] = os.getenv("HOME_DIR") .. ".config/nvim",
@@ -209,31 +209,31 @@ end
 
 local function load_extension(name)
   local ok = pcall(function()
-    require("telescope").load_extension(name)
+    require('telescope').load_extension(name)
   end)
 
   if not ok then
-    Log:error("telescope load extension '" .. name .. "' failed.", { title = "Telescope" })
+    Log:error("telescope load extension '" .. name .. "' failed.", { title = 'Telescope' })
   end
 end
 
 function M.setup()
-  local telescope = require "telescope"
+  local telescope = require('telescope')
 
   -- vim.cmd [[autocmd User TelescopePreviewerLoaded setlocal wrap]]
 
-  vim.api.nvim_create_autocmd("User", {
-    pattern = "TelescopePreviewerLoaded",
-    command = "setlocal wrap",
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'TelescopePreviewerLoaded',
+    command = 'setlocal wrap',
   })
 
   telescope.setup(M.opts())
 
-  load_extension "fzf"
-  load_extension "frecency"
-  load_extension "smart_history"
-  load_extension "harpoon"
-  load_extension "projects"
+  load_extension('fzf')
+  load_extension('frecency')
+  load_extension('smart_history')
+  load_extension('harpoon')
+  load_extension('projects')
 end
 
 return M

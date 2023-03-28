@@ -12,11 +12,11 @@ local plugins = {
   {
     'christoomey/vim-tmux-navigator',
     cond = function()
-      return os.getenv 'TERM' == 'screen-256color'
+      return os.getenv('TERM') == 'screen-256color'
     end,
     event = 'VeryLazy',
   },
-
+  { 'Tastyep/structlog.nvim', lazy = true },
   { 'nvim-lua/plenary.nvim', lazy = true },
   {
     -- Automatically detects which indents should be used in the current buffer
@@ -185,6 +185,11 @@ local plugins = {
       require('xxx.plugin-config.mason-rc').setup()
     end,
     cmd = { 'Mason', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog' },
+  },
+  -- SchemaStore use in lsp/providers
+  {
+    'b0o/schemastore.nvim',
+    lazy = true,
   },
   {
     -- include breadcrumbs

@@ -6,8 +6,8 @@ M.opts = {
     lines_below = 10,
   },
   scroll_preview = {
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>",
+    scroll_down = '<C-f>',
+    scroll_up = '<C-b>',
   },
   request_timeout = 2000,
 
@@ -17,24 +17,24 @@ M.opts = {
     max_height = 0.5,
     force_max_height = false, --force window height to max_height
     keys = {
-      jump_to = "p", -- finder peek window
-      edit = { "o", "<CR>" },
-      vsplit = "s",
-      split = "i",
-      tabe = "t",
-      tabnew = "r",
-      quit = { "q", "<ESC>" },
-      close_in_preview = "<ESC>",
+      jump_to = 'p', -- finder peek window
+      edit = { 'o', '<CR>' },
+      vsplit = 's',
+      split = 'i',
+      tabe = 't',
+      tabnew = 'r',
+      quit = { 'q', '<ESC>' },
+      close_in_preview = '<ESC>',
     },
   },
 
   -- :Lspsaga peek_definition
   definition = {
-    edit = "<C-c>o",
-    vsplit = "<C-c>v",
-    split = "<C-c>i",
-    tabe = "<C-c>t",
-    quit = "q",
+    edit = '<C-c>o',
+    vsplit = '<C-c>v',
+    split = '<C-c>i',
+    tabe = '<C-c>t',
+    quit = 'q',
   },
 
   -- :Lspsaga goto_definition
@@ -46,8 +46,8 @@ M.opts = {
     extend_gitsigns = true,
     keys = {
       -- string | table type
-      quit = "q",
-      exec = "<CR>",
+      quit = 'q',
+      exec = '<CR>',
     },
   },
 
@@ -83,9 +83,9 @@ M.opts = {
     text_hl_follow = false, -- true that can define DiagnosticText to custom the diagnotic text color
     border_follow = true, -- the border highlight will follow the diagnostic type, if false it will use the highlight DiagnosticBorder
     keys = {
-      exec_action = "o",
-      quit = "q",
-      go_action = "g", -- quickly jump to line where actions need to be taken in the diagnostics floating
+      exec_action = 'o',
+      quit = 'q',
+      go_action = 'g', -- quickly jump to line where actions need to be taken in the diagnostics floating
     },
   },
 
@@ -96,18 +96,18 @@ M.opts = {
   -- :Lspsaga rename
   -- :Lspsaga rename ++project
   rename = {
-    quit = "<C-c>",
-    exec = "<CR>",
-    mark = "x", -- is used for the ++project argument, It is used to mark the files which you want to rename the hovered word in.
-    confirm = "<CR>", -- After you have marked the files, press this key to execute the rename
+    quit = '<C-c>',
+    exec = '<CR>',
+    mark = 'x', -- is used for the ++project argument, It is used to mark the files which you want to rename the hovered word in.
+    confirm = '<CR>', -- After you have marked the files, press this key to execute the rename
     in_select = true,
   },
 
   -- :Lspsgag outline
 
   outline = {
-    win_position = "right",
-    win_with = "",
+    win_position = 'right',
+    win_with = '',
     win_width = 30,
     show_detail = true,
     auto_preview = true,
@@ -115,9 +115,9 @@ M.opts = {
     auto_close = true,
     custom_sort = nil,
     keys = {
-      jump = "o",
-      expand_collapse = "u",
-      quit = "q",
+      jump = 'o',
+      expand_collapse = 'u',
+      quit = 'q',
     },
   },
 
@@ -125,20 +125,20 @@ M.opts = {
   callhierarchy = {
     show_detail = false,
     keys = {
-      edit = "e",
-      vsplit = "s",
-      split = "i",
-      tabe = "t",
-      jump = "o",
-      quit = "q",
-      expand_collapse = "u",
+      edit = 'e',
+      vsplit = 's',
+      split = 'i',
+      tabe = 't',
+      jump = 'o',
+      quit = 'q',
+      expand_collapse = 'u',
     },
   },
 
   -- :Lspsaga symbols in winbar
   symbol_in_winbar = {
     enable = true,
-    separator = "  ",
+    separator = '  ',
     ignore_patterns = {}, -- table type when filename matched the pattern will ignore render symbols. if show_file is ture. the file name will still set
     hide_keyword = true, -- will hide some keywords and temporary variables to make the symbols look cleaner
     show_file = true,
@@ -161,23 +161,23 @@ M.opts = {
     -- This option only works in Neovim 0.9
     title = true,
     -- Border type can be single, double, rounded, solid, shadow.
-    border = "single",
+    border = 'single',
     winblend = Xvim.winblend,
     colors = {
-      normal_bg = "#002b36",
+      normal_bg = '#002b36',
     },
-    expand = "",
-    collapse = "",
-    code_action = "💡",
-    incoming = " ",
-    outgoing = " ",
-    hover = " ",
+    expand = '',
+    collapse = '',
+    code_action = '💡',
+    incoming = ' ',
+    outgoing = ' ',
+    hover = ' ',
     kind = {},
   },
 }
 
 function M.setup()
-  local lspsaga = require "lspsaga"
+  local lspsaga = require('lspsaga')
 
   lspsaga.setup(M.opts)
 end
