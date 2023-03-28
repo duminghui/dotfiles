@@ -1,22 +1,22 @@
 local M = {}
 
-local disable_filetype = require "xxx.config.exclude-filetypes"
+local disable_filetype = require 'xxx.config.exclude-filetypes'
 
 M.opts = {
   active = true,
   on_config_done = nil,
   ---@usage  modifies the function or method delimiter by filetypes
   map_char = {
-    all = "(",
-    tex = "{",
+    all = '(',
+    tex = '{',
   },
   ---@usage check bracket in same line
   enable_check_bracket_line = false,
   ---@usage check treesitter
   check_ts = true,
   ts_config = {
-    lua = { "string", "source" },
-    javascript = { "string", "template_string" },
+    lua = { 'string', 'source' },
+    javascript = { 'string', 'template_string' },
     java = false,
   },
   -- disable_filetype = {
@@ -25,7 +25,7 @@ M.opts = {
   -- },
 
   disable_filetype = disable_filetype.autopairs,
-  ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
+  ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], '%s+', ''),
   enable_moveright = true,
   ---@usage disable when recording or executing a macro
   disable_in_macro = false,
@@ -39,20 +39,20 @@ M.opts = {
   disable_in_visualblock = false,
   ---@usage  change default fast_wrap
   fast_wrap = {
-    map = "<M-e>",
-    chars = { "{", "[", "(", '"', "'" },
-    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+    map = '<M-e>',
+    chars = { '{', '[', '(', '"', "'" },
+    pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
     offset = 0, -- Offset from pattern match
-    end_key = "$",
-    keys = "qwertyuiopzxcvbnmasdfghjkl",
+    end_key = '$',
+    keys = 'qwertyuiopzxcvbnmasdfghjkl',
     check_comma = true,
-    highlight = "Search",
-    highlight_grey = "Comment",
+    highlight = 'Search',
+    highlight_grey = 'Comment',
   },
 }
 
 function M.setup()
-  local autopairs = require "nvim-autopairs"
+  local autopairs = require 'nvim-autopairs'
 
   autopairs.setup(M.opts)
 
@@ -69,11 +69,11 @@ function M.setup()
 
   pcall(function()
     local function on_confirm_done(...)
-      require("nvim-autopairs.completion.cmp").on_confirm_done()(...)
+      require('nvim-autopairs.completion.cmp').on_confirm_done()(...)
     end
-    require "nvim-autopairs.completion.cmp"
-    require("cmp").event:off("confirm_done", on_confirm_done)
-    require("cmp").event:on("confirm_done", on_confirm_done)
+    require 'nvim-autopairs.completion.cmp'
+    require('cmp').event:off('confirm_done', on_confirm_done)
+    require('cmp').event:on('confirm_done', on_confirm_done)
   end)
 end
 

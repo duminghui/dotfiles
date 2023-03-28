@@ -1,5 +1,5 @@
 local M = {}
-local Log = require "xxx.core.log"
+local Log = require 'xxx.core.log'
 
 --- Load the default set of autogroups and autocommands.
 function M.load_defaults()
@@ -21,11 +21,11 @@ function M.load_defaults()
 
   local definitions = {
     {
-      "FileType",
+      'FileType',
       {
-        group = "_buffer_mappings",
+        group = '_buffer_mappings',
         pattern = {
-          "alpha",
+          'alpha',
         },
         callback = function()
           vim.cmd [[
@@ -37,21 +37,21 @@ function M.load_defaults()
       },
     },
     {
-      "FileType",
+      'FileType',
       {
-        group = "_buffer_mappings",
+        group = '_buffer_mappings',
         pattern = {
-          "Jaq",
-          "qf",
+          'Jaq',
+          'qf',
           -- "help",
-          "man",
-          "floaterm",
-          "lspinfo",
-          "lsp-installer",
-          "lir",
-          "DressingSelect",
-          "null-ls-info",
-          "tsplayground",
+          'man',
+          'floaterm',
+          'lspinfo',
+          'lsp-installer',
+          'lir',
+          'DressingSelect',
+          'null-ls-info',
+          'tsplayground',
         },
         callback = function()
           vim.cmd [[
@@ -63,39 +63,39 @@ function M.load_defaults()
       },
     },
     {
-      "TextYankPost",
+      'TextYankPost',
       {
-        group = "_general_settings",
-        pattern = "*",
-        desc = "Highlight text on yank",
+        group = '_general_settings',
+        pattern = '*',
+        desc = 'Highlight text on yank',
         callback = function()
-          require("vim.highlight").on_yank { higroup = "Search", timeout = 200 }
+          require('vim.highlight').on_yank { higroup = 'Search', timeout = 200 }
         end,
       },
     },
     {
-      "FileType",
+      'FileType',
       {
-        group = "_filetype_settings",
-        pattern = "qf",
-        command = "set nobuflisted",
+        group = '_filetype_settings',
+        pattern = 'qf',
+        command = 'set nobuflisted',
       },
     },
     {
-      "FileType",
+      'FileType',
       {
-        group = "_filetype_settings",
-        pattern = { "gitcommit", "markdown" },
-        command = "setlocal wrap spell",
+        group = '_filetype_settings',
+        pattern = { 'gitcommit', 'markdown' },
+        command = 'setlocal wrap spell',
       },
     },
     {
-      "FileType",
+      'FileType',
       {
-        group = "_filetype_settings",
-        pattern = "go",
+        group = '_filetype_settings',
+        pattern = 'go',
         callback = function()
-          vim.opt_local.listchars = "tab:› ,trail:•,extends:#,nbsp:."
+          vim.opt_local.listchars = 'tab:› ,trail:•,extends:#,nbsp:.'
         end,
       },
     },
@@ -117,49 +117,49 @@ function M.load_defaults()
     --   },
     -- },
     {
-      "VimResized",
+      'VimResized',
       {
-        group = "_auto_resize",
-        pattern = "*",
-        command = "tabdo wincmd =",
+        group = '_auto_resize',
+        pattern = '*',
+        command = 'tabdo wincmd =',
       },
     },
     {
-      "ColorScheme",
+      'ColorScheme',
       {
-        group = "_xxx_colorscheme",
+        group = '_xxx_colorscheme',
         callback = function()
-          vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-          vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
-          vim.api.nvim_set_hl(0, "CmpItemKindCrate", { fg = "#F64D00" })
-          vim.api.nvim_set_hl(0, "CmpItemKindEmoji", { fg = "#FDE030" })
+          vim.api.nvim_set_hl(0, 'CmpItemKindCopilot', { fg = '#6CC644' })
+          vim.api.nvim_set_hl(0, 'CmpItemKindTabnine', { fg = '#CA42F0' })
+          vim.api.nvim_set_hl(0, 'CmpItemKindCrate', { fg = '#F64D00' })
+          vim.api.nvim_set_hl(0, 'CmpItemKindEmoji', { fg = '#FDE030' })
         end,
       },
     },
     { -- taken from AstroNvim
-      "BufEnter",
+      'BufEnter',
       {
-        group = "_dir_opened",
+        group = '_dir_opened',
         once = true,
         callback = function(args)
           local bufname = vim.api.nvim_buf_get_name(args.buf)
-          if require("xxx.utils").is_directory(bufname) then
-            vim.api.nvim_del_augroup_by_name "_dir_opened"
-            vim.cmd "do User DirOpened"
-            vim.api.nvim_exec_autocmds("BufEnter", {})
+          if require('xxx.utils').is_directory(bufname) then
+            vim.api.nvim_del_augroup_by_name '_dir_opened'
+            vim.cmd 'do User DirOpened'
+            vim.api.nvim_exec_autocmds('BufEnter', {})
           end
         end,
       },
     },
     { -- taken from AstroNvim
-      { "BufRead", "BufWinEnter", "BufNewFile" },
+      { 'BufRead', 'BufWinEnter', 'BufNewFile' },
       {
-        group = "_file_opened",
+        group = '_file_opened',
         once = true,
         callback = function(args)
-          local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
-          if not (vim.fn.expand "%" == "" or buftype == "nofile") then
-            vim.cmd "do User FileOpened"
+          local buftype = vim.api.nvim_get_option_value('buftype', { buf = args.buf })
+          if not (vim.fn.expand '%' == '' or buftype == 'nofile') then
+            vim.cmd 'do User FileOpened'
             -- require("lvim.lsp").setup()
           end
         end,
@@ -199,7 +199,7 @@ end
 ---@param name string the augroup name
 function M.clear_augroup(name)
   -- defer the function in case the autocommand is still in-use
-  Log:debug("request to clear autocmds  " .. name)
+  Log:debug('request to clear autocmds  ' .. name)
   vim.schedule(function()
     pcall(function()
       vim.api.nvim_clear_autocmds { group = name }
@@ -210,7 +210,7 @@ end
 function M.define_autocmd(entry)
   local event = entry[1]
   local opts = entry[2]
-  if type(opts.group) == "string" and opts.group ~= "" then
+  if type(opts.group) == 'string' and opts.group ~= '' then
     local exists, _ = pcall(vim.api.nvim_get_autocmds, { group = opts.group })
     if not exists then
       vim.api.nvim_create_augroup(opts.group, {})
