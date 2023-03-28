@@ -1,9 +1,10 @@
+local utils = require('xxx.utils')
 local M = {}
 
 local loaded_highlights = {}
 
 local function add_hl(name, fg, bg, gui)
-  local cmd = string.format("highlight %s guifg=%s guibg=%s gui=%s", name, fg, bg, gui)
+  local cmd = string.format('highlight %s guifg=%s guibg=%s gui=%s', name, fg, bg, gui)
   vim.api.nvim_command(cmd)
 
   loaded_highlights[name] = {
@@ -16,26 +17,26 @@ end
 
 function M.format_statusline_hl(hl)
   local hl_name = M.get_hl_name(hl)
-  local str = string.format("%%#%s#", hl_name)
+  local str = string.format('%%#%s#', hl_name)
   return str
 end
 
 function M.sanitize_hl(hl, parent_hl)
   hl = hl or {}
   parent_hl = parent_hl or {}
-  local name = hl.name or ""
-  local fg = hl.fg or parent_hl.fg or "None"
-  local bg = hl.bg or parent_hl.bg or "None"
-  local gui = hl.gui or "None"
-  if name == nil or name == "" then
+  local name = hl.name or ''
+  local fg = hl.fg or parent_hl.fg or 'None'
+  local bg = hl.bg or parent_hl.bg or 'None'
+  local gui = hl.gui or 'None'
+  if name == nil or name == '' then
     -- If first character of the color starts with '#', remove the '#' and keep the rest
     -- If it doesn't start with '#', do nothing
-    local fg_str = fg:sub(1, 1) == "#" and fg:sub(2) or fg
-    local bg_str = bg:sub(1, 1) == "#" and bg:sub(2) or bg
-    local gui_str = string.gsub(gui, ",", "_")
+    local fg_str = fg:sub(1, 1) == '#' and fg:sub(2) or fg
+    local bg_str = bg:sub(1, 1) == '#' and bg:sub(2) or bg
+    local gui_str = string.gsub(gui, ',', '_')
 
     -- Generate unique hl name from color strings if a name isn't provided
-    name = string.format("XXX_hl_%s_%s_%s", fg_str:upper(), bg_str:upper(), gui_str:upper())
+    name = string.format('XXX_hl_%s_%s_%s', fg_str:upper(), bg_str:upper(), gui_str:upper())
   end
   return {
     name = name,
@@ -48,7 +49,7 @@ end
 --- @param hl table|string fg, bg, gui
 --- @return string
 function M.get_hl_name(hl)
-  if type(hl) == "string" then
+  if type(hl) == 'string' then
     return hl
   end
 
@@ -82,10 +83,10 @@ function M.get_hl_by_name(hl_name)
   end
   local hl = {
     name = hl_name,
-    fg = attrs.foreground and string.format("#%06x", attrs.foreground),
-    bg = attrs.background and string.format("#%06x", attrs.background),
+    fg = attrs.foreground and string.format('#%06x', attrs.foreground),
+    bg = attrs.background and string.format('#%06x', attrs.background),
     -- sp = attrs.special and string.format('#%06x', attrs.special),
-    gui = next(styles) and table.concat(styles, ",") or nil,
+    gui = next(styles) and table.concat(styles, ',') or nil,
   }
   loaded_highlights[hl_name] = hl
   return hl
@@ -103,7 +104,7 @@ function M.highlight_from_parent(name, scope, parent_hl_name, default)
     return new_hl
   end
   new_hl = {}
-  scope = type(scope) == "string" and { scope } or scope
+  scope = type(scope) == 'string' and { scope } or scope
   local hl = M.get_hl_by_name(parent_hl_name)
   if hl ~= nil then
     for _, sc in ipairs(scope) do
@@ -113,13 +114,27 @@ function M.highlight_from_parent(name, scope, parent_hl_name, default)
     -- else
     --     new_hl = default
   end
-  if name and name ~= "" then
+  if name and name ~= '' then
     new_hl.name = name
   end
   new_hl = M.sanitize_hl(new_hl, default)
   local hl_name = M.get_hl_name(new_hl)
   new_hl.name = hl_name
   return new_hl
+end
+
+function M.new(name, fg, bg, style, guisp, blend, bang)
+  fg = fg or 'NONE'
+  bg = bg or 'NONE'
+  style = style or 'NONE'
+  guisp = guisp or 'NONE'
+
+  local command =
+    string.format('highlight%s %s guifg=%s guibg=%s gui=%s guisp=%s', utils.fif(bang, '!', ''), name, fg, bg, style)
+  if blend then
+    command = command .. string.format(' blend=%s', blend)
+  end
+  vim.api.nvim_command(command)
 end
 
 return M

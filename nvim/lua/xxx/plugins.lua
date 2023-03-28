@@ -60,6 +60,14 @@ local plugins = {
     cmd = 'SessionManager',
   },
   {
+    'ahmedkhalf/project.nvim', -- Automatically set the cwd to the project root
+    config = function()
+      require('xxx.plugin-config.project-rc').setup()
+    end,
+    event = 'VimEnter',
+    cmd = 'Telescope projects',
+  },
+  {
     'goolord/alpha-nvim',
     config = function()
       require('xxx.plugin-config.alpha-rc').setup()
@@ -310,7 +318,7 @@ local plugins = {
       'TSInstallSync',
       'TSInstallFromGrammar',
     },
-    dependencies = { 'nvim-treesitter-textobjects', 'nvim-ts-rainbow' },
+    dependencies = { 'nvim-treesitter-textobjects', 'nvim-ts-rainbow', 'nvim-ts-autotag' },
     event = 'User FileOpened',
   },
   {
@@ -361,7 +369,6 @@ local plugins = {
   },
 
   ---
-
   -- Telescope
   {
     -- 列表模糊搜索框架, 高扩展
@@ -397,15 +404,6 @@ local plugins = {
       require('xxx.plugin-config.harpoon-rc').setup()
     end,
     lazy = true,
-  },
-
-  {
-    'ahmedkhalf/project.nvim', -- Automatically set the cwd to the project root
-    config = function()
-      require('xxx.plugin-config.project-rc').setup()
-    end,
-    event = 'VimEnter',
-    cmd = 'Telescope projects',
   },
 
   --

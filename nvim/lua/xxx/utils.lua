@@ -41,4 +41,12 @@ function M.write_file(path, txt, flag)
   end)
 end
 
+function M.fif(condition, t, f)
+  if condition then
+    return t
+  else
+    return f
+  end
+end
+
 return M

@@ -1,3 +1,4 @@
+local colors = require('xxx.core.colors').universal()
 local M = {}
 
 M.opts = {
@@ -180,6 +181,8 @@ function M.setup()
   local lspsaga = require('lspsaga')
 
   lspsaga.setup(M.opts)
+
+  vim.api.nvim_set_hl(0, 'SagaWinbarFolder', { fg = colors.darkgold })
 end
 
 return M

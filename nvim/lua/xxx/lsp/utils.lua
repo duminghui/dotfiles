@@ -72,6 +72,9 @@ function M.get_all_supported_filetypes()
 end
 
 function M.setup_document_highlight(client, bufnr)
+  if client.name == 'null-ls' then
+    Log:debug(vim.inspect(client))
+  end
   -- 使用这个会影响到illuminate的Alt-N和Alt-P的功能
   -- local illuminate_ok, illuminate = pcall(require, "illuminate")
   -- if illuminate_ok then
@@ -150,7 +153,7 @@ end
 
 function M.setup_codelens_refresh(client, bufnr)
   if not client.supports_method('textDocument/codeLens') then
-    Log:debug("skipping setup for document_codelens, method 'textDocument/codeLens' not supported by " .. client.name)
+    Log:debug("skipping setup for documentCodelens, method 'textDocument/codeLens' not supported by " .. client.name)
     return
   end
   local group = 'lsp_code_lens_refresh'

@@ -1,4 +1,5 @@
--- local Log = require("xxx.core.log")
+local colors = require('xxx.core.colors').universal()
+
 local M = {}
 
 local icons = require('xxx.core.icons')

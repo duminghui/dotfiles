@@ -53,8 +53,6 @@ function M.setup()
   Group.new('NvimTreeGitDirty', colors.yellow, colors.none, styles.none)
   Group.new('NvimTreeGitNew', colors.green, colors.none, styles.none)
 
-  -- neo-tree
-
   -- Telescope
   Group.new('TelescopePromptTitle', colors.base1, colors.purple, styles.none)
   Group.new('TelescopePreviewTitle', colors.base02, colors.green, styles.none)
@@ -91,7 +89,7 @@ function M.setup()
     cyan = colors.cyan:to_rgb(),
     green = colors.green:to_rgb(),
     -- purple = "#d55fde",
-    purple = colors.magenta:to_rgb(),
+    purple = colors.purple:to_rgb(),
     darkgold = darkgold:to_rgb(),
     bufferline = {
       text = colors.base00:to_rgb(),
