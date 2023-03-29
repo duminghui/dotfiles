@@ -1,10 +1,10 @@
-local Log = require 'xxx.core.log'
+local Log = require('xxx.core.log')
 local colors = require('xxx.core.colors').rainbow()
 
 local M = {}
 
 M.opts = {
-  parser_install_dir = join_paths(vim.fn.stdpath 'data', 'parsers'),
+  parser_install_dir = join_paths(vim.fn.stdpath('data'), 'parsers'),
   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ensure_installed = { 'lua' },
   ensure_installed = {},
@@ -30,17 +30,17 @@ M.opts = {
         pcall(require('illuminate').pause_buf)
         vim.schedule(function()
           vim.api.nvim_buf_call(buf, function()
-            vim.cmd 'setlocal noswapfile noundofile'
+            vim.cmd('setlocal noswapfile noundofile')
             if vim.tbl_contains({ 'json' }, lang) then
-              vim.cmd 'NoMatchParen'
-              vim.cmd 'syntax off'
-              vim.cmd 'syntax clear'
-              vim.cmd 'setlocal nocursorline nolist bufhidden=unload'
+              vim.cmd('NoMatchParen')
+              vim.cmd('syntax off')
+              vim.cmd('syntax clear')
+              vim.cmd('setlocal nocursorline nolist bufhidden=unload')
 
               vim.api.nvim_create_autocmd({ 'BufDelete' }, {
                 callback = function()
-                  vim.cmd 'DoMatchParen'
-                  vim.cmd 'syntax on'
+                  vim.cmd('DoMatchParen')
+                  vim.cmd('syntax on')
                 end,
                 buffer = buf,
               })
@@ -175,11 +175,11 @@ end
 function M.setup()
   -- avoid running in headless mode since it's harder to detect failures
   if #vim.api.nvim_list_uis() == 0 then
-    Log:debug 'headless mode detected, skipping running setup for treesitter'
+    Log:debug('headless mode detected, skipping running setup for treesitter')
     return
   end
 
-  local configs = require 'nvim-treesitter.configs'
+  local configs = require('nvim-treesitter.configs')
   -- 这个一定要放在setup前面
   -- vim.opt.rpt:append(M.opts.parser_install_dir)
   vim.opt.rtp:prepend(M.opts.parser_install_dir) -- treesitter needs to be before nvim's runtime in rtp

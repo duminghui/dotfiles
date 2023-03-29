@@ -88,9 +88,7 @@ function M.setup_document_highlight(client, bufnr)
   --
 
   if not client.supports_method('textDocument/documentHighlight') then
-    Log:debug(
-      "skipping setup for documentHighlight, method 'textDocument/documentHighlight' not supported by " .. client.name
-    )
+    Log:debug(client.name .. " not support method 'textDocument/documentHighlight'")
     return
   end
 
@@ -137,9 +135,7 @@ end
 function M.setup_document_symbols(client, bufnr)
   vim.g.navic_silence = false -- can be set to true to supress error
   if not client.supports_method('textDocument/documentSymbol') then
-    Log:debug(
-      "skipping setup for documentSymbol, method 'textDocument/documentSymbol' not supported by " .. client.name
-    )
+    Log:debug(client.name .. " not support method 'textDocument/documentSymbol'")
     return
   end
   local status_ok, navic = pcall(require, 'nvim-navic')
@@ -150,7 +146,7 @@ end
 
 function M.setup_codelens_refresh(client, bufnr)
   if not client.supports_method('textDocument/codeLens') then
-    Log:debug("skipping setup for documentCodelens, method 'textDocument/codeLens' not supported by " .. client.name)
+    Log:debug(client.name .. " not support method 'textDocument/codeLens'")
     return
   end
   local group = 'lsp_code_lens_refresh'
@@ -174,7 +170,7 @@ end
 
 function M.setup_format_on_save(client, bufnr, callback)
   if not client.supports_method('textDocument/formatting') then
-    Log:debug("skipping setup for format on save, method 'textDocument/formatting' not supported by " .. client.name)
+    Log:debug(client.name .. " not support method 'textDocument/formatting'")
     return
   end
   local group = 'lsp_format_on_save'
