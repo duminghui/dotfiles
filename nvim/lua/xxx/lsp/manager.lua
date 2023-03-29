@@ -43,7 +43,6 @@ local function resolve_config(server_name, ...)
     Log:debug('# Using custom configuration for requested server: ' .. server_name)
     defaults = vim.tbl_deep_extend('force', defaults, custom_config)
   else
-    local msg = ''
     if custom_config:match("module '" .. module_path .. "' not found:") then
       Log:debug(fmt("custom configuration not found for: %s, module: '%s'", server_name, module_path))
     else

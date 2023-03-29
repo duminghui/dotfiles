@@ -72,9 +72,6 @@ function M.get_all_supported_filetypes()
 end
 
 function M.setup_document_highlight(client, bufnr)
-  if client.name == 'null-ls' then
-    Log:debug(vim.inspect(client))
-  end
   -- 使用这个会影响到illuminate的Alt-N和Alt-P的功能
   -- local illuminate_ok, illuminate = pcall(require, "illuminate")
   -- if illuminate_ok then

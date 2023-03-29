@@ -501,11 +501,11 @@ local plugins = {
     event = { 'BufRead Cargo.toml' },
   },
 
-  {
-    -- for yarn
-    'lbrayner/vim-rzip',
-    ft = { 'typescript', 'vue' },
-  },
+  -- {
+  --   -- for yarn
+  --   'lbrayner/vim-rzip',
+  --   ft = { 'typescript', 'vue' },
+  -- },
 
   {
     'neoclide/coc.nvim',

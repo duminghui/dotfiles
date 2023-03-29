@@ -7,30 +7,32 @@
 - [starship](https://github.com/starship/starship) - The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
 ### oh-my-fish
-``` fish
+
+```fish
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 ```
 
 ### z
-``` fish
+
+```fish
 omf install https://github.com/jethrokuan/z
 ```
+
 ### starship
-``` fish
+
+```fish
 brew install starship
 ```
+
 Add the following to the end of ~/.config/fish/config.fish:
-``` fish
+
+```fish
 starship init fish | source
 ```
+
 ### exa
-``` fish
+
+```fish
 brew install exa
 
 ```
-
-### nvm
-``` fish
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-```
-

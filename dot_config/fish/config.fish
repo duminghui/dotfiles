@@ -44,3 +44,10 @@ abbr -a proxy-on export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.
 abbr -a proxy-off set -e https_proxy http_proxy all_proxy
 abbr -a ipinfo curl cip.cc
 
+
+# pnpm
+set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
