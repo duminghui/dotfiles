@@ -36,6 +36,7 @@ function Log:init()
     return nil
   end
 
+  local stack_level = 5
   local log_level_file = Log.levels[(Xvim.log.level_file):upper() or 'WARN']
   local log_level_console = Log.levels[(Xvim.log.level_console):upper() or 'INFO']
   structlog.configure {
@@ -44,7 +45,7 @@ function Log:init()
         {
           level = log_level_console,
           processors = {
-            structlog.processors.StackWriter({ 'line', 'file' }, { max_parents = 0, stack_level = 2 }),
+            structlog.processors.StackWriter({ 'line', 'file' }, { max_parents = 1, stack_level = stack_level }),
             structlog.processors.Timestamper('%H:%M:%S'),
           },
           formatter = structlog.formatters.FormatColorizer(
@@ -57,7 +58,7 @@ function Log:init()
         {
           level = log_level_file,
           processors = {
-            structlog.processors.StackWriter({ 'line', 'file' }, { max_parents = 3, stack_level = 2 }),
+            structlog.processors.StackWriter({ 'line', 'file' }, { max_parents = 3, stack_level = stack_level }),
             structlog.processors.Timestamper('%F %H:%M:%S'),
           },
           formatter = structlog.formatters.Format(
