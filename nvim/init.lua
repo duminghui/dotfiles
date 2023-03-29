@@ -28,7 +28,8 @@ require('xxx.core.globals')
 
 -- Log:set_level(Xvim.log.level)
 require('xxx.config.options').load_defaults()
-require('xxx.core.keymappings').load_defaults()
+local keymappings = require('xxx.core.keymappings')
+keymappings.load_defaults()
 require('xxx.core.autocmds').load_defaults()
 require('xxx.core.commands').load_defaults()
 
@@ -36,6 +37,7 @@ local plugin_loader = require('xxx.plugin-loader')
 plugin_loader.init()
 
 if not vim.g.vscode then
+  keymappings.load_others()
   local plugins = require('xxx.plugins')
   plugin_loader.load { plugins }
   -- --Lsp配置
