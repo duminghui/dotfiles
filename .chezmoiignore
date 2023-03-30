@@ -1,5 +1,7 @@
+# 这里的是target路径, 不是source路径
 README.md
 nvim
+.config/zsh/custom-zsh-source
 docker
 Rime
 script
