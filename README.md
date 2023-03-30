@@ -2,10 +2,12 @@
 
 [chezmoi]
 
-[chezmoi]:https://www.chezmoi.io
+[chezmoi]: https://www.chezmoi.io
 
 ## gpg
-gpg生成的key有过期时间
+
+gpg 生成的 key 有过期时间
+
 ```
 gpg --gen-key
 
@@ -14,9 +16,10 @@ gpg --armor --output private-key.txt --export-secret-keys XXXXXXXX
 
 gpg --import private-key.txt
 gpg --edit-key xxx
-gpg > true
+gpg > trust
 
 ```
+
 ```
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
@@ -24,17 +27,21 @@ git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
 # dotfiles (not use)
+
 base on [holman/dotfiles]
 
 ## my custom
-add  postfix `.dot` and `.symlink`
+
+add postfix `.dot` and `.symlink`
 
 ### .dot
+
 the folder postfix with .dot will to create the folder that prefix with dot
 
 this only work on top .dot folder in .dotfiles
 
 Example:
+
 ```
 foo.dot -> ~/.foo
 foo.dot/foo.dot -> ~/.foo/.foo
@@ -42,11 +49,13 @@ foo/foo.dot -> don’t processing
 ```
 
 ### .symlink
+
 the folder or file postfix with .symlink whill to symlink folder or file
 
 and this only work on top .dot folder in .dotfiles
 
 Example:
+
 ```
 foo.dot/foo.symlink -> ~/.foo/foo
 foo.dot/foo.dot/foo.symlink -> ~/.foo/.foo/foo
@@ -55,12 +64,14 @@ foo/foo.dot/foo.symlink -> don’t processing
 ```
 
 ## conflict
+
 there have same conflict config, now no idea to fix
 
 ```
 foo.dot -> ~/.foo
 foo/foo.symlink -> ~/.foo
 ```
+
 there are the same target
 
-[holman/dotfiles]:https://github.com/holman/dotfiles
+[holman/dotfiles]: https://github.com/holman/dotfiles
