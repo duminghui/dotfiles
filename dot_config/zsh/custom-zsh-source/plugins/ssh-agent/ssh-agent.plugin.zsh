@@ -15,7 +15,7 @@ function _start_agent() {
 	zstyle -a :omz:plugins:ssh-agent identities identities
 
 	echo starting ssh-agent...
-	ssh-add -K $HOME/.ssh/${^identities}
+	ssh-add --apple-use-keychain $HOME/.ssh/${^identities}
 }
 
 # Get the filename to store/lookup the environment from
