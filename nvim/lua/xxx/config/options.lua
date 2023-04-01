@@ -157,7 +157,16 @@ function M.load_default_options()
   vim.opt.cursorline = true
   vim.opt.cursorcolumn = true
   -- Highlight the screen line of the cursor with CursorLine and the line number with CursorLineNr **
+  -- line,screenline,number,both
+  -- both: line,number
+  -- line: whold line in warp
+  -- screenline: current line in warp
   vim.opt.cursorlineopt = 'screenline,number'
+
+  -- cursor blinking
+  -- Cursor lCursor is highlight
+  vim.opt.guicursor =
+    'n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait300-blinkoff300-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 
   -- 如果背景是深色, 再开启这个, 背景就会变成黑色的
   -- Enables pseudo-transparency for the |popup-menu|.
