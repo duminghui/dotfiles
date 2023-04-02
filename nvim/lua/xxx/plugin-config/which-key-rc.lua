@@ -202,6 +202,7 @@ M.n_mappings = {
   s = {
     name = 'Search',
     a = { '<cmd>Telescope autocommands<CR>', 'Autocommands' },
+    b = { '<cmd>Telescope builtin<CR>', 'Builtin' },
     -- b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
     c = { '<cmd>Telescope colorscheme<CR>', 'Colorscheme' },
     f = { '<cmd>Telescope find_files<CR>', 'Find File' },
@@ -219,6 +220,7 @@ M.n_mappings = {
       "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<CR>",
       'Colorscheme with Preview',
     },
+    o = { '<cmd>Telescope vim_options<CR>', 'Vim Options' },
     p = { '<cmd>Telescope projects<CR>', 'Projects' },
   },
   S = {
