@@ -1,24 +1,24 @@
 local M = {}
-local icons = require "xxx.core.icons"
+local icons = require('xxx.core.icons')
 
 M.opts = {
   char = icons.ui.LineLeft,
   context_char = icons.ui.LineLeft,
   char_highlight_list = {
-    "IndentBlanklineIndent1",
-    "IndentBlanklineIndent2",
-    "IndentBlanklineIndent3",
-    "IndentBlanklineIndent4",
-    "IndentBlanklineIndent5",
-    "IndentBlanklineIndent6",
+    'IndentBlanklineIndent1',
+    'IndentBlanklineIndent2',
+    'IndentBlanklineIndent3',
+    'IndentBlanklineIndent4',
+    'IndentBlanklineIndent5',
+    'IndentBlanklineIndent6',
   },
   show_trailing_blankline_indent = false,
   show_first_indent_level = false,
   use_treesitter = true,
-  use_treesitter_scope = true,
+  use_treesitter_scope = false,
   show_current_context = true,
   show_current_context_start = false,
-  filetype_exclude = require("xxx.config.exclude-filetypes").indent_blankline,
+  filetype_exclude = require('xxx.config.exclude-filetypes').indent_blankline,
   -- filetype_exclude = {
   --     "lspinfo",
   --     "packer",
@@ -41,10 +41,10 @@ M.opts = {
   --     "OverseerForm",
   -- },
   buftype_exclude = {
-    "terminal",
-    "nofile",
-    "quickfix",
-    "prompt",
+    'terminal',
+    'nofile',
+    'quickfix',
+    'prompt',
   },
 }
 
@@ -55,14 +55,14 @@ local function set_highlight()
   -- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-  local colors = require("xxx.core.colors").rainbow()
+  local colors = require('xxx.core.colors').rainbow()
 
   for i = 1, 6 do
-    local c_key = string.format("c%s", i)
-    vim.cmd(string.format("highlight IndentBlanklineIndent%s guifg=%s gui=nocombine", i, colors[c_key]))
+    local c_key = string.format('c%s', i)
+    vim.cmd(string.format('highlight IndentBlanklineIndent%s guifg=%s gui=nocombine', i, colors[c_key]))
   end
 
-  vim.cmd [[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]]
+  vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])
 
   -- 要在listchars中添加 space:⋅, space相关的才会显示出来
   -- vim.cmd [[highlight IndentBlanklineSpaceChar guifg=#FFA500 gui=nocombine]]
@@ -74,7 +74,7 @@ function M.setup()
   -- vim.opt.listchars:append "space:⋅"
   -- vim.opt.listchars:append "eol:↴"
   --   vim.pretty_print(M.opts)
-  local indent_blankline = require "indent_blankline"
+  local indent_blankline = require('indent_blankline')
 
   indent_blankline.setup(M.opts)
 

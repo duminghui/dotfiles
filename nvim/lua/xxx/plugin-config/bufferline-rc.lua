@@ -1,18 +1,18 @@
 -- local navic = require('nvim-navic')
-local icons = require "xxx.core.icons"
+local icons = require('xxx.core.icons')
 
 local M = {}
 
 local function fix_highlight(name, fg, bg)
   local hl = {}
   hl[name] = { fg = fg, bg = bg }
-  hl[name .. "_visible"] = { fg = fg }
-  hl[name .. "_selected"] = { fg = fg }
+  hl[name .. '_visible'] = { fg = fg }
+  hl[name .. '_selected'] = { fg = fg }
   return hl
 end
 
 local function highlights()
-  local colors = require("xxx.core.colors").universal()
+  local colors = require('xxx.core.colors').universal()
   local tag_fg = colors.bufferline.tag_fg
   local tag_bg = colors.bufferline.tag_bg
   local text_fg = colors.bufferline.text
@@ -41,7 +41,6 @@ local function highlights()
   -- pick{,visible,selected}
   -- offset_separator
   -------------------
-
   local hl = {
     fill = {
       bg = tag_fg,
@@ -58,19 +57,19 @@ local function highlights()
     },
   }
 
-  local modified_hl = fix_highlight("modified", c_modified, tag_bg)
-  local duplicate_hl = fix_highlight("duplicate", c_duplicate, tag_bg)
-  local separator_hl = fix_highlight("separator", tag_fg, tag_bg)
-  local pick_hl = fix_highlight("pick", c_pick, tag_bg)
+  local modified_hl = fix_highlight('modified', c_modified, tag_bg)
+  local duplicate_hl = fix_highlight('duplicate', c_duplicate, tag_bg)
+  local separator_hl = fix_highlight('separator', tag_fg, tag_bg)
+  local pick_hl = fix_highlight('pick', c_pick, tag_bg)
 
-  hl = vim.tbl_deep_extend("force", hl, modified_hl, duplicate_hl, separator_hl, pick_hl)
+  hl = vim.tbl_deep_extend('force', hl, modified_hl, duplicate_hl, separator_hl, pick_hl)
 
   -- fix diagnostic highlight
-  local diagnostic_names = { "hint", "info", "warning", "error" }
+  local diagnostic_names = { 'hint', 'info', 'warning', 'error' }
   for _, name in ipairs(diagnostic_names) do
     -- text
     hl[name] = { bg = tag_bg }
-    local diagnostic_name = name .. "_diagnostic"
+    local diagnostic_name = name .. '_diagnostic'
     hl[diagnostic_name] = { bg = tag_bg }
   end
 
@@ -84,7 +83,7 @@ end
 -- local function diagnostics_indicator(num, _, diagnostics, _)
 local function diagnostics_indicator(_, _, diagnostics, _)
   local result = {}
-  local types = { "error", "warning", "info" }
+  local types = { 'error', 'warning', 'info' }
   local symbols = {
     error = icons.diagnostics.BoldError,
     warning = icons.diagnostics.BoldWarning,
@@ -96,24 +95,24 @@ local function diagnostics_indicator(_, _, diagnostics, _)
     if count and count > 0 then
       local count_str = tostring(count)
       if count > 9 then
-        count_str = "9+"
+        count_str = '9+'
       end
-      table.insert(result, symbols[type] .. " " .. count_str)
+      table.insert(result, symbols[type] .. ' ' .. count_str)
     end
   end
-  return #result > 0 and table.concat(result, " ") or ""
+  return #result > 0 and table.concat(result, ' ') or ''
 end
 
 local function custom_filter(buf, buf_nums)
   local logs = vim.tbl_filter(function(b)
-    return is_ft(b, "log")
+    return is_ft(b, 'log')
   end, buf_nums)
   if vim.tbl_isempty(logs) then
     return true
   end
   local tab_num = vim.fn.tabpagenr()
-  local last_tab = vim.fn.tabpagenr "$"
-  local is_log = is_ft(buf, "log")
+  local last_tab = vim.fn.tabpagenr('$')
+  local is_log = is_ft(buf, 'log')
   if last_tab == 1 then
     return true
   end
@@ -126,15 +125,15 @@ M.opts = {
   --     normal_mode = {},
   -- },
   options = {
-    mode = "buffers", -- set to "tabs" to only show tabpages instead
+    mode = 'buffers', -- set to "tabs" to only show tabpages instead
     -- numbers = 'none', -- can be "none" | "ordinal" | "buffer_id" | "both" | function
     -- numbers = function(opts)
     --     return string.format('%s', opts.raise(opts.id))
     -- end,
 
-    close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-    right_mouse_command = "vert sbuffer %d", -- can be a string | function, see "Mouse actions"
-    left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
+    close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
+    right_mouse_command = 'vert sbuffer %d', -- can be a string | function, see "Mouse actions"
+    left_mouse_command = 'buffer %d', -- can be a string | function, see "Mouse actions"
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     -- indicator = {
     --     icon = '▎', -- this should be omitted if indicator style is not 'icon'
@@ -152,55 +151,55 @@ M.opts = {
     --- some limitations that will *NOT* be fixed.
     name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
       -- remove extension from markdown files for example
-      if buf.name:match "%.md" then
-        return vim.fn.fnamemodify(buf.name, ":t:r")
+      if buf.name:match('%.md') then
+        return vim.fn.fnamemodify(buf.name, ':t:r')
       end
     end,
     max_name_length = 12,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
     truncate_names = false, -- whether or not tab names should be truncated
     tab_size = 15,
-    diagnostics = "nvim_lsp",
+    diagnostics = 'nvim_lsp',
     diagnostics_update_in_insert = false,
     diagnostics_indicator = diagnostics_indicator,
     -- NOTE: this will be called a lot so don't do any heavy processing here
     custom_filter = custom_filter,
     offsets = {
       {
-        filetype = "undotree",
-        text = "Undotree",
-        highlight = "PanelHeading",
+        filetype = 'undotree',
+        text = 'Undotree',
+        highlight = 'PanelHeading',
         padding = 1,
       },
       {
-        filetype = "NvimTree",
-        text = "Explorer",
-        highlight = "PanelHeading",
-        padding = 1,
-        -- separator = "┃",
-      },
-      {
-        filetype = "neo-tree",
-        text = "Explorer",
-        highlight = "PanelHeading",
+        filetype = 'NvimTree',
+        text = 'Explorer',
+        highlight = 'PanelHeading',
         padding = 1,
         -- separator = "┃",
       },
       {
-        filetype = "DiffviewFiles",
-        text = "Diff View",
-        highlight = "PanelHeading",
+        filetype = 'neo-tree',
+        text = 'Explorer',
+        highlight = 'PanelHeading',
+        padding = 1,
+        -- separator = "┃",
+      },
+      {
+        filetype = 'DiffviewFiles',
+        text = 'Diff View',
+        highlight = 'PanelHeading',
         padding = 1,
       },
       {
-        filetype = "flutterToolsOutline",
-        text = "Flutter Outline",
-        highlight = "PanelHeading",
+        filetype = 'flutterToolsOutline',
+        text = 'Flutter Outline',
+        highlight = 'PanelHeading',
       },
       {
-        filetype = "packer",
-        text = "Packer",
-        highlight = "PanelHeading",
+        filetype = 'packer',
+        text = 'Packer',
+        highlight = 'PanelHeading',
         padding = 1,
       },
     },
@@ -214,20 +213,20 @@ M.opts = {
     -- persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "slope", -- "slant" | "slope" | "thick" | "thin" | "padded_slant" | { "any", "any" },
+    separator_style = 'slope', -- "slant" | "slope" | "thick" | "thin" | "padded_slant" | { "any", "any" },
     -- enforce_regular_tabs = false,
     always_show_bufferline = true,
     hover = {
       enabled = true, -- requires nvim 0.8+
       delay = 200,
-      reveal = { "close" },
+      reveal = { 'close' },
     },
   },
   highlights = highlights(),
 }
 
 function M.setup()
-  local bufferline = require "bufferline"
+  local bufferline = require('bufferline')
   bufferline.setup(M.opts)
 end
 

@@ -222,6 +222,9 @@ function M.setup()
     },
     statuline = {
       mode_fg = '#282c34',
+      mode_n_bg = colors.purple,
+      mode_i_bg = colors.green,
+      mode_v_bg = colors.yellow,
       fg = '#5c6370',
       bg = '#2e323b',
     },

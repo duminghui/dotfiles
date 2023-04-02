@@ -139,7 +139,7 @@ local plugins = {
     -- Highlight hex and rgb colors within Neovim
     'NvChad/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup()
+      require('xxx.plugin-config.nvim-colorizer-rc').setup()
     end,
     event = 'BufEnter',
   },

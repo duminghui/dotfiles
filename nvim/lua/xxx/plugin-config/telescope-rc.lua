@@ -1,5 +1,3 @@
-local colors = require('xxx.core.colors').universal()
-
 local M = {}
 
 local icons = require('xxx.core.icons')
@@ -164,7 +162,7 @@ function M.opts()
         fuzzy = true, -- false will only do exact matching
         override_generic_sorter = true, -- override the generic sorter
         override_file_sorter = true, -- override the file sorter
-        case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
+        case_mode = 'ignore_case', --'smart_case' or "ignore_case" or "respect_case"
       },
       ['ui-select'] = {
         -- no use

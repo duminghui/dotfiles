@@ -65,7 +65,7 @@ function M.setup()
   local ft = require('Comment.ft')
 
   ft.set('gomod', '//%s')
-  ft.set('css', '//%s')
+  ft.set('scss', '//%s')
 end
 
 return M
