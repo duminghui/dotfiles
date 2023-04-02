@@ -1,7 +1,7 @@
 # 这里的是target路径, 不是source路径
 README.md
-nvim
-.config/zsh/custom-zsh-source
+.config/zsh/custom-zsh-src
+.config/nvim-src
 docker
 Rime
 script
@@ -10,17 +10,3 @@ homebrew
 iterm2
 nodejs
 
-bash
-condarc
-fish
-git
-gradle
-ideavimrc
-kitty
-pip.conf
-rust
-
-ssh-config
-starship.toml
-tmux
-zsh
