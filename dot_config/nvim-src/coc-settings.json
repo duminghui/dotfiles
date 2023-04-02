@@ -1,0 +1,59 @@
+{
+  "codeLens.enable": true,
+  "colors.enable": true,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.asciiCharactersOnly": false,
+  "suggest.completionItemKindLabels": {
+    "text": " Text", //  \ue612
+    "method": " Method", //  \uf09a
+    "function": "ƒ Function", // \u0192
+    "constructor": "󰘦 Constructor", // fb25 f0626
+    "field": " Field", // 󰒿 \uf9be \uf04bf
+    "variable": " Variable", //  e79b
+    "class": " Class", //\uf0e8
+    "interface": " Interface", // \uf417
+    "module": " Module", //  \uf40d
+    "property": " Property ", //\ue624
+    "unit": " Unit", // \uf475
+    "value": "󰎠 Value", // f89f f03a0
+    "enum": " Enum", // \uf435
+    "keyword": " Keyword", // f1de
+    "snippet": " Snippet", // \ue60b
+    "color": " Color", // \ue22b
+    "file": "󰈤 File", // f723 f0224
+    "reference": " Reference", // f079,fa46
+    "folder": " Folder", //\uf114
+    "enumMember": " EnumMember", // \uf02b
+    "constant": " Constant", //\ufa46
+    "struct": "󰙅 Struct", //\ufb44 \u f0645
+    "event": "󰗎 Event", // \ufacd \uf05ce
+    "operator": " Operator", // Ψ \u03a8
+    "typeParameter": " TypeParameter", //   󰈩 \uf728 f0229
+    "default": "" // 
+  },
+  "suggest.detailField": "preview",
+  "suggest.formatItems": ["abbr", "menu", "kind", "shortcut"],
+  "suggest.labelMaxLength": 33,
+  "suggest.maxCompleteItemCount": 33,
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
+  "suggest.selection": "recentlyUsed",
+  "suggest.snippetIndicator": " ~",
+  "suggest.virtualText": true,
+  "diagnostic.displayByAle": false,
+  "diagnostic.enable": true,
+  "diagnostic.errorSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextLimitInOneLine": 9,
+  "diagnostic.virtualTextLines": 3,
+  "diagnostic.virtualTextPrefix": " ",
+  "diagnostic.separateRelatedInformationAsDiagnostics": false,
+  "list.alignColumns": true,
+  "coc.preferences.formatOnSave": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.hint.enable": false
+}

@@ -1,0 +1,36 @@
+-- local ProgressNotify = require("xxx.core.progress-notify")
+-- local notif = ProgressNotify:new()
+-- vim.defer_fn(function()
+--     notif:start("this is a test", "This is a test")
+--     vim.defer_fn(function()
+--         notif:finish("This is end", "warn", "XX")
+--     end, 2000)
+-- end, 1000)
+--
+
+-- local nvim_lsp = require "lspconfig"
+
+-- local on_attach = function(client) end
+
+-- nvim_lsp.rust_analyzer.setup {
+--   on_attach = on_attach,
+--   settings = {
+--     ["rust-analyzer"] = {
+--       imports = {
+--         granularity = {
+--           group = "module",
+--         },
+--         prefix = "self",
+--       },
+--       cargo = {
+--         buildScripts = {
+--           enable = true,
+--         },
+--       },
+--       procMacro = {
+--         enable = true,
+--       },
+--       linkedProjects = {},
+--     },
+--   },
+-- }
