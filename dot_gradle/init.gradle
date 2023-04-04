@@ -1,0 +1,125 @@
+def ALIYUN_REPO_GRALE_PLUGIN = 'https://maven.aliyun.com/repository/gradle-plugin'
+def ALIYUN_REPO_PUBLIC = 'https://maven.aliyun.com/repository/public'
+def ALIYUN_REPO_CENTRAL = 'https://maven.aliyun.com/repository/central'
+def ALIYUN_REPO_GOOGLE = 'https://maven.aliyun.com/repository/google'
+
+// not work
+// settingsEvaluated { settings->
+//     settings.pluginManagement {
+//         println "Repositories names: " + repositories.getNames()
+
+//         // Clear repositories collection
+//         // repositories.clear()
+//         repositories {
+//             all { ArtifactRepository repo ->
+//                 println("${repo} ${repo instanceof MavenArtifactRepository}")
+//             }
+//             maven{
+//                 url ALIYUN_REPO_GRALE_PLUGIN
+//             }
+//             maven {
+//                 url ALIYUN_REPO_PUBLIC
+//             }
+//             maven {
+//                 url ALIYUN_REPO_CENTRAL
+//             }
+//             maven {
+//                 url ALIYUN_REPO_GOOGLE
+//             }
+//         }
+//     }
+// }
+
+allprojects {
+    buildscript {
+        repositories {
+            // all { ArtifactRepository repo ->
+            //     if(repo instanceof MavenArtifactRepository){
+            //         def url = repo.url.toString()
+            //         map.each{ key,value->
+            //             if(url.startsWith(key)){
+            //                 project.logger.lifecycle "WARNING: BuildScript Repository ${url} replaced by ${value}."
+            //                 remove repo
+            //                 return
+            //             }
+            //         }
+            //     }
+            // }
+            maven{
+                url ALIYUN_REPO_GRALE_PLUGIN
+            }
+            maven {
+                url ALIYUN_REPO_PUBLIC
+            }
+            maven {
+                url ALIYUN_REPO_CENTRAL
+            }
+            maven {
+                url ALIYUN_REPO_GOOGLE
+            }
+        }
+    }
+    repositories {
+        // all { ArtifactRepository repo ->
+        //     if(repo instanceof MavenArtifactRepository){
+        //         def url = repo.url.toString()
+        //         println("url2: ${url}")
+        //         map.each{ key,value->
+        //             if(url.startsWith(key)){
+        //                 project.logger.lifecycle "WARNING: Repository ${url} replaced by ${value}."
+        //                 remove repo
+        //                 return
+        //             }
+        //         }
+        //     }
+        // }
+        maven{
+            url ALIYUN_REPO_GRALE_PLUGIN
+        }
+        maven {
+            url ALIYUN_REPO_PUBLIC
+        }
+        maven {
+            url ALIYUN_REPO_CENTRAL
+        }
+        maven {
+            url ALIYUN_REPO_GOOGLE
+        }
+    }
+    task showRepos {
+        doLast {
+            description 'Show Tasks in Gradle Project'
+                group 'custom'
+                println("All repos:")
+                repositories.each {
+                    if (it.metaClass.hasProperty(it, 'url') != null) {
+                        println "repo: ${it.name} ('${it.url}')"
+                    } else if (it.metaClass.hasProperty(it, 'dirs') != null) {
+                        println "repo: ${it.name} ('${it.dirs}')"
+                    }
+                }
+                println()
+                println ("PluginManagement repos:")
+                settings.pluginManagement.repositories.each {
+                    if (it.metaClass.hasProperty(it, 'url') != null) {
+                        println "repo: ${it.name} ('${it.url}')"
+                    } else if (it.metaClass.hasProperty(it, 'dirs') != null) {
+                        println "repo: ${it.name} ('${it.dirs}')"
+                    }
+                }
+                println()
+                println ("DependencyResolutionManagement repos:")
+                settings.dependencyResolutionManagement.repositories.each {
+                    if (it.metaClass.hasProperty(it, 'url') != null) {
+                        println "repo: ${it.name} ('${it.url}')"
+                    } else if (it.metaClass.hasProperty(it, 'dirs') != null) {
+                        println "repo: ${it.name} ('${it.dirs}')"
+                    }
+                }
+                println()
+                println('----------------')
+
+        }
+    }
+
+}

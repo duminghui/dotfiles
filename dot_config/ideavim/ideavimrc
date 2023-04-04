@@ -1,0 +1,44 @@
+"source ~/.vimrc
+set modelines=0
+set nocompatible
+set backspace=2
+set scrolloff=5
+set showcmd
+set showmode
+set history=100
+set hlsearch
+set wrapscan
+set ruler
+set matchpairs=(:),{:},[:],<:>,?:\:
+set number
+set relativenumber
+syntax on
+set shiftwidth=4
+set softtabstop=4
+set laststatus=2
+set incsearch
+set ignorecase
+set clipboard=unnamedplus
+set clipboard+=ideaput
+
+let mapleader=","
+nmap <silent> <leader>/ :nohlsearch<CR>
+filetype on
+nmap <leader>w <Action>(SaveAll)
+nmap <leader>r <Action>(Run)
+nmap <leader>o <Action>(OverrideMethods)
+nmap <leader>h <Action>(TypeHierarchy)
+nmap <leader>s <Action>(Android.SyncProject)
+nmap <leader>sf <Action>(GotoFile)
+nmap <leader>lr <Action>(ReformatCode)
+nmap <leader>la <Action>(ShowIntentionActions)
+nmap gi <Action>(ImplementMethods)
+nmap gnr <Action>(RenameElement)
+nmap gl <Action>(ShowErrorDescription)
+nmap gd <Action>(GotoDeclaration)
+
+set surround
+set ideajoin
+set easymotion
+set highlightedyank
+set commentary
