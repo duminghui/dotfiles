@@ -2,7 +2,7 @@
 README.md
 .config/zsh/custom-zsh-src
 .config/nvim-src
-docker
+.docker/docker
 Rime
 script
 colortest
