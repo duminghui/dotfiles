@@ -32,6 +32,8 @@ nmap <leader>s <Action>(Android.SyncProject)
 nmap <leader>sf <Action>(GotoFile)
 nmap <leader>lr <Action>(ReformatCode)
 nmap <leader>la <Action>(ShowIntentionActions)
+" nmap <leader>bf <Action>(EditorTabPopupMenu)
+nmap <leader>e :NERDTree<CR>
 nmap gi <Action>(ImplementMethods)
 nmap gnr <Action>(RenameElement)
 nmap gl <Action>(ShowErrorDescription)
@@ -42,3 +44,4 @@ set ideajoin
 set easymotion
 set highlightedyank
 set commentary
+set NERDTree
