@@ -144,8 +144,8 @@ M.opts = {
       highlight = 'NeoTreeNormal',
       -- expander config, needed for nesting files
       with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
-      expander_collapsed = '',
-      expander_expanded = '',
+      expander_collapsed = icons.ui.ChevronShortRight, -- 
+      expander_expanded = icons.ui.ChevronShortDown, -- 
       -- expander_highlight = "NeoTreeExpander",
       expander_highlight = 'NeoTreeNormal',
     },
@@ -161,7 +161,7 @@ M.opts = {
     },
     modified = {
       -- symbol = "[+] ",
-      symbol = '',
+      symbol = icons.ui.Circle,
       highlight = 'NeoTreeModified',
     },
     name = {
@@ -170,21 +170,22 @@ M.opts = {
       highlight = 'NeoTreeFileName',
     },
     git_status = {
+      -- nerdfonts search 'diff'
       symbols = {
         -- Change type
         -- added = "✚", -- NOTE: you can set any of these to an empty string to not show them
         -- deleted = "✖",
         -- modified = "",
-        added = '',
-        deleted = '',
-        modified = '',
-        renamed = '',
+        added = icons.git.LineAdded, -- 
+        deleted = icons.git.LineRemoved, -- 
+        modified = icons.git.LineModified, -- 
+        renamed = icons.git.FileRenamed, -- 
         -- Status type
-        untracked = '',
-        ignored = '',
-        unstaged = '',
-        staged = '',
-        conflict = '',
+        untracked = icons.git.FileUntracked, -- 
+        ignored = icons.git.FileIgnored,
+        unstaged = icons.git.FileUnstaged, -- 
+        staged = icons.git.FileStaged, -- 
+        conflict = icons.git.FileUnmerged, -- 
       },
       align = 'right',
     },

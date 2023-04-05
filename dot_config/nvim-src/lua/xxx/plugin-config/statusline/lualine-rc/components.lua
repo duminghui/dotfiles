@@ -1,5 +1,5 @@
-local colors = require("xxx.core.colors").universal()
-local icons = require "xxx.core.icons"
+local colors = require('xxx.core.colors').universal()
+local icons = require('xxx.core.icons')
 
 local com_fg = colors.statuline.fg
 local com_bg = colors.statuline.bg
@@ -10,41 +10,41 @@ local blue = colors.blue
 local yellow = colors.yellow
 
 local left_sep_both = {
-  left = " ",
-  right = "",
+  left = ' ',
+  right = '',
 }
 
 local right_seq_both = {
-  left = " ",
-  right = "",
+  left = ' ',
+  right = '',
 }
 
 local M = {}
 
-M.empty = { "empty", color = { fg = "None", bg = "None" } }
+M.empty = { 'empty', color = { fg = 'None', bg = 'None' } }
 
 M.mode = {
-  "mode",
+  'mode',
   separator = {
-    right = "",
+    right = '',
   },
 }
 
 M.filename = {
-  "filename",
+  'filename',
   color = { fg = com_fg, bg = com_bg },
   newfile_status = true,
   symbols = {
     modified = icons.ui.Circle,
     readonly = icons.ui.Lock2,
-    unnamed = "[No Name]",
+    unnamed = '[No Name]',
     newfile = icons.ui.NewFile,
   },
   separator = left_sep_both,
 }
 
 M.branch = {
-  "git_branch",
+  'git_branch',
   color = { fg = com_fg, bg = com_bg },
   icon = icons.git.Branch,
   separator = left_sep_both,
@@ -62,12 +62,12 @@ local function diff_source()
 end
 
 M.diff = {
-  "diff",
+  'diff',
   source = diff_source,
   symbols = {
-    added = icons.git.BoldLineAdd .. " ",
-    modified = icons.git.LineModified .. " ",
-    removed = icons.git.BoldLineRemove .. " ",
+    added = icons.git.BoldLineAdd .. ' ',
+    modified = icons.git.BoldLineModified .. ' ',
+    removed = icons.git.BoldLineRemove .. ' ',
   },
   diff_color = {
     added = { fg = green },
@@ -85,13 +85,13 @@ M.diff = {
 }
 
 M.diagnostics = {
-  "diagnostics",
-  sources = { "nvim_diagnostic" },
+  'diagnostics',
+  sources = { 'nvim_diagnostic' },
   symbols = {
-    error = icons.diagnostics.BoldError .. " ",
-    warn = icons.diagnostics.BoldWarning .. " ",
-    info = icons.diagnostics.BoldInformation .. " ",
-    hint = icons.diagnostics.BoldHint .. " ",
+    error = icons.diagnostics.BoldError .. ' ',
+    warn = icons.diagnostics.BoldWarning .. ' ',
+    info = icons.diagnostics.BoldInformation .. ' ',
+    hint = icons.diagnostics.BoldHint .. ' ',
   },
   color = { bg = com_bg },
   separator = left_sep_both,
@@ -117,9 +117,9 @@ local function is_lsp_client_attached()
 end
 
 M.lsp_clients = {
-  "lsp_clients",
+  'lsp_clients',
   clients = {
-    copilot = { symbol = icons.git.Octoface, color = { fg = "#6CC644", bg = com_bg } },
+    copilot = { symbol = icons.git.Octoface, color = { fg = '#6CC644', bg = com_bg } },
   },
   icons = {
     active = icons.ui.LspActive,
@@ -136,7 +136,7 @@ M.lsp_clients = {
 }
 
 local function is_in_session()
-  return require("session_manager.utils").is_session
+  return require('session_manager.utils').is_session
 end
 
 M.session_status = {
@@ -153,35 +153,35 @@ M.session_status = {
 }
 
 M.file_info = {
-  "file_info",
+  'file_info',
   color = { fg = com_fg, bg = com_bg },
   separator = right_seq_both,
 }
 
 M.location = {
-  "location",
+  'location',
   color = { fg = com_bg, bg = green },
   separator = {
-    left = " ",
+    left = ' ',
   },
 }
 
 M.progress = {
-  "file_progress",
+  'file_progress',
   color = { fg = com_bg, bg = yellow },
 }
 
 M.scrollbar = {
-  "file_scrollbar",
-  color = { fg = "#FFD700", bg = "None" },
+  'file_scrollbar',
+  color = { fg = '#FFD700', bg = 'None' },
   padding = 0,
 }
 
-local constants = require "overseer.constants"
+local constants = require('overseer.constants')
 local STATUS = constants.STATUS
 
 M.overseer = {
-  "overseer",
+  'overseer',
   symbols = {
     [STATUS.FAILURE] = icons.diagnostics.BoldError,
     [STATUS.CANCELED] = icons.diagnostics.BoldInformation,

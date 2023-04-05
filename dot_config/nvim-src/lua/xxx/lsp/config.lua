@@ -62,10 +62,10 @@ local diagnostic_float = {
   end,
 }
 
-local icons = require 'xxx.core.icons'
+local icons = require('xxx.core.icons')
 
 local options = {
-  templates_dir = join_paths(vim.fn.stdpath 'data', 'site', 'after', 'ftplugin'),
+  templates_dir = join_paths(vim.fn.stdpath('data'), 'site', 'after', 'ftplugin'),
   diagnostics = {
     signs = {
       priority = 30,
@@ -77,7 +77,7 @@ local options = {
       },
     },
     virtual_text = {
-      prefix = '',
+      prefix = icons.ui.Square,
       -- spacing = 12,
     },
     -- true: cmp's ghost_text show bug
@@ -115,7 +115,7 @@ local options = {
   },
   nlsp_settings = {
     setup = {
-      config_home = join_paths(vim.fn.stdpath 'config', 'lsp-settings'),
+      config_home = join_paths(vim.fn.stdpath('config'), 'lsp-settings'),
       -- set to false to overwrite schemastore.nvim
       ignored_servers = {},
       append_default_schemas = true,

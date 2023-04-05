@@ -1,42 +1,42 @@
 local M = {}
 
-local icons = require "xxx.core.icons"
+local icons = require('xxx.core.icons')
 
 M.opts = {
   signcolumn = true,
   sign_priority = 60,
   signs = {
     add = {
-      hl = "GitSignsAdd",
+      hl = 'GitSignsAdd',
       text = icons.ui.BoldLineLeft,
-      numhl = "GitSignsAddNr",
-      linehl = "GitSignsAddLn",
+      numhl = 'GitSignsAddNr',
+      linehl = 'GitSignsAddLn',
     },
     change = {
-      hl = "GitSignsChange",
+      hl = 'GitSignsChange',
       text = icons.ui.BoldLineLeft,
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
+      numhl = 'GitSignsChangeNr',
+      linehl = 'GitSignsChangeLn',
     },
     delete = {
-      hl = "GitSignsDelete",
+      hl = 'GitSignsDelete',
       -- text = "契",
       text = icons.ui.TriangleShortArrowRight,
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
+      numhl = 'GitSignsDeleteNr',
+      linehl = 'GitSignsDeleteLn',
     },
     topdelete = {
-      hl = "GitSignsDelete",
+      hl = 'GitSignsDelete',
       -- text = "契",
       text = icons.ui.TriangleShortArrowRight,
-      numhl = "GitSignsDeleteNr",
-      linehl = "GitSignsDeleteLn",
+      numhl = 'GitSignsDeleteNr',
+      linehl = 'GitSignsDeleteLn',
     },
     changedelete = {
-      hl = "GitSignsChange",
+      hl = 'GitSignsChange',
       text = icons.ui.BoldLineLeft,
-      numhl = "GitSignsChangeNr",
-      linehl = "GitSignsChangeLn",
+      numhl = 'GitSignsChangeNr',
+      linehl = 'GitSignsChangeLn',
     },
   },
   numhl = false,
@@ -51,7 +51,7 @@ M.opts = {
   current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
   current_line_blame_opts = {
     virt_text = true,
-    virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
     delay = 1000,
     ignore_whitespace = false,
   },
@@ -61,9 +61,9 @@ M.opts = {
   max_file_length = 40000,
   preview_config = {
     -- Options passed to nvim_open_win
-    border = "rounded",
-    style = "minimal",
-    relative = "cursor",
+    border = 'rounded',
+    style = 'minimal',
+    relative = 'cursor',
     row = 0,
     col = 1,
   },
@@ -77,7 +77,7 @@ M.opts = {
 }
 
 function M.setup()
-  local gitsigns = require "gitsigns"
+  local gitsigns = require('gitsigns')
   gitsigns.setup(M.opts)
 end
 
