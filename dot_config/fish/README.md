@@ -22,6 +22,7 @@ omf install https://github.com/jethrokuan/z
 
 ```fish
 brew install starship
+cargo install starship
 ```
 
 Add the following to the end of ~/.config/fish/config.fish:
@@ -34,5 +35,22 @@ starship init fish | source
 
 ```fish
 brew install exa
+cargo install exa
+
+```
+
+### ripgrep
+
+```fish
+brew install ripgrep
+cargo install ripgrep
+
+```
+
+### fd
+
+```fish
+brew install fd
+cargo install fd-find
 
 ```
