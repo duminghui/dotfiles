@@ -57,7 +57,7 @@ local default_others = {
     ['<A-k>'] = '<C-\\><C-N><C-w>k',
     ['<A-j>'] = '<C-\\><C-N><C-w>j',
     ['<A-h>'] = '<C-\\><C-N><C-w>h',
-    ['<A-l'] = '<C-\\><C-N><C-w>l',
+    ['<A-l>'] = '<C-\\><C-N><C-w>l',
   },
   normal_mode = {
 
