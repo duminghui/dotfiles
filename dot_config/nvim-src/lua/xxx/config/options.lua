@@ -39,7 +39,7 @@ function M.load_default_options()
   -- vim.wo.colorcolumn = "80,120,160" -- Make a ruler at 80px and 120px
   vim.opt.colorcolumn = '80,120,160' -- Make a ruler at 80px and 120px and 160px
   vim.opt.list = true -- Show some invisible characters like tabs etc
-  vim.opt.listchars = 'tab:›■,trail:•,extends:#,nbsp:.'
+  vim.opt.listchars = 'tab:›󰨓,trail:•,extends:#,nbsp:.' -- ■
   -- vim.wo.numberwidth = 2 -- Make the line number column thinner
   ---Note: Setting number and relative number gives you hybrid mode
   ---https://jeffkreeftmeijer.com/vim-number/

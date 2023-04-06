@@ -58,7 +58,8 @@ function M:update_status()
 
   local unique_client_names = vim.fn.uniq(buf_client_names)
 
-  local language_servers = '[' .. table.concat(unique_client_names, ',') .. ']'
+  -- local language_servers = '[' .. table.concat(unique_client_names, ',') .. ']'
+  local language_servers = table.concat(unique_client_names, '|')
 
   if copilot_active then
     local copilot = self.options.clients.copilot

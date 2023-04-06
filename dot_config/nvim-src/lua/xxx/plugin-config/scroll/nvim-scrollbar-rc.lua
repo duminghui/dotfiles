@@ -1,6 +1,7 @@
 local M = {}
 
-local disable_filetype = require "xxx.config.exclude-filetypes"
+local disable_filetype = require('xxx.config.exclude-filetypes')
+local icons = require('xxx.core.icons')
 
 M.opts = {
   max_lines = 500,
@@ -9,14 +10,14 @@ M.opts = {
   },
   marks = {
     Cursor = {
-      text = "•",
+      text = icons.ui.SquareSmall,
       priority = 0,
-      color = "#FFD700",
+      color = '#FFD700',
       cterm = nil,
-      highlight = "Normal",
+      highlight = 'Normal',
     },
     Search = {
-      color = "#FFD700",
+      color = '#FFD700',
     },
   },
   handlers = {
@@ -26,20 +27,20 @@ M.opts = {
     search = false,
   },
   excluded_buftypes = {
-    "terminal",
-    "nofile",
-    "quickfix",
-    "prompt",
+    'terminal',
+    'nofile',
+    'quickfix',
+    'prompt',
   },
   excluded_filetypes = disable_filetype.scrollbar,
 }
 
 function M.setup()
-  local scrollbar = require "scrollbar"
+  local scrollbar = require('scrollbar')
 
   scrollbar.setup(M.opts)
 
-  require("xxx.plugin-config.scroll.nvim-hlslens-rc").integrate_with_scrollbar()
+  require('xxx.plugin-config.scroll.nvim-hlslens-rc').integrate_with_scrollbar()
 end
 
 return M

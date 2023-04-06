@@ -13,7 +13,7 @@ return {
     EnumMember = '󰖽',
     Event = '󱐋', -- 󰉁
     Field = '',
-    File = '󰈙',
+    File = '󰈔', -- 󰈙
     Folder = '󰉋',
     -- Function = "󰆧",
     Function = 'ƒ', -- 󰊕
@@ -113,7 +113,7 @@ return {
     ChevronShortLeft = '󰅁', -- 
     ChevronShortRight = '󰅂', -- 
     ChevronShortUp = '󰅃', -- 
-    Circle = '', -- ●
+    PrimitiveDot = '', -- ●
     CircleBig = '',
     CircleCheck = '󰄴',
     CircleCheck2 = '󰗡',
@@ -141,6 +141,7 @@ return {
     Fire = '',
     Folder = '󰉋', -- nf-md-folder
     FolderOpen = '󰝰', -- nf-md-folder_open
+    FolderMultiple = '󰉓',
     FolderSymlink = '󰴉', -- nf-md_folder_pound -- 
     Forward = '󱞬', -- 
     Gear = '',
@@ -151,6 +152,7 @@ return {
     List = '󰷐',
     Lock = '󰍁',
     Lock2 = '󰌾', -- 
+    LockOpen = '󰌿',
     -- LspActive = "󰊲",
     LspActive = '',
     LspInactive = '󰊱',
@@ -161,7 +163,7 @@ return {
     Pending = '󰊳',
     Plus = '󰐕',
     Plus2 = '󰙞',
-    Project = '',
+    Project = '',
     Run = 'ﰌ',
     RunError = '',
     Search = '󰍉',
@@ -173,14 +175,16 @@ return {
     -- SessionOut = "󰘼",
     SignIn = '',
     SignOut = '',
-    Square = '', -- nf-md-square_medium 󰨓,
+    SquareMedium = '', -- nf-md-square_medium
+    SquareSmall = '󰨓',
     SquareCheck = '󰄲',
     Space = '•',
     Tab = '󰌒',
     Table = '󰓫',
     Target = '󰀘',
     Telescope = '',
-    Text = '',
+    Text = '󰈚', -- 
+    TextMultiple = '󰪷',
     Tree = '󰐅', -- 
     Triangle = '󰐊',
     TriangleShortArrowDown = '',

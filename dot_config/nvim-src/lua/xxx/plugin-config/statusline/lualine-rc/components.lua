@@ -1,6 +1,7 @@
 local colors = require('xxx.core.colors').universal()
 local icons = require('xxx.core.icons')
 
+local mode_fg = colors.statuline.mode_fg
 local com_fg = colors.statuline.fg
 local com_bg = colors.statuline.bg
 
@@ -35,7 +36,7 @@ M.filename = {
   color = { fg = com_fg, bg = com_bg },
   newfile_status = true,
   symbols = {
-    modified = icons.ui.Circle,
+    modified = icons.ui.PrimitiveDot,
     readonly = icons.ui.Lock2,
     unnamed = '[No Name]',
     newfile = icons.ui.NewFile,
@@ -160,7 +161,7 @@ M.file_info = {
 
 M.location = {
   'location',
-  color = { fg = com_bg, bg = green },
+  color = { fg = mode_fg, bg = green },
   separator = {
     left = ' ',
   },
@@ -168,7 +169,7 @@ M.location = {
 
 M.progress = {
   'file_progress',
-  color = { fg = com_bg, bg = yellow },
+  color = { fg = mode_fg, bg = yellow },
 }
 
 M.scrollbar = {

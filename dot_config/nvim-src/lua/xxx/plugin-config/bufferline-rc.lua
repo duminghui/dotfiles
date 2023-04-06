@@ -141,7 +141,7 @@ M.opts = {
     -- },
     -- indicator = "",
     buffer_close_icon = icons.ui.Close,
-    modified_icon = icons.ui.Circle,
+    modified_icon = icons.ui.PrimitiveDot,
     close_icon = icons.ui.BoldClose,
     left_trunc_marker = icons.ui.ArrowCircleLeft,
     right_trunc_marker = icons.ui.ArrowCircleRight,

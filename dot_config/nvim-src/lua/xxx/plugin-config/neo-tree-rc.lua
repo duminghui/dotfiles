@@ -59,10 +59,10 @@ M.opts = {
     show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
     -- of the top visible node when scrolled down.
     tab_labels = { -- falls back to source_name if nil
-      filesystem = '  Files ',
-      buffers = '  Buffers ',
-      git_status = '  Git ',
-      diagnostics = ' 裂Diagnostics ',
+      filesystem = ' ' .. icons.ui.Files .. ' Files ',
+      buffers = ' ' .. icons.ui.TextMultiple .. ' Buffers ',
+      git_status = ' 󰊢 Git ',
+      diagnostics = ' 󰒡 Diagnostics ',
     },
     content_layout = 'center', -- only with `tabs_layout` = "equal", "focus"
     --                start  : |/ 裡 bufname     \/...
@@ -154,14 +154,14 @@ M.opts = {
       folder_open = icons.ui.FolderOpen,
       folder_empty = icons.ui.EmptyFolder,
       folder_empty_open = icons.ui.EmptyFolderOpen,
-      -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+      -- The next two settings are only a fallback, if you use nvim-web-devicons(default=true) and configure default icons there
       -- then these will never be used.
       default = icons.ui.Text,
       highlight = 'NeoTreeFileIcon',
     },
     modified = {
       -- symbol = "[+] ",
-      symbol = icons.ui.Circle,
+      symbol = icons.ui.PrimitiveDot,
       highlight = 'NeoTreeModified',
     },
     name = {

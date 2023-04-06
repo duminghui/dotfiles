@@ -1,18 +1,18 @@
 local M = {}
 
-local coms = require "xxx.plugin-config.statusline.lualine-rc.components"
+local coms = require('xxx.plugin-config.statusline.lualine-rc.components')
 
-local disabled_filetypes = require("xxx.config.exclude-filetypes").lualine
+local disabled_filetypes = require('xxx.config.exclude-filetypes').lualine
 
 M.opts = {
   extensions = {
     -- "nvim-tree",
-    "overseer",
+    'overseer',
   },
   options = {
-    theme = "xxx",
-    component_separators = " ",
-    section_separators = { left = " ", right = "" },
+    theme = 'xxx',
+    component_separators = ' ',
+    section_separators = { left = ' ', right = '' },
     disabled_filetypes = disabled_filetypes,
     globalstatus = true,
     always_divide_middle = true,
@@ -54,7 +54,7 @@ M.opts = {
 }
 
 function M.setup()
-  require("lualine").setup(M.opts)
+  require('lualine').setup(M.opts)
 end
 
 return M
