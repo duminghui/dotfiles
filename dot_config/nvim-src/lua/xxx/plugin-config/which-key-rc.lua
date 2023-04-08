@@ -198,6 +198,7 @@ M.n_mappings = {
     c = { '<cmd>CmpStatus<CR>', 'Cmp Status' },
     P = { require('xxx.lsp.info').print_clients_config, 'Clients Config' },
     C = { require('xxx.lsp.info').print_clients_server_capabilities, 'Clients Server Capabilities' },
+    t = { '<cmd>LspStop<CR>', 'LspStop' },
   },
   s = {
     name = 'Search',

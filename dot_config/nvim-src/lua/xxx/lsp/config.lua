@@ -1,10 +1,12 @@
 local skipped_servers = {
   'angularls',
   'ansiblels',
+  'azure_pipelines_ls',
   'ccls',
   'csharp_ls',
   'cssmodules_ls',
   'denols',
+  'docker_compose_language_service',
   'ember',
   'emmet_ls',
   'eslint',

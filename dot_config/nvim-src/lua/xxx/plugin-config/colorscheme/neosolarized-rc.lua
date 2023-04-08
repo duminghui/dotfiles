@@ -35,8 +35,8 @@ function M.setup()
   -- Color.new("green", "#719e07")
 
   Group.new('Normal', colors.base1, colors.none, styles.none)
-  Group.new('CursorLine', colors.none, colors.base03, styles.none, colors.base01)
-  Group.new('CursorLineNr', colors.gold, colors.base03, styles.bold, colors.base01)
+  Group.new('CursorLine', colors.none, colors.base02, styles.none, colors.base01)
+  Group.new('CursorLineNr', colors.gold, colors.base02, styles.bold, colors.base01)
   Group.link('CursorColumn', groups.CursorLine)
   Group.new('Visual', colors.none, colors.base03, styles.reverse)
   -- fix dressing float title color

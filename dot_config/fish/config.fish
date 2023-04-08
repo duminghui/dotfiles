@@ -32,11 +32,18 @@ if type -q starship
     enable_transience
 end
 
-if type -q exa
-    abbr ll "exa -lg -smodified --time-style=long-iso --icons"
-    abbr lla "exa -lg -smodified --time-style=long-iso --icons -a"
+# if type -q exa
+#     abbr ll "exa -lg -smodified --time-style=long-iso --icons"
+#     abbr lla "exa -lg -smodified --time-style=long-iso --icons -a"
+if type -q lsd
+    abbr ll "lsd -ltr"
+    abbr lla "lsd -Altr"
 else
-    abbr lla "ls -alrth"
+    abbr lla "ls -Altrh"
+end
+
+if type -q vivid
+    set -gx LS_COLORS (vivid generate solarized-dark)
 end
 
 ### alias abbr ###

@@ -1,4 +1,5 @@
 local colors = require('xxx.core.colors').universal()
+local icons = require('xxx.core.icons')
 local M = {}
 
 M.opts = {
@@ -167,12 +168,12 @@ M.opts = {
     colors = {
       normal_bg = '#002b36',
     },
-    expand = '',
-    collapse = '',
+    expand = icons.ui.ChevronShortRight, --'',
+    collapse = icons.ui.ChevronShortDown, --'',
     code_action = '💡',
     incoming = '󰏷 ',
     outgoing = '󰏻 ',
-    hover = ' ',
+    hover = '󰒊 ', --
     kind = {
       -- [1] = { 'File', ' ', 'Tag' },
       -- [2] = { 'Module', ' ', 'Exception' },
@@ -187,6 +188,7 @@ M.opts = {
       -- [11] = { 'Interface', ' ', 'Type' },
       ['Function'] = { 'ƒ ', 'Function' },
       -- [13] = { 'Variable', ' ', '@variable' },
+      ['Variable'] = { '󰫧', '@variable' },
       -- [14] = { 'Constant', ' ', 'Constant' },
       -- [15] = { 'String', '󰀬 ', 'String' },
       -- [16] = { 'Number', '󰎠 ', 'Number' },

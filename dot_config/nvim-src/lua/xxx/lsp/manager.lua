@@ -85,14 +85,14 @@ local function launch_server(server_name, config)
         return default_config.cmd
       end)()
     if type(command) == 'table' and type(command[1]) == 'string' and vim.fn.executable(command[1]) ~= 1 then
-      Log:debug(fmt('[%q] is either not installed, missing from PATH, or not executable.', server_name))
+      Log:warn(fmt('[%q] is either not installed, missing from PATH, or not executable.', server_name))
       return
     end
     require('lspconfig')[server_name].setup(config)
     buf_try_add(server_name)
   end)
   if not ok then
-    Log:error('launch_server failed')
+    Log:error('launch_server failed: ' .. server_name)
   end
 end
 

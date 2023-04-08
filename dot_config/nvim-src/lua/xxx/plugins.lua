@@ -74,7 +74,7 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.project-rc').setup()
     end,
-    event = 'VimEnter',
+    event = 'VeryLazy',
     cmd = 'Telescope projects',
   },
   {
@@ -390,7 +390,7 @@ local plugins = {
       require('xxx.plugin-config.telescope-rc').setup()
     end,
     cmd = 'Telescope',
-    event = 'VimEnter',
+    event = 'VeryLazy',
   },
   {
     'nvim-telescope/telescope-fzf-native.nvim',

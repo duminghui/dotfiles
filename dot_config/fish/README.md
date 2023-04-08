@@ -31,6 +31,14 @@ Add the following to the end of ~/.config/fish/config.fish:
 starship init fish | source
 ```
 
+### lsd
+
+```fish
+brew install lsd
+cargo install --git https://github.com/Peltoche/lsd.git --branch master
+
+```
+
 ### exa
 
 ```fish

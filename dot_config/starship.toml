@@ -40,6 +40,13 @@ right_format = """
 $cmd_duration\
 $time"""
 
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󱟞 "
+unknown_symbol = "󰁼 "
+empty_symbol = "󰂎 "
+
 [character]
 format = "$symbol "
 success_symbol = "[❯](bold green)"
@@ -53,7 +60,7 @@ format = '\[[$user]($style)\]'
 
 [hostname]
 ssh_only = true
-ssh_symbol = "🌐 "
+ssh_symbol = "🌐"
 style = "green dimmed bold"
 
 [localip]
@@ -68,7 +75,7 @@ style = "blue"
 
 truncate_to_repo = false
 repo_root_format = '\[[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style)\] '
-read_only = ""
+read_only = "󰌾"
 read_only_style = "yellow"
 
 # 下面两个有值, 在git目录下路径会显示不出来, 比如~/.config/nvim
@@ -101,13 +108,14 @@ style = "red bold"
 
 [docker_context]
 format = "[$symbol$context]($style) "
-symbol = "🐳 "
+# symbol = "🐳 "
+symbol = "󰡨 "
 style = "blue"
 
 [package]
 format = '[$symbol$version]($style) '
 # symbol = "📦 "
-symbol = " "
+symbol = "󰏗 "
 # symbol = " "
 version_format = "$raw"
 # style = "208"
@@ -128,34 +136,34 @@ style = "blue"
 [golang]
 format = "[$symbol($version )]($style)"
 # symbol = "🐹 "
-symbol = " "
+symbol = "󰟓 "
 style = "cyan"
 
 [java]
 format = "[$symbol($version )]($style)"
 symbol = "☕ "
-# symbol = " "
+# symbol = "󰬷 "
 style = "red dimmed"
 
 [kotlin]
 format = "[$symbol($version )]($style)"
-symbol = "🅺 "
+symbol = "󱈙 "
 style = "blue"
 
 [gradle]
 format = "[$symbol($version )]($style)"
-symbol = "🅶 "
+symbol = " "
 style = "bright-cyan"
 
 [lua]
 format = "[$symbol($version )]($style)"
 # symbol = "🌖 "
-symbol = " "
+symbol = "󰢱 "
 style = "blue"
 
 [nodejs]
 format = "[$symbol($version )]($style)"
-symbol = " "
+symbol = "󰎙 "
 style = "green"
 
 [python]

@@ -99,7 +99,7 @@ function M.opts()
           '--hidden',
           '--strip-cwd-prefix',
         },
-        sorter = sorters.get_fuzzy_file(),
+        -- sorter = sorters.get_fuzzy_file(),
       },
       live_grep = {
         --@usage don't include the filename in the search results
@@ -138,7 +138,9 @@ function M.opts()
     extensions = {
       fzf = {
         fuzzy = true, -- false will only do exact matching
+        -- this whill change defaults.generic_sorter
         override_generic_sorter = true, -- override the generic sorter
+        -- this whill change defaults.file_sorter
         override_file_sorter = true, -- override the file sorter
         case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       },
