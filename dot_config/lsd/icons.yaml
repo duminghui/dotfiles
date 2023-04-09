@@ -2,6 +2,17 @@
 
 # 191 items
 name:
+  tmux: 󰕮
+  fish: 󰈺
+  .condarc: 󰌠
+  .yarnrc.yml: 
+  .zshenv: 󰆍
+  .m2: 
+  .docker: 󰡨
+  .cache: 󰃨
+  parallels: 󰜨
+  library: 󰁰
+  work: 󰃖
   .gradle: 
   .android: 󰀲
   android: 󰀲
@@ -28,8 +39,8 @@ name:
   config.ac: 󰒓
   config.el: 
   config.mk: 󰒓
-  .config: 󱁿
-  config: 󱁿
+  .config: 󰒓
+  config: 󰒓
   contributing: 󰿃
   copyright: 󰿃
   cron.daily: 󱁿
