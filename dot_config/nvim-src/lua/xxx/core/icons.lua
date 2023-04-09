@@ -172,8 +172,8 @@ return {
     -- SessionIn = "󰘾",
     SessionOut = '󰘻',
     -- SessionOut = "󰘼",
-    SignIn = '',
-    SignOut = '',
+    SignIn = '󰍂',
+    SignOut = '󰍃',
     SquareMedium = '', -- nf-md-square_medium
     SquareSmall = '󰨓',
     SquareCheck = '󰄲',
