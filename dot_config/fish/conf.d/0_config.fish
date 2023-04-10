@@ -39,7 +39,7 @@ if type -q tmuxinator
 end
 
 ### golang ###
-if type -q brew; and test -d (brew --prefix)/opt/go/libexecx
+if type -q brew; and test -d (brew --prefix)/opt/go/libexec
     set -gx GOROOT (brew --prefix)/opt/go/libexec
     set -gx GOPATH $HOME/go
     set -gx GO111MODULE on
