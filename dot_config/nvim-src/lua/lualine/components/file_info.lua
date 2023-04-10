@@ -35,7 +35,8 @@ function M:file_type()
     icon, icon_hl_group = devicons.get_icon_by_filetype(filetype)
   end
   if icon == nil and icon_hl_group == nil then
-    icon = ''
+    -- icon = ''
+    icon = icons.ui.Text
     icon_hl_group = 'DevIconDefault'
   end
 

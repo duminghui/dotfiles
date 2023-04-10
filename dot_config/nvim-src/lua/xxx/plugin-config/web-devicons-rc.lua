@@ -5,37 +5,37 @@ local icons = require('xxx.core.icons')
 M.opts = {
   override = {
     default_icon = {
-      icon = icons.ui.File,
+      icon = icons.ui.Text,
       color = '#6d8086',
       cterm_color = '66',
       name = 'Default',
     },
     ['bat'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#C1F12E',
       cterm_color = '191',
       name = 'Bat',
     },
     ['cmake'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#6d8086',
       cterm_color = '66',
       name = 'CMake',
     },
     ['conf'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#6d8086',
       cterm_color = '66',
       name = 'Conf',
     },
     ['gd'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#6d8086',
       cterm_color = '66',
       name = 'GDScript',
     },
     ['ini'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#6d8086',
       cterm_color = '66',
       name = 'Ini',
@@ -47,7 +47,7 @@ M.opts = {
       name = 'Lock',
     },
     ['log'] = {
-      icon = '󰪷',
+      icon = icons.ui.TextMultiple,
       color = '#ffffff',
       cterm_color = '231',
       name = 'Log',
@@ -59,25 +59,26 @@ M.opts = {
       name = 'Lua',
     },
     ['toml'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#6d8086',
       cterm_color = '66',
       name = 'Toml',
     },
     ['yaml'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#6d8086',
       cterm_color = '66',
       name = 'Yaml',
     },
     ['yml'] = {
-      icon = '󰒓',
+      icon = icons.ui.Gear,
       color = '#6d8086',
       cterm_color = '66',
       name = 'Yml',
     },
   },
-  default = false,
+  default = true,
+  strict = true,
   override_by_filename = {
     ['tasks.json'] = {
       icon = '󰘦',
@@ -90,6 +91,7 @@ M.opts = {
 
 function M.setup()
   local devicons = require('nvim-web-devicons')
+  -- plugin use vim.tbl_extend("force",icons,...)
   devicons.setup(M.opts)
 end
 

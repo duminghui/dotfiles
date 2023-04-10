@@ -143,7 +143,7 @@ return {
     FolderMultiple = '󰉓',
     FolderSymlink = '󱧮', -- nf-md_folder_pound -- 
     Forward = '󱞬', -- 
-    Gear = '',
+    Gear = '󰒓',
     History = '󰄉',
     Lightbulb = '󰌵',
     LineLeft = '▏',

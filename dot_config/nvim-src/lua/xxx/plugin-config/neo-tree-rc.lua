@@ -501,6 +501,7 @@ function M.setup()
 
   Group.new('NeoTreeRootName', colors.darkgold, nil, styles.bold)
   Group.new('NeoTreeDirectoryIcon', colors.yellow)
+  Group.link('NeoTreeFileIcon', groups.Normal)
   Group.new('NeoTreeFileNameOpened', groups.Normal, nil, styles.bold)
   Group.new('NeoTreeSymbolicLinkTarget', colors.cyan)
 
