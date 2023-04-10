@@ -98,8 +98,10 @@ function M.opts()
           'file',
           '--hidden',
           '--strip-cwd-prefix',
+          '--exclude',
+          '.git',
         },
-        -- sorter = sorters.get_fuzzy_file(),
+        sorter = sorters.get_fuzzy_file(),
       },
       live_grep = {
         --@usage don't include the filename in the search results
