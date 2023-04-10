@@ -2,22 +2,23 @@
 
 # 191 items
 name:
-  tmux: 󰕮
-  fish: 󰈺
+  .android: 󰀲
+  .cache: 󰃨
   .condarc: 󰌠
+  .docker: 󰡨
+  .gradle: 
+  .localized: 󰀵
+  .m2: 
   .yarnrc.yml: 
   .zshenv: 󰆍
-  .m2: 
-  .docker: 󰡨
-  .cache: 󰃨
-  parallels: 󰜨
-  library: 󰁰
-  work: 󰃖
-  .gradle: 
-  .android: 󰀲
   android: 󰀲
-  .localized: 󰀵
+  "applications (parallels)": 󰜨
+  fish: 󰈺
+  library: 󰁰
   movies: 󰎁
+  parallels: 󰜨
+  tmux: 󰕮
+  work: 󰃖
   a.out: 󰆍
   api: 󰒍
   .atom: 󰝨
@@ -39,7 +40,7 @@ name:
   config.ac: 󰒓
   config.el: 
   config.mk: 󰒓
-  .config: 󰒓
+  .config: 󱁿
   config: 󰒓
   contributing: 󰿃
   copyright: 󰿃
@@ -59,14 +60,14 @@ name:
   doc: 󰂺
   documents: 󰂺
   .doom.d: 
-  downloads: 󱧰
+  downloads: 󱧨
   .ds_store: 󰀵
   .editorconfig: 󰒓
   .emacs.d: 
-  .env: 󱁻
-  .eslintrc.json: 󱁻
-  .eslintrc.js: 󱁻
-  .eslintrc.yml: 󱁻
+  .env: 󰙪
+  .eslintrc.json: 󰙪
+  .eslintrc.js: 󰙪
+  .eslintrc.yml: 󰙪
   etc: 󱁿
   favicon.ico: 󰓎
   favicons: 󰓎
@@ -123,9 +124,9 @@ name:
   maintainers: 󰿃
   makefile.ac: 󰒓
   makefile: 󰒓
-  manifest: 
+  manifest: 󰽭
   metadata: 󱁿
-  metadata.xml: 󱁻
+  metadata.xml: 󰙪
   mime.types: 󰙅
   module.symvers: 󰱾
   .mozilla: 
@@ -229,7 +230,7 @@ extension:
   asp: 󰗀
   a: 
   avi: 󰈰
-  avro: 󰘦
+  avro: 󰅩
   awk: 󰆍
   bak: 󰁯
   bash_history: 󰆍
@@ -286,7 +287,7 @@ extension:
   elf: 󰆍
   elm: 
   el: 󰅲
-  env: 󱁻
+  env: 󰙪
   eot: 󰛖
   epub: 󰗚
   erb: 󰫏
@@ -294,7 +295,7 @@ extension:
   exe: 󰖳
   exs: 
   ex: 
-  fish: 󰆍
+  fish: 󰈺
   flac: 󰮥
   flv: 󰈰
   font: 󰛖
@@ -341,7 +342,7 @@ extension:
   jpeg: 󰈟
   jpg: 󰈟
   jsonc: 󰘦
-  json: 󰘦
+  json: 󰅩
   js: 󰌞
   jsx: 󰜈
   key: 󰿃
@@ -402,7 +403,7 @@ extension:
   ppt: 󰈧
   pptx: 󰈧
   procfile: 󰴭
-  properties: 󰘦
+  properties: 󰅩
   ps1: 󰆍
   psd: 
   pub: 󰿃
@@ -459,7 +460,7 @@ extension:
   tex: 
   tgz: 󰗄
   tiff: 󰈟
-  toml: 󰘦
+  toml: 󰅩
   torrent: 󰒍
   trash: 󰩹
   ts: 󰛦
@@ -489,8 +490,8 @@ extension:
   xml: 󰗀
   xul: 󰈹
   xz: 󰗄
-  yaml: 󰘦
-  yml: 󰘦
+  yaml: 󰅩
+  yml: 󰅩
   zip: 󰗄
   zshrc: 󰆍
   zsh-theme: 󰆍
