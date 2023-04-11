@@ -191,8 +191,8 @@ style = "yellow"
 
 [rust]
 format = '[$symbol($version )]($style)'
-symbol = " "
 # symbol = "🦀 "
+symbol = " "
 style = "red"
 
 [conda]
@@ -222,5 +222,5 @@ style = "cyan dimmed"
 disabled = false
 
 [shell]
-style = "white"
+style = "bright-cyan"
 disabled = true
