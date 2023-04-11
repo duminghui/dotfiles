@@ -4,7 +4,7 @@
 
 gsed -i -r \
     -e 's|^ {1,}\("(.*)",.*\)[, //]+"(.)"$|  \1: \2|g' \
-    -e 's||󰆍|g' \
+    -e 's|||g' \
     -e 's|歷|󰒍|g' \
     -e 's||󰝨|g' \
     -e 's||󰿃|g' \
@@ -54,7 +54,7 @@ gsed -i -r \
     -e 's|||g' \
     -e 's||󰏜|g' \
     -e 's||󰣇|g' \
-    -e 's||󰆍|g' \
+    -e 's|||g' \
     -e 's||󰀄|g' \
     -e 's||󰌠|g' \
     -e 's|ﮧ|󱚝|g' \
@@ -67,7 +67,7 @@ gsed -i -r \
     -e 's||󰛦|g' \
     -e 's||󰇧|g' \
     -e 's||󰕧|g' \
-    -e 's||󰘐|g' \
+    -e 's||󰨞|g' \
     -e 's|ﰩ|󰜫|g' \
     -e 's||󰗄|g' \
     -e 's|||g' \
@@ -135,7 +135,7 @@ gsed -i -r \
     -e 's||󰬚|g' \
     -e 's||󰛥|g' \
     -e 's|||g' \
-    -e 's|﵂|󰡄|g' \
+    -e 's|﵂|󰹭|g' \
     -e 's||󰈹|g' \
     -e 's|||g' \
     icons.yaml
@@ -171,12 +171,13 @@ name_icon 'tmux' '󰕮'
 name_icon 'parallels' '󰜨'
 name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'
+
 name_icon 'gradle' ''
 name_icon 'fish' '󰈺'
 name_icon 'config' '󰒓'
 name_icon '"applications \(parallels\)"' '󰜨'
 name_icon 'android' '󰀲'
-name_icon '\.zshenv' '󰆍'
+name_icon '\.zshenv' ''
 name_icon '\.yarnrc.yml' ''
 name_icon '\.m2' ''
 name_icon '\.localized' '󰀵'
@@ -187,6 +188,8 @@ name_icon '\.cache' '󰃨'
 name_icon '\.android' '󰀲'
 
 extension_icon 'jsonc' '󰘦'
+extension_icon 'jpg' '󰈥'
+extension_icon 'jpeg' '󰈥'
 extension_icon 'gradle' ''
 extension_icon 'fish' '󰈺'
 

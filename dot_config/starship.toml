@@ -207,7 +207,8 @@ disabled = true
 
 [sudo]
 format = "[$symbol]($style)"
-symbol = "❗️"
+# symbol = "❗️"
+symbol = "󰚾 "
 style = "bold red"
 disabled = false
 

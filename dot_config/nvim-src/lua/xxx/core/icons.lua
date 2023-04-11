@@ -11,7 +11,7 @@ return {
     Enum = '󰖽',
     -- Enum = "練",
     EnumMember = '󰖽',
-    Event = '󱐋', -- 󰉁
+    Event = '󰉁', -- 󱐋
     Field = '',
     File = '󰈔', -- 󰈙
     Folder = '󰉋',

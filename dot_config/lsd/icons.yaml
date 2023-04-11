@@ -10,7 +10,7 @@ name:
   .localized: 󰀵
   .m2: 
   .yarnrc.yml: 
-  .zshenv: 󰆍
+  .zshenv: 
   android: 󰀲
   "applications (parallels)": 󰜨
   fish: 󰈺
@@ -19,14 +19,14 @@ name:
   parallels: 󰜨
   tmux: 󰕮
   work: 󰃖
-  a.out: 󰆍
+  a.out: 
   api: 󰒍
   .atom: 󰝨
   authorized_keys: 󰿃
   backups: 󰁯
   .bash_logout: 󰒓
   .bash_profile: 󰒓
-  .bashrc: 󰆍
+  .bashrc: 
   bin: 󱁿
   .bpython_history: 󰌠
   bspwmrc: 󰒓
@@ -109,7 +109,7 @@ name:
   kbuild: 󰒓
   kconfig: 󰒓
   known_hosts: 󰿃
-  .kshrc: 󰆍
+  .kshrc: 
   lib64: 󰗀
   lib: 󰗀
   license.md: 󰿃
@@ -149,7 +149,7 @@ name:
   .pki: 󰌾
   portage: 󱁿
   profile: 󰒓
-  .profile: 󰆍
+  .profile: 
   public: 󰀄
   __pycache__: 󰌠
   .python_history: 󰌠
@@ -165,7 +165,7 @@ name:
   .rvm: 󰴭
   sass: 󰟬
   sbin: 󱁿
-  scripts: 󰆍
+  scripts: 
   scss: 󰟬
   shadow: 󰒓
   share: 󱞬
@@ -192,7 +192,7 @@ name:
   vimrc: 
   .vim: 
   vim: 
-  .vscode: 󰘐
+  .vscode: 󰨞
   webpack.config.js: 󰜫
   .wgetrc: 󰒓
   wgetrc: 󰒓
@@ -209,7 +209,7 @@ name:
   .xresources: 󰒓
   zathurarc: 󰒓
   .zsh_history: 󰒓
-  .zshrc: 󰆍
+  .zshrc: 
 
 # 284 items
 extension:
@@ -231,14 +231,14 @@ extension:
   a: 
   avi: 󰈰
   avro: 󰅩
-  awk: 󰆍
+  awk: 
   bak: 󰁯
-  bash_history: 󰆍
-  bash_profile: 󰆍
-  bashrc: 󰆍
-  bash: 󰆍
+  bash_history: 
+  bash_profile: 
+  bashrc: 
+  bash: 
   bat: 󰖳
-  bin: 󰆍
+  bin: 
   bio: 󰐑
   bmp: 󰈟
   bz2: 󰗄
@@ -255,7 +255,7 @@ extension:
   cpp: 󰙲
   cp: 󰙲
   cshtml: 󰁥
-  csh: 󰆍
+  csh: 
   csproj: 󰌛
   css: 󰌜
   cs: 󰌛
@@ -284,7 +284,7 @@ extension:
   editorconfig: 󰒓
   ejs: 󰅴
   elc: 󰅲
-  elf: 󰆍
+  elf: 
   elm: 
   el: 󰅲
   env: 󰙪
@@ -339,14 +339,14 @@ extension:
   java: 󰬷
   jinja: 
   jl: 
-  jpeg: 󰈟
-  jpg: 󰈟
+  jpeg: 󰈥
+  jpg: 󰈥
   jsonc: 󰘦
   json: 󰅩
   js: 󰌞
   jsx: 󰜈
   key: 󰿃
-  ksh: 󰆍
+  ksh: 
   kt: 󱈙
   kts: 󱈙
   ldb: 󰆼
@@ -404,7 +404,7 @@ extension:
   pptx: 󰈧
   procfile: 󰴭
   properties: 󰅩
-  ps1: 󰆍
+  ps1: 
   psd: 
   pub: 󰿃
   pxm: 󰈟
@@ -437,11 +437,11 @@ extension:
   scala: 
   scpt: 󰀵
   scss: 󰟬
-  shell: 󰆍
-  sh: 󰆍
+  shell: 
+  sh: 
   sig: 󰿃
   slim: 󰫏
-  sln: 󰘐
+  sln: 󰨞
   so: 
   sqlite3: 
   sql: 󰆼
@@ -473,7 +473,7 @@ extension:
   video: 󰈰
   vim: 
   vlc: 󰐑
-  vue: 󰡄
+  vue: 󰹭
   wav: 󰮥
   webm: 󰈰
   webp: 󰈟
@@ -493,9 +493,9 @@ extension:
   yaml: 󰅩
   yml: 󰅩
   zip: 󰗄
-  zshrc: 󰆍
-  zsh-theme: 󰆍
-  zsh: 󰆍
+  zshrc: 
+  zsh-theme: 
+  zsh: 
   zst: 󰗄
 
 filetype:
@@ -503,7 +503,7 @@ filetype:
   file: 󰈔
   pipe: 󰈲
   socket: 󰾳
-  executable: 󰆍
+  executable: 
   symlink-dir: 󱧮
   symlink-file: 󰪹
   device-char: 
