@@ -36,8 +36,8 @@ M.opts = {
     winblend = Xvim.which_key_winblend,
   },
   layout = {
-    height = { min = 4, max = 25 }, -- min and max height of the columns
-    width = { min = 20, max = 50 }, -- min and max width of the columns
+    height = { min = 3, max = 26 }, -- min and max height of the columns
+    width = { min = 36, max = 50 }, -- min and max width of the columns
     spacing = 3, -- spacing between columns
     align = 'left', -- align columns left, center or right
   },
@@ -80,7 +80,7 @@ M.n_opts = {
 
 M.n_mappings = {
   -- [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
-  ['/'] = { ':nohlsearch<CR>', 'No Highlight' },
+  ['/'] = { ':nohlsearch<CR>', 'Clean Search Highlight' },
   w = { '<cmd>w!<CR>', 'Save' },
   c = { '<cmd>BufferKill<CR>', 'Close Buffer(Keep window)' },
   q = { require('xxx.utils.functions').smart_quit, 'Quit current window' },
