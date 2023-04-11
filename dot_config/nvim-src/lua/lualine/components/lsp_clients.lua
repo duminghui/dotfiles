@@ -13,6 +13,7 @@ local default_options = {
 }
 
 local M = require('lualine.component'):extend()
+local icons = require('xxx.core.icons')
 
 function M:init(options)
   M.super.init(self, options)
@@ -59,7 +60,7 @@ function M:update_status()
   local unique_client_names = vim.fn.uniq(buf_client_names)
 
   -- local language_servers = '[' .. table.concat(unique_client_names, ',') .. ']'
-  local language_servers = table.concat(unique_client_names, '|')
+  local language_servers = table.concat(unique_client_names, icons.ui.SquareSmall)
 
   if copilot_active then
     local copilot = self.options.clients.copilot

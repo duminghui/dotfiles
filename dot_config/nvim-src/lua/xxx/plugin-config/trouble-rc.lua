@@ -46,7 +46,7 @@ M.opts = {
     warning = icons.diagnostics.BoldWarning,
     hint = icons.diagnostics.BoldHint,
     information = icons.diagnostics.BoldInformation,
-    other = icons.ui.CircleCheck,
+    other = icons.ui.PrimitiveDot,
   },
   use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 }

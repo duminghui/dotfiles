@@ -2,6 +2,7 @@
 
 # 191 items
 name:
+  npmrc: 󰛷
   .android: 󰀲
   .cache: 󰃨
   .condarc: 󰌠
@@ -213,6 +214,7 @@ name:
 
 # 284 items
 extension:
+  jks: 󰿃
   1: 󰂺
   2: 󰂺
   3: 󰂺

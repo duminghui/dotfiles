@@ -147,7 +147,7 @@ style = "blue"
 format = "[$symbol($version )]($style)"
 # symbol = "🎯 "
 # symbol = ""
-symbol = ""
+symbol = " "
 style = "blue"
 
 [golang]
@@ -158,8 +158,8 @@ style = "cyan"
 
 [java]
 format = "[$symbol($version )]($style)"
-symbol = "☕ "
-# symbol = "󰬷 "
+# symbol = "☕ "
+symbol = "󰬷 "
 style = "red dimmed"
 
 [kotlin]
@@ -185,8 +185,8 @@ style = "green"
 
 [python]
 format = '[$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)'
-symbol = "🐍 "
-# symbol = "󰌠 "
+# symbol = "🐍 "
+symbol = "󰌠 "
 style = "yellow"
 
 [rust]

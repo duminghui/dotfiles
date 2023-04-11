@@ -169,9 +169,9 @@ extension_icon(){
 name_icon 'work' '󰃖'
 name_icon 'tmux' '󰡃'
 name_icon 'parallels' '󰜨'
+name_icon 'npmrc' '󰛷'
 name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'
-
 name_icon 'gradle' ''
 name_icon 'fish' '󰈺'
 name_icon 'config' '󰒓'
@@ -190,6 +190,7 @@ name_icon '\.android' '󰀲'
 extension_icon 'jsonc' '󰘦'
 extension_icon 'jpg' '󰈥'
 extension_icon 'jpeg' '󰈥'
+extension_icon 'jks' '󰿃'
 extension_icon 'gradle' ''
 extension_icon 'fish' '󰈺'
 
