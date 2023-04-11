@@ -109,7 +109,8 @@ return {
     Calendar = '󰃭',
     Check = '󰄬',
     ChevronRight = '>',
-    DoubleChevronRight = '󰄾', -- »
+    ChevronDoubleRight = '󰄾', -- »
+    ChevronTripleRight = '󰶻',
     ChevronShortDown = '󰅀', -- 
     ChevronShortLeft = '󰅁', -- 
     ChevronShortRight = '󰅂', -- 

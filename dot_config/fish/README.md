@@ -39,6 +39,14 @@ cargo install --git https://github.com/Peltoche/lsd.git --branch master
 
 ```
 
+### vivid (LS_COLORS)
+
+```fish
+brew install vivid
+cargo install vivid
+
+```
+
 ### exa
 
 ```fish

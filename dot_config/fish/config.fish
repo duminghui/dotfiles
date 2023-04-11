@@ -36,6 +36,7 @@ end
 #     abbr ll "exa -lg -smodified --time-style=long-iso --icons"
 #     abbr lla "exa -lg -smodified --time-style=long-iso --icons -a"
 if type -q lsd
+    abbr ls "lsd -L"
     abbr ll "lsd -ltr"
     abbr lla "lsd -Altr"
 else
@@ -43,7 +44,7 @@ else
 end
 
 if type -q vivid
-    set -gx LS_COLORS (vivid generate solarized-dark)
+    set -gx LS_COLORS (vivid generate ~/.config/vivid/solarized-dark.yml)
 end
 
 ### alias abbr ###

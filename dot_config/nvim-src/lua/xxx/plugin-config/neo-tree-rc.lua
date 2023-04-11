@@ -423,7 +423,8 @@ M.opts = {
       symlink_target = function(config, node)
         if node.is_link then
           return {
-            text = string.format(' 󰜴 %s', node.link_to),
+            -- 󰜴
+            text = string.format(' %s %s', icons.ui.ChevronTripleRight, node.link_to),
             highlight = config.highlight,
           }
         else

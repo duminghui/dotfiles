@@ -33,6 +33,7 @@ function M.setup()
   -- Color.new("blue", "#268bd2")
   -- Color.new("cyan", "#2aa198")
   -- Color.new("green", "#719e07")
+  Color.new('green', '#859900')
 
   Group.new('Normal', colors.base1, colors.none, styles.none)
   Group.new('CursorLine', colors.none, colors.base02, styles.none, colors.base01)
