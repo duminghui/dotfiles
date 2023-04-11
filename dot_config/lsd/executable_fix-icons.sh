@@ -167,7 +167,7 @@ extension_icon(){
 }
 
 name_icon 'work' '󰃖'
-name_icon 'tmux' '󰕮'
+name_icon 'tmux' '󰡃'
 name_icon 'parallels' '󰜨'
 name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'

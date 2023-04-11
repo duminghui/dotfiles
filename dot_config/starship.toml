@@ -60,7 +60,7 @@ format = '\[[$user]($style)\]'
 
 [hostname]
 ssh_only = true
-ssh_symbol = "🌐"
+ssh_symbol = "󰖟 "
 style = "green dimmed bold"
 
 [localip]

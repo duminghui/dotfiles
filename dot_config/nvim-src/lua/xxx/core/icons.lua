@@ -34,9 +34,9 @@ return {
     Property = '', -- 󰄻
     -- Reference = "",
     -- Reference = "",
-    Reference = '󰈇',
-    Snippet = '󰃐',
-    String = '󰉿',
+    Reference = '󱞬', -- 󰈇
+    Snippet = '󰌲', -- 󰃐
+    String = '󱀍', -- 󰉿
     -- Struct = "",
     -- Struct = "",
     Struct = '󰙅',
@@ -46,7 +46,7 @@ return {
     Value = '',
     -- Variable = "",
     -- Variable = "",
-    -- Variable = '󰀫',
+    -- Variable = '󰀫',󰫧
     Variable = '󰫧',
   },
   git = {
