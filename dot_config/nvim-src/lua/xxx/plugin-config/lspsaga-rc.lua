@@ -17,10 +17,11 @@ M.opts = {
   finder = {
     --percentage
     max_height = 0.5,
+    min_width = 30,
     force_max_height = false, --force window height to max_height
     keys = {
       jump_to = 'p', -- finder peek window
-      edit = { 'o', '<CR>' },
+      expand_or_jump = 'o',
       vsplit = 's',
       split = 'i',
       tabe = 't',
@@ -65,6 +66,11 @@ M.opts = {
   -- Pressing K once to run :Lspsaga hover_doc
   -- Pressing K again to enter the hover window
   -- Pressing q to quit
+  hover = {
+    max_width = 0.6,
+    open_link = 'gx',
+    open_browser = '!chrome',
+  },
 
   -- :Lspsaga diagnostic_jump_next
   -- <C-w>w to enter the floating window
@@ -74,20 +80,22 @@ M.opts = {
     on_insert = false, -- true it works like the emacs helix show diagnostic in right but in line
     on_insert_follow = true, -- ture whill follow current line. false will on top right
     insert_winblend = Xvim.winblend, -- default is 0, whne it's to 100 whill completely transparent. the color whill changed a little light. 0 will use the NormalFloat group. it will link to Normal by Lspsaga
-    show_virt_line = true, -- show a line when using diagnostic
     show_code_action = true,
     show_source = true,
     jump_num_shortcut = true,
     --1 is max
     max_width = 0.7, -- max width for diagnostic jump window. percentage
-    custom_fix = nil,
-    custom_msg = nil,
-    text_hl_follow = false, -- true that can define DiagnosticText to custom the diagnotic text color
+    max_height = 0.6,
+    max_show_width = 0.9,
+    max_show_height = 0.6,
+    text_hl_follow = true, -- true that can define DiagnosticText to custom the diagnotic text color
     border_follow = true, -- the border highlight will follow the diagnostic type, if false it will use the highlight DiagnosticBorder
+    extend_relatedInformation = false,
     keys = {
       exec_action = 'o',
       quit = 'q',
-      go_action = 'g', -- quickly jump to line where actions need to be taken in the diagnostics floating
+      expand_or_jump = '<CR>',
+      quit_in_show = { 'q', '<ESC>' },
     },
   },
 
@@ -111,14 +119,14 @@ M.opts = {
     win_position = 'right',
     win_with = '',
     win_width = 30,
+    preview_width = 0.4,
     show_detail = true,
     auto_preview = true,
     auto_refresh = true,
     auto_close = true,
     custom_sort = nil,
     keys = {
-      jump = 'o',
-      expand_collapse = 'u',
+      expand_or_jump = 'o',
       quit = 'q',
     },
   },
@@ -161,13 +169,10 @@ M.opts = {
   -- :Lspsage UI
   ui = {
     -- This option only works in Neovim 0.9
-    title = true,
+    title = false,
     -- Border type can be single, double, rounded, solid, shadow.
     border = 'single',
     winblend = Xvim.winblend,
-    colors = {
-      normal_bg = '#002b36',
-    },
     expand = icons.ui.ChevronShortRight, --'',
     collapse = icons.ui.ChevronShortDown, --'',
     code_action = '💡',

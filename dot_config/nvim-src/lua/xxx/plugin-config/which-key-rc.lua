@@ -184,8 +184,8 @@ M.n_mappings = {
     -- config in lsp/config.lua
     r = { '<cmd>Trouble lsp_references<CR>', 'References' },
     -- f = { require("xxx.lsp.utils").format, "Format" }, -- set in lsp/keymapping.lua
-    j = { vim.diagnostic.goto_next, 'Next Diagnostic' },
-    k = { vim.diagnostic.goto_prev, 'Prev Diagnostic' },
+    n = { vim.diagnostic.goto_next, 'Next Diagnostic' },
+    p = { vim.diagnostic.goto_prev, 'Prev Diagnostic' },
     L = { vim.lsp.codelens.run, 'CodeLens Action' },
     q = { vim.diagnostic.setloclist, 'Quickfix' },
     -- r = { vim.lsp.buf.rename, "Rename" },
