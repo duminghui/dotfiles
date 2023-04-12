@@ -92,6 +92,7 @@ function M.setup()
     -- purple = "#d55fde",
     purple = colors.purple:to_rgb(),
     darkgold = darkgold:to_rgb(),
+    bg = colors.base03:to_rgb(),
     bufferline = {
       text = colors.base00:to_rgb(),
       text_selected = colors.base1:to_rgb(),

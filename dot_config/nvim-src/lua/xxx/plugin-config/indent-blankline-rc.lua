@@ -13,33 +13,12 @@ M.opts = {
     'IndentBlanklineIndent6',
   },
   show_trailing_blankline_indent = false,
-  show_first_indent_level = false,
+  show_first_indent_level = true,
   use_treesitter = true,
   use_treesitter_scope = false,
   show_current_context = true,
   show_current_context_start = false,
   filetype_exclude = require('xxx.config.exclude-filetypes').indent_blankline,
-  -- filetype_exclude = {
-  --     "lspinfo",
-  --     "packer",
-  --     "checkhealth",
-  --     "help",
-  --     "man",
-  --     "",
-  --     "alpha",
-  --     "dashboard",
-  --     "gitcommit",
-  --     "mason",
-  --     "neo-tree",
-  --     "NvimTree",
-  --     "Startify",
-  --     "TelescopePrompt",
-  --     "TelescopeResults",
-  --     "terminal",
-  --     "Trouble",
-  --     "undotree",
-  --     "OverseerForm",
-  -- },
   buftype_exclude = {
     'terminal',
     'nofile',
@@ -55,11 +34,16 @@ local function set_highlight()
   -- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
   -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
-  local colors = require('xxx.core.colors').rainbow()
+  local colors = require('xxx.core.colors')
+
+  local rb_colors = colors.rainbow()
+
+  local bg = colors.universal().bg
 
   for i = 1, 6 do
     local c_key = string.format('c%s', i)
-    vim.cmd(string.format('highlight IndentBlanklineIndent%s guifg=%s gui=nocombine', i, colors[c_key]))
+    local color = colors.compositeColors(0x4D, rb_colors[c_key], bg)
+    vim.cmd(string.format('highlight IndentBlanklineIndent%s guifg=%s gui=nocombine', i, color))
   end
 
   vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])
