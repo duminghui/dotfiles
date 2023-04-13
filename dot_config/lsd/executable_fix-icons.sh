@@ -8,6 +8,10 @@ cp icons-org.yaml icons.yaml
 gsed -i -r \
     -e 's|^ +([a-z0-9._\-]+):.+[\/ ]+(.)$|  \1: \2|g' \
     -e 's|^ +\("([A-Za-z0-9._+-]+)".+[\/ ]+"(.)"$|  \1: \2|g' \
+    -e 's|symlink_dir|symlink-dir|g' \
+    -e 's|symlink_file|symlink-file|g' \
+    -e 's|device_char|device-char|g' \
+    -e 's|device_block|device-block|g' \
     -e 's|||g' \
     -e 's|歷|󰒍|g' \
     -e 's||󰝨|g' \

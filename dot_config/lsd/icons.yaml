@@ -505,9 +505,9 @@ filetype:
   pipe: 󰈲
   socket: 󰆨
   executable: 
-  symlink_dir: 󱧮
-  symlink_file: 󰪹
-  device_char: 
-  device_block: 󰜫
+  symlink-dir: 󱧮
+  symlink-file: 󰪹
+  device-char: 
+  device-block: 󰜫
   special: 󰜗
 
