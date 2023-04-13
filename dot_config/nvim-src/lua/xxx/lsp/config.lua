@@ -56,7 +56,7 @@ local diagnostic_float = {
   header = '',
   prefix = '',
   format = function(d)
-    local code = d.code or (d.user_data and d.user_data.lsp.code)
+    local code = d.code or (d.user_data and d.user_data.lsp and d.user_data.lsp.code)
     if code then
       return string.format('%s [%s]', d.message, code):gsub('1. ', '')
     end
@@ -65,6 +65,7 @@ local diagnostic_float = {
 }
 
 local icons = require('xxx.core.icons')
+local builtins = require('null-ls').builtins
 
 local options = {
   templates_dir = join_paths(vim.fn.stdpath('data'), 'site', 'after', 'ftplugin'),
@@ -127,8 +128,12 @@ local options = {
   null_ls = {
     setup = {
       sources = {
-        require('null-ls').builtins.formatting.stylua,
-        require('null-ls').builtins.formatting.prettier,
+        builtins.formatting.stylua,
+        builtins.formatting.prettier,
+        -- builtins.code_actions.eslint_d,
+        builtins.diagnostics.eslint_d,
+        builtins.formatting.eslint_d,
+
         -- require("null-ls").builtins.formatting.rustfmt.with {
         -- 不起作用
         --   generator_opts = {
