@@ -1,8 +1,16 @@
 alias 2_alcatraz_store='cd ~/Library/Application\ Support/Alcatraz/Plug-ins'
 alias 2_xcodeplugins_store='cd ~/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins'
-alias lll="ls -AlhT"
-alias ll="ls -rtAlhT"
-alias ls='ls -G'
+
+if type lsd &>/dev/null; then
+    alias ls='lsd -L'
+    alias ll="lsd -ltr"
+    alias lla="lsd -Altr"
+else
+    alias ls='ls -G'
+    alias ll="ls -lhTrt"
+    alias lla="ls -AlhTrt"
+fi
+
 alias bbinstall='brew bundle --global -v'
 alias bbdump='brew bundle --global -v -f dump'
 alias bbclean='brew bundle --global -v cleanup'
