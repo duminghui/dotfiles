@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # unset config_files
 
 
-if type lsd &>/dev/null; then
+if type starship &>/dev/null; then
     eval "$(starship init zsh)"
 fi
+

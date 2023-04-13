@@ -15,11 +15,15 @@ set -gx HOMEBREW_NO_INSTALL_CLEANUP true
 set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
 set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
 set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-## for old maxos brew
+## for old maxos version
 set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
 # brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.ustc.edu.cn/homebrew-cask.git
 
-test -x /opt/homebrew/bin/brew; and eval "$(/opt/homebrew/bin/brew shellenv)"
+if test -x /opt/homebrew/bin/brew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else if test -x brew
+    eval "$(brew shellenv)"
+end
 
 ### rust ####
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static

@@ -1,16 +1,6 @@
 #-------------------------
 #zsh custom
 #-------------------------------------
-#brew安装zsh-completions
-# zsh-completions
-if type brew &>/dev/null; then
-    [[ -s "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
-        bindkey '^f' autosuggest-accept
-
-    FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
-    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
 
 # 在vi normal mode下显示<<<
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
@@ -55,8 +45,8 @@ setopt AUTO_MENU
 #开启此选项，补全时会直接选中菜单项
 #setopt MENU_COMPLETE
 
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 
 #自动补全缓存
 #zstyle ':completion::complete:*' use-cache on
@@ -208,3 +198,14 @@ manc() {
     LESS_TERMCAP_us=$'\E[1;33m' \
     man "$@"
 }
+
+#brew安装zsh-completions
+# zsh-completions
+if type brew &>/dev/null; then
+    [[ -s "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+        ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=246'
+        bindkey '^f' autosuggest-accept
+
+    FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
