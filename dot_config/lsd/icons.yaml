@@ -214,6 +214,7 @@ name:
 # 284 items
 extension:
   jks: 󰿃
+  org: 
   1: 󰂺
   2: 󰂺
   3: 󰂺
@@ -499,6 +500,7 @@ extension:
   zsh: 
   zst: 󰗄
 
+# 10 items
 filetype:
   dir: 󰝰
   file: 󰈔
@@ -510,4 +512,3 @@ filetype:
   device-char: 
   device-block: 󰜫
   special: 󰜗
-
