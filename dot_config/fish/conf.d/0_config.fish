@@ -15,7 +15,9 @@ set -gx HOMEBREW_NO_INSTALL_CLEANUP true
 set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
 set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
 set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-# set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
+## for old maxos brew
+set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
+# brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.ustc.edu.cn/homebrew-cask.git
 
 test -x /opt/homebrew/bin/brew; and eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -43,7 +45,6 @@ if type -q brew; and test -d (brew --prefix)/opt/go/libexec
     set -gx GOROOT (brew --prefix)/opt/go/libexec
     set -gx GOPATH $HOME/go
     set -gx GO111MODULE on
-    # export PATH="$GOPATH/bin:$PATH"
     set -gx PATH $GOPATH/bin $PATH
 end
 
