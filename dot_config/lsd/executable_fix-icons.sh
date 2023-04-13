@@ -1,9 +1,13 @@
 #!/bin/sh
 #
+# https://github.com/lsd-rs/lsd/blob/master/src/theme/icon.rs
 # 󰅱 md-code_not_equal_variant
 
+cp icons-org.yaml icons.yaml
+
 gsed -i -r \
-    -e 's|^ {1,}\("(.*)",.*\)[, //]+"(.)"$|  \1: \2|g' \
+    -e 's|^ +([a-z0-9._\-]+):.+[\/ ]+(.)$|  \1: \2|g' \
+    -e 's|^ +\("([A-Za-z0-9._+-]+)".+[\/ ]+"(.)"$|  \1: \2|g' \
     -e 's|||g' \
     -e 's|歷|󰒍|g' \
     -e 's||󰝨|g' \
@@ -61,7 +65,7 @@ gsed -i -r \
     -e 's||󰫏|g' \
     -e 's||󰴭|g' \
     -e 's||󰟬|g' \
-    -e 's||󱞬|g' \
+    -e 's||󱇴|g' \
     -e 's|||g' \
     -e 's||󰩹|g' \
     -e 's||󰛦|g' \
@@ -137,7 +141,14 @@ gsed -i -r \
     -e 's|||g' \
     -e 's|﵂|󰹭|g' \
     -e 's||󰈹|g' \
-    -e 's|||g' \
+    -e 's||󰝰|g' \
+    -e 's||󰈔|g' \
+    -e 's||󰈲|g' \
+    -e 's||󰆨|g' \
+    -e 's||󱧮|g' \
+    -e 's||󰪹|g' \
+    -e 's|||g' \
+    -e 's||󰜗|g' \
     icons.yaml
 
 icon_manage() {
@@ -173,7 +184,7 @@ name_icon 'npmrc' '󰛷'
 name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'
 name_icon 'gradle' ''
-name_icon 'fish' '󰈺'
+name_icon 'fish' '󱢺'
 name_icon 'config' '󰒓'
 name_icon '"applications \(parallels\)"' '󰜨'
 name_icon 'android' '󰀲'
@@ -192,8 +203,5 @@ extension_icon 'jpg' '󰈥'
 extension_icon 'jpeg' '󰈥'
 extension_icon 'jks' '󰿃'
 extension_icon 'gradle' ''
-extension_icon 'fish' '󰈺'
-
-
-# 添加新行命令添加到指令最后
+extension_icon 'fish' '󱢺'
 

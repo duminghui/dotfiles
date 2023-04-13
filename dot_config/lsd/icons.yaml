@@ -1,8 +1,6 @@
 # use name has bug
-
 # 191 items
 name:
-  npmrc: 󰛷
   .android: 󰀲
   .cache: 󰃨
   .condarc: 󰌠
@@ -14,9 +12,10 @@ name:
   .zshenv: 
   android: 󰀲
   "applications (parallels)": 󰜨
-  fish: 󰈺
+  fish: 󱢺
   library: 󰁰
   movies: 󰎁
+  npmrc: 󰛷
   parallels: 󰜨
   tmux: 󰡃
   work: 󰃖
@@ -169,7 +168,7 @@ name:
   scripts: 
   scss: 󰟬
   shadow: 󰒓
-  share: 󱞬
+  share: 󱇴
   .shellcheckrc: 󰒓
   shells: 󰒓
   .sqlite_history: 
@@ -297,7 +296,7 @@ extension:
   exe: 󰖳
   exs: 
   ex: 
-  fish: 󰈺
+  fish: 󱢺
   flac: 󰮥
   flv: 󰈰
   font: 󰛖
@@ -504,10 +503,11 @@ filetype:
   dir: 󰝰
   file: 󰈔
   pipe: 󰈲
-  socket: 󰾳
+  socket: 󰆨
   executable: 
-  symlink-dir: 󱧮
-  symlink-file: 󰪹
-  device-char: 
-  device-block: 󰜫
+  symlink_dir: 󱧮
+  symlink_file: 󰪹
+  device_char: 
+  device_block: 󰜫
   special: 󰜗
+
