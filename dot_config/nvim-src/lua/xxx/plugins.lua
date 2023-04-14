@@ -28,11 +28,12 @@ local plugins = {
   },
   { 'Tastyep/structlog.nvim', lazy = true },
   { 'nvim-lua/plenary.nvim', lazy = true },
-  {
-    -- Automatically detects which indents should be used in the current buffer
-    'tpope/vim-sleuth',
-    event = 'BufEnter',
-  },
+  -- {
+  --   -- use .editorconfig
+  --   -- Automatically detects which indents should be used in the current buffer
+  --   'tpope/vim-sleuth',
+  --   event = 'BufEnter',
+  -- },
   -- Icons
   {
     -- 'nvim-tree/nvim-web-devicons',

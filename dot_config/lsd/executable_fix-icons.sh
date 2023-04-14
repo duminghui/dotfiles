@@ -156,29 +156,29 @@ gsed -i -r \
     icons.yaml
 
 icon_manage() {
-  local rStart=$1 rEnd=$2 key=$3 icon=$4
-  if [ -z "$rStart" -o -z "$rEnd" -o -z "$key" -o -z "$icon" ]; then
-    echo "[Error] '$rStart', '$rEnd', '$key', '$icon'"
+  local parent=$1 key=$2 icon=$3
+  if [ -z "$parent" -o -z "$key" -o -z "$icon" ]; then
+    echo "[Error] '$parent', '$key', '$icon'"
     return
   fi
-  local range="/^$rStart:\$/,/^$rEnd:\$"
+  local range="/^$parent:\$/,/^\$"
   if [ -n "$(gsed -nr "$range/{/^ +$key: $icon\$/p}" icons.yaml)" ]; then
     return
   elif [ -n "$(gsed -nr "$range/{/ +$key:/p}" icons.yaml)" ]; then
     gsed -i -r "$range/{s|^ +$key: .*\$|  $key: $icon|g}" icons.yaml
-    echo "[]$rStart: '$key: $icon'"
+    echo "[]$parent: '$key: $icon'"
   else
-    gsed -i -r "/^$rStart:\$/a \ \ $key: $icon" icons.yaml
-    echo "[󰐕]$rStart: '$key: $icon'"
+    gsed -i -r "/^$parent:\$/a \ \ $key: $icon" icons.yaml
+    echo "[󰐕]$parent: '$key: $icon'"
   fi
 }
 
 name_icon(){
-  icon_manage 'name' 'extension' "$1" "$2"
+  icon_manage 'name' "$1" "$2"
 }
 
 extension_icon(){
-  icon_manage 'extension' 'filetype' "$1" "$2"
+  icon_manage 'extension' "$1" "$2"
 }
 
 name_icon 'work' '󰃖'
@@ -189,6 +189,7 @@ name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'
 name_icon 'gradle' ''
 name_icon 'fish' '󱢺'
+name_icon '.editorconfig' ''
 name_icon 'config' '󰒓'
 name_icon '"applications \(parallels\)"' '󰜨'
 name_icon 'android' '󰀲'
@@ -209,4 +210,5 @@ extension_icon 'jpeg' '󰈥'
 extension_icon 'jks' '󰿃'
 extension_icon 'gradle' ''
 extension_icon 'fish' '󱢺'
+extension_icon 'editorconfig' ''
 

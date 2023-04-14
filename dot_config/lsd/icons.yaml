@@ -62,7 +62,7 @@ name:
   .doom.d: 
   downloads: 󱧨
   .ds_store: 󰀵
-  .editorconfig: 󰒓
+  .editorconfig: 
   .emacs.d: 
   .env: 󰙪
   .eslintrc.json: 󰙪
@@ -283,7 +283,7 @@ extension:
   ebook: 󰗚
   ebuild: 󰣨
   eclass: 󰣨
-  editorconfig: 󰒓
+  editorconfig: 
   ejs: 󰅴
   elc: 󰅲
   elf: 
