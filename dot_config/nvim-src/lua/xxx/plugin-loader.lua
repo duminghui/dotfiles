@@ -41,13 +41,23 @@ function plugin_loader.load(configurations)
 
   local status_ok = xpcall(function()
     local opts = {
+      root = plugins_dir,
+      defaults = {
+        lazy = false,
+        version = nil,
+      },
+      lockfile = join_paths(vim.fn.stdpath('data'), 'lazy-lock.json'),
+      concurrency = 20,
+      git = {
+        timeout = 120,
+      },
       install = {
         missing = true,
         colorscheme = { 'tokyonight', 'habamax' },
       },
       ui = {
         size = { width = 0.8, height = 0.7 },
-        border = 'rounded',
+        border = 'single',
         icons = {
           cmd = ' ',
           config = '󰒓',
@@ -71,20 +81,13 @@ function plugin_loader.load(configurations)
             '󰍴',
           },
         },
+        throttle = 20,
       },
-      root = plugins_dir,
-      git = {
-        timeout = 120,
-      },
-      lockfile = join_paths(vim.fn.stdpath('data'), 'lazy-lock.json'),
       performance = {
         rtp = {
+          -- 这个如果设置成true, 'folke/neodev.nvim' 这个就加载不到rtp中, lsp diagnostic 不会提示.
           reset = false,
         },
-      },
-      defaults = {
-        lazy = false,
-        version = nil,
       },
       readme = {
         root = join_paths(vim.fn.stdpath('state'), 'lazy', 'readme'),
