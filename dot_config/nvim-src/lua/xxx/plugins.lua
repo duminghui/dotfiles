@@ -39,7 +39,7 @@ local plugins = {
     -- 'nvim-tree/nvim-web-devicons',
     'duminghui/nvim-web-devicons',
     config = function()
-      require('xxx.plugin-config.web-devicons-rc').setup()
+      require('xxx.plugin-config.nvim-web-devicons-rc').setup()
     end,
     lazy = true,
   },
