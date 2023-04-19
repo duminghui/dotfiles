@@ -9,8 +9,8 @@ local skipped_servers = {
   'docker_compose_language_service',
   'ember',
   'emmet_ls',
-  'eslint',
-  'eslintls',
+  -- 'eslint',
+  -- 'eslintls',
   'glint',
   'gopls',
   'golangci_lint_ls',
@@ -131,8 +131,8 @@ local options = {
         builtins.formatting.stylua,
         builtins.formatting.prettier,
         -- builtins.code_actions.eslint_d,
-        builtins.diagnostics.eslint_d,
-        builtins.formatting.eslint_d,
+        -- builtins.diagnostics.eslint_d,
+        -- builtins.formatting.eslint_d,
 
         -- require("null-ls").builtins.formatting.rustfmt.with {
         -- 不起作用

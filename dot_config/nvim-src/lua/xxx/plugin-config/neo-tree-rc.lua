@@ -58,11 +58,11 @@ M.opts = {
     statusline = false, -- toggle to show selector on statusline
     show_scrolled_off_parent_node = false, -- this will replace the tabs with the parent path
     -- of the top visible node when scrolled down.
-    tab_labels = { -- falls back to source_name if nil
-      filesystem = ' ' .. icons.ui.Files .. ' Files ',
-      buffers = ' ' .. icons.ui.TextMultiple .. ' Buffers ',
-      git_status = ' 󰊢 Git ',
-      diagnostics = ' 󰒡 Diagnostics ',
+    sources = {
+      { source = 'filesystem', display_name = ' ' .. icons.ui.Files .. ' Files ' },
+      { source = 'buffers', display_name = ' ' .. icons.ui.TextMultiple .. ' Buffers ' },
+      { source = 'git_status', display_name = ' 󰊢 Git ' },
+      { source = 'diagnostics', display_name = ' 󰒡 Diagnostics ' },
     },
     content_layout = 'center', -- only with `tabs_layout` = "equal", "focus"
     --                start  : |/ 裡 bufname     \/...
