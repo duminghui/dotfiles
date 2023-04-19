@@ -50,10 +50,28 @@ local function highlights()
       fg = text_fg, -- text color
       bg = tag_bg,
     },
+    tab = {
+      fg = text_fg,
+      bg = tag_bg,
+    },
+    tab_selected = {
+      fg = colors.darkgold,
+      bold = true,
+    },
+    tab_close = {
+      fg = colors.red,
+    },
     buffer_visible = {},
     buffer_selected = {
       fg = text_selected,
       bold = true,
+    },
+    tab_separator = {
+      fg = tag_fg,
+      bg = tag_bg,
+    },
+    tab_separator_selected = {
+      fg = tag_fg,
     },
   }
 
@@ -136,8 +154,8 @@ M.opts = {
     left_mouse_command = 'buffer %d', -- can be a string | function, see "Mouse actions"
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     -- indicator = {
-    --     icon = '▎', -- this should be omitted if indicator style is not 'icon'
-    --     style = 'underline', -- can also be 'underline'|'none',
+    --   icon = '▎', -- this should be omitted if indicator style is not 'icon'
+    --   style = 'underline', -- can also be 'underline'|'none',
     -- },
     -- indicator = "",
     buffer_close_icon = icons.ui.Close,
