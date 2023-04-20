@@ -136,6 +136,7 @@ return {
     File = '󰈔', -- nf-md-file
     FileSymlink = '󰪹', -- nf-md-file-link_outline
     Files = '󰈢', -- nf-md-file_multiple
+    Filter = '󰈲',
     FindFile = '󰈞', -- nf-md-file_find
     FindText = '󰊄', -- nf-md-format_text
     Fire = '',

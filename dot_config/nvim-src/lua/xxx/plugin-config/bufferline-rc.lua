@@ -1,5 +1,6 @@
 -- local navic = require('nvim-navic')
 local icons = require('xxx.core.icons')
+local colors = require('xxx.core.colors').universal()
 
 local M = {}
 
@@ -12,7 +13,6 @@ local function fix_highlight(name, fg, bg)
 end
 
 local function highlights()
-  local colors = require('xxx.core.colors').universal()
   local tag_fg = colors.bufferline.tag_fg
   local tag_bg = colors.bufferline.tag_bg
   local text_fg = colors.bufferline.text
@@ -94,10 +94,6 @@ local function highlights()
   return hl
 end
 
-local function is_ft(b, ft)
-  return vim.bo[b].filetype == ft
-end
-
 -- local function diagnostics_indicator(num, _, diagnostics, _)
 local function diagnostics_indicator(_, _, diagnostics, _)
   local result = {}
@@ -121,21 +117,66 @@ local function diagnostics_indicator(_, _, diagnostics, _)
   return #result > 0 and table.concat(result, ' ') or ''
 end
 
-local function custom_filter(buf, buf_nums)
-  local logs = vim.tbl_filter(function(b)
-    return is_ft(b, 'log')
-  end, buf_nums)
-  if vim.tbl_isempty(logs) then
-    return true
+-- local function is_ft(b, ft)
+--   return vim.bo[b].filetype == ft
+-- end
+
+-- local function custom_filter(buf, buf_nums)
+--   local is_log = is_ft(buf, 'log')
+--   local logs = vim.tbl_filter(function(b)
+--     return is_ft(b, 'log')
+--   end, buf_nums)
+--   if vim.tbl_isempty(logs) then
+--     return true
+--   end
+--   local tab_num = vim.fn.tabpagenr()
+--   local last_tab = vim.fn.tabpagenr('$')
+--   if last_tab == 1 then
+--     return true
+--   end
+--   -- only show log buffers in secondary tabs
+--   return (tab_num == last_tab and is_log) or (tab_num ~= last_tab and not is_log)
+-- end
+
+local function custom_filter(bufnr)
+  -- if the result is false, this buffer will be shown, otherwise, this
+  -- buffer will be hidden.
+
+  -- filter out filetypes you don't want to see
+  local exclude_ft = { 'qf', 'fugitive', 'git', 'dirvish' }
+  local cur_ft = vim.bo[bufnr].filetype
+  local should_show = not vim.tbl_contains(exclude_ft, cur_ft)
+
+  if vim.t.bufferline_tab_filter_enabled and not vim.tbl_contains(vim.fn.tabpagebuflist(), bufnr) then
+    should_show = should_show and vim.t.bufferline_show_buffers and vim.t.bufferline_show_buffers[tostring(bufnr)]
   end
-  local tab_num = vim.fn.tabpagenr()
-  local last_tab = vim.fn.tabpagenr('$')
-  local is_log = is_ft(buf, 'log')
-  if last_tab == 1 then
-    return true
+
+  return should_show
+end
+
+function M.tab_filter_buf_toggle()
+  vim.t.bufferline_tab_filter_enabled = not vim.t.bufferline_tab_filter_enabled
+  vim.cmd([[redraw!]])
+end
+
+function M.tab_filter_buf_add()
+  local new_value = vim.t.bufferline_show_buffers or {}
+  new_value[tostring(vim.fn.bufnr())] = true
+  vim.t.bufferline_show_buffers = new_value
+  vim.cmd([[redraw!]])
+end
+
+function M.tab_filter_buf_remove()
+  if vim.t.bufferline_show_buffers ~= nil then
+    local new_value = vim.t.bufferline_show_buffers
+    new_value[tostring(vim.fn.bufnr())] = nil
+    if next(new_value) == nil then
+      vim.t.bufferline_show_buffers = nil
+    else
+      vim.t.bufferline_show_buffers = new_value
+    end
+    vim.cmd([[redraw!]])
   end
-  -- only show log buffers in secondary tabs
-  return (tab_num == last_tab and is_log) or (tab_num ~= last_tab and not is_log)
 end
 
 M.opts = {
@@ -155,7 +196,7 @@ M.opts = {
     middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
     -- indicator = {
     --   icon = '▎', -- this should be omitted if indicator style is not 'icon'
-    --   style = 'underline', -- can also be 'underline'|'none',
+    --   style = 'icon', -- 'icon' | 'underline' | 'none',
     -- },
     -- indicator = "",
     buffer_close_icon = icons.ui.Close,
@@ -238,6 +279,15 @@ M.opts = {
       enabled = true, -- requires nvim 0.8+
       delay = 200,
       reveal = { 'close' },
+    },
+    custom_areas = {
+      right = function()
+        local result = {}
+        if vim.t.bufferline_tab_filter_enabled then
+          table.insert(result, { text = icons.ui.Filter .. ' ', fg = colors.cyan })
+        end
+        return result
+      end,
     },
   },
   highlights = highlights(),

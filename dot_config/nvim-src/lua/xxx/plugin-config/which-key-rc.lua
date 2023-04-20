@@ -233,19 +233,39 @@ M.n_mappings = {
     d = { '<cmd>SessionManager delete_session<CR>', 'Delete Session' },
   },
   t = {
-    name = 'Trouble',
+    name = 'Trouble & Tab page',
     t = { '<cmd>TroubleToggle<CR>', 'TroubleToggle' },
     -- +lsp
     w = { '<cmd>Trouble workspace_diagnostics<CR>', 'Workspace Diagnostics' },
     x = { '<cmd>Trouble document_diagnostics<CR>', 'Buffer Diagnostics' },
     --  lsp/config.lua: gr
-    r = { '<cmd>Trouble lsp_references<CR>', 'References' },
+    -- r = { '<cmd>Trouble lsp_references<CR>', 'References' },
     -- use lsp's gd, not use this
     d = { '<cmd>Trouble lsp_definitions<CR>', 'Definitions' },
     D = { '<cmd>Trouble lsp_type_definitions<CR>', 'Type Definitions' },
     q = { '<cmd>Trouble quickfix<CR>', 'Quickfix' },
     l = { '<cmd>Trouble loclist<CR>', 'Loclist' },
     i = { '<cmd>Trouble lsp_implmentations<CR>', 'Implementations' },
+
+    c = { ':tabclose<CR>', 'Close current tab page' },
+    f = {
+      function()
+        require('xxx.plugin-config.bufferline-rc').tab_filter_buf_toggle()
+      end,
+      'Tag filter buffer toggle',
+    },
+    a = {
+      function()
+        require('xxx.plugin-config.bufferline-rc').tab_filter_buf_add()
+      end,
+      'show current buffer in current tab page',
+    },
+    r = {
+      function()
+        require('xxx.plugin-config.bufferline-rc').tab_filter_buf_remove()
+      end,
+      'hidden current buffer in current tab page',
+    },
   },
   T = {
     name = 'Treesitter',
