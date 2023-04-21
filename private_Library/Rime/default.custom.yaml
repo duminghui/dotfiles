@@ -16,6 +16,6 @@ patch:
   ascii_composer/switch_key/Control_R: noop
   ascii_composer/switch_key/Caps_Lock: noop
   schema_list:
-    - schema: wubi86
     - schema: wubi_pinyin
+    - schema: wubi86
     - schema: wubi_trad

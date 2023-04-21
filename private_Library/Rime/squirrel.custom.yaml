@@ -1,0 +1,28 @@
+patch:
+  # style/color_scheme: apathy
+  # style/color_scheme: aqua
+  # style/color_scheme: azure
+  # style/color_scheme: clean_white
+  # style/color_scheme: dark_temple
+  # style/color_scheme: dust
+  # style/color_scheme: google
+  # style/color_scheme: ink
+  style/color_scheme: lost_temple
+  # style/color_scheme: luna
+  # style/color_scheme: mojave_dark
+  # style/color_scheme: native
+  # style/color_scheme: psionics
+  # style/color_scheme: purity_of_essence
+  # style/color_scheme: purity_of_form
+  # style/color_scheme: solarized_dark
+  # style/color_scheme: solarized_light
+  # style/color_scheme: solarized_rock
+  # style/color_scheme: starcraft
+  # 以下三项会影禹到输入框的高度
+  style/border_height: 3
+  style/border_width: 7
+  style/corner_radius: 2
+  style/comment_font_point: 13
+  style/font_point: 17
+  style/label_font_point: 13
+  style/horizontal: true
