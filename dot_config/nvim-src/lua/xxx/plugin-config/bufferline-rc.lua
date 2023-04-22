@@ -263,9 +263,11 @@ M.opts = {
       },
     },
     color_icons = true, -- whether or not to add the filetype icon highlights
+    get_element_icon = function(buf)
+      return require('nvim-web-devicons').get_icon(buf.path, buf.extension, { default = false })
+    end,
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
-    show_buffer_default_icon = true, -- whether or not an unrecognised filetype should show a default icon
     show_close_icon = false,
     show_tab_indicators = true,
     show_duplicate_prefix = true, -- whether to show duplicate buffer prefix
