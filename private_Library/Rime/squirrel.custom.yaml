@@ -18,7 +18,7 @@ patch:
   # style/color_scheme: solarized_light
   # style/color_scheme: solarized_rock
   # style/color_scheme: starcraft
-  # 以下三项会影禹到输入框的高度
+  # 以下三项会影响到输入框的高度
   style/border_height: 3
   style/border_width: 7
   style/corner_radius: 2
