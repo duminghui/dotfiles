@@ -291,6 +291,11 @@ M.opts = {
         return result
       end,
     },
+    groups = {
+      items = {
+        require('bufferline.groups').builtin.pinned:with { icon = '󰐃' },
+      },
+    },
   },
   highlights = highlights(),
 }
