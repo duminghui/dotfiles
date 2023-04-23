@@ -48,8 +48,6 @@ else
   local plugins = require('xxx.vscode.plugins')
   plugin_loader.load { plugins }
 
-  -- 不显竖的光标所在行
-  vim.opt.cursorcolumn = false
   require('xxx.vscode').setup()
 end
 

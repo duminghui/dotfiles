@@ -1,5 +1,13 @@
 local plugins = {
   { 'folke/lazy.nvim', tag = 'stable' },
+  {
+    'laishulu/vim-macos-ime',
+    cond = vim.loop.os_uname().sysname == 'Darwin',
+    config = function()
+      require('xxx.plugin-config.vim-macos-ime-rc').setup()
+    end,
+    event = { 'InsertEnter', 'InsertLeave' },
+  },
   { 'Tastyep/structlog.nvim', lazy = true },
   {
     'phaazon/hop.nvim',
