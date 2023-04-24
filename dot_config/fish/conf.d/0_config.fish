@@ -32,7 +32,7 @@ set -gx CARGO_HTTP_MULTIPLEXING false
 set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
 set -gx SCCACHE_CACHE_SIZE "3G"
 
-set -gx PATH ~/.cargo/bin $PATH
+set -gx PATH $HOME/.cargo/bin $PATH
 
 ### tmuxinator ###
 type -q nvim; and set -gx EDITOR nvim
@@ -62,19 +62,21 @@ end
 set -gx JAVA_HOME /Library/Java/Home
 test -d $JAVA_HOME/bin; and set -gx PATH $JAVA_HOME/bin $PATH
 
-set -gx ANDROID_HOME ~/Library/Android/sdk
-test -d $ANDROID_HOME; and set -gx PATH $ANDROID_HOME/tools $ANDROID_HOME/platform-tools $PATH
-set -gx NDK_HOME $ANDROID_HOME/ndk-bundle
-set -gx ANDROID_NDK $NDK_HOME
-set -gx ANDROID_NDK_HOME $NDK_HOME
-set -gx NDK $ANDROID_NDK_HOME
-test -d $NDK_HOME; and set -gx PATH $NDK_HOME $PATH
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
+if test -d $ANDROID_HOME
+    set -gx PATH $ANDROID_HOME/tools $ANDROID_HOME/platform-tools $PATH
+    set -gx NDK_HOME $ANDROID_HOME/ndk-bundle
+    set -gx ANDROID_NDK $NDK_HOME
+    set -gx ANDROID_NDK_HOME $NDK_HOME
+    set -gx NDK $ANDROID_NDK_HOME
+    test -d $NDK_HOME; and set -gx PATH $NDK_HOME $PATH
+end
 
 ### flutter ###
 set -gx PUB_HOSTED_URL https://pub.flutter-io.cn
-set -gx PUB_CACHE ~$XDG_CACHE_HOME/pub-cache
+set -gx PUB_CACHE $XDG_CACHE_HOME/pub-cache
 set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
-test -d ~/Library/flutter/bin; and set -gx PATH ~/Library/flutter/bin $PATH
+test -d $HOME/Library/flutter/bin; and set -gx PATH $HOME/Library/flutter/bin $PATH
 
 ### nodejs ###
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npmrc

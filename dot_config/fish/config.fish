@@ -44,7 +44,7 @@ else
 end
 
 if type -q vivid
-    set -gx LS_COLORS (vivid generate ~/.config/vivid/solarized-dark.yml)
+    set -gx LS_COLORS (vivid generate $XDG_CONFIG_HOME/vivid/solarized-dark.yml)
 end
 
 ### alias abbr ###
