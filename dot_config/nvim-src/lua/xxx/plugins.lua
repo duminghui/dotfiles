@@ -3,7 +3,7 @@ local plugins = {
 
   {
     'laishulu/vim-macos-ime',
-    cond = vim.loop.os_uname().sysname == 'Darwin',
+    cond = vim.loop.os_uname().sysname == 'Darwin' and vim.fn.executable('macism'),
     config = function()
       require('xxx.plugin-config.vim-macos-ime-rc').setup()
     end,
