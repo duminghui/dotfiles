@@ -449,7 +449,7 @@ M.opts = {
     },
   },
   buffers = {
-    bind_to_cwd = true,
+    bind_to_cwd = false,
     follow_current_file = true, -- This will find and focus the file in the active buffer every time
     -- the current file is changed while the tree is open.
     group_empty_dirs = true, -- when true, empty directories will be grouped together
