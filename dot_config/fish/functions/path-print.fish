@@ -1,4 +1,4 @@
-function print-path
+function path-print
     for v in $PATH
         echo $v
     end

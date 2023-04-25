@@ -47,15 +47,14 @@ end
 ### golang ###
 if type -q brew; and test -d (brew --prefix)/opt/go/libexec
     set -gx GOROOT (brew --prefix)/opt/go/libexec
-    set -gx GOPATH $HOME/go
-    set -gx GO111MODULE on
-    set -gx PATH $GOPATH/bin $PATH
+    set -gx GOPATH $XDG_DATA_HOME/go
+    test -d $GOPATH/bin; and set -gx PATH $GOPATH/bin $PATH
 end
 
 ### gradle ###
 if type -q brew; and test -d (brew --prefix)/opt/gradle
     set -gx GRADLE_HOME (brew --prefix)/opt/gradle
-    set -gx PATH $GRADLE_HOME/bin $PATH
+    # set -gx PATH $GRADLE_HOME/bin $PATH
 end
 
 ### android ###
