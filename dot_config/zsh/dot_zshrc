@@ -112,3 +112,6 @@ if type starship &>/dev/null; then
     eval "$(starship init zsh)"
 fi
 
+if type vivid &>/dev/null; then
+    export LS_COLORS=$(vivid generate ~/.config/vivid/solarized-dark.yml)
+fi

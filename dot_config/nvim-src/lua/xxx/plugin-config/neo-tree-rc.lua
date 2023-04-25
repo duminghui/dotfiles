@@ -2,6 +2,8 @@ local icons = require('xxx.core.icons')
 
 local M = {}
 
+-- https://github.com/nvim-neo-tree/neo-tree.nvim/blob/v2.x/lua/neo-tree/defaults.lua
+--
 M.opts = {
   -- If a user has a sources list it will replace this one.
   -- Only sources listed here will be loaded.
@@ -20,6 +22,7 @@ M.opts = {
   enable_diagnostics = true,
   enable_git_status = true,
   enable_modified_markers = true, -- Show markers for files with unsaved changes.
+  enable_opened_markers = true, -- Enable tracking of opened files. Required for `components.name.highlight_opened_files`
   enable_refresh_on_write = true, -- Refresh the tree when a file is written. Only used if `use_libuv_file_watcher` is false.
   git_status_async = true,
   -- These options are for people with VERY large git repos
@@ -166,6 +169,10 @@ M.opts = {
     },
     name = {
       trailing_slash = false,
+      highlight_opened_files = true, -- Requires `enable_opened_markers = true`.
+      -- Take values in { false (no highlight), true (only loaded),
+      -- "all" (both loaded and unloaded)}. For more information,
+      -- see the `show_unloaded` config of the `buffers` source.
       use_git_status_colors = true,
       highlight = 'NeoTreeFileName',
     },
@@ -245,6 +252,7 @@ M.opts = {
     },
   },
   nesting_rules = {},
+  commands = {},
   window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
     -- possible options. These can also be functions that return these options.
     position = 'left', -- left, right, top, bottom, float, current
@@ -331,13 +339,20 @@ M.opts = {
         ['[g'] = 'prev_git_modified',
         [']g'] = 'next_git_modified',
       },
+      fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+        ['<down>'] = 'move_cursor_down',
+        ['<C-n>'] = 'move_cursor_down',
+        ['<up>'] = 'move_cursor_up',
+        ['<C-p>'] = 'move_cursor_up',
+      },
     },
+    commands = {},
     async_directory_scan = 'auto', -- "auto"   means refreshes are async, but it's synchronous when called from the Neotree commands.
     -- "always" means directory scans are always async.
     -- "never"  means directory scans are never async.
     scan_mode = 'shallow', -- "shallow": Don't scan into directories to detect possible empty directory a priori
     -- "deep": Scan into directories to detect empty or grouped empty directories a priori.
-    bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+    bind_to_cwd = false, -- true creates a 2-way binding between vim's cwd and neo-tree's root
     cwd_target = {
       sidebar = 'tab', -- sidebar is when position = left or right
       current = 'window', -- current is when position = current
@@ -438,6 +453,8 @@ M.opts = {
     follow_current_file = true, -- This will find and focus the file in the active buffer every time
     -- the current file is changed while the tree is open.
     group_empty_dirs = true, -- when true, empty directories will be grouped together
+    show_unloaded = false, -- When working with sessions, for example, restored but unfocused buffers
+    -- are mark as "unloaded". Turn this on to view these unloaded buffer.
     window = {
       mappings = {
         ['<bs>'] = 'navigate_up',

@@ -78,6 +78,13 @@ set -gx PUB_CACHE $HOME/.pub-cache
 set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
 test -d $HOME/Library/flutter/bin; and set -gx PATH $HOME/Library/flutter/bin $PATH
 
+### ruby
+if type -q brew; and test -d (brew --prefix)/opt/ruby/bin
+    set -gx PATH (brew --prefix)/opt/ruby/bin $PATH
+end
+set -gx GEM_HOME $XDG_DATA_HOME/gem
+test -d $GEM_HOME/bin; and set -gx PATH $GEM_HOME/bin $PATH
+
 ### nodejs ###
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npmrc
 set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm

@@ -1,4 +1,5 @@
 #### .fish scripts in ~/.config/fish/conf.d/ are also automatically executed before config.fish.
+### conf.d/*fish -> functions/*.fish -> config.fish
 if status is-login
 end
 if status is-interactive
