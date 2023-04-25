@@ -1,8 +1,8 @@
 -- https://github.com/sumneko/lua-language-server/wiki/Settings
 local default_workspace = {
   library = {
-    vim.fn.expand "$VIMRUNTIME",
-    require("neodev.config").types(),
+    vim.fn.expand('$VIMRUNTIME'),
+    require('neodev.config').types(),
   },
   -- too big
   -- Make the server aware of Neovim runtime files
@@ -15,7 +15,7 @@ local default_workspace = {
 
 local function add_packages_to_workspace(packages, config)
   -- config.settings.Lua = config.settings.Lua or { workspace = default_workspace }
-  local runtimedirs = vim.api.nvim__get_runtime({ "lua" }, true, { is_lua = true }) or {}
+  local runtimedirs = vim.api.nvim__get_runtime({ 'lua' }, true, { is_lua = true }) or {}
   local workspace = config.settings.Lua.workspace
   for _, v in pairs(runtimedirs) do
     for _, pack in ipairs(packages) do
@@ -26,20 +26,20 @@ local function add_packages_to_workspace(packages, config)
   end
 end
 
-local lspconfig = require "lspconfig"
+local lspconfig = require('lspconfig')
 
 local function make_on_new_config(on_new_config, _)
   return lspconfig.util.add_hook_before(on_new_config, function(new_config, _)
     local server_name = new_config.name
-    if server_name ~= "lua_ls" then
+    if server_name ~= 'lua_ls' then
       return
     end
-    local plugins = { "plenary.nvim", "telescope.nvim", "nvim-treesitter", "LuaSnip" }
+    local plugins = { 'plenary.nvim', 'telescope.nvim', 'nvim-treesitter', 'LuaSnip', 'null-ls' }
     add_packages_to_workspace(plugins, new_config)
   end)
 end
 
-lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+lspconfig.util.default_config = vim.tbl_extend('force', lspconfig.util.default_config, {
   on_new_config = make_on_new_config(lspconfig.util.default_config.on_new_config),
 })
 
@@ -50,7 +50,7 @@ local opts = {
   commands = {
     XXXCmd = {
       function()
-        print "this is XXX Cmd in sumneko_lua.lua, client.config.commands"
+        print('this is XXX Cmd in sumneko_lua.lua, client.config.commands')
       end,
     },
   },
@@ -58,13 +58,13 @@ local opts = {
     Lua = {
       telemetry = { enable = false },
       runtime = {
-        version = "LuaJIT",
+        version = 'LuaJIT',
         special = {
-          reload = "require",
+          reload = 'require',
         },
       },
       diagnostics = {
-        globals = { "vim", "packer_plugins" },
+        globals = { 'vim', 'packer_plugins' },
       },
       workspace = default_workspace,
     },
