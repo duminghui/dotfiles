@@ -264,7 +264,8 @@ M.opts = {
     },
     color_icons = true, -- whether or not to add the filetype icon highlights
     get_element_icon = function(buf)
-      return require('nvim-web-devicons').get_icon(buf.path, buf.extension, { default = false })
+      local file_name = vim.fn.fnamemodify(buf.path, ':t')
+      return require('nvim-web-devicons').get_icon(file_name, buf.extension, { default = true })
     end,
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,

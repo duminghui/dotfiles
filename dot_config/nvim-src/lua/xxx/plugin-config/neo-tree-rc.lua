@@ -169,7 +169,7 @@ M.opts = {
     },
     name = {
       trailing_slash = false,
-      highlight_opened_files = true, -- Requires `enable_opened_markers = true`.
+      highlight_opened_files = false, -- Requires `enable_opened_markers = true`.
       -- Take values in { false (no highlight), true (only loaded),
       -- "all" (both loaded and unloaded)}. For more information,
       -- see the `show_unloaded` config of the `buffers` source.
@@ -338,6 +338,7 @@ M.opts = {
         ['.'] = 'set_root',
         ['[g'] = 'prev_git_modified',
         [']g'] = 'next_git_modified',
+        ['i'] = 'print_node_info',
       },
       fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
         ['<down>'] = 'move_cursor_down',
@@ -346,7 +347,12 @@ M.opts = {
         ['<C-p>'] = 'move_cursor_up',
       },
     },
-    commands = {},
+    commands = {
+      print_node_info = function(state)
+        local node = state.tree:get_node()
+        print(vim.inspect(node))
+      end,
+    },
     async_directory_scan = 'auto', -- "auto"   means refreshes are async, but it's synchronous when called from the Neotree commands.
     -- "always" means directory scans are always async.
     -- "never"  means directory scans are never async.
