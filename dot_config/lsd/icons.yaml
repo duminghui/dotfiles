@@ -4,11 +4,16 @@ name:
   .android: 󰀲
   .cache: 󰃨
   .condarc: 󰌠
+  .dart: 
+  .dartserver: 
   .docker: 󰡨
   .gradle: 
   .localized: 󰀵
   .m2: 
+  .pub-cache: 
   .yarnrc.yml: 
+  vite.config.ts: 󰉁
+  vitest.config.ts: 󰉁
   .zshenv: 
   android: 󰀲
   "applications (parallels)": 󰜨
@@ -18,6 +23,7 @@ name:
   npmrc: 󰛷
   parallels: 󰜨
   tmux: 󰡃
+  tmuxinator: 󰡃
   work: 󰃖
   a.out: 
   api: 󰒍
@@ -211,7 +217,7 @@ name:
   .zsh_history: 󰒓
   .zshrc: 
 
-# 284 items
+# 285 items
 extension:
   jks: 󰿃
   org: 
@@ -475,7 +481,7 @@ extension:
   video: 󰈰
   vim: 
   vlc: 󰐑
-  vue: 󰡄
+  vue: 󰹭
   wav: 󰮥
   webm: 󰈰
   webp: 󰈟
@@ -500,6 +506,7 @@ extension:
   zsh-theme: 
   zsh: 
   zst: 󰗄
+
 
 # 10 items
 filetype:

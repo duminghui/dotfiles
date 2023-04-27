@@ -13,10 +13,8 @@ gsed -i -r \
     -e 's|device_char|device-char|g' \
     -e 's|device_block|device-block|g' \
     -e 's|||g' \
-    -e 's|歷|󰒍|g' \
     -e 's||󰝨|g' \
     -e 's||󰿃|g' \
-    -e 's||󰁯|g' \
     -e 's||󱁿|g' \
     -e 's||󰌠|g' \
     -e 's||󰒓|g' \
@@ -43,14 +41,12 @@ gsed -i -r \
     -e 's|||g' \
     -e 's|||g' \
     -e 's||󰋜|g' \
-    -e 's||󰀂|g' \
     -e 's||󰌠|g' \
     -e 's||󰈟|g' \
     -e 's||󰌞|g' \
     -e 's||󰗀|g' \
-    -e 's||󰗰|g' \
+    -e 's|󰇰|󰗰|g' \
     -e 's||󰐣|g' \
-    -e 's|פּ|󰙅|g' \
     -e 's||󰱾|g' \
     -e 's|||g' \
     -e 's||󰋋|g' \
@@ -62,10 +58,9 @@ gsed -i -r \
     -e 's|||g' \
     -e 's||󰏜|g' \
     -e 's||󰣇|g' \
-    -e 's|||g' \
+    -e 's|󰆍||g' \
     -e 's||󰀄|g' \
-    -e 's||󰌠|g' \
-    -e 's|ﮧ|󱚝|g' \
+    -e 's|󰚩|󱚝|g' \
     -e 's||󰫏|g' \
     -e 's||󰴭|g' \
     -e 's||󰟬|g' \
@@ -76,7 +71,6 @@ gsed -i -r \
     -e 's||󰇧|g' \
     -e 's||󰕧|g' \
     -e 's||󰨞|g' \
-    -e 's|ﰩ|󰜫|g' \
     -e 's||󰗄|g' \
     -e 's|||g' \
     -e 's||󰮥|g' \
@@ -84,16 +78,13 @@ gsed -i -r \
     -e 's||󰈰|g' \
     -e 's||󰅩|g' \
     -e 's||󰖳|g' \
-    -e 's|蘿|󰐑|g' \
     -e 's||󰙲|g' \
     -e 's||󰬷|g' \
     -e 's|||g' \
     -e 's|||g' \
     -e 's|||g' \
-    -e 's||󰅲|g' \
     -e 's||󰅶|g' \
     -e 's||󰁥|g' \
-    -e 's||󰌛|g' \
     -e 's||󰈛|g' \
     -e 's||󰙱|g' \
     -e 's|||g' \
@@ -129,27 +120,22 @@ gsed -i -r \
     -e 's||󰣖|g' \
     -e 's||󱄅|g' \
     -e 's||󰈦|g' \
-    -e 's||󰌆|g' \
     -e 's||󰀵|g' \
     -e 's|||g' \
     -e 's|||g' \
-    -e 's|ﳒ|󰟔|g' \
     -e 's|||g' \
     -e 's||󰌌|g' \
-    -e 's|鉶|󰗆|g' \
     -e 's||󰑬|g' \
     -e 's||󰈙|g' \
     -e 's|||g' \
     -e 's||󰬚|g' \
     -e 's||󰛥|g' \
     -e 's|||g' \
-    -e 's|﵂|󰹭|g' \
+    -e 's|󰡄|󰹭|g' \
     -e 's||󰈹|g' \
     -e 's|||g' \
     -e 's||󰝰|g' \
     -e 's||󰈔|g' \
-    -e 's||󰈲|g' \
-    -e 's||󰆨|g' \
     -e 's||󱧮|g' \
     -e 's||󰪹|g' \
     -e 's|||g' \
@@ -183,6 +169,7 @@ extension_icon(){
 }
 
 name_icon 'work' '󰃖'
+name_icon 'tmuxinator' '󰡃'
 name_icon 'tmux' '󰡃'
 name_icon 'parallels' '󰜨'
 name_icon 'npmrc' '󰛷'
@@ -195,11 +182,16 @@ name_icon 'config' '󰒓'
 name_icon '"applications \(parallels\)"' '󰜨'
 name_icon 'android' '󰀲'
 name_icon '\.zshenv' ''
+name_icon 'vitest\.config\.ts' '󰉁'
+name_icon 'vite\.config\.ts' '󰉁'
 name_icon '\.yarnrc.yml' ''
+name_icon '\.pub-cache' ''
 name_icon '\.m2' ''
 name_icon '\.localized' '󰀵'
 name_icon '\.gradle' ''
 name_icon '\.docker' '󰡨'
+name_icon '\.dartserver' ''
+name_icon '\.dart' ''
 name_icon '\.condarc' '󰌠'
 name_icon '\.cache' '󰃨'
 name_icon '\.android' '󰀲'
