@@ -528,6 +528,7 @@ function M.setup()
   Group.link('NeoTreeFileIcon', groups.Normal)
   Group.new('NeoTreeFileNameOpened', groups.Normal, nil, styles.bold)
   Group.new('NeoTreeSymbolicLinkTarget', colors.cyan)
+  Group.new('NeoTreeModified', colors.darkgold)
 
   vim.cmd([[
     highlight! link NeoTreeTabInactive BufferLineBackground
