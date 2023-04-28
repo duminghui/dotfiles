@@ -26,13 +26,16 @@ else if test -x brew
 end
 
 ### rust ####
+set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+# set -gx CARGO_HOME $HOME/.cargo
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
 set -gx CARGO_HTTP_MULTIPLEXING false
 set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
 set -gx SCCACHE_CACHE_SIZE "3G"
 
-set -gx PATH $HOME/.cargo/bin $PATH
+set -gx PATH $CARGO_HOME/bin $PATH
 
 ### tmuxinator ###
 type -q nvim; and set -gx EDITOR nvim
@@ -47,9 +50,9 @@ end
 ### golang ###
 if type -q brew; and test -d (brew --prefix)/opt/go/libexec
     set -gx GOROOT (brew --prefix)/opt/go/libexec
-    set -gx GOPATH $XDG_DATA_HOME/go
-    test -d $GOPATH/bin; and set -gx PATH $GOPATH/bin $PATH
 end
+set -gx GOPATH $XDG_DATA_HOME/go
+test -d $GOPATH/bin; and set -gx PATH $GOPATH/bin $PATH
 
 ### gradle ###
 if type -q brew; and test -d (brew --prefix)/opt/gradle
@@ -91,3 +94,13 @@ set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm
 set -gx NVM_DIR $XDG_DATA_HOME/nvm
 set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node/
 
+# pnpm
+set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+# pnpm end

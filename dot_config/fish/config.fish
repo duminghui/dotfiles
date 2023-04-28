@@ -17,8 +17,8 @@ set fish_cursor_replace_one underscore blink
 # visual mode, but due to fish_cursor_default, is redundant here
 set fish_cursor_visual underscore blink
 
-# set fish_color_autosuggestion brgreen
-set fish_color_autosuggestion 586e75 brblack #brgreen
+set fish_color_autosuggestion brgreen brblack
+# set fish_color_autosuggestion 586e75 brblack #brgreen
 
 ### starship ###
 if type -q starship
@@ -53,15 +53,4 @@ abbr -a proxy-on export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.
 abbr -a proxy-off set -e https_proxy http_proxy all_proxy
 abbr -a ipinfo curl cip.cc
 
-
-# pnpm
-set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
-# pnpm end
 

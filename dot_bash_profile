@@ -27,4 +27,4 @@ export PATH="$(brew --prefix)/bin:$PATH"
 
 source ~/.profile
 
-. "$HOME/.cargo/env"
+. "$HOME/.local/share/cargo/env"
