@@ -36,7 +36,9 @@ registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
 registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 
 [build]
+{{- if lookPath "sccache" }}
 rustc-wrapper = "sccache"
+{{- end }}
 
 [http]
 multiplexing = false
