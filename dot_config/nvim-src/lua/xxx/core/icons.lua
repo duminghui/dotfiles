@@ -10,7 +10,6 @@ return {
     Property = '󰖷', -- 󰄻
     Field = '', -- 
     Constructor = '󰆦', -- 󰆧
-    -- Enum = "練",
     Enum = '',
     Interface = '',
     Function = '󰡱', -- 󰊕 ƒ
@@ -57,7 +56,6 @@ return {
     BoldLineRemove = '󰍵', -- 
     LineRemoved = '󰛲', -- 
     Octoface = '', --eb27
-    -- Octoface = "", --f406
     FileDeleted = '󰛲', -- 
     FileIgnored = '󰿠', --   󱋯
     -- FileIgnored = "",
@@ -71,9 +69,9 @@ return {
   },
   diagnostics = {
     BoldError = '󰅙', -- 
-    Error = '󰅚', -- 
+    Error = '󰅚', --
     BoldWarning = '󰀦', --  
-    Warning = '󰀪', --  
+    Warning = '󰀪', -- 
     BoldInformation = '󰋼',
     Information = '󰋽',
     BoleQuestion = '󰮥', --  󰋗
@@ -198,6 +196,6 @@ return {
     Watch = '',
     Smiley = '󰞅',
     Package = '󰆦',
-    CircuitBoard = '󱤓', -- 
+    CircuitBoard = '󱤓',
   },
 }

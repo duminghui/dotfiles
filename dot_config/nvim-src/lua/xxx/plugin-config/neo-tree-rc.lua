@@ -188,9 +188,9 @@ M.opts = {
         modified = icons.git.LineModified, -- 
         renamed = icons.git.FileRenamed, -- 
         -- Status type
-        untracked = icons.git.FileUntracked, -- 
+        untracked = icons.git.FileUntracked,
         ignored = icons.git.FileIgnored,
-        unstaged = icons.git.FileUnstaged, -- 
+        unstaged = icons.git.FileUnstaged,
         staged = icons.git.FileStaged, -- 
         conflict = icons.git.FileUnmerged, -- 
       },
