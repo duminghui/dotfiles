@@ -11,6 +11,16 @@ M.opts = {
     'IndentBlanklineIndent4',
     'IndentBlanklineIndent5',
     'IndentBlanklineIndent6',
+    'IndentBlanklineIndent7',
+  },
+  context_highlight_list = {
+    'IndentBlanklineContextChar1',
+    'IndentBlanklineContextChar2',
+    'IndentBlanklineContextChar3',
+    'IndentBlanklineContextChar4',
+    'IndentBlanklineContextChar5',
+    'IndentBlanklineContextChar6',
+    'IndentBlanklineContextChar7',
   },
   show_trailing_blankline_indent = false,
   show_first_indent_level = true,
@@ -40,10 +50,12 @@ local function set_highlight()
 
   local bg = colors.universal().bg
 
-  for i = 1, 6 do
+  for i = 1, 7 do
     local c_key = string.format('c%s', i)
-    local color = colors.compositeColors(0x4D, rb_colors[c_key], bg)
+    local color_org = rb_colors[c_key]
+    local color = colors.compositeColors(0x4D, color_org, bg)
     vim.cmd(string.format('highlight IndentBlanklineIndent%s guifg=%s gui=nocombine', i, color))
+    vim.cmd(string.format('highlight IndentBlanklineContextChar%s guifg=%s gui=nocombine', i, color_org))
   end
 
   vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])
