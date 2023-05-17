@@ -54,3 +54,10 @@ abbr -a proxy-off set -e https_proxy http_proxy all_proxy
 abbr -a ipinfo curl cip.cc
 
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init fish' !!
+if test -f /Users/dumh/.local/share/miniconda3/bin/conda
+    eval /Users/dumh/.local/share/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+
