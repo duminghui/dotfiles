@@ -86,7 +86,12 @@ function plugin_loader.load(configurations)
       performance = {
         rtp = {
           -- 这个如果设置成true, 'folke/neodev.nvim' 这个就加载不到rtp中, lsp diagnostic 不会提示.
-          reset = false,
+          -- 但是在false的情况下, lua treesitter 会出错, 可能和插件的加载顺序有关, false时,neovim本身的路径在前面
+          reset = true,
+          paths = {
+            -- 解决不自动加载lsp使用的ftplugin
+            join_paths(vim.fn.stdpath('data'), 'site', 'after'),
+          },
         },
       },
       readme = {

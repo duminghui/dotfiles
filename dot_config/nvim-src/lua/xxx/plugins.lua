@@ -265,7 +265,7 @@ local plugins = {
       { 'saadparwaiz1/cmp_luasnip' },
     },
     event = { 'InsertEnter', 'CmdlineEnter' },
-    enabled = Xvim.use_lsp,
+    enabled = Xvim.lsp.enable,
   },
 
   {
@@ -278,7 +278,7 @@ local plugins = {
       'rafamadriz/friendly-snippets',
     },
     event = 'InsertEnter',
-    enabled = Xvim.use_lsp,
+    enabled = Xvim.lsp.enable,
   },
   {
     -- vim functions for dev
@@ -535,7 +535,7 @@ local plugins = {
       require('xxx.plugin-config.coc-rc').setup()
     end,
     event = { 'InsertEnter', 'CmdlineEnter' },
-    enabled = not Xvim.use_lsp,
+    enabled = not Xvim.lsp.enable,
   },
 }
 return plugins

@@ -1,8 +1,8 @@
 local Log = require('xxx.core.log')
 
 -- 全局
-require('xxx.config.config')
 require('xxx.core.globals')
+require('xxx.config.config')
 
 -- if vim.fn.has('win32') ~= 0 then
 --   -- $XDG_DATA_HOME会影响rtp, 主要影响nvim-data的路径
@@ -41,7 +41,7 @@ if not vim.g.vscode then
   local plugins = require('xxx.plugins')
   plugin_loader.load { plugins }
   -- --Lsp配置
-  if Xvim.use_lsp then
+  if Xvim.lsp.enable then
     require('xxx.lsp').setup()
   end
 else

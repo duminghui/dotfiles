@@ -182,7 +182,7 @@ function M.setup()
 
   local configs = require('nvim-treesitter.configs')
   -- 这个一定要放在setup前面
-  -- vim.opt.rpt:append(M.opts.parser_install_dir)
+  -- vim.opt.rtp:append(M.opts.parser_install_dir)
   vim.opt.rtp:prepend(M.opts.parser_install_dir) -- treesitter needs to be before nvim's runtime in rtp
 
   -- 在其他方再运行configs.setup() 会影响到自定义安装路径

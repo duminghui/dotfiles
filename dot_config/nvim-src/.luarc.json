@@ -1,4 +1,12 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-  "diagnostics.disable": ["missing-parameter"]
+  "diagnostics.disable": ["missing-parameter"],
+    "workspace.library": [
+        "/opt/homebrew/Cellar/neovim/0.9.0/share/nvim/runtime",
+        "/Users/dumh/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/Users/dumh/.local/share/nvim/lazy/LuaSnip/lua",
+        "/Users/dumh/.local/share/nvim/lazy/plenary.nvim/lua",
+        "/Users/dumh/.local/share/nvim/lazy/telescope.nvim/lua",
+        "/Users/dumh/.local/share/nvim/mason/packages/lua-language-server/libexec/meta/6c69a061"
+    ]
 }

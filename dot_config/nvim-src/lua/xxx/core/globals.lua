@@ -9,7 +9,7 @@ function _G.safe_require(module, opts)
   -- print("require:", module)
   if not ok and not opts.silent then
     vim.schedule(function()
-      vim.notify(result, vim.log.levels.ERROR, { title = string.format("Error requiring: %s", module) })
+      vim.notify(result, vim.log.levels.ERROR, { title = string.format('Error requiring: %s', module) })
     end)
   end
   return ok, result
@@ -26,7 +26,7 @@ function _G.find_pattern_match(tbl, val)
 end
 
 local uv = vim.loop
-local path_sep = uv.os_uname().version:match "Windows" and "\\" or "/"
+local path_sep = uv.os_uname().version:match('Windows') and '\\' or '/'
 ---Join path segments that were passed as input
 ---@return string
 function _G.join_paths(...)
