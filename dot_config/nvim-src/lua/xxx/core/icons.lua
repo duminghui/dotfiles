@@ -172,8 +172,9 @@ return {
     -- SessionOut = "󰘼",
     SignIn = '󰍂',
     SignOut = '󰍃',
-    SquareMedium = '', -- nf-md-square_medium
-    SquareSmall = '󰨓',
+    Square = '󰝤',
+    SquareMedium = '󰨓', -- nf-md-square_medium
+    SquareSmall = '󰨕',
     SquareCheck = '󰄲',
     Space = '•',
     Tab = '󰌒',

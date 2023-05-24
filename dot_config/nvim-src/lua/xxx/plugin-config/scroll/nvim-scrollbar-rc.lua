@@ -10,7 +10,7 @@ M.opts = {
   },
   marks = {
     Cursor = {
-      text = icons.ui.SquareSmall,
+      text = icons.ui.SquareMedium,
       priority = 0,
       color = '#FFD700',
       cterm = nil,

@@ -82,7 +82,7 @@ local options = {
       },
     },
     virtual_text = {
-      prefix = icons.ui.SquareMedium,
+      -- prefix = icons.ui.Square,
       -- spacing = 12,
     },
     -- true: cmp's ghost_text show bug
