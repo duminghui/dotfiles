@@ -1,6 +1,8 @@
+local Rule = require('nvim-autopairs.rule')
+local cond = require('nvim-autopairs.conds')
 local M = {}
 
-local disable_filetype = require 'xxx.config.exclude-filetypes'
+local disable_filetype = require('xxx.config.exclude-filetypes')
 
 M.opts = {
   active = true,
@@ -51,8 +53,22 @@ M.opts = {
   },
 }
 
+local function quote_creator(opt)
+  local quote = function(...)
+    local move_func = opt.enable_moveright and cond.move_right or cond.none
+    local rule = Rule(...):with_move(move_func()):with_pair(cond.not_add_quote_inside_quote())
+
+    if #opt.ignored_next_char > 1 then
+      rule:with_pair(cond.not_after_regex(opt.ignored_next_char))
+    end
+    rule:use_undo(opt.break_undo)
+    return rule
+  end
+  return quote
+end
+
 function M.setup()
-  local autopairs = require 'nvim-autopairs'
+  local autopairs = require('nvim-autopairs')
 
   autopairs.setup(M.opts)
 
@@ -60,18 +76,23 @@ function M.setup()
 
   -- TODO: can these rules be safely added from "config.lua" ?
   -- press % => %% is only inside comment or string
-  -- local Rule = require "nvim-autopairs.rule"
-
   -- autopairs.add_rules {
   --     Rule("%", "%", "lua"):with_pair(ts_conds.is_ts_node { "string", "comment" }),
   --     Rule("$", "$", "lua"):with_pair(ts_conds.is_not_ts_node { "function" }),
   -- }
 
+  autopairs.remove_rule("'")
+  local quote = quote_creator(M.opts)
+  autopairs.add_rules {
+    quote("'", "'", '-rust'):with_pair(cond.not_before_regex('%w')):with_pair(cond.not_filetypes { 'lisp' }),
+    quote("'", "'", 'rust'):with_pair(cond.not_before_regex('[%w<&]')):with_pair(cond.not_after_text('>')),
+  }
+
   pcall(function()
     local function on_confirm_done(...)
       require('nvim-autopairs.completion.cmp').on_confirm_done()(...)
     end
-    require 'nvim-autopairs.completion.cmp'
+    require('nvim-autopairs.completion.cmp')
     require('cmp').event:off('confirm_done', on_confirm_done)
     require('cmp').event:on('confirm_done', on_confirm_done)
   end)
