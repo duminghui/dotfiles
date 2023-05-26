@@ -10,15 +10,9 @@ function M.opts()
 
   return {
     defaults = {
-      -- prompt_prefix = " ",
-      prompt_prefix = ' ' .. icons.ui.Search .. ' ',
-      -- selection_caret = " ",
-      selection_caret = icons.ui.ArrowRight .. ' ',
-      entry_prefix = '  ',
-      initial_mode = 'insert',
-      selection_strategy = 'reset',
-      -- sorting_strategy = 'ascending',
       sorting_strategy = 'descending',
+      selection_strategy = 'reset',
+      scroll_stragegy = 'cycle',
       layout_strategy = 'horizontal',
       layout_config = {
         width = 0.7,
@@ -32,20 +26,23 @@ function M.opts()
           end,
           mirror = false,
         },
-        vertical = { mirror = false },
+        vertical = {
+          mirror = false,
+        },
       },
-      vimgrep_arguments = {
-        'rg',
-        '--color=never',
-        '--no-heading',
-        '--with-filename',
-        '--line-number',
-        '--column',
-        '--smart-case',
-        '--trim',
-        '--hidden',
-        '--glob=!.git/',
-      },
+      cycle_layout_list = { 'horizontal', 'vertical' },
+      winblend = Xvim.winblend, -- 透明模式下设为0
+      wrap_results = true,
+      -- prompt_prefix = " ",
+      prompt_prefix = ' ' .. icons.ui.Search .. ' ',
+      -- selection_caret = " ",
+      selection_caret = icons.ui.ArrowRight .. ' ',
+      entry_prefix = '  ',
+      multi_icon = '+',
+      initial_mode = 'insert',
+      border = true,
+      path_display = { 'absolute' },
+      borderchars = nil,
       ---@usage Mappings are fully customizable. Many familiar mapping patterns are setup as defaults.
       mappings = {
         i = {
@@ -69,23 +66,32 @@ function M.opts()
           end,
         },
       },
-      file_ignore_patterns = {},
-      path_display = { 'smart' },
-      winblend = Xvim.winblend, -- 透明模式下设为0
-      border = {},
-      borderchars = nil,
-      color_devicons = true,
-      set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-      file_previewer = previewers.vim_buffer_cat.new,
-      grep_previewer = previewers.vim_buffer_vimgrep.new,
-      qflist_previewer = previewers.vim_buffer_qflist.new,
-      file_sorter = sorters.get_fuzzy_file,
-      generic_sorter = sorters.get_generic_fuzzy_sorter,
       -- nvim-telescope/telescope-smart-history.nvim (No UI), use in dialog input history
       history = {
         path = join_paths(vim.fn.stdpath('data'), 'telescope_history.sqlite3'),
         limit = 133,
       },
+      vimgrep_arguments = {
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+        '--trim',
+        '--hidden',
+        '--glob=!.git/',
+      },
+      set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
+      color_devicons = true,
+      -- 下面两个sorter会被extensions中的fzf替换掉
+      file_sorter = sorters.get_fuzzy_file,
+      generic_sorter = sorters.get_generic_fuzzy_sorter,
+      file_ignore_patterns = {},
+      file_previewer = previewers.vim_buffer_cat.new,
+      grep_previewer = previewers.vim_buffer_vimgrep.new,
+      qflist_previewer = previewers.vim_buffer_qflist.new,
     },
     pickers = {
       find_files = {
@@ -100,7 +106,8 @@ function M.opts()
           '--hidden',
           '--strip-cwd-prefix',
         },
-        sorter = sorters.get_fuzzy_file(),
+        layout_config = {},
+        -- sorter = sorters.get_fuzzy_file(), -- 会把extensions中fzf的file_sorter替换掉
       },
       live_grep = {
         --@usage don't include the filename in the search results
@@ -138,7 +145,7 @@ function M.opts()
     },
     extensions = {
       fzf = {
-        fuzzy = true, -- false will only do exact matching
+        fuzzy = false, -- false will only do exact matching
         -- this whill change defaults.generic_sorter
         override_generic_sorter = true, -- override the generic sorter
         -- this whill change defaults.file_sorter
