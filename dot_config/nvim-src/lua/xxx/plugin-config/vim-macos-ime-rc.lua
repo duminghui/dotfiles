@@ -7,6 +7,7 @@ function M.setup()
     vim.g.macosime_normal_ime = 'com.apple.keylayout.US'
   end
   vim.g.macosime_cjk_ime = 'im.rime.inputmethod.Squirrel.Hans'
+  -- vim.g.macosime_cjk_ime = 'com.apple.inputmethod.SCIM.WBX'
   vim.g.macosime_auto_detect = 0
 end
 

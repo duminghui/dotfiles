@@ -1,9 +1,12 @@
 tap "homebrew/bundle"
+tap "homebrew/services"
 tap "laishulu/macism"
 tap "neovim/neovim"
 brew "chezmoi"
+brew "cmake"
 brew "fd"
 brew "fish"
+brew "frpc", restart_service: true
 brew "git"
 brew "gnu-sed"
 brew "gnupg"
