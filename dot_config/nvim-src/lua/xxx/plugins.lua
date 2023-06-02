@@ -2,12 +2,14 @@ local plugins = {
   { 'folke/lazy.nvim', tag = 'stable' },
 
   {
+    -- 在自动进行输入法切换时会卡
     'laishulu/vim-macos-ime',
     cond = vim.loop.os_uname().sysname == 'Darwin' and vim.fn.executable('macism'),
     config = function()
       require('xxx.plugin-config.vim-macos-ime-rc').setup()
     end,
     event = { 'InsertEnter', 'InsertLeave' },
+    enabled = false,
   },
 
   {
@@ -498,7 +500,7 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.lang.go-rc').setup()
     end,
-    enabled = false,
+    enabled = true,
     ft = { 'go', 'gomod', 'gosum', 'gotmpl', 'gohtmltmpl', 'gotexttmpl' },
   },
 
