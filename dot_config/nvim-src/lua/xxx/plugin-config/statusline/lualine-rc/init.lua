@@ -7,14 +7,17 @@ local disabled_filetypes = require('xxx.config.exclude-filetypes').lualine
 M.opts = {
   extensions = {
     -- "nvim-tree",
+    'neo-tree',
     'overseer',
+    -- lazy要在globalstatus为true的情况下才会出现
+    -- 'lazy',
   },
   options = {
     theme = 'xxx',
     component_separators = ' ',
     section_separators = { left = ' ', right = '' },
     disabled_filetypes = disabled_filetypes,
-    globalstatus = true,
+    globalstatus = false,
     always_divide_middle = true,
   },
 
@@ -48,6 +51,19 @@ M.opts = {
       coms.progress,
       coms.scrollbar,
     },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  inactive_sections = {
+    lualine_a = {
+      coms.mode,
+    },
+    lualine_b = {},
+    lualine_c = {
+      coms.empty,
+      coms.filename,
+    },
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   },
