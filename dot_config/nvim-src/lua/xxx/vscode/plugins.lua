@@ -7,6 +7,7 @@ local plugins = {
       require('xxx.plugin-config.vim-macos-ime-rc').setup()
     end,
     event = { 'InsertEnter', 'InsertLeave' },
+    enabled = false,
   },
   { 'Tastyep/structlog.nvim', lazy = true },
   {

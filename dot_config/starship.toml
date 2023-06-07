@@ -151,7 +151,7 @@ symbol = " "
 style = "blue"
 
 [golang]
-format = "[$symbol($version )]($style)"
+format = "[$symbol($version )($mod_version )]($style)"
 # symbol = "🐹 "
 symbol = "󰟓 "
 style = "cyan"

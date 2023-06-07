@@ -4,6 +4,12 @@ function M.keymappings()
     noremap = true,
     silent = false,
   }
+  -- window movement
+  vim.keymap.set('n', '<C-h>', "<cmd>call VSCodeNotify('workbench.action.focusLeftGroup')<CR>", keymap_opts)
+  vim.keymap.set('n', '<C-j>', "<cmd>call VSCodeNotify('workbench.action.focusBelowGroup')<CR>", keymap_opts)
+  vim.keymap.set('n', '<C-k>', "<cmd>call VSCodeNotify('workbench.action.focusAboveGroup')<CR>", keymap_opts)
+  vim.keymap.set('n', '<C-l>', "<cmd>call VSCodeNotify('workbench.action.focusRightGroup')<CR>", keymap_opts)
+
   -- workbench.action.files.save
   vim.keymap.set('n', '<leader>w', "<cmd>call VSCodeNotify('workbench.action.files.save')<CR>", keymap_opts)
   vim.keymap.set('n', '<leader>/', '<cmd>nohl<CR>', keymap_opts)
