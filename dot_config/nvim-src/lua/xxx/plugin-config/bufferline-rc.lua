@@ -61,7 +61,11 @@ local function highlights()
     tab_close = {
       fg = colors.red,
     },
-    buffer_visible = {},
+    buffer_visible = {
+      fg = text_selected,
+      bold = true,
+      -- italic = true,
+    },
     buffer_selected = {
       fg = text_selected,
       bold = true,
