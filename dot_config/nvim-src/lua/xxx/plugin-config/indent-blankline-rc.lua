@@ -1,6 +1,8 @@
 local M = {}
 local icons = require('xxx.core.icons')
 
+local tbl = require('xxx.utils.table')
+
 M.opts = {
   char = icons.ui.LineLeft,
   context_char = icons.ui.LineLeft,
@@ -50,12 +52,15 @@ local function set_highlight()
 
   local bg = colors.universal().bg
 
-  for i = 1, 7 do
+  for i = 1, tbl.len(rb_colors) do
     local c_key = string.format('c%s', i)
     local color_org = rb_colors[c_key]
     local color = colors.compositeColors(0x4D, color_org, bg)
     vim.cmd(string.format('highlight IndentBlanklineIndent%s guifg=%s gui=nocombine', i, color))
     vim.cmd(string.format('highlight IndentBlanklineContextChar%s guifg=%s gui=nocombine', i, color_org))
+    -- vim.schedule(function()
+    -- vim.notify(string.format('%s %s %s', i, color_org, color))
+    -- end)
   end
 
   vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])

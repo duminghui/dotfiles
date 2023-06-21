@@ -93,6 +93,7 @@ local rainbow = {
   c6 = '#359FF4',
   -- c6 = "#6495ED",
   c7 = '#2aa198',
+  c8 = '#859900',
 }
 
 function M.rainbow()
