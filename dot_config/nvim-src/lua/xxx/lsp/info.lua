@@ -1,5 +1,4 @@
 local M = {}
-local Log = require('xxx.core.log')
 
 function M.print_clients_config()
   local active_clients = vim.lsp.get_active_clients()

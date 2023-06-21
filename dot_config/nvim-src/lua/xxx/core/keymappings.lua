@@ -1,7 +1,7 @@
 local M = {}
 -- local Log = require('xxx.core.log')
 
-local generic_opts_any = { noremap = true, silent = true }
+local generic_opts_any = { noremap = true, silent = false }
 local silent_opts = { noremap = true, silent = false }
 
 local generic_opts = {
