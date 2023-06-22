@@ -155,7 +155,7 @@ name:
   .pki: 󰌾
   portage: 󱁿
   profile: 󰒓
-  .profile: 
+  .profile: 󰒓
   public: 󰀄
   __pycache__: 󰌠
   .python_history: 󰌠
@@ -184,7 +184,7 @@ name:
   sudoers: 󰌾
   sxhkdrc: 󰒓
   tigrc: 󰒓
-  tox.ini: 󰌠
+  tox.ini: 󰒓
   .trash: 󰩹
   ts: 󰛦
   unlicense: 󰿃
