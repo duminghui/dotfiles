@@ -70,8 +70,8 @@ local default_others = {
     -- Resize with arrows
     ['<A-k>'] = ':resize -1<CR>',
     ['<A-j>'] = ':resize +1<CR>',
-    ['<A-h>'] = ':vertical resize +1<CR>',
-    ['<A-l>'] = ':vertical resize -1<CR>',
+    ['<A-h>'] = ':vertical resize -1<CR>',
+    ['<A-l>'] = ':vertical resize +1<CR>',
     -- Move current line / block with Alt-j/k a la vscode.
     -- ['<A-j>'] = ':m .+1<CR>==',
     -- ['<A-k>'] = ':m .-2<CR>==',
