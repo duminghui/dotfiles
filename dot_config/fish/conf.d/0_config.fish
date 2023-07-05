@@ -52,6 +52,7 @@ if type -q brew; and test -d (brew --prefix)/opt/go/libexec
     set -gx GOROOT (brew --prefix)/opt/go/libexec
 end
 set -gx GOPATH $XDG_DATA_HOME/go
+set -gx GOPROXY https://goproxy.cn,direct
 test -d $GOPATH/bin; and set -gx PATH $GOPATH/bin $PATH
 
 ### gradle ###
