@@ -195,7 +195,7 @@ M.opts = {
       ['Variable'] = { '󰀫 ', '@variable' },
       ['Constant'] = { '󰏿 ', 'Constant' },
       ['String'] = { '󰀬 ', 'String' },
-      ['Number'] = { ' ', 'Number' },
+      ['Number'] = { '󰎠 ', 'Number' },
       ['Boolean'] = { '󰔡 ', 'Boolean' },
       ['Array'] = { '󰅨 ', 'Type' },
       ['Object'] = { '󰅩 ', 'Type' },
@@ -214,7 +214,7 @@ M.opts = {
       -- -- for completion sb microsoft!!!
       ['Text'] = { '󰊄', 'String' },
       ['Snippet'] = { '󰗀 ', '@variable' },
-      ['Folder'] = { '󰝰 ', 'Title' },
+      ['Folder'] = { '󰝰 ', 'SagaWinbarFolder' },
       ['Unit'] = { '󰉺 ', 'Number' },
       ['Value'] = { '󰀫 ', '@variable' },
     },
