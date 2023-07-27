@@ -107,14 +107,16 @@ function M.load_default_options()
   vim.opt.hlsearch = true
   vim.opt.smartcase = true -- Don't ignore case with capitals
   vim.opt.ignorecase = true -- Ignore case
+
+  -- Keywords are used in searching and recognizing with many commands:
+  -- "w", "*", "[i", etc.  It is also used for "\k" in a |pattern|
   vim.opt.iskeyword:remove { '.', '#', '-' }
 
   vim.opt.showmode = true -- Do not show the mode
   vim.opt.sidescrolloff = 8 -- The minimal number of columns to keep to the left and to the right of the cursor if 'nowrap' is set **
   vim.opt.splitbelow = true -- Put new windows below current
   vim.opt.splitright = true -- Put new windows right of current
-  -- vim.opt.textwidth = 120 -- Total allowed width on the screen
-  vim.opt.timeout = true -- This option and 'timeoutlen' determine the behavior when part of a mapped key sequence has been received. This is on by default but being explicit! **
+  -- vim.opt.textwidth = 120 -- Total allowed width on the screen vim.opt.timeout = true -- This option and 'timeoutlen' determine the behavior when part of a mapped key sequence has been received. This is on by default but being explicit! **
   vim.opt.timeoutlen = 500 -- Time in milliseconds to wait for a mapped sequence to complete. **
   vim.opt.ttimeoutlen = 10 -- Time in milliseconds to wait for a key code sequence to complete **
   vim.opt.updatetime = 300 -- If in this many milliseconds nothing is typed, the swap file will be written to disk. Also used for CursorHold autocommand and set to 100 as per https://github.com/antoinemadec/FixCursorHold.nvim **

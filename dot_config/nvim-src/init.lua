@@ -27,28 +27,30 @@ require('xxx.config.config')
 -- end
 
 -- Log:set_level(Xvim.log.level)
-require('xxx.config.options').load_defaults()
 local keymappings = require('xxx.core.keymappings')
 keymappings.load_defaults()
 require('xxx.core.autocmds').load_defaults()
-require('xxx.core.commands').load_defaults()
 
 local plugin_loader = require('xxx.plugin-loader')
 plugin_loader.init()
 
 if not vim.g.vscode then
+  -- 发现有的选项会造成vscode出问题, 暂时选不加载
+  require('xxx.config.options').load_defaults()
   keymappings.load_others()
+  require('xxx.core.commands').load_defaults()
+
   local plugins = require('xxx.plugins')
   plugin_loader.load { plugins }
   -- --Lsp配置
   if Xvim.lsp.enable then
     require('xxx.lsp').setup()
   end
+  Log:info('Starting xvim')
 else
   local plugins = require('xxx.vscode.plugins')
   plugin_loader.load { plugins }
 
   require('xxx.vscode').setup()
+  Log:info('Starting xvim in vscode')
 end
-
-Log:info('Starting xvim')

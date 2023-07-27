@@ -133,7 +133,7 @@ local plugins = {
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     config = function()
       require('xxx.plugin-config.neo-tree-rc').setup()
     end,
