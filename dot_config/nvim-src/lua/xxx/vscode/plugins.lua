@@ -10,16 +10,28 @@ local plugins = {
     enabled = false,
   },
   { 'Tastyep/structlog.nvim', lazy = true },
-  {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-    config = true,
-    opts = {
-      multi_windows = false,
-    },
-    cmd = { 'HopAnywhere', 'HopChar1', 'HopChar2', 'HopWord', 'HopLineStart', 'HopLine', 'HopVertical', 'HopPattern' },
-  },
-
+  -- 在vscode中输入命令后会变得特别卡
+  -- {
+  --   'phaazon/hop.nvim',
+  --   branch = 'v2', -- optional but strongly recommended
+  --   -- config = true,
+  --   config = function()
+  --     require('xxx.plugin-config.hop-rc').setup()
+  --   end,
+  --   opts = {
+  --     multi_windows = false,
+  --   },
+  --   cmd = { 'HopAnywhere', 'HopChar1', 'HopChar2', 'HopWord', 'HopLineStart', 'HopLine', 'HopVertical', 'HopPattern' },
+  --   enabled = true,
+  -- },
+  { 'rlane/pounce.nvim', config = true },
+  -- {
+  --   'numToStr/Comment.nvim',
+  --   config = function()
+  --     require('xxx.plugin-config.comment-rc').setup()
+  --   end,
+  --   keys = { { 'gc', mode = { 'n', 'v' } }, { 'gb', mode = { 'n', 'v' } } },
+  -- },
   {
     'kylechui/nvim-surround',
     config = function()

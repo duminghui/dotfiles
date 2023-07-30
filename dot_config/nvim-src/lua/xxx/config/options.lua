@@ -36,8 +36,11 @@ function M.load_default_options()
   -- when 'paste' is reset.
 
   -------------------- WINDOW OPTIONS --------------------
-  -- vim.wo.colorcolumn = "80,120,160" -- Make a ruler at 80px and 120px
-  vim.opt.colorcolumn = '80,120,160' -- Make a ruler at 80px and 120px and 160px
+  if not vim.g.vscode then
+    -- 会造成vscode显示多个光标符号
+    -- vim.wo.colorcolumn = "80,120,160" -- Make a ruler at 80px and 120px
+    vim.opt.colorcolumn = '80,120,160' -- Make a ruler at 80px and 120px and 160px
+  end
   vim.opt.list = true -- Show some invisible characters like tabs etc
   vim.opt.listchars = 'tab:›󰨓,trail:•,extends:#,nbsp:.' -- ■
   -- vim.wo.numberwidth = 2 -- Make the line number column thinner
@@ -170,12 +173,15 @@ function M.load_default_options()
   vim.opt.guicursor =
     'n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait300-blinkoff300-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 
-  -- 如果背景是深色, 再开启这个, 背景就会变成黑色的
-  -- Enables pseudo-transparency for the |popup-menu|.
-  -- cmp's menu, doc view
-  vim.opt.pumblend = 9
-  -- Enables pseudo-transparency for a floating window.
-  vim.opt.winblend = 9
+  -- 如果背景是深色, 再开启这个, 背景就会变成纯黑色的块
+  if not vim.g.vscode then
+    -- 这个会造成vscode卡顿
+    -- Enables pseudo-transparency for the |popup-menu|.
+    -- cmp's menu, doc view
+    vim.opt.pumblend = 9
+    -- Enables pseudo-transparency for a floating window.
+    vim.opt.winblend = 9
+  end
   -- A list of words that change how |cmdline-completion| is done.
   -- The following values are supported:
   vim.opt.wildoptions = 'pum'

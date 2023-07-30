@@ -5,21 +5,21 @@ M.opts = {
     -- Set to false to disable the vim.ui.input implementation
     enabled = true,
     -- Default prompt string
-    default_prompt = "Input:",
+    default_prompt = 'Input:',
     -- Can be 'left', 'right', or 'center'
-    prompt_align = "left",
+    prompt_align = 'left',
     -- When true, <Esc> will close the modal
     insert_only = true,
     -- When true, input will start in insert mode.
     start_in_insert = true,
     -- These are passed to nvim_open_win
-    anchor = "SW",
+    -- anchor = "SW",
     -- border = "rounded",
-    border = "single",
+    border = 'single',
     -- border = "none",
 
     -- 'editor' and 'win' will default to being centered
-    relative = "cursor",
+    relative = 'cursor',
     -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
     prefer_width = 40,
     width = nil,
@@ -31,19 +31,19 @@ M.opts = {
       -- Window transparency (0-100)
       winblend = 9,
       -- Change default highlight groups (see :help winhl)
-      winhighlight = "",
+      winhighlight = '',
     },
     -- Set to `false` to disable
     mappings = {
       n = {
-        ["<Esc>"] = "Close",
-        ["<CR>"] = "Confirm",
+        ['<Esc>'] = 'Close',
+        ['<CR>'] = 'Confirm',
       },
       i = {
-        ["<C-c>"] = "Close",
-        ["<CR>"] = "Confirm",
-        ["<Up>"] = "HistoryPrev",
-        ["<Down>"] = "HistoryNext",
+        ['<C-c>'] = 'Close',
+        ['<CR>'] = 'Confirm',
+        ['<Up>'] = 'HistoryPrev',
+        ['<Down>'] = 'HistoryNext',
       },
     },
     override = function(conf)
@@ -58,14 +58,14 @@ M.opts = {
     -- Set to false to disable the vim.ui.select implementation
     enabled = true,
     -- Priority list of preferred vim.select implementations
-    backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+    backend = { 'telescope', 'fzf_lua', 'fzf', 'builtin', 'nui' },
     -- Trim trailing `:` from prompt
     trim_prompt = true,
     -- Options for telescope selector
     -- These are passed into the telescope picker directly. Can be used like:
     -- telescope = require('telescope.themes').get_ivy({...})
-    telescope = require("telescope.themes").get_dropdown {
-      initial_mode = "normal",
+    telescope = require('telescope.themes').get_dropdown {
+      initial_mode = 'normal',
     },
     -- Options for fzf selector
     fzf = {
@@ -83,15 +83,15 @@ M.opts = {
     },
     -- Options for nui Menu
     nui = {
-      position = "50%",
+      position = '50%',
       size = nil,
-      relative = "editor",
+      relative = 'editor',
       border = {
-        style = "rounded",
+        style = 'rounded',
       },
       buf_options = {
         swapfile = false,
-        filetype = "DressingSelect",
+        filetype = 'DressingSelect',
       },
       win_options = {
         winblend = 9,
@@ -104,15 +104,15 @@ M.opts = {
     -- Options for built-in selector
     builtin = {
       -- These are passed to nvim_open_win
-      anchor = "NW",
-      border = "rounded",
+      -- anchor = 'NW',
+      border = 'rounded',
       -- 'editor' and 'win' will default to being centered
-      relative = "editor",
+      relative = 'editor',
       win_options = {
         -- Window transparency (0-100)
         winblend = 9,
         -- Change default highlight groups (see :help winhl)
-        winhighlight = "",
+        winhighlight = '',
       },
       -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
       -- the min_ and max_ options can be a list of mixed types.
@@ -125,9 +125,9 @@ M.opts = {
       min_height = { 10, 0.2 },
       -- Set to `false` to disable
       mappings = {
-        ["<Esc>"] = "Close",
-        ["<C-c>"] = "Close",
-        ["<CR>"] = "Confirm",
+        ['<Esc>'] = 'Close',
+        ['<C-c>'] = 'Close',
+        ['<CR>'] = 'Confirm',
       },
       override = function(conf)
         -- This is the config that will be passed to nvim_open_win.
@@ -143,7 +143,7 @@ M.opts = {
 }
 
 function M.setup()
-  local dressing = require "dressing"
+  local dressing = require('dressing')
   dressing.setup(M.opts)
 end
 

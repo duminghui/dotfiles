@@ -8,8 +8,31 @@ local function cmd(c)
   return fmt('<cmd>%s<CR>', c)
 end
 
-local function vscode(vs_action)
-  return cmd(fmt("call VSCodeNotify('%s')", vs_action))
+-- local function cursor_move(to)
+--   return function()
+--     local count = vim.api.nvim_get_vvar('count')
+--     if count == 0 then
+--       count = 1
+--     end
+--     local args = {
+--       to = to,
+--       by = 'wrappedLine',
+--       value = count,
+--     }
+--     args = vim.tbl_deep_extend('keep', args, { value = count })
+--     require('vscode').notify('cursorMove', args)
+--   end
+-- end
+
+-- local function vscode(vs_action)
+--   return cmd(fmt("call VSCodeNotify('%s')", vs_action))
+-- end
+
+local function vscode(vs_action, args)
+  args = args or {}
+  return function()
+    require('vscode-neovim').notify(vs_action, args)
+  end
 end
 
 local function manageEditorSize(wh, to)
@@ -40,14 +63,17 @@ end
 
 M.keymappings = {
   ['<leader>/'] = { 'n', cmd('nohl') },
+  -- ['k'] = { 'n', cursor_move('up') },
+  -- ['j'] = { 'n', cursor_move('down') },
   ['gc'] = { { 'n', 'x', 'o' }, '<Plug>VSCodeCommentary' },
   ['gcc'] = { 'n', '<Plug>VSCodeCommentaryLine' },
 
   -- ['<leader><leader>a'] = { 'n', '<cmd>HopAnywhere<CR>' },
-  ['<leader><leader>s'] = { 'n', cmd('HopChar1') },
-  ['<leader><leader>t'] = { 'n', cmd('HopChar2') },
-  ['<leader><leader>w'] = { 'n', cmd('HopWord') },
-  ['<leader><leader>l'] = { 'n', cmd('HopLineStart') },
+  -- ['<leader><leader>s'] = { 'n', cmd('HopChar1') },
+  -- ['<leader><leader>t'] = { 'n', cmd('HopChar2') },
+  -- ['<leader><leader>w'] = { 'n', cmd('HopWord') },
+  -- ['<leader><leader>l'] = { 'n', cmd('HopLineStart') },
+  ['<leader><leader>s'] = { 'n', cmd('Pounce') },
 
   ['<leader>sf'] = { 'n', vscode('workbench.action.quickOpen') },
 

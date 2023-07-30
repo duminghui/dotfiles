@@ -29,10 +29,10 @@ local defaults = {
     -- Increment/decrement
     ['+'] = { '<C-a>' },
     ['-'] = { '<C-x>' },
-    ['j'] = { 'gj', silent_opts },
-    ['gj'] = { 'j', silent_opts },
-    ['k'] = { 'gk', silent_opts },
-    ['gk'] = { 'k', silent_opts },
+    -- ['j'] = { 'gj', silent_opts },
+    -- ['gj'] = { 'j', silent_opts },
+    -- ['k'] = { 'gk', silent_opts },
+    -- ['gk'] = { 'k', silent_opts },
     ['zl'] = { 'zL', silent_opts },
     ['zh'] = { 'zH', silent_opts },
     -- ["Y"] = { "y$", silent_opts }, -- neovim buildin
@@ -60,6 +60,11 @@ local default_others = {
     ['<A-l>'] = '<C-\\><C-N><C-w>l',
   },
   normal_mode = {
+
+    ['j'] = { 'gj', silent_opts },
+    ['gj'] = { 'j', silent_opts },
+    ['k'] = { 'gk', silent_opts },
+    ['gk'] = { 'k', silent_opts },
 
     -- Better window movement
     ['<C-h>'] = '<C-w>h',

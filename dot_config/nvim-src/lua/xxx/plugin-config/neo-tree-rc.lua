@@ -17,7 +17,7 @@ M.opts = {
   add_blank_line_at_top = false, -- Add a blank line at the top of the tree.
   auto_clean_after_session_restore = false, -- Automatically clean up broken neo-tree buffers saved in sessions
   close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-  close_floats_on_escape_key = true,
+  -- close_floats_on_escape_key = true,
   default_source = 'filesystem',
   enable_diagnostics = true,
   enable_git_status = true,
@@ -431,7 +431,11 @@ M.opts = {
     --end,
     group_empty_dirs = false, -- when true, empty folders will be grouped together
     search_limit = 50, -- max number of search results when using filters
-    follow_current_file = true, -- This will find and focus the file in the active buffer every time
+    -- follow_current_file = true, -- This will find and focus the file in the active buffer every time
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+    },
     -- the current file is changed while the tree is open.
     hijack_netrw_behavior = 'open_default', -- netrw disabled, opening a directory opens neo-tree
     -- in whatever position is specified in window.position
@@ -456,7 +460,11 @@ M.opts = {
   },
   buffers = {
     bind_to_cwd = false,
-    follow_current_file = true, -- This will find and focus the file in the active buffer every time
+    -- follow_current_file = true, -- This will find and focus the file in the active buffer every time
+    follow_current_file = {
+      enabled = true,
+      leave_dirs_open = false,
+    },
     -- the current file is changed while the tree is open.
     group_empty_dirs = true, -- when true, empty directories will be grouped together
     show_unloaded = false, -- When working with sessions, for example, restored but unfocused buffers

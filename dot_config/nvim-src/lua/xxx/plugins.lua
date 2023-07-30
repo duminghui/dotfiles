@@ -151,6 +151,7 @@ local plugins = {
     end,
     cmd = { 'HopAnywhere', 'HopChar1', 'HopChar2', 'HopWord', 'HopLineStart', 'HopLine', 'HopVertical', 'HopPattern' },
   },
+  { 'rlane/pounce.nvim', config = true, cmd = { 'Pounce' } },
   {
     'chentoast/marks.nvim',
     config = function()
