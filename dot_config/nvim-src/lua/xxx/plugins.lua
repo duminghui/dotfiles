@@ -239,7 +239,8 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.fidget-rc').setup()
     end,
-    event = 'User FileOpened',
+    event = 'LspAttach',
+    -- event = 'User FileOpened',
   },
   {
     'folke/trouble.nvim',
