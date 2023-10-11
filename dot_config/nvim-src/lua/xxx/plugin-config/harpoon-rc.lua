@@ -4,7 +4,7 @@ M.opts = {
   global_settings = {
     save_on_toggle = true,
     mark_branch = false,
-    excluded_filetypes = require("xxx.config.exclude-filetypes").harpoon,
+    excluded_filetypes = require('xxx.config.exclude-filetypes').harpoon,
     -- excluded_filetypes = {
     --     "harpoon",
     --     "",
@@ -41,7 +41,7 @@ M.opts = {
 }
 
 function M.setup()
-  local harpoon = require "harpoon"
+  local harpoon = require('harpoon')
   harpoon.setup(M.opts)
 end
 

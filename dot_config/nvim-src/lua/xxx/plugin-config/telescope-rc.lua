@@ -192,7 +192,7 @@ function M.setup()
   load_extension('fzf')
   load_extension('frecency')
   load_extension('smart_history')
-  load_extension('harpoon')
+  -- load_extension('harpoon')
   load_extension('projects')
 end
 

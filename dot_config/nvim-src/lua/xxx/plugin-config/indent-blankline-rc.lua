@@ -4,38 +4,65 @@ local icons = require('xxx.core.icons')
 local tbl = require('xxx.utils.table')
 
 M.opts = {
-  char = icons.ui.LineLeft,
-  context_char = icons.ui.LineLeft,
-  char_highlight_list = {
-    'IndentBlanklineIndent1',
-    'IndentBlanklineIndent2',
-    'IndentBlanklineIndent3',
-    'IndentBlanklineIndent4',
-    'IndentBlanklineIndent5',
-    'IndentBlanklineIndent6',
-    'IndentBlanklineIndent7',
+  -- char = icons.ui.LineLeft,
+  -- context_char = icons.ui.LineLeft,
+  -- char_highlight_list = {
+  --   'IndentBlanklineIndent1',
+  --   'IndentBlanklineIndent2',
+  --   'IndentBlanklineIndent3',
+  --   'IndentBlanklineIndent4',
+  --   'IndentBlanklineIndent5',
+  --   'IndentBlanklineIndent6',
+  --   'IndentBlanklineIndent7',
+  -- },
+  -- context_highlight_list = {
+  --   'IndentBlanklineContextChar1',
+  --   'IndentBlanklineContextChar2',
+  --   'IndentBlanklineContextChar3',
+  --   'IndentBlanklineContextChar4',
+  --   'IndentBlanklineContextChar5',
+  --   'IndentBlanklineContextChar6',
+  --   'IndentBlanklineContextChar7',
+  -- },
+  -- show_trailing_blankline_indent = false,
+  -- show_first_indent_level = true,
+  -- use_treesitter = true,
+  -- use_treesitter_scope = false,
+  -- show_current_context = true,
+  -- show_current_context_start = false,
+  indent = {
+    char = icons.ui.LineLeft,
+    highlight = {
+      'IndentBlanklineIndent1',
+      'IndentBlanklineIndent2',
+      'IndentBlanklineIndent3',
+      'IndentBlanklineIndent4',
+      'IndentBlanklineIndent5',
+      'IndentBlanklineIndent6',
+      'IndentBlanklineIndent7',
+    },
   },
-  context_highlight_list = {
-    'IndentBlanklineContextChar1',
-    'IndentBlanklineContextChar2',
-    'IndentBlanklineContextChar3',
-    'IndentBlanklineContextChar4',
-    'IndentBlanklineContextChar5',
-    'IndentBlanklineContextChar6',
-    'IndentBlanklineContextChar7',
+  scope = {
+    char = icons.ui.LineLeft,
+    show_start = false,
+    highlight = {
+      'IndentBlanklineContextChar1',
+      'IndentBlanklineContextChar2',
+      'IndentBlanklineContextChar3',
+      'IndentBlanklineContextChar4',
+      'IndentBlanklineContextChar5',
+      'IndentBlanklineContextChar6',
+      'IndentBlanklineContextChar7',
+    },
   },
-  show_trailing_blankline_indent = false,
-  show_first_indent_level = true,
-  use_treesitter = true,
-  use_treesitter_scope = false,
-  show_current_context = true,
-  show_current_context_start = false,
-  filetype_exclude = require('xxx.config.exclude-filetypes').indent_blankline,
-  buftype_exclude = {
-    'terminal',
-    'nofile',
-    'quickfix',
-    'prompt',
+  exclude = {
+    filetypes = require('xxx.config.exclude-filetypes').indent_blankline,
+    buftypes = {
+      'terminal',
+      'nofile',
+      'quickfix',
+      'prompt',
+    },
   },
 }
 
@@ -75,11 +102,16 @@ function M.setup()
   -- vim.opt.listchars:append "space:⋅"
   -- vim.opt.listchars:append "eol:↴"
   --   vim.pretty_print(M.opts)
-  local indent_blankline = require('indent_blankline')
+
+  local hooks = require('ibl.hooks')
+  hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    set_highlight()
+  end)
+
+  local indent_blankline = require('ibl')
 
   indent_blankline.setup(M.opts)
-
-  set_highlight()
+  -- indent_blankline.setup()
 end
 
 return M

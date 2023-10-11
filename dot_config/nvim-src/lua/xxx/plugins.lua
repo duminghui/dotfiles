@@ -370,6 +370,7 @@ local plugins = {
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
     config = function()
       require('xxx.plugin-config.indent-blankline-rc').setup()
     end,
