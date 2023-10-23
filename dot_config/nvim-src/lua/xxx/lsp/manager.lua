@@ -59,7 +59,7 @@ end
 -- manually start the server and don't wait for the usual filetype trigger from lspconfig
 local function buf_try_add(server_name, bufnr)
   bufnr = bufnr or vim.api.nvim_get_current_buf()
-  require('lspconfig')[server_name].manager.try_add_wrapper(bufnr)
+  require('lspconfig')[server_name].manager:try_add_wrapper(bufnr)
 end
 
 -- check if the manager autocomd has already been configured since some servers can take a while to initialize
@@ -78,7 +78,7 @@ local function client_is_configured(server_name, ft)
 end
 
 local function launch_server(server_name, config)
-  local ok = pcall(function()
+  local ok, result = pcall(function()
     local command = config.cmd
       or (function()
         local default_config = require('lspconfig.server_configurations.' .. server_name).default_config
@@ -92,7 +92,7 @@ local function launch_server(server_name, config)
     buf_try_add(server_name)
   end)
   if not ok then
-    Log:error('launch_server failed: ' .. server_name)
+    Log:error(fmt('launch_server failed: %s(%s)', server_name, result))
   end
 end
 
