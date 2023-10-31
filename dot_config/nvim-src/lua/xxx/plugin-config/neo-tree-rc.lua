@@ -143,14 +143,14 @@ M.opts = {
       with_markers = true,
       indent_marker = '│',
       last_indent_marker = '└',
-      highlight = 'NeoTreeIndentMarker',
-      -- highlight = 'NeoTreeNormal',
+      -- highlight = 'NeoTreeIndentMarker',
+      highlight = 'NeoTreeNormal',
       -- expander config, needed for nesting files
       with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
       expander_collapsed = icons.ui.ChevronShortRight, -- 
       expander_expanded = icons.ui.ChevronShortDown, -- 
-      expander_highlight = 'NeoTreeExpander',
-      -- expander_highlight = 'NeoTreeNormal',
+      -- expander_highlight = 'NeoTreeExpander',
+      expander_highlight = 'NeoTreeNormal',
     },
     icon = {
       folder_closed = icons.ui.Folder,

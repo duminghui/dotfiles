@@ -1,8 +1,6 @@
 # use name has bug
-# 191 items
+# 216 items
 name:
-  .android: 󰀲
-  .cache: 󰃨
   .condarc: 󰌠
   .dart: 
   .dartserver: 
@@ -13,7 +11,6 @@ name:
   .pub-cache: 
   .yarnrc.yml: 
   vite.config.ts: 󰉁
-  vitest.config.ts: 󰉁
   .zshenv: 
   android: 󰀲
   "applications (parallels)": 󰜨
@@ -28,26 +25,37 @@ name:
   a.out: 
   api: 󰒍
   .atom: 󰝨
+  .ash: 
+  .ash_history: 
   authorized_keys: 󰿃
+  assets: 󰆓
+  .android: 󰀲
+  .audacity-data: 󱁿
   backups: 󰁯
   .bash_logout: 󰒓
   .bash_profile: 󰒓
   .bashrc: 
+  .bash_history: 
   bin: 󱁿
   .bpython_history: 󰌠
+  build: 󰆧
   bspwmrc: 󰒓
+  .cache: 󰃨
+  cache: 󰃨
+  .ccls-cache: 󰃨
   cargo.lock: 󱘗
   cargo.toml: 󱘗
   .cargo: 󱘗
   changelog: 󰍔
   .clang-format: 󰒓
   composer.json: 󰌟
+  content: 󰆓
   conf.d: 󱁿
   config.ac: 󰒓
   config.el: 
   config.mk: 󰒓
   .config: 󱁿
-  config: 󰒓
+  config: 󱁿
   contributing: 󰿃
   copyright: 󰿃
   cron.daily: 󱁿
@@ -64,6 +72,7 @@ name:
   docker-compose.yml: 󰡨
   dockerfile: 󰡨
   doc: 󰂺
+  dist: 󰆧
   documents: 󰂺
   .doom.d: 
   downloads: 󱧨
@@ -78,6 +87,7 @@ name:
   favicon.ico: 󰓎
   favicons: 󰓎
   fstab: 󰆼
+  .fastboot: 󰀲
   .gitattributes: 󰊢
   .gitconfig: 󰊢
   .git-credentials: 󰿃
@@ -104,12 +114,15 @@ name:
   .htaccess: 󰒓
   htoprc: 󰒓
   .htpasswd: 󰒓
-  .idlerc: 󰌠
   img: 󰈟
   include: 󱁿
   init.el: 
   .inputrc: 󰒓
   inputrc: 󰒓
+  .icons: 󰓎
+  icons: 󰓎
+  .idlerc: 󰌠
+  .java: 
   js: 󰌞
   .jupyter: 󰌠
   kbuild: 󰒓
@@ -127,24 +140,28 @@ name:
   .lynxrc: 󰒓
   .mailcap: 󰗰
   mail: 󰗰
+  magic: 
   maintainers: 󰿃
   makefile.ac: 󰒓
   makefile: 󰒓
   manifest: 󰐣
   metadata: 󱁿
   metadata.xml: 󰙪
+  media: 󰏜
   mime.types: 󰙅
   module.symvers: 󰱾
   .mozilla: 
   music: 󰋋
   muttrc: 󰒓
   .mutt: 󰒓
+  .mypy_cache: 󰃨
   netlify.toml: 󰒋
   node_modules: 󰛷
   .node_repl_history: 󰎙
   npmignore: 󰛷
   .npm: 󰛷
   nvim: 
+  obj: 
   os-release: 󰒓
   package.json: 󰎙
   package-lock.json: 󰎙
@@ -159,6 +176,7 @@ name:
   public: 󰀄
   __pycache__: 󰌠
   .python_history: 󰌠
+  .pypirc: 󰌠
   rc.lua: 󰒓
   readme: 󰍔
   .release.toml: 󱘗
@@ -180,13 +198,17 @@ name:
   .sqlite_history: 
   src: 󰗀
   .ssh: 󰌾
+  static: 󰆓
+  std: 󰅱
   styles: 󰌜
   sudoers: 󰌾
   sxhkdrc: 󰒓
+  tests: 󰙨
   tigrc: 󰒓
   tox.ini: 󰒓
   .trash: 󰩹
   ts: 󰛦
+  .tox: 󰌠
   unlicense: 󰿃
   url: 󰇧
   user-dirs.dirs: 󱁿
@@ -217,7 +239,8 @@ name:
   .zsh_history: 󰒓
   .zshrc: 
 
-# 285 items
+
+# 292 items
 extension:
   jks: 󰿃
   org: 
@@ -290,6 +313,7 @@ extension:
   ebuild: 󰣨
   eclass: 󰣨
   editorconfig: 
+  egg-info: 󰌠
   ejs: 󰅴
   elc: 󰅲
   elf: 
@@ -339,6 +363,7 @@ extension:
   img: 󰆼
   iml: 
   info: 
+  in: 󰈙
   ini: 󰒓
   ipynb: 󰌠
   iso: 󰆼
@@ -370,6 +395,7 @@ extension:
   lss: 󰌜
   lua: 󰢱
   lz: 󰗄
+  mgc: 
   m3u8: 󰐑
   m3u: 󰐑
   m4a: 󰮥
@@ -398,6 +424,7 @@ extension:
   orig: 󰁯
   otf: 󰛖
   o: 
+  pdb: 󰪪
   pdf: 󰈦
   pem: 󰌆
   phar: 󰌟
@@ -415,6 +442,7 @@ extension:
   ps1: 
   psd: 
   pub: 󰿃
+  slt: 󰈡
   pxm: 󰈟
   pyc: 󰌠
   py: 󰌠
@@ -461,6 +489,7 @@ extension:
   sub: 󰂺
   s: 󰱾
   svg: 󰈟
+  svelte: 
   swift: 󰛥
   swp: 
   sym: 
@@ -485,6 +514,7 @@ extension:
   wav: 󰮥
   webm: 󰈰
   webp: 󰈟
+  whl: 󰆧
   windows: 󰖳
   wma: 󰮥
   wmv: 󰈰

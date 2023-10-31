@@ -236,6 +236,7 @@ local plugins = {
   {
     -- Standalone UI for nvim-lsp progress.
     'j-hui/fidget.nvim',
+    tag = 'legacy',
     config = function()
       require('xxx.plugin-config.fidget-rc').setup()
     end,
@@ -416,7 +417,7 @@ local plugins = {
   { 'tami5/sqlite.lua', lazy = true },
   {
     'nvim-telescope/telescope-frecency.nvim', -- Get frequently opened files
-    dependencies = 'sqlite.lua',
+    -- dependencies = 'sqlite.lua',
     lazy = true,
   },
   {

@@ -4,32 +4,6 @@ local icons = require('xxx.core.icons')
 local tbl = require('xxx.utils.table')
 
 M.opts = {
-  -- char = icons.ui.LineLeft,
-  -- context_char = icons.ui.LineLeft,
-  -- char_highlight_list = {
-  --   'IndentBlanklineIndent1',
-  --   'IndentBlanklineIndent2',
-  --   'IndentBlanklineIndent3',
-  --   'IndentBlanklineIndent4',
-  --   'IndentBlanklineIndent5',
-  --   'IndentBlanklineIndent6',
-  --   'IndentBlanklineIndent7',
-  -- },
-  -- context_highlight_list = {
-  --   'IndentBlanklineContextChar1',
-  --   'IndentBlanklineContextChar2',
-  --   'IndentBlanklineContextChar3',
-  --   'IndentBlanklineContextChar4',
-  --   'IndentBlanklineContextChar5',
-  --   'IndentBlanklineContextChar6',
-  --   'IndentBlanklineContextChar7',
-  -- },
-  -- show_trailing_blankline_indent = false,
-  -- show_first_indent_level = true,
-  -- use_treesitter = true,
-  -- use_treesitter_scope = false,
-  -- show_current_context = true,
-  -- show_current_context_start = false,
   indent = {
     char = icons.ui.LineLeft,
     highlight = {

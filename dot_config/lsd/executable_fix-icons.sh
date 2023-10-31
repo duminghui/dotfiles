@@ -15,7 +15,10 @@ gsed -i -r \
     -e 's|||g' \
     -e 's||󰝨|g' \
     -e 's||󰿃|g' \
+    -e 's||󰆓|g' \
+    -e 's||󰀲|g' \
     -e 's||󱁿|g' \
+    -e 's||󰆧|g' \
     -e 's||󰌠|g' \
     -e 's||󰒓|g' \
     -e 's||󱘗|g' \
@@ -57,6 +60,7 @@ gsed -i -r \
     -e 's||󰛷|g' \
     -e 's|||g' \
     -e 's||󰏜|g' \
+    -e 's||󰏜|g' \
     -e 's||󰣇|g' \
     -e 's|󰆍||g' \
     -e 's||󰀄|g' \
@@ -178,11 +182,9 @@ name_icon 'library' '󰁰'
 name_icon 'gradle' ''
 name_icon 'fish' '󱢺'
 name_icon '.editorconfig' ''
-name_icon 'config' '󰒓'
 name_icon '"applications \(parallels\)"' '󰜨'
 name_icon 'android' '󰀲'
 name_icon '\.zshenv' ''
-name_icon 'vitest\.config\.ts' '󰉁'
 name_icon 'vite\.config\.ts' '󰉁'
 name_icon '\.yarnrc.yml' ''
 name_icon '\.pub-cache' ''
@@ -193,8 +195,6 @@ name_icon '\.docker' '󰡨'
 name_icon '\.dartserver' ''
 name_icon '\.dart' ''
 name_icon '\.condarc' '󰌠'
-name_icon '\.cache' '󰃨'
-name_icon '\.android' '󰀲'
 
 extension_icon 'org' ''
 extension_icon 'jsonc' '󰘦'
