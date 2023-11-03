@@ -1,6 +1,7 @@
 # use name has bug
-# 216 items
+# 268 items
 name:
+  .conda: 󰌠
   .condarc: 󰌠
   .dart: 
   .dartserver: 
@@ -24,6 +25,7 @@ name:
   work: 󰃖
   a.out: 
   api: 󰒍
+  .asoundrc: 󰒓
   .atom: 󰝨
   .ash: 
   .ash_history: 
@@ -32,41 +34,49 @@ name:
   .android: 󰀲
   .audacity-data: 󱁿
   backups: 󰁯
-  .bash_logout: 󰒓
-  .bash_profile: 󰒓
-  .bashrc: 
-  .bash_history: 
+  .bash_history: 󱆃
+  .bash_logout: 󱆃
+  .bash_profile: 󱆃
+  .bashrc: 󱆃
   bin: 󱁿
   .bpython_history: 󰌠
   build: 󰆧
   bspwmrc: 󰒓
+  build.ninja: 
   .cache: 󰃨
   cache: 󰃨
-  .ccls-cache: 󰃨
   cargo.lock: 󱘗
   cargo.toml: 󱘗
   .cargo: 󱘗
+  .ccls-cache: 󰃨
   changelog: 󰍔
   .clang-format: 󰒓
   composer.json: 󰌟
-  content: 󰆓
+  composer.lock: 󰌟
   conf.d: 󱁿
   config.ac: 󰒓
-  config.el: 
+  config.el: 
   config.mk: 󰒓
   .config: 󱁿
   config: 󱁿
+  configure: 
+  content: 󰆓
   contributing: 󰿃
   copyright: 󰿃
   cron.daily: 󱁿
   cron.d: 󱁿
+  cron.deny: 󰒓
   cron.hourly: 󱁿
   cron.monthly: 󱁿
   crontab: 󰒓
   cron.weekly: 󱁿
   crypttab: 󰒓
+  .cshrc: 󱆃
+  csh.cshrc: 󱆃
+  csh.login: 󱆃
+  csh.logout: 󱆃
   css: 󰌜
-  custom.el: 
+  custom.el: 
   .dbus: 󰒓
   desktop: 󰇄
   docker-compose.yml: 󰡨
@@ -74,12 +84,14 @@ name:
   doc: 󰂺
   dist: 󰆧
   documents: 󰂺
-  .doom.d: 
-  downloads: 󱧨
+  .doom.d: 
+  downloads: 󰉍
   .ds_store: 󰀵
   .editorconfig: 
-  .emacs.d: 
+  .electron-gyp: 󰛷
+  .emacs.d: 
   .env: 󰙪
+  environment: 󰙪
   .eslintrc.json: 󰙪
   .eslintrc.js: 󰙪
   .eslintrc.yml: 󰙪
@@ -97,8 +109,14 @@ name:
   .gitlab-ci.yml: 󰮠
   .gitmodules: 󰊢
   .git: 󰊢
-  .gnupg: 󰌾
+  .gnupg: 󰢬
+  go.mod: 󰟓
+  go.sum: 󰟓
+  go.work: 󰟓
   gradle: 
+  gradle.properties: 
+  gradlew: 
+  gradlew.bat: 
   group: 󰒓
   gruntfile.coffee: 
   gruntfile.js: 
@@ -107,6 +125,7 @@ name:
   gulpfile.coffee: 
   gulpfile.js: 
   gulpfile.ls: 
+  heroku.yml: 
   hidden: 󰌾
   home: 󰋜
   hostname: 󰒓
@@ -114,21 +133,29 @@ name:
   .htaccess: 󰒓
   htoprc: 󰒓
   .htpasswd: 󰒓
-  img: 󰈟
-  include: 󱁿
-  init.el: 
-  .inputrc: 󰒓
-  inputrc: 󰒓
   .icons: 󰓎
   icons: 󰓎
+  id_dsa: 󰷖
+  id_ecdsa: 󰷖
+  id_rsa: 󰷖
   .idlerc: 󰌠
+  img: 󰈟
+  include: 󱁿
+  init.el: 
+  .inputrc: 󰒓
+  inputrc: 󰒓
   .java: 
+  jenkinsfile: 
   js: 󰌞
   .jupyter: 󰌠
   kbuild: 󰒓
   kconfig: 󰒓
+  kdeglobals: 󰒓
+  kdenliverc: 󰒓
   known_hosts: 󰿃
   .kshrc: 
+  libexec: 󰗀
+  lib32: 󰗀
   lib64: 󰗀
   lib: 󰗀
   license.md: 󰿃
@@ -145,17 +172,26 @@ name:
   makefile.ac: 󰒓
   makefile: 󰒓
   manifest: 󰐣
+  md5sum: 󰕥
+  meson.build: 
   metadata: 󱁿
   metadata.xml: 󰙪
   media: 󰏜
+  .mime.types: 󰙅
   mime.types: 󰙅
   module.symvers: 󰱾
   .mozilla: 
-  music: 󰋋
+  music: 󱍙
   muttrc: 󰒓
+  .muttrc: 󰒓
   .mutt: 󰒓
   .mypy_cache: 󰃨
+  neomuttrc: 󰒓
+  .neomuttrc: 󰒓
   netlify.toml: 󰒋
+  .nix-channels: 󱄅
+  .nix-defexpr: 󱄅
+  .node-gyp: 󰛷
   node_modules: 󰛷
   .node_repl_history: 󰎙
   npmignore: 󰛷
@@ -165,16 +201,18 @@ name:
   os-release: 󰒓
   package.json: 󰎙
   package-lock.json: 󰎙
-  packages.el: 
+  packages.el: 
+  pam.d: 󰢬
   passwd: 󰌾
-  pictures: 󰏜
+  pictures: 󰉏
   pkgbuild: 󰣇
   .pki: 󰌾
-  portage: 󱁿
+  portage: 󰣨
   profile: 󰒓
   .profile: 󰒓
   public: 󰀄
   __pycache__: 󰌠
+  pyproject.toml: 󰌠
   .python_history: 󰌠
   .pypirc: 󰌠
   rc.lua: 󰒓
@@ -182,29 +220,36 @@ name:
   .release.toml: 󱘗
   requirements.txt: 󰌠
   robots.txt: 󱚝
-  root: 󰌾
+  root: 󰉐
   rubydoc: 󰫏
   runtime.txt: 󰌠
   .rustup: 󱘗
+  rustfmt.toml: 󱘗
   .rvm: 󰴭
   sass: 󰟬
   sbin: 󱁿
   scripts: 
   scss: 󰟬
+  sha256sum: 󰕥
   shadow: 󰒓
   share: 󱇴
   .shellcheckrc: 󰒓
   shells: 󰒓
+  .spacemacs: 
   .sqlite_history: 
-  src: 󰗀
-  .ssh: 󰌾
+  src: 󱧼
+  .ssh: 󰢬
   static: 󰆓
   std: 󰅱
   styles: 󰌜
+  subgid: 󰒓
+  subuid: 󰒓
   sudoers: 󰌾
   sxhkdrc: 󰒓
+  template: 
   tests: 󰙨
   tigrc: 󰒓
+  timezone: 󰅐
   tox.ini: 󰒓
   .trash: 󰩹
   ts: 󰛦
@@ -213,6 +258,7 @@ name:
   url: 󰇧
   user-dirs.dirs: 󱁿
   vagrantfile: 󰒓
+  vendor: 󰫦
   venv: 󰌠
   videos: 󰕧
   .viminfo: 
@@ -226,7 +272,8 @@ name:
   wgetrc: 󰒓
   .xauthority: 󰒓
   .Xauthority: 󰒓
-  xbps.d: 󱁿
+  xbps.d: 
+  xbps-src: 
   .xinitrc: 󰒓
   .xmodmap: 󰒓
   .Xmodmap: 󰒓
@@ -235,15 +282,20 @@ name:
   .xprofile: 󰒓
   .Xprofile: 󰒓
   .xresources: 󰒓
+  .yarnrc: 
+  yarn.lock: 
   zathurarc: 󰒓
-  .zsh_history: 󰒓
-  .zshrc: 
+  .zcompdump: 󰒓
+  .zlogin: 󱆃
+  .zlogout: 󱆃
+  .zprofile: 󱆃
+  .zsh_history: 󱆃
+  .zshrc: 󱆃
 
 
-# 292 items
+# 317 items
 extension:
   jks: 󰿃
-  org: 
   1: 󰂺
   2: 󰂺
   3: 󰂺
@@ -253,13 +305,14 @@ extension:
   7: 󰂺
   7z: 󰗄
   8: 󰂺
+  a: 
   ai: 
-  ape: 󰮥
+  ape: 󰝚
   apk: 󰀲
-  asc: 󰌾
+  ar: 󰗄
+  asc: 󰦝
   asm: 󰱾
   asp: 󰗀
-  a: 
   avi: 󰈰
   avro: 󰅩
   awk: 
@@ -269,7 +322,7 @@ extension:
   bashrc: 
   bash: 
   bat: 󰖳
-  bin: 
+  bin: 
   bio: 󰐑
   bmp: 󰈟
   bz2: 󰗄
@@ -295,7 +348,7 @@ extension:
   cts: 󰛦
   c++: 󰙲
   c: 󰙱
-  cue: 󰮥
+  cue: 󰝚
   cxx: 󰙲
   dart: 
   dat: 󰆼
@@ -307,6 +360,7 @@ extension:
   dockerfile: 󰡨
   doc: 󰈬
   docx: 󰈬
+  download: 󰅐
   ds_store: 󰀵
   dump: 󰆼
   ebook: 󰗚
@@ -328,7 +382,7 @@ extension:
   exs: 
   ex: 
   fish: 󱢺
-  flac: 󰮥
+  flac: 󰝚
   flv: 󰈰
   font: 󰛖
   fpl: 󰐑
@@ -346,6 +400,7 @@ extension:
   gsheet: 󰈛
   gslides: 󰈧
   guardfile: 󰴭
+  gv: 󱁉
   gz: 󰗄
   hbs: 󱗞
   heic: 󰈟
@@ -372,13 +427,13 @@ extension:
   java: 󰬷
   jinja: 
   jl: 
-  jpeg: 󰈥
-  jpg: 󰈥
+  jpeg: 󰈟
+  jpg: 󰈟
   jsonc: 󰘦
   json: 󰅩
   js: 󰌞
   jsx: 󰜈
-  key: 󰿃
+  key: 󰌆
   ksh: 
   kt: 󱈙
   kts: 󱈙
@@ -398,7 +453,7 @@ extension:
   mgc: 
   m3u8: 󰐑
   m3u: 󰐑
-  m4a: 󰮥
+  m4a: 󰝚
   m4v: 󰈰
   magnet: 󰍇
   man: 󰂺
@@ -408,40 +463,53 @@ extension:
   mkd: 󰍔
   mk: 󰣖
   mkv: 󰈰
+  ml: 
+  mli: 
+  mll: 
+  mly: 
   mobi: 󰗚
   mov: 󰈰
-  mp3: 󰮥
+  mp3: 󰝚
   mp4: 󰈰
   msi: 󰖳
   mts: 󰛦
   mustache: 󱗞
   nix: 󱄅
   npmignore: 󰛷
-  ogg: 󰮥
+  odp: 󰈧
+  ods: 󰈛
+  odt: 󰈬
+  ogg: 󰝚
   ogv: 󰈰
   old: 󰁯
-  opus: 󰮥
+  opus: 󰝚
   orig: 󰁯
+  org: 
   otf: 󰛖
-  o: 
+  o: 
+  part: 󰅐
+  patch: 
   pdb: 󰪪
   pdf: 󰈦
   pem: 󰌆
   phar: 󰌟
   php: 󰌟
   pkg: 󰀼
+  pl: 
   plist: 󰀵
   pls: 󰐑
-  pl: 
-  pm: 
+  plx: 
+  pm: 
   png: 󰈟
+  pod: 
+  pp: 
   ppt: 󰈧
   pptx: 󰈧
   procfile: 󰴭
   properties: 󰅩
   ps1: 
   psd: 
-  pub: 󰿃
+  pub: 󰌆
   slt: 󰈡
   pxm: 󰈟
   pyc: 󰌠
@@ -458,6 +526,7 @@ extension:
   rlib: 󱘗
   rl: 󰌌
   rmd: 󰍔
+  rmeta: 󱘗
   rpm: 󰀼
   rproj: 󰗆
   rspec_parallel: 󰴭
@@ -481,22 +550,28 @@ extension:
   so: 
   sqlite3: 
   sql: 󰆼
-  srt: 󰂺
+  srt: 󰨖
   styl: 
   stylus: 
+  sublime-menu: 󰬚
   sublime-package: 󰬚
+  sublime-project: 󰬚
   sublime-session: 󰬚
-  sub: 󰂺
+  sub: 󰨖
   s: 󰱾
   svg: 󰈟
   svelte: 
   swift: 󰛥
   swp: 
-  sym: 
+  sym: 
   tar: 󰗄
+  taz: 󰗄
+  tbz: 󰗄
+  tbz2: 󰗄
   tex: 
   tgz: 󰗄
   tiff: 󰈟
+  timestamp: 󰅐
   toml: 󰅩
   torrent: 󰒍
   trash: 󰩹
@@ -507,16 +582,18 @@ extension:
   t: 
   twig: 
   txt: 󰈙
+  unity: 󰚯
+  unity32: 󰚯
   video: 󰈰
   vim: 
   vlc: 󰐑
   vue: 󰹭
-  wav: 󰮥
+  wav: 󰝚
   webm: 󰈰
   webp: 󰈟
   whl: 󰆧
   windows: 󰖳
-  wma: 󰮥
+  wma: 󰝚
   wmv: 󰈰
   woff2: 󰛖
   woff: 󰛖
@@ -536,7 +613,6 @@ extension:
   zsh-theme: 
   zsh: 
   zst: 󰗄
-
 
 # 10 items
 filetype:

@@ -22,6 +22,7 @@ gsed -i -r \
     -e 's||󰌠|g' \
     -e 's||󰒓|g' \
     -e 's||󱘗|g' \
+    -e 's||󱘗|g' \
     -e 's||󰍔|g' \
     -e 's||󰌟|g' \
     -e 's|||g' \
@@ -77,7 +78,7 @@ gsed -i -r \
     -e 's||󰨞|g' \
     -e 's||󰗄|g' \
     -e 's|||g' \
-    -e 's||󰮥|g' \
+    -e 's||󰝚|g' \
     -e 's|||g' \
     -e 's||󰈰|g' \
     -e 's||󰅩|g' \
@@ -144,6 +145,8 @@ gsed -i -r \
     -e 's||󰪹|g' \
     -e 's|||g' \
     -e 's||󰜗|g' \
+    -e 's||󰅐|g' \
+    -e 's||󰚯|g' \
     icons.yaml
 
 icon_manage() {
@@ -179,7 +182,6 @@ name_icon 'parallels' '󰜨'
 name_icon 'npmrc' '󰛷'
 name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'
-name_icon 'gradle' ''
 name_icon 'fish' '󱢺'
 name_icon '.editorconfig' ''
 name_icon '"applications \(parallels\)"' '󰜨'
@@ -195,13 +197,10 @@ name_icon '\.docker' '󰡨'
 name_icon '\.dartserver' ''
 name_icon '\.dart' ''
 name_icon '\.condarc' '󰌠'
+name_icon '\.conda' '󰌠'
 
-extension_icon 'org' ''
 extension_icon 'jsonc' '󰘦'
-extension_icon 'jpg' '󰈥'
-extension_icon 'jpeg' '󰈥'
 extension_icon 'jks' '󰿃'
-extension_icon 'gradle' ''
 extension_icon 'fish' '󱢺'
 extension_icon 'editorconfig' ''
 
