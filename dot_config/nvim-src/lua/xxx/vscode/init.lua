@@ -31,7 +31,7 @@ end
 local function vscode(vs_action, args)
   args = args or {}
   return function()
-    require('vscode-neovim').notify(vs_action, args)
+    require('vscode-neovim').call(vs_action, args)
   end
 end
 
