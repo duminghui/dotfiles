@@ -3,9 +3,7 @@ local M = {}
 local Log = require('xxx.core.log')
 local ProgressNotify = require('xxx.core.progress-notify')
 local icons = require('xxx.core.icons')
-local lsp = require('xxx.lsp')
 local lsp_utils = require('xxx.lsp.utils')
-local lsp_opts = require('xxx.lsp.config')
 local fmt = string.format
 local is_windows = vim.loop.os_uname().version:match('Windows')
 
@@ -35,6 +33,7 @@ end
 ---@vararg any config table [optional]
 ---@return table
 local function resolve_config(server_name, ...)
+  local lsp = require('xxx.lsp')
   local defaults = lsp.get_common_opts()
 
   local module_path = 'xxx/lsp/providers/' .. server_name
@@ -121,6 +120,7 @@ function M.setup(server_name, user_config)
   end
 
   local should_auto_install = function(name)
+    local lsp_opts = require('xxx.lsp.config')
     local installer_settings = lsp_opts.mason_lspconfig.setup
     return installer_settings.automatic_installation
       and not vim.tbl_contains(installer_settings.automatic_installation.exclude, name)
