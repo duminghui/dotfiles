@@ -198,9 +198,16 @@ local plugins = {
     dependencies = { 'mason-lspconfig.nvim' },
     lazy = true,
   },
+  -- {
+  --   -- null-ls是一个将非LSP的包与nvim内置LSP客户端整合的插件
+  --   -- 已不再维护, 使用none-ls.nvim
+  --   'jose-elias-alvarez/null-ls.nvim',
+  --   lazy = true,
+  -- },
   {
     -- null-ls是一个将非LSP的包与nvim内置LSP客户端整合的插件
-    'jose-elias-alvarez/null-ls.nvim',
+    -- 已不再维护, 使用none-ls.nvim
+    'nvimtools/none-ls.nvim',
     lazy = true,
   },
   {
@@ -308,22 +315,22 @@ local plugins = {
     end,
     lazy = true,
     ft = {
-      'html',
-      'javascript',
-      'typescript',
-      'javascriptreact',
-      'typescriptreact',
-      'svelte',
-      'vue',
-      'tsx',
-      'jsx',
-      'rescript',
-      'xml',
-      'php',
-      'markdown',
       'glimmer',
       'handlebars',
       'hbs',
+      'html',
+      'javascript',
+      'javascriptreact',
+      'jsx',
+      'markdown',
+      'php',
+      'rescript',
+      'svelte',
+      'typescript',
+      'typescriptreact',
+      'tsx',
+      'vue',
+      'xml',
     },
   },
 
@@ -360,6 +367,9 @@ local plugins = {
     -- Lazy loaded by Comment.nvim pre_hook
     'JoosepAlviste/nvim-ts-context-commentstring',
     lazy = true,
+    config = function()
+      require('xxx.plugin-config.nvim-ts-context-commentstring').setup()
+    end,
   },
   {
     -- 高亮显示相同的单词
@@ -450,8 +460,8 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.comment-rc').setup()
     end,
-    keys = { { 'gc', mode = { 'n', 'v' } }, { 'gb', mode = { 'n', 'v' } } },
-    event = 'User FileOpened',
+    -- keys = { { 'gc', mode = { 'n', 'v' } }, { 'gb', mode = { 'n', 'v' } } },
+    -- event = 'User FileOpened',
   },
 
   {

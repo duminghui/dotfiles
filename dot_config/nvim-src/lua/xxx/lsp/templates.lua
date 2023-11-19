@@ -38,7 +38,10 @@ function M.generate_ftplugin(ft_servers)
   local filetype = ft_servers[1]
   local filename = join_paths(ftplugin_dir, filetype .. '.lua')
   for _, server_name in ipairs(ft_servers[2]) do
-    local setup_cmd = string.format([[require("xxx.lsp.manager").setup(%q)]], server_name)
+    -- if vim.g.vscode then
+    --   return
+    -- end
+    local setup_cmd = string.format([[if not vim.g.vscode then require("xxx.lsp.manager").setup(%q) end]], server_name)
     -- overwrite the file completely
     utils.write_file(filename, setup_cmd .. '\n', 'a')
   end
