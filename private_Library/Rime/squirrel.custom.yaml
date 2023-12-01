@@ -1,4 +1,6 @@
 patch:
+  app_options/com.runningwithcrayons.Alfred:
+    ascii_mode: true
   # style/color_scheme: apathy
   # style/color_scheme: aqua
   # style/color_scheme: azure
