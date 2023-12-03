@@ -37,30 +37,38 @@ function M.get_sections()
     },
   }
 
-  local buttons = {}
+  local buttons = {
+    opts = {
+      hl_shortcut = 'Include',
+      spacing = 1,
+    },
+    entries = {
+      { 'n', icons.ui.NewFile .. '  New File', '<CMD>ene!<CR>' },
+      { 't', icons.ui.FindText .. '  Find Text', '<CMD>Telescope live_grep<CR>' },
+      { 'f', icons.ui.FindFile .. '  Find File', '<CMD>Telescope find_files<CR>' },
+      { 'r', icons.ui.History .. '  Recent files', ':Telescope oldfiles <CR>' },
+      { 'p', icons.ui.Project .. '  Projects ', '<CMD>Telescope projects<CR>' },
+      { 's', icons.ui.Session .. '  Sessions', '<CMD>SessionManager load_session<CR>' },
+      { 'S', icons.ui.Session2 .. '  Open last session', '<CMD>SessionManager load_last_session<CR>' },
+      { 'q', icons.ui.Close .. '  Quit', '<CMD>quit<CR>' },
+    },
+  }
 
-  local status_ok, dashboard = pcall(require, 'alpha.themes.dashboard')
-  if status_ok then
-    local function button(sc, txt, keybind, keybind_opts)
-      local b = dashboard.button(sc, txt, keybind, keybind_opts)
-      b.opts.hl_shortcut = 'Macro'
-      return b
-    end
+  -- local status_ok, dashboard = pcall(require, 'alpha.themes.dashboard')
+  -- if status_ok then
+  --   local function button(sc, txt, keybind, keybind_opts)
+  --     local b = dashboard.button(sc, txt, keybind, keybind_opts)
+  --     b.opts.hl_shortcut = 'Macro'
+  --     return b
+  --   end
 
-    buttons = {
-      val = {
-        button('n', icons.ui.NewFile .. '  New File', '<CMD>ene!<CR>'),
-        button('t', icons.ui.FindText .. '  Find Text', '<CMD>Telescope live_grep<CR>'),
-        button('f', icons.ui.FindFile .. '  Find File', '<CMD>Telescope find_files<CR>'),
-        button('r', icons.ui.History .. '  Recent files', ':Telescope oldfiles <CR>'),
-        button('p', icons.ui.Project .. '  Projects ', '<CMD>Telescope projects<CR>'),
-        button('s', icons.ui.Session .. '  Sessions', '<CMD>SessionManager load_session<CR>'),
-        button('S', icons.ui.Session2 .. '  Open last session', '<CMD>SessionManager load_last_session<CR>'),
-        -- button("s", "ﭯ  Sessions", "<CMD>Telescope persisted<CR>"),
-        -- button("S", "  Open last session", ":SessionLoadLast<CR>"),
-      },
-    }
-  end
+  --   buttons = {
+  --     val = {
+  --       -- button("s", "ﭯ  Sessions", "<CMD>Telescope persisted<CR>"),
+  --       -- button("S", "  Open last session", ":SessionLoadLast<CR>"),
+  --     },
+  --   }
+  -- end
 
   return {
     header = header,
