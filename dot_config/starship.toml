@@ -77,7 +77,6 @@ $azure\
 $env_var\
 $crystal\
 $custom\
-$cmd_duration\
 $line_break\
 $jobs\
 $battery\
@@ -90,6 +89,8 @@ $character"""
 right_format = """
 $cmd_duration\
 $time"""
+
+command_timeout = 1000
 
 [battery]
 full_symbol = "󰁹 "
