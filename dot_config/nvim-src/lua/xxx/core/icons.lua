@@ -191,6 +191,8 @@ return {
     TriangleShortArrowUp = '',
   },
   misc = {
+    -- Neovim = '',
+    Neovim = '',
     Robot = '󱚝', -- 󰚩
     Squirrel = '',
     Tag = '󰓹',

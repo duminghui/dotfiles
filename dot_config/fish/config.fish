@@ -37,11 +37,12 @@ end
 #     abbr ll "exa -lg -smodified --time-style=long-iso --icons"
 #     abbr lla "exa -lg -smodified --time-style=long-iso --icons -a"
 if type -q lsd
-    abbr ls "lsd -L"
+    # abbr ls "lsd -L"
+    abbr ls "lsd"
     abbr ll "lsd -ltr"
     abbr lla "lsd -Altr"
 else
-    abbr lla "ls -Altrh"
+    abbr lla1 "ls -Altrh"
 end
 
 if type -q vivid

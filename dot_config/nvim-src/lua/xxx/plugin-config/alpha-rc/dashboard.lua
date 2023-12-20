@@ -11,7 +11,7 @@ local banner = {
   '',
   '',
   '',
-  'Neovim ' .. ver_str,
+  icons.misc.Neovim .. ' Neovim ' .. ver_str,
 }
 
 function M.get_sections()

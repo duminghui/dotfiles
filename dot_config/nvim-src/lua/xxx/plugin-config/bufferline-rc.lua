@@ -69,6 +69,7 @@ local function highlights()
     buffer_selected = {
       fg = text_selected,
       bold = true,
+      italic = true,
     },
     tab_separator = {
       fg = tag_fg,

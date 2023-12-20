@@ -26,6 +26,8 @@ M.empty = { 'empty', color = { fg = 'None', bg = 'None' } }
 
 M.mode = {
   'mode',
+  icons_enabled = true,
+  icon = icons.misc.Neovim,
   separator = {
     right = '',
   },
