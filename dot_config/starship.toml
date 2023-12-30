@@ -238,7 +238,7 @@ style = "bright-cyan"
 [lua]
 format = "[$symbol($version )]($style)"
 # symbol = "🌖 "
-symbol = "󰢱 "
+symbol = "󰢱"
 style = "blue"
 
 [nodejs]
