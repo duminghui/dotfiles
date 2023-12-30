@@ -35,8 +35,12 @@ set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
 set -gx CARGO_HTTP_MULTIPLEXING false
+# 配置文件不支持相对路径, 暂时不用
+# set -gx SCCACHE_CONF $XDG_CONFIG_HOME/sccache/sccache-config.toml
+# 下面三个环境变量如果设置了, 不会使用config文件中的cache.disk.dir
 set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
-set -gx SCCACHE_CACHE_SIZE "3G"
+set -gx SCCACHE_CACHE_SIZE "6G"
+set -gx SCCACHE_DIRECT true
 
 set -gx PATH $CARGO_HOME/bin $PATH
 

@@ -66,6 +66,7 @@ local universal = {
     mode_fg = '#000000',
     mode_n_bg = '#000000',
     mode_i_bg = '#000000',
+    mode_r_bg = '#000000',
     mode_v_bg = '#000000',
     fg = '#000000',
     bg = '#000000',

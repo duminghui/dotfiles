@@ -6,6 +6,7 @@ local fg = colors.statuline.mode_fg
 local bg = nil
 local mode_n_bg = colors.statuline.mode_n_bg
 local mode_i_bg = colors.statuline.mode_i_bg
+local mode_r_bg = colors.statuline.mode_r_bg
 local mode_v_bg = colors.statuline.mode_v_bg
 
 return {
@@ -21,7 +22,7 @@ return {
     a = { bg = mode_v_bg, fg = fg, gui = 'bold' },
   },
   replace = {
-    a = { bg = mode_i_bg, fg = fg, gui = 'bold' },
+    a = { bg = mode_r_bg, fg = fg, gui = 'bold' },
   },
   command = {
     a = { bg = mode_n_bg, fg = fg, gui = 'bold' },

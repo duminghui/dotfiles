@@ -105,6 +105,7 @@ function M.setup()
       mode_fg = colors.base03:to_rgb(),
       mode_n_bg = colors.magenta:to_rgb(),
       mode_i_bg = colors.green:to_rgb(),
+      mode_r_bg = colors.orange:to_rgb(),
       mode_v_bg = colors.yellow:to_rgb(),
       fg = colors.base00:to_rgb(),
       bg = colors.base02:to_rgb(),
