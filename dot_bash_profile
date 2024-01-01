@@ -44,3 +44,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+export PATH="/Users/dumh/.local/share/solana/install/active_release/bin:$PATH"

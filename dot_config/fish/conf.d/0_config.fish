@@ -108,6 +108,9 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 
+set -gx SOLANA_HOME $XDG_DATA_HOME/solana/install/active_release
+test -d $SOLANA_HOME/bin; and set -gx PATH $SOLANA_HOME/bin $PATH
+
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true

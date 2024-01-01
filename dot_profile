@@ -1,2 +1,4 @@
 . "$HOME/.local/share/cargo/env"
 
+
+export PATH="/Users/dumh/.local/share/solana/install/active_release/bin:$PATH"
