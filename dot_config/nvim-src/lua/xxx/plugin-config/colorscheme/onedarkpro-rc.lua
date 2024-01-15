@@ -233,7 +233,6 @@ function M.setup()
   vim.opt.pumblend = 9
   vim.opt.winblend = 9
   Xvim.which_key_winblend = 9
-  Xvim.winblend = 9
   -- vim.cmd(string.format("highlight CursorLineNr guifg=%s", "#FFD700"))
   -- 会把整个替换掉
   -- vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFE700" })

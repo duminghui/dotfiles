@@ -15,10 +15,12 @@ M.opts = {
       'IndentBlanklineIndent6',
       'IndentBlanklineIndent7',
     },
+    -- priority = 1,
   },
   scope = {
-    char = icons.ui.LineLeft,
     show_start = false,
+    show_end = false,
+    show_exact_scope = true,
     highlight = {
       'IndentBlanklineContextChar1',
       'IndentBlanklineContextChar2',
@@ -28,6 +30,7 @@ M.opts = {
       'IndentBlanklineContextChar6',
       'IndentBlanklineContextChar7',
     },
+    -- priority = 1,
   },
   exclude = {
     filetypes = require('xxx.config.exclude-filetypes').indent_blankline,
@@ -41,12 +44,6 @@ M.opts = {
 }
 
 local function set_highlight()
-  -- vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
-  -- vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
-  -- vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
-  -- vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
-  -- vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
-  -- vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
   local colors = require('xxx.core.colors')
 
   local rb_colors = colors.rainbow()
@@ -64,7 +61,7 @@ local function set_highlight()
     -- end)
   end
 
-  vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])
+  -- vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])
 
   -- 要在listchars中添加 space:⋅, space相关的才会显示出来
   -- vim.cmd [[highlight IndentBlanklineSpaceChar guifg=#FFA500 gui=nocombine]]
@@ -77,6 +74,8 @@ function M.setup()
   -- vim.opt.listchars:append "eol:↴"
   --   vim.pretty_print(M.opts)
 
+  vim.g.rainbow_delimiters = { highlight = M.opts.scope.highlight }
+
   local hooks = require('ibl.hooks')
   hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     set_highlight()
@@ -85,7 +84,7 @@ function M.setup()
   local indent_blankline = require('ibl')
 
   indent_blankline.setup(M.opts)
-  -- indent_blankline.setup()
+  hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 end
 
 return M

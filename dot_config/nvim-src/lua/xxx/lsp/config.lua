@@ -59,7 +59,7 @@ local diagnostic_float = {
   header = '',
   prefix = ' ',
   suffix = ' ',
-  title = ' Diagnostic ',
+  -- title = ' Diagnostic ',
   format = function(d)
     local code = d.code or (d.user_data and d.user_data.lsp and d.user_data.lsp.code)
     if code then
@@ -95,7 +95,7 @@ local options = {
     float = diagnostic_float,
   },
   hover_float = {
-    title = ' Hover ',
+    -- title = ' Hover ',
     focusable = true,
     style = 'minimal',
     border = 'single',

@@ -303,7 +303,6 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.nvim-autopairs-rc').setup()
     end,
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'hrsh7th/nvim-cmp' },
     lazy = true,
     event = 'InsertEnter',
   },
@@ -350,7 +349,7 @@ local plugins = {
       'TSInstallSync',
       'TSInstallFromGrammar',
     },
-    dependencies = { 'nvim-treesitter-textobjects', 'nvim-ts-rainbow', 'nvim-ts-autotag' },
+    dependencies = { 'nvim-treesitter-textobjects' },
     event = 'User FileOpened',
   },
   {
@@ -371,6 +370,10 @@ local plugins = {
     end,
   },
   {
+    'nvim-treesitter/nvim-treesitter-textobjects', -- Syntax aware text-objects, select, move, swap, and peek support.
+    lazy = true,
+  },
+  {
     -- 高亮显示相同的单词
     'RRethy/vim-illuminate',
     config = function()
@@ -387,12 +390,8 @@ local plugins = {
     event = 'User FileOpened',
   },
   {
-    'nvim-treesitter/nvim-treesitter-textobjects', -- Syntax aware text-objects, select, move, swap, and peek support.
-    lazy = true,
-  },
-  {
-    'p00f/nvim-ts-rainbow',
-    lazy = true,
+    'HiPhish/rainbow-delimiters.nvim',
+    event = 'User FileOpened',
   },
 
   {

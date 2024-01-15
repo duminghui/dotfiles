@@ -62,8 +62,8 @@ function M.setup()
   Group.new('NormalNC', colors.base1:dark(), bg_color)
 
   -- fix dressing float title color
-  -- Group.new('FloatTitle', colors.base00, colors.none, styles.none)
-  Group.new('FloatTitle', colors.red, colors.none, styles.reverse)
+  Group.new('FloatTitle', colors.base00, colors.none, styles.none)
+  -- Group.new('FloatTitle', colors.red, colors.none, styles.reverse)
 
   -- Group.new('TabLineSel', colors.yellow, bg_color) -- 原值
 
@@ -80,12 +80,11 @@ function M.setup()
   Group.new('PmenuSbar', colors.base02, colors.purple, styles.reverse) -- 这个还不知道用哪里
   Group.new('PmenuThumb', colors.base0, colors.none, styles.reverse)
 
-  local border_bg_color = colors.base03
-
   -- be nice for this float border to be cyan if active
   -- Group.new('FloatBorder', colors.base02) -- 原值
   -- 修正 vim.opt.winblend != 0 时边框的背景色变成黑色
-  Group.new('FloatBorder', colors.base02, border_bg_color) -- fix bg
+  -- Group.new('FloatBorder', colors.base02, groups.NormalFloat) -- fix bg
+  Group.new('FloatBorder', colors.base03, groups.NormalFloat) -- fix bg
 
   -- signcolumn ~ color
   Group.new('EndOfBuffer', colors.base03, colors.none, styles.none)
@@ -107,8 +106,9 @@ function M.setup()
   -- Group.link('TelescopeSelection', groups.CursorLine)
   -- Group.new('TelescopeSelectionCaret', colors.cyan)
 
-  Group.new('TelescopeBorder', colors.base01, border_bg_color) -- fix bg
-  Group.new('TelescopePromptBorder', colors.cyan, border_bg_color) -- fix bg
+  -- 下面三个的背景色和Normal保持一至, 即使Normal没有背景色也要填上
+  Group.new('TelescopeBorder', colors.base01, colors.base03) -- fix bg
+  Group.new('TelescopePromptBorder', colors.cyan, colors.base03) -- fix bg
   Group.new('TelescopeNormal', groups.Normal, colors.base03, styles.none) -- fix bg
   Group.new('TelescopePromptTitle', colors.base1, colors.purple, styles.none)
   Group.new('TelescopePreviewTitle', colors.base02, colors.green, styles.none)
@@ -141,11 +141,17 @@ function M.setup()
   local cWarn = groups.Warning.fg
   local cInfo = groups.Information.fg
   local cHint = groups.Hint.fg
-
-  -- Group.new('DiagnosticError', cError, colors.base03)
-  -- Group.new('DiagnosticWarn', cWarn, colors.base03)
-  -- Group.new('DiagnosticInfo', cInfo, colors.base03)
-  -- Group.new('DiagnosticHint', cHint, colors.base03)
+  -- 下面四个要和NormalFloat和背景色保持一至
+  -- lspsaga会使用下面四个来设置Diagnostic Window的内容和边框
+  -- https://github.com/nvimdev/lspsaga.nvim/blob/3112b7aba57653199ad20198f477d94781bb2310/lua/lspsaga/diagnostic/init.lua#L245
+  Group.new('DiagnosticError', cError, groups.NormalFloat)
+  Group.new('DiagnosticWarn', cWarn, groups.NormalFloat)
+  Group.new('DiagnosticInfo', cInfo, groups.NormalFloat)
+  Group.new('DiagnosticHint', cHint, groups.NormalFloat)
+  Group.new('DiagnosticSignError', cError)
+  Group.new('DiagnosticSignWarn', cWarn)
+  Group.new('DiagnosticSignInfo', cInfo)
+  Group.new('DiagnosticSignHint', cHint)
   Group.new('DiagnosticVirtualTextError', cError, cError:dark():dark():dark():dark(), styles.none)
   Group.new('DiagnosticVirtualTextWarn', cWarn, cWarn:dark():dark(), styles.none)
   Group.new('DiagnosticVirtualTextInfo', cInfo, cInfo:dark():dark():dark(), styles.none)
@@ -197,7 +203,6 @@ function M.setup()
   -- Enables pseudo-transparency for a floating window. doc view
   -- 当不为0时,如果边框的highlight没有设置背景色或者背景色偏黑色, 经过neovim计算后背景会变成黑色
   vim.opt.winblend = 6
-  Xvim.winblend = 0
   Xvim.telescope_winblend = 3
   Xvim.which_key_winblend = 6
 end

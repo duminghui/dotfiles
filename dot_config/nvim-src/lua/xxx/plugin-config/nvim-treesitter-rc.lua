@@ -53,29 +53,29 @@ M.opts = {
   incremental_selection = {
     enable = false,
   },
-  -- context_commentstring = {
-  --   enable = true,
-  --   enable_autocmd = false,
-  --   config = {
-  --     -- Languages that have a single comment style
-  --     typescript = '// %s',
-  --     css = '/* %s */',
-  --     -- scss = '/* %s */',
-  --     scss = '// %s',
-  --     html = '<!-- %s -->',
-  --     svelte = '<!-- %s -->',
-  --     vue = '<!-- %s -->',
-  --     json = '',
-  --   },
-  -- },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+    config = {
+      -- Languages that have a single comment style
+      typescript = '// %s',
+      css = '/* %s */',
+      -- scss = '/* %s */',
+      scss = '// %s',
+      html = '<!-- %s -->',
+      svelte = '<!-- %s -->',
+      vue = '<!-- %s -->',
+      json = '',
+    },
+  },
   indent = {
     enable = true,
     -- disable = { "yaml", "python" }
   },
-  autotag = { enable = true },
-  autopairs = {
-    enable = true,
-  },
+  -- autotag = { enable = true },
+  -- autopairs = {
+  --   enable = true,
+  -- },
   textobjects = {
     swap = {
       enable = false,
@@ -127,10 +127,10 @@ M.opts = {
       },
     },
   },
-  textsubjects = {
-    enable = false,
-    keymaps = { ['.'] = 'textsubjects-smart', [';'] = 'textsubjects-big' },
-  },
+  -- textsubjects = {
+  --   enable = false,
+  --   keymaps = { ['.'] = 'textsubjects-smart', [';'] = 'textsubjects-big' },
+  -- },
   playground = {
     enable = false,
     disable = {},
@@ -148,21 +148,6 @@ M.opts = {
       goto_node = '<cr>',
       show_help = '?',
     },
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-    max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-    colors = {
-      colors.c1,
-      colors.c2,
-      colors.c3,
-      colors.c4,
-      colors.c5,
-      colors.c6,
-      colors.c7,
-    },
-    -- termcolors = {}
   },
 }
 

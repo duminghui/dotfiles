@@ -11,6 +11,19 @@ M.opts = {
       progress_style = 'FidgetProgress',
       group_style = 'FidgetGroup',
       icon_style = 'FidgetIcon',
+      overrides = {
+        -- rust_analyzer = {
+        --   name = 'Rust Analyzer',
+        --   icon = fidget.progress.display.for_icon(fidget.spinner.animate('arrow', 2.5), '🦀'),
+        -- update_hook = function(item)
+        --   require('fidget.notification').set_content_key(item)
+        --   if item.hidden == nil and string.match(item.annote, 'clippy') then
+        --     -- Hide clippy-related notifications
+        --     item.hidden = true
+        --   end
+        -- end,
+        -- },
+      },
     },
   },
   notification = {

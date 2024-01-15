@@ -1,6 +1,5 @@
 Xvim = {
   colorscheme = 'neo', -- neo(neosolarized), one(onedarkpro)
-  winblend = 0, -- 当使用透明主题时, 不为零时, 有些组件背景为黑色
   telescope_winblend = 9,
   which_key_winblend = 9,
   lsp = {
