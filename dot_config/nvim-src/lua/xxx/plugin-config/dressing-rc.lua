@@ -16,7 +16,6 @@ M.opts = {
     -- anchor = "SW",
     -- border = "rounded",
     border = 'single',
-    -- border = "none",
 
     -- 'editor' and 'win' will default to being centered
     relative = 'cursor',

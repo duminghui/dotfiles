@@ -31,7 +31,7 @@ function M.opts()
         },
       },
       cycle_layout_list = { 'horizontal', 'vertical' },
-      winblend = Xvim.winblend, -- 透明模式下设为0
+      winblend = Xvim.telescope_winblend, -- 透明模式下设为0
       wrap_results = true,
       -- prompt_prefix = " ",
       prompt_prefix = ' ' .. icons.ui.Search .. ' ',

@@ -512,7 +512,6 @@ M.opts = {
 function M.setup()
   local neo_tree = require('neo-tree')
   neo_tree.setup(M.opts)
-
   -- 不起作用
   -- local autocmd = require('xxx.core.autocmds')
   -- autocmd.define_autocmd {

@@ -243,7 +243,6 @@ local plugins = {
   {
     -- Standalone UI for nvim-lsp progress.
     'j-hui/fidget.nvim',
-    tag = 'legacy',
     config = function()
       require('xxx.plugin-config.fidget-rc').setup()
     end,

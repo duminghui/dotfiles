@@ -34,10 +34,11 @@ local M = {}
 -- end
 
 function M.setup()
-  local lsp_opts = require "xxx.lsp.config"
+  local lsp_opts = require('xxx.lsp.config')
   vim.diagnostic.config(lsp_opts.diagnostics)
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, lsp_opts.float)
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, lsp_opts.float)
+  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, lsp_opts.hover_float)
+  vim.lsp.handlers['textDocument/signatureHelp'] =
+    vim.lsp.with(vim.lsp.handlers.signature_help, lsp_opts.signature_help_float)
   -- setup_async_formatting_handler()
 end
 

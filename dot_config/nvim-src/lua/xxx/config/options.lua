@@ -48,7 +48,7 @@ function M.load_default_options()
   ---https://jeffkreeftmeijer.com/vim-number/
   vim.wo.number = true -- Set the absolute number
   vim.wo.relativenumber = true -- Set the relative number
-  -- vim.opt.signcolumn = "yes:1" -- Show information next to the line numbers
+  -- vim.opt.signcolumn = 'yes:1' -- Show information next to the line numbers
   vim.wo.signcolumn = 'yes:2' -- Show information next to the line numbers
 
   -- wrap
@@ -174,14 +174,15 @@ function M.load_default_options()
     'n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait300-blinkoff300-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175'
 
   -- 如果背景是深色, 再开启这个, 背景就会变成纯黑色的块
-  if not vim.g.vscode then
-    -- 这个会造成vscode卡顿
-    -- Enables pseudo-transparency for the |popup-menu|.
-    -- cmp's menu, doc view
-    vim.opt.pumblend = 9
-    -- Enables pseudo-transparency for a floating window.
-    vim.opt.winblend = 9
-  end
+  -- if not vim.g.vscode then
+  -- 这个会造成vscode卡顿
+  -- 在顔色主题中进行设置,不在这个文件中设置下面两顶
+  -- Enables pseudo-transparency for the |popup-menu|.
+  -- cmp's menu
+  -- vim.opt.pumblend = 9
+  -- Enables pseudo-transparency for a floating window. doc view
+  -- vim.opt.winblend = 9
+  -- end
   -- A list of words that change how |cmdline-completion| is done.
   -- The following values are supported:
   vim.opt.wildoptions = 'pum'

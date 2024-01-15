@@ -52,11 +52,14 @@ local skipped_filetypes = { 'markdown', 'rst', 'plaintext' }
 
 local diagnostic_float = {
   focusable = false,
-  style = 'minimal',
+  -- style = 'minimal',
   border = 'single',
+  -- border = 'none',
   source = 'always',
   header = '',
-  prefix = '',
+  prefix = ' ',
+  suffix = ' ',
+  title = ' Diagnostic ',
   format = function(d)
     local code = d.code or (d.user_data and d.user_data.lsp and d.user_data.lsp.code)
     if code then
@@ -91,10 +94,19 @@ local options = {
     severity_sort = true,
     float = diagnostic_float,
   },
-  float = {
+  hover_float = {
+    title = ' Hover ',
     focusable = true,
     style = 'minimal',
     border = 'single',
+    -- border = 'none',
+  },
+  signature_help_float = {
+    title = ' Signature ',
+    focusable = true,
+    style = 'minimal',
+    border = 'single',
+    -- border = 'none',
   },
   automatic_configuration = {
     ---@usage list of servers that the automatic installer will skip

@@ -1,19 +1,19 @@
 local M = {}
-M.opts = {
-  comment_italics = true,
-  background_set = false,
-}
 
 function M.setup()
-  require('neosolarized').setup(M.opts)
-
   local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+
+  local opts = {
+    comment_italics = true,
+    -- Transparency by default (disable with background_set = true)
+    background_set = false,
+    background_color = Color.none,
+  }
+
+  require('neosolarized').setup(opts)
 
   local darkgold = colors.gold:dark()
 
-  Color.new('black', '#000000')
-  Color.new('white', '#FFFFFF')
-  Color.new('bg1', '#001b21')
   -- Color.new("gold", "#FFD700")
   Color.new('darkgold', darkgold:to_rgb())
 
@@ -35,16 +35,60 @@ function M.setup()
   -- Color.new("green", "#719e07")
   Color.new('green', '#859900')
 
-  Group.new('Normal', colors.base1, colors.none, styles.none)
+  -- and: 如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数；
+  -- and连接多个操作数时，表达式的返回值就是从左到右第一个为假的值，若所有操作数值都不为假，则表达式的返回值为最后一个操作数；
+  -- or:  如果它的第一个操作数为真，就返回第一个操作数，不然返回第二个操作数；
+  -- or连接多个操作数时，表达式的返回值就是从左到右第一个不为假的值，若所有操作数值都为假，则表达式的返回值为最后一个操作数；
+
+  if opts.background_set and opts.background_color == Color.none then
+    opts.background_color = colors.base03
+  end
+
+  local bg_color = opts.background_color
+
+  -- Group.new = function(name, fg, bg, style, guisp, blend)
+  -- "guisp" is used for various underlines.
+
+  -- Group.new("Normal", colors.base0, bg_color) -- 原值
+  Group.new('Normal', colors.base1, bg_color)
+  -- 浮动窗口
+  -- print(false and Color.none or colors.base02)
+  -- print(true and Color.none or colors.base02)
+  -- 上面的全部返回colors.base02
+  Group.new('NormalFloat', colors.base1, not opts.background_set and Color.none or colors.base02) -- 原值
+  -- normal non-current text
+  --Group.new("NormalNC", colors.base0:dark(), bg_color)
+  -- 比如: 在alpha-dashboard界面,弹出Telescope界面后,dashboard的字体顔色就会变成下面设置的
+  Group.new('NormalNC', colors.base1:dark(), bg_color)
+
+  -- fix dressing float title color
+  -- Group.new('FloatTitle', colors.base00, colors.none, styles.none)
+  Group.new('FloatTitle', colors.red, colors.none, styles.reverse)
+
+  -- Group.new('TabLineSel', colors.yellow, bg_color) -- 原值
+
+  -- Group.new('LineNr', colors.base01, bg_color, styles.NONE)-- 原值
+  Group.new('LineNr', colors.base01, colors.none, styles.NONE)
   Group.new('CursorLine', colors.none, colors.base02, styles.none, colors.base01)
   Group.new('CursorLineNr', colors.gold, colors.base02, styles.bold, colors.base01)
   Group.link('CursorColumn', groups.CursorLine)
   Group.new('Visual', colors.none, colors.base03, styles.reverse)
-  -- fix dressing float title color
-  Group.new('FloatTitle', colors.base00, colors.none, styles.none)
-  Group.new('PmenuSel', colors.base03, colors.base1, styles.reverse)
+
+  -- pum (popup menu)
+  Group.new('Pmenu', groups.Normal, colors.base02, styles.none) -- popup menu normal item
+  Group.new('PmenuSel', colors.base03, colors.base1, styles.reverse) -- selected item
+  Group.new('PmenuSbar', colors.base02, colors.purple, styles.reverse) -- 这个还不知道用哪里
+  Group.new('PmenuThumb', colors.base0, colors.none, styles.reverse)
+
+  local border_bg_color = colors.base03
+
+  -- be nice for this float border to be cyan if active
+  -- Group.new('FloatBorder', colors.base02) -- 原值
+  -- 修正 vim.opt.winblend != 0 时边框的背景色变成黑色
+  Group.new('FloatBorder', colors.base02, border_bg_color) -- fix bg
+
   -- signcolumn ~ color
-  Group.new('EndOfBuffer', colors.bg1, colors.none, styles.none)
+  Group.new('EndOfBuffer', colors.base03, colors.none, styles.none)
 
   -- Nvim-Tree
   vim.cmd('highlight link NvimTreeFolderName NvimTreeNormal')
@@ -55,9 +99,37 @@ function M.setup()
   Group.new('NvimTreeGitNew', colors.green, colors.none, styles.none)
 
   -- Telescope
+  -- Group.new('TelescopeMatching', colors.orange, groups.Special, groups.Special, groups.Special)
+  -- Group.new('TelescopeBorder', colors.base01) -- float border not quite dark enough, maybe that needs to change?
+  -- Group.new('TelescopePromptBorder', colors.cyan) -- active border lighter for clarity
+  -- Group.new('TelescopeTitle', groups.Normal) -- separate them from the border a little, but not make them pop
+  -- Group.new('TelescopePromptPrefix', groups.Normal) -- default is groups.Identifier
+  -- Group.link('TelescopeSelection', groups.CursorLine)
+  -- Group.new('TelescopeSelectionCaret', colors.cyan)
+
+  Group.new('TelescopeBorder', colors.base01, border_bg_color) -- fix bg
+  Group.new('TelescopePromptBorder', colors.cyan, border_bg_color) -- fix bg
+  Group.new('TelescopeNormal', groups.Normal, colors.base03, styles.none) -- fix bg
   Group.new('TelescopePromptTitle', colors.base1, colors.purple, styles.none)
   Group.new('TelescopePreviewTitle', colors.base02, colors.green, styles.none)
   Group.new('TelescopeResultsTitle', colors.base02, colors.yellow, styles.none)
+
+  -- fidget
+  -- Group.link('FidgetDone', groups.Constant) -- Constant
+  -- Group.link('FidgetProgress', groups.WarningMsg) -- WarningMsg
+  -- Group.link('FidgetGroup', groups.Title) -- Title
+  -- Group.link('FidgetIcon', groups.Question) -- Question
+  -- Group.link('FidgetGroupSeparator', groups.Comment) -- Comment
+  -- Group.link('FidgetNormal', groups.Comment) -- Comment
+  -- Group.link('FidgetBorder', groups.FloatBorder) -- FloatBorder
+
+  Group.new('FidgetDone', colors.green)
+  Group.new('FidgetProgress', colors.yellow)
+  Group.new('FidgetGroup', colors.magenta)
+  Group.new('FidgetIcon', colors.magenta)
+  Group.new('FidgetGroupSeparator', colors.base01)
+  Group.new('FidgetNormal', colors.base01)
+  Group.link('FidgetBorder', groups.FloatBorder)
 
   -- TreesitterContext
   vim.cmd('highlight link TreesitterContextLineNumber TreesitterContext')
@@ -66,10 +138,14 @@ function M.setup()
   Group.new('TroubleFoldIcon', groups.CursorLineNr)
 
   local cError = groups.Error.fg
-  local cInfo = groups.Information.fg
   local cWarn = groups.Warning.fg
+  local cInfo = groups.Information.fg
   local cHint = groups.Hint.fg
 
+  -- Group.new('DiagnosticError', cError, colors.base03)
+  -- Group.new('DiagnosticWarn', cWarn, colors.base03)
+  -- Group.new('DiagnosticInfo', cInfo, colors.base03)
+  -- Group.new('DiagnosticHint', cHint, colors.base03)
   Group.new('DiagnosticVirtualTextError', cError, cError:dark():dark():dark():dark(), styles.none)
   Group.new('DiagnosticVirtualTextWarn', cWarn, cWarn:dark():dark(), styles.none)
   Group.new('DiagnosticVirtualTextInfo', cInfo, cInfo:dark():dark():dark(), styles.none)
@@ -78,7 +154,9 @@ function M.setup()
   Group.new('DiagnosticUnderlineWarn', colors.none, colors.none, styles.undercurl, cWarn)
   Group.new('DiagnosticUnderlineInfo', colors.none, colors.none, styles.undercurl, cInfo)
   Group.new('DiagnosticUnderlineHint', colors.none, colors.none, styles.undercurl, cHint)
-  Group.new('HoverBorder', colors.yellow, colors.none, styles.none)
+
+  -- lspsaga
+  -- Group.new('HoverBorder', colors.yellow, colors.none, styles.none)
 
   local universal_colors = {
     yellow = colors.yellow:to_rgb(),
@@ -113,10 +191,15 @@ function M.setup()
   }
 
   require('xxx.core.colors').set_universal(universal_colors)
-  vim.opt.pumblend = 9
-  vim.opt.winblend = 9
+  -- Enables pseudo-transparency for the |popup-menu|.
+  -- cmp's menu
+  vim.opt.pumblend = 6
+  -- Enables pseudo-transparency for a floating window. doc view
+  -- 当不为0时,如果边框的highlight没有设置背景色或者背景色偏黑色, 经过neovim计算后背景会变成黑色
+  vim.opt.winblend = 6
   Xvim.winblend = 0
-  Xvim.which_key_winblend = 9
+  Xvim.telescope_winblend = 3
+  Xvim.which_key_winblend = 6
 end
 
 return M

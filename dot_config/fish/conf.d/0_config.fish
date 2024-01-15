@@ -31,6 +31,12 @@ end
 ### rust ####
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+set -gx PATH $CARGO_HOME/bin $PATH
+if type -q fd
+    abbr cargo-batch-clean "fd -g 'Cargo.toml' | xargs -t -I {} cargo clean --manifest-path {}"
+else
+    abbr cargo-batch-clean "find . -name 'Cargo.toml' | xargs -t -I {} cargo clean --manifest-path {}"
+end
 # set -gx CARGO_HOME $HOME/.cargo
 set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
 set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
@@ -42,7 +48,6 @@ set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
 set -gx SCCACHE_CACHE_SIZE "6G"
 set -gx SCCACHE_DIRECT true
 
-set -gx PATH $CARGO_HOME/bin $PATH
 
 ### tmuxinator ###
 type -q nvim; and set -gx EDITOR nvim
@@ -111,6 +116,7 @@ end
 ### solana ###
 set -gx SOLANA_HOME $XDG_DATA_HOME/solana/install/active_release
 test -d $SOLANA_HOME/bin; and set -gx PATH $SOLANA_HOME/bin $PATH
+# for solana-test-validator
 test -d (brew --prefix)/opt/gnu-tar/libexec/gnubin; and set -gx PATH $(brew --prefix)/opt/gnu-tar/libexec/gnubin $PATH
 ### solana ###
 

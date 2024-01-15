@@ -7,7 +7,8 @@ M.opts = {
     check_outdated_packages_on_open = true,
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
     -- border = "rounded",
-    border = 'single',
+    -- border = 'single',
+    border = 'none',
     icons = {
       -- -- The list icon to use for installed packages.
       -- package_installed = "◍",

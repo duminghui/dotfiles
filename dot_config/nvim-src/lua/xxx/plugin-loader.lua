@@ -57,7 +57,8 @@ function plugin_loader.load(configurations)
       },
       ui = {
         size = { width = 0.8, height = 0.7 },
-        border = 'single',
+        -- border = 'single',
+        border = 'none',
         icons = {
           cmd = '',
           config = '󰒓',
