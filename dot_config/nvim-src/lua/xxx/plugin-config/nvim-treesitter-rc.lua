@@ -53,29 +53,10 @@ M.opts = {
   incremental_selection = {
     enable = false,
   },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-    config = {
-      -- Languages that have a single comment style
-      typescript = '// %s',
-      css = '/* %s */',
-      -- scss = '/* %s */',
-      scss = '// %s',
-      html = '<!-- %s -->',
-      svelte = '<!-- %s -->',
-      vue = '<!-- %s -->',
-      json = '',
-    },
-  },
   indent = {
     enable = true,
     -- disable = { "yaml", "python" }
   },
-  -- autotag = { enable = true },
-  -- autopairs = {
-  --   enable = true,
-  -- },
   textobjects = {
     swap = {
       enable = false,
@@ -127,10 +108,6 @@ M.opts = {
       },
     },
   },
-  -- textsubjects = {
-  --   enable = false,
-  --   keymaps = { ['.'] = 'textsubjects-smart', [';'] = 'textsubjects-big' },
-  -- },
   playground = {
     enable = false,
     disable = {},
