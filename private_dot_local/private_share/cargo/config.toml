@@ -1,0 +1,89 @@
+[source.crates-io]
+registry = "https://github.com/rust-lang/crates.io-index"
+# 指定镜像
+#replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
+replace-with = 'rsproxy'
+
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[registries.rsproxy]
+index = "https://rsproxy.cn/crates.io-index"
+
+[net]
+git-fetch-with-cli = true
+
+# 注：以下源配置一个即可，无需全部
+
+# 中国科学技术大学
+[source.ustc]
+# registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+# >>> 或者 <<<
+registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+
+# 上海交通大学
+[source.sjtu]
+registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/"
+
+# 清华大学
+[source.tuna]
+registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+
+# rustcc社区
+[source.rustcc]
+registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
+
+[build]
+rustc-wrapper = "sccache"
+
+[http]
+multiplexing = false
+
+# https://github.com/bevyengine/bevy/blob/main/.cargo/config_fast_builds
+# https://bevyengine.org/learn/book/getting-started/setup/#compile-with-performance-optimizations
+# [profile.dev]
+# 增量编译
+# split-debuginfo = "unpacked"
+# opt-level = 1
+
+# [profile.dev.package."*"]
+# opt-level = 3
+
+# Add the contents of this file to `config.toml` to enable "fast build" configuration. Please read the notes below.
+
+# NOTE: For maximum performance, build using a nightly compiler
+# If you are using rust stable, remove the "-Zshare-generics=y" below.
+
+[target.x86_64-unknown-linux-gnu]
+linker = "clang"
+rustflags = ["-Clink-arg=-fuse-ld=lld"]
+# rustflags = ["-Clink-arg=-fuse-ld=lld", "-Zshare-generics=y"]
+
+# NOTE: you must install [Mach-O LLD Port](https://lld.llvm.org/MachO/index.html) on mac. you can easily do this by installing llvm which includes lld with the "brew" package manager:
+# `brew install llvm`
+[target.x86_64-apple-darwin]
+rustflags = ["-C", "link-arg=-fuse-ld=/usr/local/opt/llvm/bin/ld64.lld"]
+# rustflags = [
+#     "-C",
+#     "link-arg=-fuse-ld=/usr/local/opt/llvm/bin/ld64.lld",
+#     "-Zshare-generics=y",
+# ]
+
+[target.aarch64-apple-darwin]
+rustflags = ["-C", "link-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld"]
+# rustflags = [
+#     "-C",
+#     "link-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld",
+#     "-Zshare-generics=y",
+# ]
+
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"
+rustflags = ["-Zshare-generics=n"]
+
+# # Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
+# # In most cases the gains are negligible, but if you are on macos and have slow compile times you should see significant gains.
+# #[profile.dev]
+# #debug = 1

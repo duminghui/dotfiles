@@ -1,6 +1,6 @@
 - [Fish shell](https://fishshell.com/)
 - [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) - Plugin manager
-- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts. I use Hack.
+- [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts.
 - [z for fish](https://github.com/jethrokuan/z) - Directory jumping
 - [Exa](https://the.exa.website/) - `ls` replacement
 - [peco](https://github.com/peco/peco) - Interactive filtering
@@ -13,10 +13,21 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 omf channel dev
 ```
 
+Why use channel `dev` not `stable`
+https://github.com/oh-my-fish/oh-my-fish/pull/908
+
+### fisher
+
+```fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+```
+
 ### z
 
 ```fish
 omf install https://github.com/jethrokuan/z
+fisher install jethrokuan/z
 ```
 
 ### starship
