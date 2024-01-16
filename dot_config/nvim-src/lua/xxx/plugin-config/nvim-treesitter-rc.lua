@@ -128,13 +128,6 @@ M.opts = {
   },
 }
 
-local function set_rainbow_highlight()
-  for i = 1, 7 do
-    local c_key = string.format('c%s', i)
-    vim.cmd(string.format('highlight rainbowcol%s guifg=%s', i, colors[c_key]))
-  end
-end
-
 function M.setup()
   -- avoid running in headless mode since it's harder to detect failures
   if #vim.api.nvim_list_uis() == 0 then
@@ -150,9 +143,7 @@ function M.setup()
   -- 在其他方再运行configs.setup() 会影响到自定义安装路径
   configs.setup(M.opts)
 
-  set_rainbow_highlight()
-
-  -- 其他的配置有 autopairs, rainbow, ts-context-commentstring,
+  -- 其他的配置有 ts-context-commentstring,
 
   -- 在lsp中配置
   -- set foldmethod=expr

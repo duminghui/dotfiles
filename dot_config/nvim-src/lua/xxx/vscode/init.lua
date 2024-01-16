@@ -68,12 +68,12 @@ M.keymappings = {
   ['gc'] = { { 'n', 'x', 'o' }, '<Plug>VSCodeCommentary' },
   ['gcc'] = { 'n', '<Plug>VSCodeCommentaryLine' },
 
-  -- ['<leader><leader>a'] = { 'n', '<cmd>HopAnywhere<CR>' },
-  -- ['<leader><leader>s'] = { 'n', cmd('HopChar1') },
-  -- ['<leader><leader>t'] = { 'n', cmd('HopChar2') },
-  -- ['<leader><leader>w'] = { 'n', cmd('HopWord') },
-  -- ['<leader><leader>l'] = { 'n', cmd('HopLineStart') },
-  ['<leader><leader>s'] = { 'n', cmd('Pounce') },
+  ['<leader><leader>a'] = { 'n', '<cmd>HopAnywhere<CR>' },
+  ['<leader><leader>s'] = { 'n', cmd('HopChar1') },
+  ['<leader><leader>t'] = { 'n', cmd('HopChar2') },
+  ['<leader><leader>w'] = { 'n', cmd('HopWord') },
+  ['<leader><leader>l'] = { 'n', cmd('HopLineStart') },
+  -- ['<leader><leader>s'] = { 'n', cmd('Pounce') },
 
   ['<leader>sf'] = { 'n', vscode('workbench.action.quickOpen') },
 

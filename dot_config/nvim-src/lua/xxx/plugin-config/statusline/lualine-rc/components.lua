@@ -1,9 +1,9 @@
 local colors = require('xxx.core.colors').universal()
 local icons = require('xxx.core.icons')
 
-local mode_fg = colors.statuline.mode_fg
-local com_fg = colors.statuline.fg
-local com_bg = colors.statuline.bg
+local mode_fg = colors.statusline.mode_fg
+local com_fg = colors.statusline.fg
+local com_bg = colors.statusline.bg
 
 local red = colors.red
 local green = colors.green

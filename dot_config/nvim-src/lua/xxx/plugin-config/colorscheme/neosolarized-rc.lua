@@ -185,7 +185,7 @@ function M.setup()
       modified = darkgold:to_rgb(),
       pick = colors.magenta:to_rgb(),
     },
-    statuline = {
+    statusline = {
       mode_fg = colors.base03:to_rgb(),
       mode_n_bg = colors.magenta:to_rgb(),
       mode_i_bg = colors.green:to_rgb(),

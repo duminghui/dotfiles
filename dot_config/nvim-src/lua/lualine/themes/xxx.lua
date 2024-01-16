@@ -2,12 +2,12 @@ local colors = require('xxx.core.colors').universal()
 
 -- local fg = "#657b83"
 -- local fg = "#282c34"
-local fg = colors.statuline.mode_fg
+local fg = colors.statusline.mode_fg
 local bg = nil
-local mode_n_bg = colors.statuline.mode_n_bg
-local mode_i_bg = colors.statuline.mode_i_bg
-local mode_r_bg = colors.statuline.mode_r_bg
-local mode_v_bg = colors.statuline.mode_v_bg
+local mode_n_bg = colors.statusline.mode_n_bg
+local mode_i_bg = colors.statusline.mode_i_bg
+local mode_r_bg = colors.statusline.mode_r_bg
+local mode_v_bg = colors.statusline.mode_v_bg
 
 return {
   normal = {

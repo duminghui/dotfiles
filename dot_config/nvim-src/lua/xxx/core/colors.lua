@@ -62,7 +62,7 @@ local universal = {
     modified = '#000000',
     pick = '#000000',
   },
-  statuline = {
+  statusline = {
     mode_fg = '#000000',
     mode_n_bg = '#000000',
     mode_i_bg = '#000000',
