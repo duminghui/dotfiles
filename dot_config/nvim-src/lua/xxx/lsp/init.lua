@@ -31,6 +31,7 @@ function M.common_on_init(_, _)
 end
 
 function M.common_on_attach(client, bufnr)
+  require('lsp-inlayhints').on_attach(client, bufnr)
   -- print('# common_on_attach', client.name, bufnr, vim.bo.filetype)
   local lu = require('xxx.lsp.utils')
 

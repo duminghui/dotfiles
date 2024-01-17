@@ -195,7 +195,7 @@ local plugins = {
 
   {
     'neovim/nvim-lspconfig',
-    dependencies = { 'mason-lspconfig.nvim' },
+    dependencies = { 'mason-lspconfig.nvim', 'lsp-inlayhints.nvim' },
     lazy = true,
   },
   -- {
@@ -517,11 +517,20 @@ local plugins = {
   },
 
   {
-    'simrat39/rust-tools.nvim',
+    -- 还没配置好
+    'lvimuser/lsp-inlayhints.nvim',
     config = function()
-      require('xxx.plugin-config.lang.rs-rust-tools-rc').setup()
+      require('xxx.plugin-config.lang.lsp-inlayhints-rc').setup()
     end,
-    enabled = true,
+    lazy = true,
+  },
+
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^3', -- Recommended
+    config = function()
+      require('xxx.plugin-config.lang.rustaceanvim-rs').setup()
+    end,
     ft = { 'rust' },
   },
 
