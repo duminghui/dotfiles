@@ -1,6 +1,7 @@
 local M = {}
 
 local lsp = require('xxx.lsp')
+-- 配置中的root_dir不起作用, 会被插件替换掉
 local ra_opt = require('xxx.lsp.providers.rust_analyzer')
 
 M.opts = {

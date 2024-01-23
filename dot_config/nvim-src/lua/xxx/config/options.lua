@@ -93,14 +93,31 @@ function M.load_default_options()
   vim.opt.scrolljump = 1
   vim.opt.scrolloff = 6 -- Set the cursor 6 lines down instead of directly at the top of the file
 
-  vim.opt.shortmess:append('fFilmnoOrtTwx')
-  -- vim.opt.shortmess = {
-  --     A = true, -- ignore annoying swap file messages
-  --     c = true, -- Do not show completion messages in command line
-  --     F = true, -- Do not show file info when editing a file, in the command line
-  --     I = true, -- Do not show the intro message
-  --     W = true, -- Do not show "written" in command line when writing
-  -- }
+  vim.opt.shortmess = {
+    f = false, -- use "(3 of 5)" instead of "(file 3 of 5)"
+    i = false, -- use "[noeol]" instead of "[Incomplete last line]"
+    l = false, -- use "999L, 888B" instead of "999 lines, 888 bytes"
+    m = false, -- use "[+]" instead of "[Modified]"
+    n = false, -- use "[New]" instead of "[New File]"
+    r = false, -- use "[RO]" instead of "[readonly]"
+    w = false, -- use "[w]" instead of "written" for file write message and "[a]" instead of "appended" for ':w >> file' command
+    x = false, -- use "[dos]" instead of "[dos format]", "[unix]" instead of "[unix format]" and "[mac]" instead of "[mac format]"
+    a = true, -- all of the above abbreviations
+
+    o = true, -- overwrite message for writing a file with subsequent message for reading a file (useful for ":wn" or when 'autowrite' on)
+    O = true, -- message for reading a file overwrites any previous message;  also for quickfix message (e.g., ":cn")
+    s = false, -- don't give "search hit BOTTOM, continuing at TOP" or "search hit TOP, continuing at BOTTOM" messages; when using the search count do not show "W" after the count message (see S below)
+    t = true, -- truncate file message at the start if it is too long to fit on the command-line, "<" will appear in the left most column; ignored in Ex mode
+    T = true, --  truncate other messages in the middle if they are too long to fit on the command line; "..." will appear in the middle; ignored in Ex mode
+    W = false, -- don't give "written" or "[w]" when writing a file
+    A = false, -- don't give the "ATTENTION" message when an existing swap file is found
+    I = false, -- don't give the intro message when starting Vim,:intro
+    c = false, -- don't give |ins-completion-menu| messages; for example, "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found", "Back at original", etc.
+    C = false, -- don't give messages while scanning for ins-completion items, for instance "scanning tags"
+    q = false, -- use "recording" instead of "recording @a"
+    F = true, -- don't give the file info when editing a file, like `:silent` was used for the command
+    S = false, -- do not show search count message when searching, e.g.'[1/5]',
+  }
   vim.opt.showcmd = true -- Do not show me what I'm typing
 
   -- search

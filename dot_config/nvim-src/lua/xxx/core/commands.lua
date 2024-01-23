@@ -10,10 +10,8 @@ vim.cmd([[
   endfunction
 ]])
 
-local cmd_bdelete = 'bdelete'
--- if vim.fn.has('nvim-0.8') == 1 then
---   cmd_bdelete = 'Bdelete'
--- end
+-- local cmd_bdelete = 'bdelete'
+local cmd_bdelete = 'Bdelete'
 
 M.defaults = {
   {

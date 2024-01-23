@@ -3,8 +3,7 @@ local M = {}
 M.opts = {}
 
 function M.setup()
-  -- local Log = require('xxx.core.log')
-  -- Log:info('XXXXXXXX')
+  require('lsp-inlayhints').setup()
 end
 
 return M

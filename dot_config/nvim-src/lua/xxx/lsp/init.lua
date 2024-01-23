@@ -31,8 +31,6 @@ function M.common_on_init(_, _)
 end
 
 function M.common_on_attach(client, bufnr)
-  require('lsp-inlayhints').on_attach(client, bufnr)
-  -- print('# common_on_attach', client.name, bufnr, vim.bo.filetype)
   local lu = require('xxx.lsp.utils')
 
   lu.setup_document_highlight(client, bufnr)
@@ -48,6 +46,7 @@ function M.common_on_attach(client, bufnr)
   lu.setup_document_symbols(client, bufnr)
 
   lu.setup_fold()
+  require('lsp-inlayhints').on_attach(client, bufnr)
 end
 
 function M.get_common_opts()

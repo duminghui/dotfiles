@@ -458,8 +458,8 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.comment-rc').setup()
     end,
-    -- keys = { { 'gc', mode = { 'n', 'v' } }, { 'gb', mode = { 'n', 'v' } } },
-    -- event = 'User FileOpened',
+    keys = { { 'gc', mode = { 'n', 'v' } }, { 'gb', mode = { 'n', 'v' } } },
+    event = 'User FileOpened',
   },
 
   {
