@@ -144,8 +144,10 @@ local plugins = {
   },
 
   {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
+    -- 'phaazon/hop.nvim',
+    -- branch = 'v2', -- optional but strongly recommended
+    'smoka7/hop.nvim',
+    version = '*',
     config = function()
       require('xxx.plugin-config.hop-rc').setup()
     end,

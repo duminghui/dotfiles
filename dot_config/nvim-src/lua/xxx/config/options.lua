@@ -76,7 +76,8 @@ function M.load_default_options()
     vertright = '┣',
     verthoriz = '╋',
     fold = '-',
-    -- stl = " ",
+    -- stl = ' ',
+    -- stlnc = ' ',
   }
   vim.opt.foldenable = false -- Disable folding at startup.
   vim.opt.foldlevel = 6 -- Fold by default

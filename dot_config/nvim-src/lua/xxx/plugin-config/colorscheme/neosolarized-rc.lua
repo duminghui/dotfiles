@@ -72,6 +72,14 @@ function M.setup()
   Group.new('CursorLine', colors.none, colors.base02, styles.none, colors.base01)
   Group.new('CursorLineNr', colors.gold, colors.base02, styles.bold, colors.base01)
   Group.link('CursorColumn', groups.CursorLine)
+  -- Group.new('StatusLine', colors.base1, colors.base02, styles.reverse)
+  -- Group.new('StatusLineNC', colors.base00, colors.base02, styles.reverse)
+  -- fix statusline 上的白块
+  Group.new('StatusLine', colors.base02)
+  Group.new('StatusLineNC', colors.base02)
+  -- Group.new('StatusLine', colors.base03, colors.none)
+  -- Group.new('StatusLineNC', colors.base03, colors.none)
+
   Group.new('Visual', colors.none, colors.base03, styles.reverse)
 
   -- pum (popup menu)
