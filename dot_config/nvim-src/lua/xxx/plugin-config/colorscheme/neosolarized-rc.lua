@@ -1,7 +1,13 @@
 local M = {}
 
 function M.setup()
-  local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+  -- local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+  local colorbuddy = require('colorbuddy')
+  local Color = colorbuddy.Color
+  local colors = colorbuddy.colors
+  local Group = colorbuddy.Group
+  local groups = colorbuddy.groups
+  local styles = colorbuddy.styles
 
   local opts = {
     comment_italics = true,
@@ -15,7 +21,7 @@ function M.setup()
   local darkgold = colors.gold:dark()
 
   -- Color.new("gold", "#FFD700")
-  Color.new('darkgold', darkgold:to_rgb())
+  Color.new('darkgold', darkgold:to_vim())
 
   -- Color.new("base03", "#002b36")
   -- Color.new("base02", "#073642")
@@ -173,34 +179,34 @@ function M.setup()
   -- Group.new('HoverBorder', colors.yellow, colors.none, styles.none)
 
   local universal_colors = {
-    yellow = colors.yellow:to_rgb(),
-    orange = colors.orange:to_rgb(),
-    red = colors.red:to_rgb(),
-    magenta = colors.magenta:to_rgb(),
-    violet = colors.violet:to_rgb(),
-    blue = colors.blue:to_rgb(),
-    cyan = colors.cyan:to_rgb(),
-    green = colors.green:to_rgb(),
+    yellow = colors.yellow:to_vim(),
+    orange = colors.orange:to_vim(),
+    red = colors.red:to_vim(),
+    magenta = colors.magenta:to_vim(),
+    violet = colors.violet:to_vim(),
+    blue = colors.blue:to_vim(),
+    cyan = colors.cyan:to_vim(),
+    green = colors.green:to_vim(),
     -- purple = "#d55fde",
-    purple = colors.purple:to_rgb(),
-    darkgold = darkgold:to_rgb(),
-    bg = colors.base03:to_rgb(),
+    purple = colors.purple:to_vim(),
+    darkgold = darkgold:to_vim(),
+    bg = colors.base03:to_vim(),
     bufferline = {
-      text = colors.base00:to_rgb(),
-      text_selected = colors.base1:to_rgb(),
-      tag_fg = colors.base02:to_rgb(),
-      tag_bg = colors.base03:to_rgb(),
-      modified = darkgold:to_rgb(),
-      pick = colors.magenta:to_rgb(),
+      text = colors.base00:to_vim(),
+      text_selected = colors.base1:to_vim(),
+      tag_fg = colors.base02:to_vim(),
+      tag_bg = colors.base03:to_vim(),
+      modified = darkgold:to_vim(),
+      pick = colors.magenta:to_vim(),
     },
     statusline = {
-      mode_fg = colors.base03:to_rgb(),
-      mode_n_bg = colors.magenta:to_rgb(),
-      mode_i_bg = colors.green:to_rgb(),
-      mode_r_bg = colors.orange:to_rgb(),
-      mode_v_bg = colors.yellow:to_rgb(),
-      fg = colors.base00:to_rgb(),
-      bg = colors.base02:to_rgb(),
+      mode_fg = colors.base03:to_vim(),
+      mode_n_bg = colors.magenta:to_vim(),
+      mode_i_bg = colors.green:to_vim(),
+      mode_r_bg = colors.orange:to_vim(),
+      mode_v_bg = colors.yellow:to_vim(),
+      fg = colors.base00:to_vim(),
+      bg = colors.base02:to_vim(),
     },
   }
 
