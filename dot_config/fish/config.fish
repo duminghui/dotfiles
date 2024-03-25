@@ -44,7 +44,7 @@ if type -q lsd
     abbr ll "lsd -ltr"
     abbr lla "lsd -Altr"
 else
-    abbr lla1 "ls -Altrh"
+    abbr lla "ls -Altrh"
 end
 
 if type -q vivid
