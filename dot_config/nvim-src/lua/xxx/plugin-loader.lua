@@ -59,6 +59,8 @@ function plugin_loader.load(configurations)
         size = { width = 0.8, height = 0.7 },
         -- border = 'single',
         border = 'none',
+        -- The backdrop opacity. 0 is fully opaque, 100 is fully transparent.
+        backdrop = 100,
         icons = {
           cmd = '',
           config = '󰒓',

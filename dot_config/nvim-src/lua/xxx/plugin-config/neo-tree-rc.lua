@@ -528,7 +528,11 @@ function M.setup()
   -- highlight_separator = "NeoTreeTabSeparatorInactive",
   -- highlight_separator_active = "NeoTreeTabSeparatorActive",
 
-  local _, colors, Group, groups, styles = require('colorbuddy').setup()
+  local colorbuddy = require('colorbuddy')
+  local colors = colorbuddy.colors
+  local Group = colorbuddy.Group
+  local groups = colorbuddy.groups
+  local styles = colorbuddy.styles
 
   Group.new('NeoTreeRootName', colors.darkgold, nil, styles.bold)
   Group.new('NeoTreeDirectoryIcon', colors.yellow)

@@ -25,8 +25,7 @@ M.opts = {
     lualine_a = {
       coms.mode,
     },
-    lualine_b = {},
-    lualine_c = {
+    lualine_b = {
       coms.empty,
       coms.filename,
       coms.empty,
@@ -35,7 +34,10 @@ M.opts = {
       coms.empty,
       coms.diagnostics,
     },
-    lualine_x = {
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {
       coms.empty,
       coms.overseer,
       coms.empty,
@@ -51,18 +53,16 @@ M.opts = {
       coms.progress,
       coms.scrollbar,
     },
-    lualine_y = {},
-    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = {
       coms.mode,
     },
-    lualine_b = {},
-    lualine_c = {
+    lualine_b = {
       coms.empty,
       coms.filename,
     },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},

@@ -40,6 +40,7 @@ function M.setup()
   -- Color.new("cyan", "#2aa198")
   -- Color.new("green", "#719e07")
   Color.new('green', '#859900')
+  Color.new('white', '#eee8d5')
 
   -- and: 如果它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数；
   -- and连接多个操作数时，表达式的返回值就是从左到右第一个为假的值，若所有操作数值都不为假，则表达式的返回值为最后一个操作数；
@@ -78,11 +79,11 @@ function M.setup()
   Group.new('CursorLine', colors.none, colors.base02, styles.none, colors.base01)
   Group.new('CursorLineNr', colors.gold, colors.base02, styles.bold, colors.base01)
   Group.link('CursorColumn', groups.CursorLine)
-  -- Group.new('StatusLine', colors.base1, colors.base02, styles.reverse)
-  -- Group.new('StatusLineNC', colors.base00, colors.base02, styles.reverse)
+  Group.new('StatusLine', colors.base1, colors.base02, styles.reverse)
+  Group.new('StatusLineNC', colors.base00, colors.base02, styles.reverse)
   -- fix statusline 上的白块
-  Group.new('StatusLine', colors.base02)
-  Group.new('StatusLineNC', colors.base02)
+  -- Group.new('StatusLine', colors.base02)
+  -- Group.new('StatusLineNC', colors.base02)
   -- Group.new('StatusLine', colors.base03, colors.none)
   -- Group.new('StatusLineNC', colors.base03, colors.none)
 
@@ -124,9 +125,12 @@ function M.setup()
   Group.new('TelescopeBorder', colors.base01, colors.base03) -- fix bg
   Group.new('TelescopePromptBorder', colors.cyan, colors.base03) -- fix bg
   Group.new('TelescopeNormal', groups.Normal, colors.base03, styles.none) -- fix bg
-  Group.new('TelescopePromptTitle', colors.base1, colors.purple, styles.none)
-  Group.new('TelescopePreviewTitle', colors.base02, colors.green, styles.none)
-  Group.new('TelescopeResultsTitle', colors.base02, colors.yellow, styles.none)
+  -- Group.new('TelescopePromptTitle', colors.base1, colors.purple, styles.none)
+  -- Group.new('TelescopePreviewTitle', colors.base02, colors.green, styles.none)
+  -- Group.new('TelescopeResultsTitle', colors.base02, colors.yellow, styles.none)
+  Group.new('TelescopePromptTitle', colors.base2, colors.purple, styles.none)
+  Group.new('TelescopePreviewTitle', colors.base2, colors.green, styles.none)
+  Group.new('TelescopeResultsTitle', colors.base2, colors.yellow, styles.none)
 
   -- fidget
   -- Group.link('FidgetDone', groups.Constant) -- Constant
@@ -200,7 +204,8 @@ function M.setup()
       pick = colors.magenta:to_vim(),
     },
     statusline = {
-      mode_fg = colors.base03:to_vim(),
+      -- mode_fg = colors.base03:to_vim(),
+      mode_fg = colors.base2:to_vim(),
       mode_n_bg = colors.magenta:to_vim(),
       mode_i_bg = colors.green:to_vim(),
       mode_r_bg = colors.orange:to_vim(),

@@ -1,7 +1,9 @@
 local colors = require('xxx.core.colors').universal()
 
--- local fg = "#657b83"
--- local fg = "#282c34"
+-- local fg = '#657b83'
+-- local fg = '#282c34'
+-- local fg = '#eee8d5'
+-- local fg = '#fdf6e3'
 local fg = colors.statusline.mode_fg
 local bg = nil
 local mode_n_bg = colors.statusline.mode_n_bg
