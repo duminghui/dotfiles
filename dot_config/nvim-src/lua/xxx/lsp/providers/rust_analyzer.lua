@@ -57,6 +57,13 @@ local opts = vim.tbl_deep_extend('keep', {
   settings = {
     ['rust-analyzer'] = {
       -- https://rust-analyzer.github.io/manual.html#configuration
+      cargo = { allFeatures = true },
+      checkOnSave = true,
+      check = {
+        enable = true,
+        command = 'clippy',
+        features = 'all',
+      },
       rustfmt = {
         extraArgs = { '+nightly' },
         overrideCommand = nil,

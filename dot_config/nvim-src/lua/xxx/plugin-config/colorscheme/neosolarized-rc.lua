@@ -204,8 +204,8 @@ function M.setup()
       pick = colors.magenta:to_vim(),
     },
     statusline = {
-      -- mode_fg = colors.base03:to_vim(),
-      mode_fg = colors.base2:to_vim(),
+      mode_fg = colors.base03:to_vim(),
+      -- mode_fg = colors.base2:to_vim(),
       mode_n_bg = colors.magenta:to_vim(),
       mode_i_bg = colors.green:to_vim(),
       mode_r_bg = colors.orange:to_vim(),

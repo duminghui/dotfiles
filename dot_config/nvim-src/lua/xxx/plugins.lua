@@ -529,7 +529,7 @@ local plugins = {
 
   {
     'mrcjkb/rustaceanvim',
-    version = '^3', -- Recommended
+    version = '^4', -- Recommended
     config = function()
       require('xxx.plugin-config.lang.rustaceanvim-rs').setup()
     end,
@@ -539,7 +539,7 @@ local plugins = {
   {
     -- rust crates manager
     'saecki/crates.nvim',
-    version = '0.3.0',
+    tag = 'stable',
     config = function()
       require('xxx.plugin-config.lang.rs-crates-rc').setup()
     end,

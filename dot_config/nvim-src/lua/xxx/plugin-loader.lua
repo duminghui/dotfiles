@@ -76,7 +76,8 @@ function plugin_loader.load(configurations)
           runtime = '',
           source = '󰗀',
           start = '󰐊',
-          task = '✔',
+          -- task = '✔',
+          task = '󰄭 ',
           list = {
             '●',
             '󰜴',
