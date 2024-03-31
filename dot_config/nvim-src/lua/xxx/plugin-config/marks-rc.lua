@@ -57,9 +57,9 @@ M.opts = {
 }
 
 function M.setup()
-  local marks = require 'marks'
+  local marks = require('marks')
   marks.setup(M.opts)
-  vim.cmd [[highlight link MarkSignNumHL NONE]]
+  vim.cmd([[highlight link MarkSignNumHL NONE]])
 end
 
 return M

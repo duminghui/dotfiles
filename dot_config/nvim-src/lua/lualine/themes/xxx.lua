@@ -27,7 +27,7 @@ return {
     a = { bg = mode_r_bg, fg = fg, gui = 'bold' },
   },
   command = {
-    a = { bg = mode_n_bg, fg = fg, gui = 'bold' },
+    a = { bg = mode_i_bg, fg = fg, gui = 'bold' },
   },
   -- inactive = {
   --     a = { bg = "darkgray", fg = gray, gui = 'bold' },

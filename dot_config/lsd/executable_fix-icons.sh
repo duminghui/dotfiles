@@ -147,6 +147,8 @@ gsed -i -r \
     -e 's||󰜗|g' \
     -e 's||󰅐|g' \
     -e 's||󰚯|g' \
+    -e 's|||g' \
+    -e 's|||g' \
     icons.yaml
 
 icon_manage() {

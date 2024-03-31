@@ -98,6 +98,7 @@ name:
   etc: 󱁿
   favicon.ico: 󰓎
   favicons: 󰓎
+  .fennelrc: 󰒓
   fstab: 󰆼
   .fastboot: 󰀲
   .gitattributes: 󰊢
@@ -196,7 +197,7 @@ name:
   .node_repl_history: 󰎙
   npmignore: 󰛷
   .npm: 󰛷
-  nvim: 
+  nvim: 
   obj: 
   os-release: 󰒓
   package.json: 󰎙
@@ -292,8 +293,7 @@ name:
   .zsh_history: 󱆃
   .zshrc: 󱆃
 
-
-# 317 items
+# 327 items
 extension:
   jks: 󰿃
   1: 󰂺
@@ -309,11 +309,13 @@ extension:
   ai: 
   ape: 󰝚
   apk: 󰀲
+  apng: 󰈟
   ar: 󰗄
   asc: 󰦝
   asm: 󰱾
   asp: 󰗀
   avi: 󰈰
+  avif: 󰈟
   avro: 󰅩
   awk: 
   bak: 󰁯
@@ -350,6 +352,7 @@ extension:
   c: 󰙱
   cue: 󰝚
   cxx: 󰙲
+  cypher: 󰆼
   dart: 
   dat: 󰆼
   db: 󰆼
@@ -384,6 +387,7 @@ extension:
   fish: 󱢺
   flac: 󰝚
   flv: 󰈰
+  fnl: 
   font: 󰛖
   fpl: 󰐑
   fsi: 
@@ -437,6 +441,7 @@ extension:
   ksh: 
   kt: 󱈙
   kts: 󱈙
+  kusto: 󰆼
   ldb: 󰆼
   ld: 
   less: 
@@ -456,6 +461,7 @@ extension:
   m4a: 󰝚
   m4v: 󰈰
   magnet: 󰍇
+  malloy: 󰆼
   man: 󰂺
   markdown: 󰍔
   md: 󰍔
@@ -474,6 +480,8 @@ extension:
   msi: 󰖳
   mts: 󰛦
   mustache: 󱗞
+  nim: 
+  nimble: 
   nix: 󱄅
   npmignore: 󰛷
   odp: 󰈧
@@ -507,6 +515,7 @@ extension:
   pptx: 󰈧
   procfile: 󰴭
   properties: 󰅩
+  prql: 󰆼
   ps1: 
   psd: 
   pub: 󰌆
@@ -529,6 +538,7 @@ extension:
   rmeta: 󱘗
   rpm: 󰀼
   rproj: 󰗆
+  rq: 󰆼
   rspec_parallel: 󰴭
   rspec_status: 󰴭
   rspec: 󰴭

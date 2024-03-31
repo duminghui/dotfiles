@@ -38,6 +38,7 @@ M.opts = {
       numhl = 'GitSignsChangeNr',
       linehl = 'GitSignsChangeLn',
     },
+    untracked = { text = '┆' },
   },
   numhl = false,
   linehl = false,

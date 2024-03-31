@@ -41,7 +41,6 @@ return {
     Unit = '󰉺',
     -- Value = '',
     Value = '󰀫',
-
     Color = '󰏘',
     Keyword = '󰉨',
     Reference = '󱞬', -- 󰈇
