@@ -418,6 +418,7 @@ local plugins = {
     end,
     cmd = 'Telescope',
     event = 'VeryLazy',
+    enabled = true,
   },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -447,11 +448,13 @@ local plugins = {
 
   {
     -- vim.ui.select, vim.ui.input hooks
+    -- 当调用上面几个方法时使用这个插件来显示UI
     'stevearc/dressing.nvim',
     config = function()
       require('xxx.plugin-config.dressing-rc').setup()
     end,
     event = 'VeryLazy',
+    enabled = true,
   },
 
   -- Comments

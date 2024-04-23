@@ -58,6 +58,7 @@ function M.opts()
           ['<CR>'] = actions.select_default,
         },
         n = {
+          ['q'] = actions.close,
           ['<C-n>'] = actions.move_selection_next,
           ['<C-p>'] = actions.move_selection_previous,
           ['<C-q>'] = function(...)

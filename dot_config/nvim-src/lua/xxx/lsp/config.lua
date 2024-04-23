@@ -28,6 +28,7 @@ local skipped_servers = {
   'ruby_ls',
   'rust_analyzer', -- this launch by mrcjkb/rustaceanvim
   'scry',
+  'snyk_ls',
   'solang',
   'solc',
   'solidity_ls',

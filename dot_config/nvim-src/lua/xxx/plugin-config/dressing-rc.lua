@@ -6,8 +6,10 @@ M.opts = {
     enabled = true,
     -- Default prompt string
     default_prompt = 'Input:',
+    -- Trim trailing `:` from prompt
+    trim_prompt = true,
     -- Can be 'left', 'right', or 'center'
-    prompt_align = 'left',
+    title_pos = 'center',
     -- When true, <Esc> will close the modal
     insert_only = true,
     -- When true, input will start in insert mode.
@@ -26,9 +28,11 @@ M.opts = {
     -- min_width = {20, 0.2} means "the greater of 20 columns or 20% of total"
     max_width = { 140, 0.9 },
     min_width = { 60, 0.5 },
+    buf_options = {},
+    -- win_options can use neovim's options
     win_options = {
       -- Window transparency (0-100)
-      winblend = 9,
+      winblend = 7,
       -- Change default highlight groups (see :help winhl)
       winhighlight = '',
     },
@@ -58,6 +62,7 @@ M.opts = {
     enabled = true,
     -- Priority list of preferred vim.select implementations
     backend = { 'telescope', 'fzf_lua', 'fzf', 'builtin', 'nui' },
+    -- backend = { 'fzf_lua', 'fzf', 'builtin', 'nui' },
     -- Trim trailing `:` from prompt
     trim_prompt = true,
     -- Options for telescope selector
@@ -93,7 +98,7 @@ M.opts = {
         filetype = 'DressingSelect',
       },
       win_options = {
-        winblend = 9,
+        winblend = 7,
       },
       max_width = 80,
       max_height = 40,
@@ -104,12 +109,13 @@ M.opts = {
     builtin = {
       -- These are passed to nvim_open_win
       -- anchor = 'NW',
-      border = 'rounded',
+      border = 'single',
+      -- border = 'rounded',
       -- 'editor' and 'win' will default to being centered
       relative = 'editor',
       win_options = {
         -- Window transparency (0-100)
-        winblend = 9,
+        winblend = 7,
         -- Change default highlight groups (see :help winhl)
         winhighlight = '',
       },
@@ -137,7 +143,15 @@ M.opts = {
     -- Used to override format_item. See :help dressing-format
     format_item_override = {},
     -- see :help dressing_get_config
-    get_config = nil,
+    get_config = function(opts)
+      if opts.kind == 'mason.ui.language-filter' then
+        return {
+          telescope = require('telescope.themes').get_dropdown {
+            initial_mode = 'insert',
+          },
+        }
+      end
+    end,
   },
 }
 

@@ -218,12 +218,12 @@ function M.setup()
   require('xxx.core.colors').set_universal(universal_colors)
   -- Enables pseudo-transparency for the |popup-menu|.
   -- cmp's menu
-  vim.opt.pumblend = 6
+  vim.opt.pumblend = 7
   -- Enables pseudo-transparency for a floating window. doc view
   -- 当不为0时,如果边框的highlight没有设置背景色或者背景色偏黑色, 经过neovim计算后背景会变成黑色
-  vim.opt.winblend = 6
+  vim.opt.winblend = 7
   Xvim.telescope_winblend = 3
-  Xvim.which_key_winblend = 6
+  Xvim.which_key_winblend = 7
 end
 
 return M
