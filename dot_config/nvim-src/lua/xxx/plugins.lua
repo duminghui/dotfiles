@@ -394,6 +394,7 @@ local plugins = {
   {
     'HiPhish/rainbow-delimiters.nvim',
     event = 'User FileOpened',
+    submodules = false,
   },
 
   {
