@@ -12,7 +12,7 @@
 # condense_wildcard_suffixes = false     # false, true
 # control_brace_style = "AlwaysSameLine" # AlwaysNetLine, AlwaysSameLine, ClosingNextLine
 # disable_all_formatting = false         # false, true
-# edition = "2021" # 2015, 2018, 2021
+edition = "2021"                  # 2015, 2018, 2021
 empty_item_single_line = false    # true, false
 enum_discrim_align_threshold = 60 # 0
 # error_on_line_overflow = false         # false, true
@@ -67,7 +67,7 @@ struct_field_align_threshold = 60 # 0
 # trailing_comma = "Vertical"            # Vertical, Always, Never
 # trailing_semicolon = true              # true,false
 # type_punctuation_density = "Wide"      # Wide, Compressed
-# unstable_feature = false               # false, true
+unstable_features = true # false, true
 # use_field_init_shorthand = false       # false, true
 # use_small_heuristics = "Default" # Default, Off, Max
 use_try_shorthand = true # false, true

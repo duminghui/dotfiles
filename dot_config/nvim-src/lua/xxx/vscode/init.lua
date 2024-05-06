@@ -76,6 +76,29 @@ M.keymappings = {
   -- ['<leader><leader>s'] = { 'n', cmd('Pounce') },
 
   ['<leader>sf'] = { 'n', vscode('workbench.action.quickOpen') },
+  -- 无输入框
+  -- ['<leader>bf'] = { 'n', vscode('workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup') },
+  -- 有输入框
+  -- ['<leader>bf'] = { 'n', vscode('workbench.action.showEditorsInActiveGroup') },
+  ['<leader>bf'] = { 'n', vscode('workbench.action.showAllEditors') },
+  -- ['<leader>bf'] = { 'n', vscode('workbench.action.showAllEditorsByMostRecentlyUsed') },
+
+  -- 从终端跳到编辑器
+  -- 需要在vscode中配置keybindings
+  -- {
+  --   "command": "vscode-neovim.send",
+  --   // the key sequence to activate the binding
+  --   "key": ", b b",
+  --   // don't activate during insert mode
+  --   "when": "terminalFocus",
+  --   // the input to send to Neovim
+  --   "args": ",bb"
+  -- }
+  ['<leader>bb'] = { 'n', vscode('workbench.action.focusActiveEditorGroup') },
+
+  -- 跳到终端
+  ['<leader>tt'] = { 'n', vscode('workbench.action.terminal.toggleTerminal') },
+  ['<leader>tn'] = { 'n', vscode('workbench.action.terminal.new') },
 
   -- window movement
   ['<C-h>'] = { 'n', vscode('workbench.action.focusLeftGroup') },
