@@ -102,6 +102,10 @@ discharging_symbol = "󱟞 "
 unknown_symbol = "󰁼 "
 empty_symbol = "󰂎 "
 
+[bun]
+format = "[$symbol($version )]($style)"
+style = 'red'
+
 [c]
 format = "[$symbol($version(-$name) )]($style)"
 
@@ -248,6 +252,7 @@ style = "blue"
 format = "[$symbol($version )]($style)"
 symbol = "󰎙 "
 style = "green"
+not_capable_style = "red"
 
 [python]
 format = '[$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)'

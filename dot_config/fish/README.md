@@ -82,3 +82,10 @@ brew install fd
 cargo install fd-find
 
 ```
+
+### nvm
+```fish
+brew install nvm
+bash /opt/homebrew/opt/nvm/nvm.sh
+fisher install FabioAntunes/fish-nvm edc/bass
+```
