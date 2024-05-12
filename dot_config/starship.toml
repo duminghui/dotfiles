@@ -104,6 +104,7 @@ empty_symbol = "󰂎 "
 
 [bun]
 format = "[$symbol($version )]($style)"
+symbol = "🍞 "
 style = 'red'
 
 [c]

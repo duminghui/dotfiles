@@ -16,6 +16,7 @@ local skipped_servers = {
   'golangci_lint_ls',
   'gradle_ls',
   'graphql',
+  'harper_ls',
   'jedi_language_server',
   'ltex',
   'ocamlls',

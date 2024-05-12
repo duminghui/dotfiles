@@ -1,16 +1,25 @@
 [source.crates-io]
 registry = "https://github.com/rust-lang/crates.io-index"
 # 指定镜像
-#replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
-replace-with = 'rsproxy'
+# replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
+# install: 用source-rsproxy-sparse每次都要fetch source-rsproxy-sparse会很慢
+replace-with = 'source-rsproxy'
+# replace-with = 'source-rsproxy-sparse'
 
-[source.rsproxy]
+[source.source-rsproxy]
 registry = "https://rsproxy.cn/crates.io-index"
-[source.rsproxy-sparse]
+[source.srouce-rsproxy-sparse]
 registry = "sparse+https://rsproxy.cn/index/"
 
-[registries.rsproxy]
+[registries.registry-rsproxy]
 index = "https://rsproxy.cn/crates.io-index"
+[registries.registry-rsproxy-sparse]
+index = "sparse+https://rsproxy.cn/index/"
+
+[registry]
+# binstall用registry-rsproxy会有很长时间的解析过程
+# default = "registry-rsproxy"
+default = "registry-rsproxy-sparse"
 
 [net]
 git-fetch-with-cli = true
@@ -39,7 +48,7 @@ registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
 rustc-wrapper = "sccache"
 
 [http]
-multiplexing = false
+multiplexing = true
 
 # https://bevyengine.org/learn/quick-start/getting-started/setup/#compile-with-performance-optimizations
 # [profile.dev]

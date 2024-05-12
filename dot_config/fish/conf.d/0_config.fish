@@ -105,7 +105,7 @@ set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npmrc
 set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm
 
 set -gx NVM_DIR $XDG_DATA_HOME/nvm
-set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node/
+set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node
 
 # pnpm
 set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
