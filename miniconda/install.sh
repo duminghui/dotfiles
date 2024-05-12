@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/sh
 set -eux
 MINICONDA_HOME=~/.local/share/miniconda3
 MINICONDA_DOWNLOAD_URL=https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-MacOSX-arm64.sh
