@@ -2,7 +2,7 @@
 registry = "https://github.com/rust-lang/crates.io-index"
 # 指定镜像
 # replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
-# install: 用source-rsproxy-sparse每次都要fetch source-rsproxy-sparse会很慢
+# install: 用source-rsproxy-sparse每次都要fetch会很慢
 replace-with = 'source-rsproxy'
 # replace-with = 'source-rsproxy-sparse'
 
