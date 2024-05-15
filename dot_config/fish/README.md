@@ -89,3 +89,9 @@ brew install nvm
 bash /opt/homebrew/opt/nvm/nvm.sh
 fisher install FabioAntunes/fish-nvm edc/bass
 ```
+
+### pnpm
+```fish
+fisher install g-plane/pnpm-shell-completion
+
+```

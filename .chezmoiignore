@@ -1,13 +1,15 @@
 # 这里的是target路径, 不是source路径
-README.md
-.config/zsh/custom-zsh-src
+.config/containers
+.config/containers/registries.conf
 .config/nvim-src
+.config/zsh/custom-zsh-src
 .docker/docker
-Rime
-script
+
 colortest
 homebrew
 iterm2
-nodejs
 miniconda
+README.md
+Rime
+script
 

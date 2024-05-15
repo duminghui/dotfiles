@@ -1,25 +1,31 @@
 [source.crates-io]
-registry = "https://github.com/rust-lang/crates.io-index"
+# registry = "https://github.com/rust-lang/crates.io-index"
 # 指定镜像
+# source-rsproxy-sparse: install或update命令时每次要fetch, 项目使用的依赖越多, 时间越长
 # replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
-# install: 用source-rsproxy-sparse每次都要fetch会很慢
 replace-with = 'source-rsproxy'
 # replace-with = 'source-rsproxy-sparse'
 
 [source.source-rsproxy]
 registry = "https://rsproxy.cn/crates.io-index"
-[source.srouce-rsproxy-sparse]
+
+[source.source-rsproxy-sparse]
 registry = "sparse+https://rsproxy.cn/index/"
+
+# [registries.crates-io]
+# protocol = "git"
 
 [registries.registry-rsproxy]
 index = "https://rsproxy.cn/crates.io-index"
+
 [registries.registry-rsproxy-sparse]
 index = "sparse+https://rsproxy.cn/index/"
 
-[registry]
+# [registry]
 # binstall用registry-rsproxy会有很长时间的解析过程
+# 如果定义这个, 会在项目的依赖中添加registry字段
 # default = "registry-rsproxy"
-default = "registry-rsproxy-sparse"
+# default = "registry-rsproxy-sparse"
 
 [net]
 git-fetch-with-cli = true
@@ -60,40 +66,81 @@ multiplexing = true
 # opt-level = 3
 
 # https://github.com/bevyengine/bevy/blob/main/.cargo/config_fast_builds.toml
-# Add the contents of this file to `config.toml` to enable "fast build" configuration. Please read the notes below.
-
-# NOTE: For maximum performance, build using a nightly compiler
-# If you are using rust stable, remove the "-Zshare-generics=y" below.
 
 [target.x86_64-unknown-linux-gnu]
 linker = "clang"
 rustflags = [
-    "-Clink-arg=-fuse-ld=lld", # Use LLD Linker
-    # "-Zshare-generics=y",      # (Nightly) Make the current crate share its generic instantiations
-    # "-Zthreads=0",             # (Nightly) Use improved multithreading with the recommended amount of threads.
+    # LLD linker
+    #
+    # You may need to install it:
+    #
+    # - Ubuntu: `sudo apt-get install lld clang`
+    # - Fedora: `sudo dnf install lld clang`
+    # - Arch: `sudo pacman -S lld clang`
+    "-Clink-arg=-fuse-ld=lld",
+
+    # Mold linker
+    #
+    # You may need to install it:
+    #
+    # - Ubuntu: `sudo apt-get install mold clang`
+    # - Fedora: `sudo dnf install mold clang`
+    # - Arch: `sudo pacman -S mold clang`
+    # "-Clink-arg=-fuse-ld=/usr/bin/mold",
+
+    # Nightly
+    # "-Zshare-generics=y",
+    # "-Zthreads=0",
 ]
 
-# NOTE: you must install [Mach-O LLD Port](https://lld.llvm.org/MachO/index.html) on mac. you can easily do this by installing llvm which includes lld with the "brew" package manager:
-# `brew install llvm`
 [target.x86_64-apple-darwin]
 rustflags = [
-    "-Clink-arg=-fuse-ld=/usr/local/opt/llvm/bin/ld64.lld", # Use LLD Linker
-    # "-Zshare-generics=y",                                   # (Nightly) Make the current crate share its generic instantiations
-    # "-Zthreads=0",                                          # (Nightly) Use improved multithreading with the recommended amount of threads.
+    # LLD linker
+    #
+    # The default ld64 linker is faster, you should continue using it instead.
+    #
+    # You may need to install it:
+    #
+    # Brew: `brew install llvm`
+    # Manually: <https://lld.llvm.org/MachO/index.html>
+    # "-Clink-arg=-fuse-ld=/usr/local/opt/llvm/bin/ld64.lld",
+
+    # Nightly
+    # "-Zshare-generics=y",
+    # "-Zthreads=0",
 ]
 
 [target.aarch64-apple-darwin]
 rustflags = [
-    "-Clink-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld", # Use LLD Linker
-    # "-Zshare-generics=y",                                      # (Nightly) Make the current crate share its generic instantiations
-    # "-Zthreads=0",                                             # (Nightly) Use improved multithreading with the recommended amount of threads.
+    # LLD linker
+    #
+    # The default ld64 linker is faster, you should continue using it instead.
+    #
+    # You may need to install it:
+    #
+    # Brew: `brew install llvm`
+    # Manually: <https://lld.llvm.org/MachO/index.html>
+    "-Clink-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld",
+
+    # Nightly
+    # "-Zshare-generics=y",
+    # "-Zthreads=0",
 ]
 
 [target.x86_64-pc-windows-msvc]
-linker = "rust-lld.exe" # Use LLD Linker
+# LLD linker
+#
+# You may need to install it:
+#
+# ```
+# cargo install -f cargo-binutils
+# rustup component add llvm-tools
+# ```
+linker = "rust-lld.exe"
 rustflags = [
-    # "-Zshare-generics=n", # (Nightly)
-    # "-Zthreads=0",        # (Nightly) Use improved multithreading with the recommended amount of threads.
+    # Nightly
+    # "-Zshare-generics=y",
+    # "-Zthreads=0",
 ]
 
 # Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'

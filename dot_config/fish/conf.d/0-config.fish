@@ -31,7 +31,7 @@ end
 ### rust ####
 set -gx RUSTUP_HOME $XDG_DATA_HOME/rustup
 set -gx CARGO_HOME $XDG_DATA_HOME/cargo
-set -gx PATH $CARGO_HOME/bin $PATH
+# set -gx PATH $CARGO_HOME/bin $PATH
 if type -q fd
     abbr cargo-batch-clean "fd -g 'Cargo.toml' | xargs -t -I {} cargo clean --manifest-path {}"
 else
@@ -47,6 +47,8 @@ set -gx CARGO_HTTP_MULTIPLEXING false
 set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
 set -gx SCCACHE_CACHE_SIZE "6G"
 set -gx SCCACHE_DIRECT true
+# cross
+# set -gx CROSS_CONTAINER_ENGINE podman
 
 
 ### tmuxinator ###
@@ -107,11 +109,15 @@ set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm
 set -gx NVM_DIR $XDG_DATA_HOME/nvm
 set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node
 
-# pnpm
+### pnpm
 set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
+test -d $HOME/.local/bin; and set -gx PATH $HOME/.local/bin $PATH
+
+### docker
+test -d $HOME/.docker/bin; and set -gx PATH $HOME/.docker/bin $PATH
 
 ### solana ###
 set -gx SOLANA_HOME $XDG_DATA_HOME/solana/install/active_release
@@ -120,7 +126,3 @@ test -d $SOLANA_HOME/bin; and set -gx PATH $SOLANA_HOME/bin $PATH
 test -d (brew --prefix)/opt/gnu-tar/libexec/gnubin; and set -gx PATH $(brew --prefix)/opt/gnu-tar/libexec/gnubin $PATH
 ### solana ###
 
-# tabtab source for packages
-# uninstall by removing these lines
-[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
-# pnpm end
