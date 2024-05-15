@@ -541,11 +541,16 @@ function M.setup()
   Group.new('NeoTreeSymbolicLinkTarget', colors.cyan)
   Group.new('NeoTreeModified', colors.darkgold)
 
+  Group.new('NeoTreeTabInactive', colors.base00, colors.base03)
+  Group.new('NeoTreeTabActive', colors.base1, nil, styles.bold + styles.italic)
+  Group.new('NeoTreeTabSeparatorInactive', colors.base02, colors.base03)
+  Group.new('NeoTreeTabSeparatorActive', colors.base02)
+
   vim.cmd([[
-    highlight! link NeoTreeTabInactive BufferLineBackground
-    highlight! link NeoTreeTabActive BufferLineBufferSelected
-    highlight! link NeoTreeTabSeparatorInactive BufferLineSeparator
-    highlight! link NeoTreeTabSeparatorActive BufferLineSeparatorSelected
+    " highlight! link NeoTreeTabInactive BufferLineBackground
+    " highlight! link NeoTreeTabActive BufferLineBufferSelected
+    " highlight! link NeoTreeTabSeparatorInactive BufferLineSeparator
+    " highlight! link NeoTreeTabSeparatorActive BufferLineSeparatorSelected
     highlight! link NeoTreeDirectoryName Normal
     highlight! link NeoTreeFileName Normal
   ]])

@@ -105,12 +105,12 @@ function M.setup()
   Group.new('EndOfBuffer', colors.base03, colors.none, styles.none)
 
   -- Nvim-Tree
-  vim.cmd('highlight link NvimTreeFolderName NvimTreeNormal')
-  Group.new('NvimTreeRootFolder', colors.yellow, colors.none, styles.none)
-  Group.new('NvimTreeFolderIcon', colors.yellow, colors.none, styles.none)
-  vim.cmd('highlight link NvimTreeOpenedFolderName NvimTreeNormal')
-  Group.new('NvimTreeGitDirty', colors.yellow, colors.none, styles.none)
-  Group.new('NvimTreeGitNew', colors.green, colors.none, styles.none)
+  -- vim.cmd('highlight link NvimTreeFolderName NvimTreeNormal')
+  -- Group.new('NvimTreeRootFolder', colors.yellow, colors.none, styles.none)
+  -- Group.new('NvimTreeFolderIcon', colors.yellow, colors.none, styles.none)
+  -- vim.cmd('highlight link NvimTreeOpenedFolderName NvimTreeNormal')
+  -- Group.new('NvimTreeGitDirty', colors.yellow, colors.none, styles.none)
+  -- Group.new('NvimTreeGitNew', colors.green, colors.none, styles.none)
 
   -- Telescope
   -- Group.new('TelescopeMatching', colors.orange, groups.Special, groups.Special, groups.Special)
