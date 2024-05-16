@@ -3,13 +3,8 @@
 .config/containers/registries.conf
 .config/nvim-src
 .config/zsh/custom-zsh-src
-.docker/docker
+.docker/daemon-src.json
 
-colortest
-homebrew
-iterm2
-miniconda
+undot
 README.md
-Rime
-script
 
