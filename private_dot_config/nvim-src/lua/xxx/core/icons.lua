@@ -125,7 +125,7 @@ return {
     Dashboard = '󰕮',
     DividerLeft = '',
     DividerRight = '',
-    Ellipsis = '…',
+    Ellipsis = '',
     EmptyFolder = '󰉖', -- nf-md-folder_outline
     EmptyFolderOpen = '󰷏', -- nf-md-folder_open_outline
     File = '󰈔', -- nf-md-file
