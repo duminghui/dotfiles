@@ -31,6 +31,7 @@ fi
 rm -fv ~/.ssh/*podman*
 rm -rf ~/.config/containers
 rm -rf ~/.local/share/containers
+rm -rfv ~/.redhat
 
 # podman-desktop
 rm -rf ~/Library/Application\ Support/Podman\ Desktop

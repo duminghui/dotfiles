@@ -48,7 +48,6 @@ starship init fish | source
 ```fish
 brew install lsd
 cargo install --git https://github.com/Peltoche/lsd.git --branch master
-
 ```
 
 ### vivid (LS_COLORS)
@@ -56,7 +55,6 @@ cargo install --git https://github.com/Peltoche/lsd.git --branch master
 ```fish
 brew install vivid
 cargo install vivid
-
 ```
 
 ### exa
@@ -64,7 +62,6 @@ cargo install vivid
 ```fish
 brew install exa
 cargo install exa
-
 ```
 
 ### ripgrep
@@ -72,7 +69,6 @@ cargo install exa
 ```fish
 brew install ripgrep
 cargo install ripgrep
-
 ```
 
 ### fd
@@ -93,5 +89,5 @@ fisher install FabioAntunes/fish-nvm edc/bass
 ### pnpm
 ```fish
 fisher install g-plane/pnpm-shell-completion
-
 ```
+这个插件会创建$HOME/.local/bin目录
