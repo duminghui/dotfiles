@@ -55,7 +55,7 @@ function M:file_type()
 end
 
 function M:update_status()
-  local shiftwidth = vim.api.nvim_buf_get_option(0, 'shiftwidth')
+  local shiftwidth = vim.api.nvim_get_option_value('shiftwidth', { buf = 0 })
   local infos = {}
 
   -- space
@@ -63,7 +63,7 @@ function M:update_status()
   if shiftwidth > 0 then
     space = icons.ui.Space .. ':' .. shiftwidth
   else
-    local tabstop = vim.api.nvim_buf_get_option(0, 'tabstop')
+    local tabstop = vim.api.nvim_get_option_value('tabstop', { buf = 0 })
     space = icons.ui.Tab .. tabstop
   end
   table.insert(infos, space)

@@ -7,7 +7,10 @@ Log.levels = {
   WARN = 4,
   ERROR = 5,
 }
-vim.tbl_add_reverse_lookup(Log.levels)
+-- vim.tbl_add_reverse_lookup(Log.levels)
+for k, v in pairs(Log.levels) do
+  Log.levels[v] = k
+end
 
 local notify_opts = {}
 local log_notify_as_notification = false

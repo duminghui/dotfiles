@@ -54,7 +54,7 @@ M.branch = {
 }
 
 local function diff_source()
-  local gitsigns = vim.b.gitsigns_status_dict
+  local gitsigns = vim.b[0].gitsigns_status_dict
   if gitsigns then
     return {
       added = gitsigns.added,
@@ -116,7 +116,7 @@ M.treesitter = {
 }
 
 local function is_lsp_client_attached()
-  return next(vim.lsp.get_active_clients { bufnr = 0 }) ~= nil
+  return next(vim.lsp.get_clients { bufnr = 0 }) ~= nil
 end
 
 M.lsp_clients = {

@@ -2,7 +2,7 @@ local M = {}
 
 function M.load_default_options()
   -------------------- GLOBAL OPTIONS --------------------
-  if vim.loop.os_uname().version:match('Windows') then
+  if vim.uv.os_uname().version:match('Windows') then
     vim.g.sqlite_clib_path = join_paths(vim.fn.stdpath('config'), 'sqlite3', 'sqlite3.dll')
   end
   vim.g.mapleader = ','

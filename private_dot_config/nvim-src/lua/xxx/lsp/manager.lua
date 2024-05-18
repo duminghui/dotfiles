@@ -5,7 +5,7 @@ local ProgressNotify = require('xxx.core.progress-notify')
 local icons = require('xxx.core.icons')
 local lsp_utils = require('xxx.lsp.utils')
 local fmt = string.format
-local is_windows = vim.loop.os_uname().version:match('Windows')
+local is_windows = vim.uv.os_uname().version:match('Windows')
 
 local function resolve_mason_config(server_name)
   local found, mason_config = pcall(require, 'mason-lspconfig.server_configurations.' .. server_name)

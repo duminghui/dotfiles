@@ -74,7 +74,7 @@ function M.get_hl_by_name(hl_name)
   if hl_name and loaded_highlights[hl_name] then
     return loaded_highlights[hl_name]
   end
-  local attrs = vim.api.nvim_get_hl_by_name(hl_name, true)
+  local attrs = vim.api.nvim_get_hl(0, { name = hl_name })
   local styles = {}
   for k, v in ipairs(attrs) do
     if v == true then
@@ -83,8 +83,8 @@ function M.get_hl_by_name(hl_name)
   end
   local hl = {
     name = hl_name,
-    fg = attrs.foreground and string.format('#%06x', attrs.foreground),
-    bg = attrs.background and string.format('#%06x', attrs.background),
+    fg = attrs.fg and string.format('#%06x', attrs.fg),
+    bg = attrs.bg and string.format('#%06x', attrs.bg),
     -- sp = attrs.special and string.format('#%06x', attrs.special),
     gui = next(styles) and table.concat(styles, ',') or nil,
   }

@@ -25,7 +25,7 @@ function M:init(options)
 end
 
 function M:update_status()
-  local buf_clients = vim.lsp.get_active_clients { bufnr = 0 }
+  local buf_clients = vim.lsp.get_clients { bufnr = 0 }
   if not buf_clients or #buf_clients == 0 then
     return self.options.icons.inactive .. ' Inactive '
   end

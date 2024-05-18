@@ -5,7 +5,7 @@ function M.setup()
   -- $ brew install macism
   -- output the current input source
   -- $ macism
-  if vim.loop.os_uname().machine == 'arm64' then
+  if vim.uv.os_uname().machine == 'arm64' then
     vim.g.macosime_normal_ime = 'com.apple.keylayout.ABC'
   else
     vim.g.macosime_normal_ime = 'com.apple.keylayout.US'

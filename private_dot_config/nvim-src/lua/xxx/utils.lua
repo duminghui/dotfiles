@@ -1,4 +1,4 @@
-local uv = vim.loop
+local uv = vim.uv
 local M = {}
 
 --- Checks whether a given path exists and is a file.

@@ -22,11 +22,10 @@ end
 function _G.find_pattern_match(tbl, val)
   return tbl and next(vim.tbl_filter(function(pattern)
     return val:match(pattern)
-  end, tbl))
+  end, tbl)) >= 0
 end
 
-local uv = vim.loop
-local path_sep = uv.os_uname().version:match('Windows') and '\\' or '/'
+local path_sep = vim.uv.os_uname().version:match('Windows') and '\\' or '/'
 ---Join path segments that were passed as input
 ---@return string
 function _G.join_paths(...)

@@ -72,7 +72,7 @@ function M.setup()
   -- vim.opt.list = true
   -- vim.opt.listchars:append "space:⋅"
   -- vim.opt.listchars:append "eol:↴"
-  --   vim.pretty_print(M.opts)
+  --   vim.print(M.opts)
 
   vim.g.rainbow_delimiters = { highlight = M.opts.scope.highlight }
 

@@ -4,7 +4,7 @@ local plugins = {
   {
     -- 在自动进行输入法切换时会卡
     'laishulu/vim-macos-ime',
-    cond = vim.loop.os_uname().sysname == 'Darwin' and vim.fn.executable('macism'),
+    cond = vim.uv.os_uname().sysname == 'Darwin' and vim.fn.executable('macism'),
     config = function()
       require('xxx.plugin-config.vim-macos-ime-rc').setup()
     end,
