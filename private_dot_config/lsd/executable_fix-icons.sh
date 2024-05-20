@@ -179,7 +179,7 @@ extension_icon(){
 
 name_icon 'work' '󰃖'
 name_icon 'tmuxinator' '󰡃'
-name_icon 'tmux' '󰡃'
+name_icon 'tmux' '󰕮'
 name_icon 'parallels' '󰜨'
 name_icon 'npmrc' '󰛷'
 name_icon 'movies' '󰎁'

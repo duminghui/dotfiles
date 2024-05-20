@@ -53,6 +53,7 @@ local plugins = {
       require('xxx.plugin-config.nvim-web-devicons-rc').setup()
     end,
     lazy = true,
+    submodules = false,
   },
 
   {
