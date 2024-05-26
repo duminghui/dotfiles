@@ -19,10 +19,10 @@ function M.common_capabilities()
   return capabilities
 end
 
-function M.common_on_exit(_, _)
-  -- print("common_on_exit")
-  autocmds.clear_augroup('lsp_document_highlight')
-  autocmds.clear_augroup('lsp_code_lens_refresh')
+local fmt = string.format
+
+function M.common_on_error(code, err)
+  Log:error(fmt('code: %s, err: %s', code, err))
 end
 
 -- function M.common_on_init(client, initialize_result)
@@ -49,10 +49,17 @@ function M.common_on_attach(client, bufnr)
   require('lsp-inlayhints').on_attach(client, bufnr)
 end
 
+function M.common_on_exit(_, _)
+  -- print("common_on_exit")
+  autocmds.clear_augroup('lsp_document_highlight')
+  autocmds.clear_augroup('lsp_code_lens_refresh')
+end
+
 function M.get_common_opts()
   return {
-    on_attach = M.common_on_attach,
+    on_error = M.common_on_error,
     on_init = M.common_on_init,
+    on_attach = M.common_on_attach,
     on_exit = M.common_on_exit,
     capabilities = M.common_capabilities(),
   }

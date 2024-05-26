@@ -49,6 +49,8 @@ set -gx SCCACHE_CACHE_SIZE "6G"
 set -gx SCCACHE_DIRECT true
 # cross
 # set -gx CROSS_CONTAINER_ENGINE podman
+# taplo
+set -gx TAPLO_CONFIG $XDG_CONFIG_HOME/taplo.toml
 
 
 ### tmuxinator ###

@@ -21,6 +21,12 @@ local function show_documentation()
   end
 end
 
+local function crates_function(type)
+  return function()
+    require('crates')[type]()
+  end
+end
+
 function M.add_lsp_buffer_keybindings(client, bufnr)
   -- all provider name
   -- https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#serverCapabilities
@@ -109,13 +115,13 @@ function M.add_lsp_buffer_keybindings(client, bufnr)
       '[LSP]Format',
       format_provide,
     },
-    ['<LocalLeader>cp'] = { require('crates').show_crate_popup, '[Crates]Crate Popup', crates_provide },
-    ['<LocalLeader>cv'] = { require('crates').show_versions_popup, '[Crates]Versions Popup', crates_provide },
-    ['<LocalLeader>cf'] = { require('crates').show_features_popup, '[Crates]Features Popup', crates_provide },
-    ['<LocalLeader>cd'] = { require('crates').show_dependencies_popup, '[Crates]Dependencies Popup', crates_provide },
-    ['<LocalLeader>cu'] = { require('crates').update_crate, '[Crates]Update Create', crates_provide },
-    ['<LocalLeader>cU'] = { require('crates').upgrade_crate, '[Crates]Upgrade Create', crates_provide },
-    ['<LocalLeader>cA'] = { require('crates').upgrade_all_crates, '[Crates]Upgrade All Creates', crates_provide },
+    ['<LocalLeader>cp'] = { crates_function('show_crate_popup'), '[Crates]Crate Popup', crates_provide },
+    ['<LocalLeader>cv'] = { crates_function('show_versions_popup'), '[Crates]Versions Popup', crates_provide },
+    ['<LocalLeader>cf'] = { crates_function('show_features_popup'), '[Crates]Features Popup', crates_provide },
+    ['<LocalLeader>cd'] = { crates_function('show_dependencies_popup'), '[Crates]Dependencies Popup', crates_provide },
+    ['<LocalLeader>cu'] = { crates_function('update_crate'), '[Crates]Update Create', crates_provide },
+    ['<LocalLeader>cU'] = { crates_function('upgrade_crate'), '[Crates]Upgrade Create', crates_provide },
+    ['<LocalLeader>cA'] = { crates_function('upgrade_all_crates'), '[Crates]Upgrade All Creates', crates_provide },
   }
 
   for key, remap in pairs(keymaps) do
