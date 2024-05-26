@@ -7,6 +7,7 @@ local skipped_servers = {
   'cssmodules_ls',
   'denols',
   'docker_compose_language_service',
+  'dprint',
   'ember',
   'emmet_ls',
   -- 'eslint',

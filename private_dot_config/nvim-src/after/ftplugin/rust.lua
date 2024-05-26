@@ -14,10 +14,10 @@ for _, cmd in ipairs(buf_cmds) do
   vim.api.nvim_buf_create_user_command(0, cmd, nosupport_msg(cmd), { desc = cmd .. ' nosupport!' })
 end
 
-local user_cmds = { 'RustPlay' }
+-- local user_cmds = { 'RustPlay' }
 
-for _, cmd in ipairs(user_cmds) do
-  vim.api.nvim_del_user_command(cmd)
-  -- pcall(vim.api.nvim_del_user_command, cmd)
-  vim.api.nvim_create_user_command(cmd, nosupport_msg(cmd), { desc = cmd .. ' nosupport!' })
-end
+-- for _, cmd in ipairs(user_cmds) do
+--   vim.api.nvim_del_user_command(cmd)
+--   -- pcall(vim.api.nvim_del_user_command, cmd)
+--   vim.api.nvim_create_user_command(cmd, nosupport_msg(cmd), { desc = cmd .. ' nosupport!' })
+-- end

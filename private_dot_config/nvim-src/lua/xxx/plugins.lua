@@ -519,8 +519,10 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.lang.go-rc').setup()
     end,
-    enabled = true,
+    -- event = { 'CmdlineEnter' },
     ft = { 'go', 'gomod', 'gosum', 'gotmpl', 'gohtmltmpl', 'gotexttmpl' },
+    -- build = ':lua require("go.install").update_all_sync()',
+    enabled = true,
   },
 
   {

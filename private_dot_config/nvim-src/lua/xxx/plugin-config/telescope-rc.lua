@@ -69,7 +69,7 @@ function M.opts()
       },
       -- nvim-telescope/telescope-smart-history.nvim (No UI), use in dialog input history
       history = {
-        path = join_paths(vim.fn.stdpath('data'), 'telescope_history.sqlite3'),
+        path = join_paths(vim.fn.stdpath('state'), 'telescope_history.sqlite3'),
         limit = 133,
       },
       vimgrep_arguments = {
@@ -154,8 +154,8 @@ function M.opts()
         case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       },
       frecency = {
-        -- default: $XDG_DATA_HOME/nvim/file_frecency.sqlite3
-        db_root = vim.fn.stdpath('data'),
+        -- default: $XDG_STATE_HOME/nvim/file_frecency.bin
+        db_root = vim.fn.stdpath('state'),
         show_scores = true,
         show_unindexed = true,
         ignore_patterns = {

@@ -39,7 +39,7 @@ function M.load_default_options()
   if not vim.g.vscode then
     -- 会造成vscode显示多个光标符号
     -- vim.wo.colorcolumn = "80,120,160" -- Make a ruler at 80px and 120px
-    vim.opt.colorcolumn = '80,120,160' -- Make a ruler at 80px and 120px and 160px
+    vim.opt.colorcolumn = '80,100,120,140,160' -- Make a ruler at 80px and 120px and 160px
   end
   vim.opt.list = true -- Show some invisible characters like tabs etc
   vim.opt.listchars = 'tab:›󰨓,trail:•,extends:#,nbsp:.' -- ■
@@ -147,26 +147,36 @@ function M.load_default_options()
   vim.opt.virtualedit = 'onemore'
 
   -- Create folders for our backups, undos, swaps if they don't exist
-  local data_dir = vim.fn.stdpath('data')
-  for _, dir_name in ipairs { 'backups', 'undos', 'swaps', 'views', 'shadas' } do
-    vim.fn.mkdir(join_paths(data_dir, dir_name), 'p', '0700')
+  local state_dir = vim.fn.stdpath('state')
+  for _, v in ipairs {
+    { 'backupdir', 'backup' },
+    { 'undodir', 'undo' },
+    { 'directory', 'swap' },
+    { 'viewdir', 'view' },
+    'shada',
+  } do
+    if vim.islist(v) then
+      local opt_name = v[1]
+      local dir = join_paths(state_dir, v[2])
+      vim.fn.mkdir(dir, 'p', '0700')
+      vim.opt[opt_name] = dir
+    else
+      local dir = join_paths(state_dir, v)
+      vim.fn.mkdir(dir, 'p', '0700')
+      vim.opt.shadafile = join_paths(dir, 'nvim_xxx.shada')
+    end
   end
 
   vim.o.sessionoptions = 'buffers,curdir,folds,globals,tabpages,winpos,winsize' -- Session options to store in the session
 
-  vim.opt.backupdir = join_paths(data_dir, 'backups') -- Use backup files
-  vim.opt.directory = join_paths(data_dir, 'swaps') -- Use Swap files
   vim.opt.undofile = true -- Maintain undo history between sessions
   vim.opt.undolevels = 1000 -- Ensure we can undo a lot! **
-  vim.opt.undodir = join_paths(data_dir, 'undos') -- Set the undo directory
-  vim.opt.viewdir = join_paths(data_dir, 'views')
 
   --[[
         NOTE: don't store marks as they are currently broken in Neovim!
         @credit: wincent
     ]]
   -- vim.opt.shada = "!,'0,f0,<50,s10,h" -- **
-  vim.opt.shadafile = join_paths(data_dir, 'shadas', 'nvim_xxx.shada')
 
   vim.opt.backup = false
   --[[if a file is being edited by another program

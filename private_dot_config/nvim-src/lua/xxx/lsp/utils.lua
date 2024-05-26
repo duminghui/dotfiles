@@ -23,7 +23,7 @@ function M.get_active_clients_by_ft(filetype)
 end
 
 function M.get_client_capabilities(client_id)
-  local client = vim.lsp.get_client_by_id(tonumber(client_id))
+  local client = vim.lsp.get_client_by_id(client_id)
   if not client then
     Log:warn('Unable to determine client from client_id: ' .. client_id)
     return
@@ -129,13 +129,6 @@ function M.setup_document_highlight(client, bufnr)
   )
 end
 
-function M.setup_fold()
-  vim.wo.foldenable = false -- Disable folding at startup.
-  vim.wo.foldlevel = 6
-  vim.wo.foldmethod = 'expr'
-  vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-end
-
 function M.setup_document_symbols(client, bufnr)
   vim.g.navic_silence = false -- can be set to true to supress error
   if not client.supports_method('textDocument/documentSymbol') then
@@ -168,36 +161,9 @@ function M.setup_codelens_refresh(client, bufnr)
   vim.api.nvim_create_autocmd(cl_events, {
     group = group,
     buffer = bufnr,
-    callback = vim.lsp.codelens.refresh,
-  })
-end
-
-function M.setup_format_on_save(client, bufnr, callback)
-  if not client.supports_method('textDocument/formatting') then
-    Log:debug(client.name .. " not support method 'textDocument/formatting'")
-    return
-  end
-  local group = 'lsp_format_on_save'
-  local events = { 'BufWritePre' }
-  local ok, fos_autocmds = pcall(vim.api.nvim_get_autocmds, {
-    group = group,
-    buffer = bufnr,
-    event = events,
-  })
-
-  if ok and #fos_autocmds > 0 then
-    return
-  end
-
-  callback = callback or function()
-    M.format {}
-  end
-
-  vim.api.nvim_create_augroup(group, { clear = false })
-  vim.api.nvim_create_autocmd(events, {
-    group = group,
-    buffer = bufnr,
-    callback = callback,
+    callback = function()
+      vim.lsp.codelens.refresh { bufnr = bufnr }
+    end,
   })
 end
 
@@ -233,6 +199,42 @@ function M.format(opts)
   if not ok then
     print('pcall(vim.diagnostic.show) failed')
   end
+end
+
+function M.setup_format_on_save(client, bufnr, callback)
+  if not client.supports_method('textDocument/formatting') then
+    Log:debug(client.name .. " not support method 'textDocument/formatting'")
+    return
+  end
+  local group = 'lsp_format_on_save'
+  local events = { 'BufWritePre' }
+  local ok, fos_autocmds = pcall(vim.api.nvim_get_autocmds, {
+    group = group,
+    buffer = bufnr,
+    event = events,
+  })
+
+  if ok and #fos_autocmds > 0 then
+    return
+  end
+
+  callback = callback or function()
+    M.format {}
+  end
+
+  vim.api.nvim_create_augroup(group, { clear = false })
+  vim.api.nvim_create_autocmd(events, {
+    group = group,
+    buffer = bufnr,
+    callback = callback,
+  })
+end
+
+function M.setup_fold()
+  vim.wo.foldenable = false -- Disable folding at startup.
+  vim.wo.foldlevel = 6
+  vim.wo.foldmethod = 'expr'
+  vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 end
 
 return M

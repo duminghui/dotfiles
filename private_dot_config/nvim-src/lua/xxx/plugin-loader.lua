@@ -6,7 +6,7 @@ local Log = require('xxx.core.log')
 local plugins_dir = join_paths(vim.fn.stdpath('data'), 'lazy')
 
 function plugin_loader.init()
-  local lazy_install_dir = join_paths(vim.fn.stdpath('data'), 'lazy', 'lazy.nvim')
+  local lazy_install_dir = join_paths(plugins_dir, 'lazy.nvim')
   if not utils.is_directory(lazy_install_dir) then
     print('lazy.nvim downloading...')
     vim.fn.system {
@@ -73,7 +73,7 @@ function plugin_loader.load(configurations)
           loaded = '●',
           not_loaded = '○',
           plugin = '󰏓',
-          runtime = '',
+          runtime = '',
           source = '󰗀',
           start = '󰐊',
           -- task = '✔',

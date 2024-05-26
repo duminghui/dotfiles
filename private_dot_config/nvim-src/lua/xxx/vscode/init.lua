@@ -114,7 +114,7 @@ M.keymappings = {
   ['<A-l>'] = { 'n', manageEditorSize('w', 'increase') },
 
   ['<leader>w'] = { 'n', vscode('workbench.action.files.save') },
-  ['<leader>c'] = { 'n', vscode('workbench.action.closeActiveEditor') },
+  ['<leader>cc'] = { 'n', vscode('workbench.action.closeActiveEditor') },
   ['<leader>e'] = { 'n', vscode('workbench.action.focusSideBar') },
 
   -- ['[d'] = { 'n', vscode('editor.action.marker.prevInFiles') },

@@ -82,7 +82,6 @@ M.n_mappings = {
   -- [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
   ['/'] = { ':nohlsearch<CR>', 'Clean Search Highlight' },
   w = { '<cmd>w!<CR>', 'Save' },
-  c = { '<cmd>BufferKill<CR>', 'Close Buffer(Keep window)' },
   q = { require('xxx.utils.functions').smart_quit, 'Quit current window' },
   -- e = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
   e = { '<cmd>Neotree toggle<CR>', 'Explorer' },
@@ -146,6 +145,9 @@ M.n_mappings = {
     l = { '<cmd>BufferLineCloseRight<cr>', 'Close all to the right' },
     D = { '<cmd>BufferLineSortByDirectory<cr>', 'Sort by directory' },
     L = { '<cmd>BufferLineSortByExtension<cr>', 'Sort by language' },
+  },
+  c = {
+    c = { '<cmd>BufferKill<CR>', 'Close Buffer(Keep window)' },
   },
   P = {},
   g = {

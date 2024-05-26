@@ -8,6 +8,19 @@ function M.set_keymap(bufnr, mode, key, map, desc)
   vim.keymap.set(mode, key, map, opts)
 end
 
+local function show_documentation()
+  local filetype = vim.bo.filetype
+  if vim.tbl_contains({ 'vim', 'help' }, filetype) then
+    vim.cmd('h ' .. vim.fn.expand('<cword>'))
+  elseif vim.tbl_contains({ 'man' }, filetype) then
+    vim.cmd('Man ' .. vim.fn.expand('<cword>'))
+  elseif vim.fn.expand('%:t') == 'Cargo.toml' and require('crates').popup_available() then
+    require('crates').show_popup()
+  else
+    vim.lsp.buf.hover()
+  end
+end
+
 function M.add_lsp_buffer_keybindings(client, bufnr)
   -- all provider name
   -- https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#serverCapabilities
@@ -23,6 +36,7 @@ function M.add_lsp_buffer_keybindings(client, bufnr)
   local signature_help_provide = false
   local rename_provide = false
   local code_lens_provide = false
+  local crates_provide = false
   if not_null_ls then
     local capabilities = client.server_capabilities
     code_action_provide = capabilities.codeActionProvider
@@ -43,9 +57,12 @@ function M.add_lsp_buffer_keybindings(client, bufnr)
     local method = n.methods.FORMATTING
     local avalable_formatters = s.get_available(filetype, method)
     format_provide = #avalable_formatters > 0
+    if vim.fn.expand('%:t') == 'Cargo.toml' then
+      crates_provide = true
+    end
   end
   local keymaps = {
-    ['K'] = { vim.lsp.buf.hover, '[LSP]Show hover', hover_provide },
+    ['K'] = { show_documentation, '[LSP]Show hover', hover_provide },
 
     ['ga'] = { vim.lsp.buf.code_action, '[LSP]Code Action', code_action_provide },
 
@@ -92,6 +109,13 @@ function M.add_lsp_buffer_keybindings(client, bufnr)
       '[LSP]Format',
       format_provide,
     },
+    ['<LocalLeader>cp'] = { require('crates').show_crate_popup, '[Crates]Crate Popup', crates_provide },
+    ['<LocalLeader>cv'] = { require('crates').show_versions_popup, '[Crates]Versions Popup', crates_provide },
+    ['<LocalLeader>cf'] = { require('crates').show_features_popup, '[Crates]Features Popup', crates_provide },
+    ['<LocalLeader>cd'] = { require('crates').show_dependencies_popup, '[Crates]Dependencies Popup', crates_provide },
+    ['<LocalLeader>cu'] = { require('crates').update_crate, '[Crates]Update Create', crates_provide },
+    ['<LocalLeader>cU'] = { require('crates').upgrade_crate, '[Crates]Upgrade Create', crates_provide },
+    ['<LocalLeader>cA'] = { require('crates').upgrade_all_crates, '[Crates]Upgrade All Creates', crates_provide },
   }
 
   for key, remap in pairs(keymaps) do

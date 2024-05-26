@@ -88,7 +88,7 @@ local M = {}
 
 M.autopairs = gen_filetypes()
 M.breadcrumbs = gen_filetypes()
-M.marks = gen_filetypes({ 'Markdown' }, { 'plaintext', 'list', 'neo-tree-popup' }) -- list:coc.nvim
+M.marks = gen_filetypes({ 'Markdown' }, { 'plaintext', 'list', 'neo-tree-popup', 'crates.nvim' }) -- list:coc.nvim
 M.harpoon = gen_filetypes { 'Markdown' }
 M.illuminate = gen_filetypes { 'Markdown' }
 M.indent_blankline = gen_filetypes { 'Markdown' }
