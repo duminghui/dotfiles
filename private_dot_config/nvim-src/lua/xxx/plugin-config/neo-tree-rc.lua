@@ -159,7 +159,7 @@ M.opts = {
       folder_empty_open = icons.ui.EmptyFolderOpen,
       -- The next two settings are only a fallback, if you use nvim-web-devicons(default=true) and configure default icons there
       -- then these will never be used.
-      default = icons.ui.Text,
+      default = icons.ui.File,
       highlight = 'NeoTreeFileIcon',
     },
     modified = {

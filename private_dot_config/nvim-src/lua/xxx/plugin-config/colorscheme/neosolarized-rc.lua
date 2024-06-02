@@ -1,6 +1,8 @@
 local M = {}
 
 function M.setup()
+  vim.api.nvim_command('colorscheme neosolarized')
+
   -- local Color, colors, Group, groups, styles = require('colorbuddy').setup()
   local colorbuddy = require('colorbuddy')
   local Color = colorbuddy.Color
@@ -153,7 +155,7 @@ function M.setup()
   vim.cmd('highlight link TreesitterContextLineNumber TreesitterContext')
 
   -- Trouble
-  Group.new('TroubleFoldIcon', groups.CursorLineNr)
+  Group.new('TroubleIconDirectory', colors.yellow)
 
   local cError = groups.Error.fg
   local cWarn = groups.Warning.fg

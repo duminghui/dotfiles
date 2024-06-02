@@ -180,9 +180,7 @@ M.n_mappings = {
     name = 'LSP',
     a = { vim.lsp.buf.code_action, 'Code Action' },
     -- d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-    d = { '<cmd>Trouble document_diagnostics<CR>', 'Buffer Diagnostics' },
     -- w = { "<cmd>Telescope diagnostics<CR>", "Diagnostics" },
-    w = { '<cmd>Trouble workspace_diagnostics<CR>', 'Workspace Diagnostics' },
     -- config in lsp/config.lua
     r = { '<cmd>Trouble lsp_references<CR>', 'References' },
     -- f = { require("xxx.lsp.utils").format, "Format" }, -- set in lsp/keymapping.lua
@@ -236,18 +234,20 @@ M.n_mappings = {
   },
   t = {
     name = 'Trouble & Tab page',
-    t = { '<cmd>TroubleToggle<CR>', 'TroubleToggle' },
     -- +lsp
-    w = { '<cmd>Trouble workspace_diagnostics<CR>', 'Workspace Diagnostics' },
-    x = { '<cmd>Trouble document_diagnostics<CR>', 'Buffer Diagnostics' },
+    x = { '<cmd>Trouble diagnostics toggle focus=false filter.buf=0<CR>', 'Diagnostics(Buffer)' },
+    X = { '<cmd>Trouble diagnostics toggle focus=true<CR>', 'Diagnostics(Workspace)' },
     --  lsp/config.lua: gr
     -- r = { '<cmd>Trouble lsp_references<CR>', 'References' },
     -- use lsp's gd, not use this
     d = { '<cmd>Trouble lsp_definitions<CR>', 'Definitions' },
     D = { '<cmd>Trouble lsp_type_definitions<CR>', 'Type Definitions' },
-    q = { '<cmd>Trouble quickfix<CR>', 'Quickfix' },
+    i = { '<cmd>Trouble lsp_implementations<CR>', 'Implementations' },
+    s = { '<cmd>Trouble lsp_document_symbols results.win={type=split,position=right}<CR>', 'Lsp Symbols' },
+    S = { '<cmd>Trouble symbols<CR>', 'Symbols' },
     l = { '<cmd>Trouble loclist<CR>', 'Loclist' },
-    i = { '<cmd>Trouble lsp_implmentations<CR>', 'Implementations' },
+    q = { '<cmd>Trouble quickfix<CR>', 'Quickfix' },
+    t = { '<cmd>Trouble telescope<CR>', 'Telescope Results' },
 
     c = { ':tabclose<CR>', 'Close current tab page' },
     f = {

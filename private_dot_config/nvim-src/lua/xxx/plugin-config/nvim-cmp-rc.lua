@@ -134,6 +134,41 @@ M.opts = function()
 
   local icons = require('xxx.core.icons')
 
+  -- https://github.com/hrsh7th/nvim-cmp/blob/5260e5e8ecadaf13e6b82cf867a909f54e15fd07/lua/cmp/types/lsp.lua#L178
+  local kind_key = {
+    'Text',
+    'Method',
+    'Function',
+    'Constructor',
+    'Field',
+    'Variable',
+    'Class',
+    'Interface',
+    'Module',
+    'Property',
+    'Unit',
+    'Value',
+    'Enum',
+    'Keyword',
+    'Snippet',
+    'Color',
+    'File',
+    'Reference',
+    'Folder',
+    'EnumMember',
+    'Constant',
+    'Struct',
+    'Event',
+    'Operator',
+    'TypeParameter',
+  }
+
+  local kind_icons = {}
+
+  for _, v in ipairs(kind_key) do
+    kind_icons[v] = icons.findKind(v)
+  end
+
   M.options = {
     enabled = function()
       local buftype = vim.api.nvim_get_option_value('buftype', { buf = 0 })
@@ -161,7 +196,7 @@ M.opts = function()
     formatting = {
       fields = { 'abbr', 'kind', 'menu' },
       max_width = 50,
-      kind_icons = icons.kind,
+      kind_icons = kind_icons,
       source_names = {
         nvim_lsp = '[LSP]',
         emoji = '[Emoji]',

@@ -78,6 +78,10 @@ local function highlights()
     tab_separator_selected = {
       fg = tag_fg,
     },
+    trunc_marker = {
+      fg = text_selected,
+      bg = tag_fg,
+    },
   }
 
   local modified_hl = fix_highlight('modified', c_modified, tag_bg)

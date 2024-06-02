@@ -1,49 +1,43 @@
-return {
+local M = {
   kind = {
-    File = '󰈔', -- 󰈙
-    Module = '',
-    Namespace = '󰅩',
-    Package = '󰏓', -- 󰏗
-    -- Class = "󰌗",
-    Class = '󰙅',
-    Method = '󰡱', -- 
-    Property = '󰖷', -- 󰄻
-    Field = '', -- 
+    Array = '󰅨',
+    Boolean = '󰔡',
+    Class = '󰙅', -- 󰌗
+    Color = '󰏘',
+    Constant = '󰏿', -- 󰇽
     Constructor = '󰆦', -- 󰆧
     Enum = '',
-    Interface = '',
-    Function = '󰡱', -- 󰊕 ƒ
-    -- Variable = "",
-    -- Variable = "",
-    Variable = '󰀫',
-    -- Variable = '󰫧',
-    -- Constant = "󰇽",
-    Constant = '󰏿',
-    String = '', -- 󰉿
-    Number = '󰎠',
-    Boolean = '󰔡',
-    Array = '󰅨',
-    Object = '󰅩',
-    -- Key = '󱀍󰉿',
-    Key = '󱀍',
-    Null = '󰟢',
     EnumMember = '',
-    Struct = '󰠱',
     Event = '󰉁', -- 󱐋
-    -- Operator = "󰆕",
-    Operator = '',
-    -- TypeParameter = '',
-    TypeParameter = '',
-    Text = '󰊄',
-    -- Snippet = '󰗀',
-    Snippet = '󰌲', -- 󰃐
+    Field = '', -- 
+    File = '󰈔', -- 󰈙
     Folder = '󰝰',
-    Unit = '󰉺',
-    -- Value = '',
-    Value = '󰀫',
-    Color = '󰏘',
+    Function = '󰡱', -- 󰊕 ƒ
+    Interface = '',
+    Key = '󱀍', -- 󰉿
     Keyword = '󰉨',
+    Macro = '󰐣', -- 󰬔
+    Method = '󰡱', -- 
+    Module = '',
+    Namespace = '󰅩',
+    Null = '󰟢',
+    Number = '󰎠',
+    Object = '󰙅', -- 󰅩
+    Operator = '', -- 󰆕
+    Package = '󰏓', -- 󰏗
+    Parameter = '',
+    Property = '󰓹', -- 󰄻 󰓹 󰖷
     Reference = '󱞬', -- 󰈇
+    Snippet = '󰃐', -- 󰌲 󰃐 󰗀
+    StaticMethod = '󰆧',
+    String = '󰀬', -- 󰉿
+    Struct = '󰠱',
+    Text = '󰭷', -- 󰊄
+    Unit = '󰉺',
+    Value = '󰀫', -- 
+    Variable = '󰀫', --   󰫧
+    TypeAlias = '',
+    TypeParameter = '', -- 
   },
   git = {
     -- Branch = "",
@@ -201,3 +195,28 @@ return {
     CircuitBoard = '󱤓',
   },
 }
+
+local Log = require('xxx.core.log')
+local fmt = string.format
+
+M.findKind = function(name, suffix)
+  local icon = M.kind[name]
+  if icon == nil then
+    Log:error(fmt('No Kind `%s` icon', name))
+    return nil
+  end
+  if suffix == nil then
+    return icon
+  end
+  return icon .. suffix
+end
+
+M.kindTable = function(suffix, ...)
+  local kindTable = {}
+  for _, v in ipairs { ... } do
+    kindTable[v] = M.findKind(v, suffix)
+  end
+  return kindTable
+end
+
+return M

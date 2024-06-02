@@ -1,5 +1,5 @@
 # use name has bug
-# 268 items
+# 269 items
 name:
   .conda: 󰌠
   .condarc: 󰌠
@@ -29,7 +29,7 @@ name:
   .atom: 󰝨
   .ash: 
   .ash_history: 
-  authorized_keys: 󰿃
+  authorized_keys: 󱕵
   assets: 󰆓
   .android: 󰀲
   .audacity-data: 󱁿
@@ -42,7 +42,7 @@ name:
   .bpython_history: 󰌠
   build: 󰆧
   bspwmrc: 󰒓
-  build.ninja: 
+  build.ninja: 󱌣
   .cache: 󰃨
   cache: 󰃨
   cargo.lock: 󱘗
@@ -59,10 +59,10 @@ name:
   config.mk: 󰒓
   .config: 󱁿
   config: 󱁿
-  configure: 
+  configure: 󱌣
   content: 󰆓
-  contributing: 󰿃
-  copyright: 󰿃
+  contributing: 󱕵
+  copyright: 󰗦
   cron.daily: 󱁿
   cron.d: 󱁿
   cron.deny: 󰒓
@@ -103,7 +103,7 @@ name:
   .fastboot: 󰀲
   .gitattributes: 󰊢
   .gitconfig: 󰊢
-  .git-credentials: 󰿃
+  .git-credentials: 󱕵
   .github: 󰊤
   gitignore_global: 󰊢
   .gitignore: 󰊢
@@ -153,28 +153,28 @@ name:
   kconfig: 󰒓
   kdeglobals: 󰒓
   kdenliverc: 󰒓
-  known_hosts: 󰿃
+  known_hosts: 󱕵
   .kshrc: 
   libexec: 󰗀
   lib32: 󰗀
   lib64: 󰗀
   lib: 󰗀
-  license.md: 󰿃
-  licenses: 󰿃
-  license.txt: 󰿃
-  license: 󰿃
+  license.md: 󱕵
+  licenses: 󱕵
+  license.txt: 󱕵
+  license: 󱕵
   localized: 󰀵
   lsb-release: 󰒓
   .lynxrc: 󰒓
   .mailcap: 󰗰
   mail: 󰗰
   magic: 
-  maintainers: 󰿃
+  maintainers: 󱕵
   makefile.ac: 󰒓
   makefile: 󰒓
   manifest: 󰐣
   md5sum: 󰕥
-  meson.build: 
+  meson.build: 󱌣
   metadata: 󱁿
   metadata.xml: 󰙪
   media: 󰏜
@@ -239,7 +239,7 @@ name:
   .spacemacs: 
   .sqlite_history: 
   src: 󱧼
-  .ssh: 󰢬
+  .ssh: 󰣀
   static: 󰆓
   std: 󰅱
   styles: 󰌜
@@ -255,7 +255,7 @@ name:
   .trash: 󰩹
   ts: 󰛦
   .tox: 󰌠
-  unlicense: 󰿃
+  unlicense: 󱕵
   url: 󰇧
   user-dirs.dirs: 󱁿
   vagrantfile: 󰒓
@@ -293,7 +293,7 @@ name:
   .zsh_history: 󱆃
   .zshrc: 󱆃
 
-# 327 items
+# 329 items
 extension:
   jks: 󰿃
   1: 󰂺
@@ -326,6 +326,8 @@ extension:
   bat: 󰖳
   bin: 
   bio: 󰐑
+  blend: 󰂫
+  blend1: 󰂫
   bmp: 󰈟
   bz2: 󰗄
   cc: 󰙲
@@ -446,7 +448,7 @@ extension:
   ld: 
   less: 
   lhs: 󰲒
-  license: 󰿃
+  license: 󱕵
   lisp: 󰅲
   list: 󰕲
   localized: 󰀵
@@ -554,7 +556,7 @@ extension:
   scss: 󰟬
   shell: 
   sh: 
-  sig: 󰿃
+  sig: 󱕵
   slim: 󰫏
   sln: 󰨞
   so: 

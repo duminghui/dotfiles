@@ -32,9 +32,10 @@ M.opts = {
     -- win_options can use neovim's options
     win_options = {
       -- Window transparency (0-100)
-      winblend = 7,
+      -- 注释掉, 使用默认的winblend
+      -- winblend = 7,
       -- Change default highlight groups (see :help winhl)
-      winhighlight = '',
+      winhighlight = 'FloatTitle:telescopepreviewtitle',
     },
     -- Set to `false` to disable
     mappings = {

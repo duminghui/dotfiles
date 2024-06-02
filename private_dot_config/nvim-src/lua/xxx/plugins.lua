@@ -257,7 +257,7 @@ local plugins = {
     config = function()
       require('xxx.plugin-config.trouble-rc').setup()
     end,
-    cmd = { 'Trouble', 'TroubleToggle' },
+    cmd = { 'Trouble' },
   },
 
   -- Install nvim-cmp, and buffer source as a dependency

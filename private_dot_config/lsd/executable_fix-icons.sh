@@ -5,6 +5,7 @@
 
 cp icons.yaml.org icons.yaml
 
+    # -e 's||󰿃|g' \
 gsed -i -r \
     -e 's|^ +([a-z_.-]+):.+[\/ ]+(\W{1})$|  \1: \2|g' \
     -e 's|^ +\("([A-Za-z0-9._+-]+)".+[\/ ]+"(\W{1})"$|  \1: \2|g' \
@@ -14,7 +15,7 @@ gsed -i -r \
     -e 's|device_block|device-block|g' \
     -e 's|||g' \
     -e 's||󰝨|g' \
-    -e 's||󰿃|g' \
+    -e 's||󱕵|g' \
     -e 's||󰆓|g' \
     -e 's||󰀲|g' \
     -e 's||󱁿|g' \
@@ -149,6 +150,7 @@ gsed -i -r \
     -e 's||󰚯|g' \
     -e 's|||g' \
     -e 's|||g' \
+    -e 's||󱌣|g' \
     icons.yaml
 
 icon_manage() {
@@ -185,16 +187,18 @@ name_icon 'npmrc' '󰛷'
 name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'
 name_icon 'fish' '󱢺'
-name_icon '.editorconfig' ''
+name_icon 'copyright' '󰗦'
 name_icon '"applications \(parallels\)"' '󰜨'
 name_icon 'android' '󰀲'
 name_icon '\.zshenv' ''
 name_icon 'vite\.config\.ts' '󰉁'
 name_icon '\.yarnrc.yml' ''
+name_icon '\.ssh' '󰣀'
 name_icon '\.pub-cache' ''
 name_icon '\.m2' ''
 name_icon '\.localized' '󰀵'
 name_icon '\.gradle' ''
+name_icon '.editorconfig' ''
 name_icon '\.docker' '󰡨'
 name_icon '\.dartserver' ''
 name_icon '\.dart' ''

@@ -3,19 +3,21 @@ local M = {}
 local log_path = join_paths(vim.fn.stdpath('log'), 'gonvim.log')
 local lsp = require('xxx.lsp')
 
+-- https://github.com/ray-x/go.nvim/blob/master/lua/go.lua
 M.opts = {
-  disable_defaults = false, -- either true when true disable all default settings
+  disable_defaults = false, -- true|false when true disable all default settings, user need to set all settings
   go = 'go', -- set to go1.18beta1 if necessary
-  goimport = 'gopls', -- if set to 'gopls' will use gopls format, also goimport
+  goimports = 'gopls', -- if set to 'gopls' will use gopls format, also goimport
   fillstruct = 'gopls',
   -- gofumpt: import部分不会分组, 最终使用的是golines
   -- gofmt = "gofumpt", -- if set to gopls will use gopls format
   -- 使用gopls最终使用的是vim.lsp.buf.format({name=gopls}), import部分分组是下面配置项lsp_gofumpt=true
   gofmt = 'gopls', -- if set to gopls will use gopls format
-  max_line_len = 128,
+  -- max_line_len = 128,
+  max_line_len = 0,
   tag_transform = false,
-  gotests_template = '', -- sets gotests -template parameter (check gotests for details)
-  gotests_template_dir = '', -- sets gotests -template_dir parameter (check gotests for details)
+  tag_options = 'json=omitempty',
+  test_dir = '',
   comment_placeholder = '   ',
   icons = { breakpoint = '🧘', currentpos = '🏃' }, -- set to false to disable icons setup
   sign_priority = 11, -- set priority of signs used by go.nevim
@@ -50,22 +52,35 @@ M.opts = {
     lu.setup_fold()
     lsp.add_lsp_buffer_options(bufnr)
   end, -- it is a function with same signature as on_attach, will be called at end of
-  -- on_attach and allows you override some setup
+
   lsp_document_formatting = true,
   -- set to true: use gopls to format
   -- false if you want to use other formatter tool(e.g. efm, nulls)
 
+  -- on_attach and allows you override some setup
   null_ls_document_formatting_disable = false, -- true: disable null-ls formatting
   -- if enable gopls to format the code and you also instlled and enabled null-ls, you may
   -- want to disable null-ls by setting this to true
   -- it can be a nulls source name e.g. `golines` or a nulls query table
-  lsp_keymaps = true, -- true: use default keymaps defined in go/lsp.lua
-  lsp_codelens = true,
-  lsp_diag_hdlr = false, -- hook lsp diag handler **
-  lsp_diag_underline = true,
-  -- virtual text setup
-  lsp_diag_virtual_text = { space = 0, prefix = '󰄛' },
-  lsp_diag_signs = true,
+  lsp_keymaps = true, -- set to false to disable gopls/lsp keymap
+  lsp_codelens = true, -- set to false to disable codelens, true by default, you can use a function
+  -- function(bufnr)
+  --    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>F", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap=true, silent=true})
+  -- end
+  -- to setup a table of codelens
+  diagnostic = { -- set diagnostic to false to disable vim.diagnostic setup
+    -- in go.nvim
+    hdlr = false, -- hook lsp diag handler and send diag to quickfix
+    underline = true,
+    -- virtual text setup
+    -- virtual_text = { space = 0, prefix = '󰄛' },
+    virtual_text = { spacing = 0, prefix = '■' },
+    signs = true,
+    update_in_insert = false,
+  },
+  -- if you need to setup your ui for input and select, you can do it here
+  -- go_input = require('guihua.input').input -- set to vim.ui.input to disable guihua input
+  -- go_select = require('guihua.select').select -- vim.ui.select to disable guihua select
   lsp_inlay_hints = {
     enable = true,
     -- Only show inlay hints for the current line
@@ -102,6 +117,7 @@ M.opts = {
   gopls_cmd = nil, --- you can provide gopls path and cmd if it not in PATH, e.g. cmd = {  "/home/ray/.local/nvim/data/lspinstall/go/gopls" }
   gopls_remote_auto = true,
   gocoverage_sign = '█',
+  gocoverage_skip_covered = false,
   sign_covered_hl = 'String', --- highlight group for test covered sign, you can either
   sign_uncovered_hl = 'Error', -- highlight group for uncovered code
   launch_json = nil, -- the launch.json file path, default to .vscode/launch.json
@@ -110,19 +126,41 @@ M.opts = {
   dap_debug_gui = true,
   dap_debug_keymap = true, -- true: use keymap for debugger defined in go/dap.lua
   -- false: do not use keymap in go/dap.lua.  you must define your own.
-  dap_vt = true, -- false, true and 'all frames'
+  dap_debug_vt = true, -- false, true and 'all frames'
   dap_port = 38697, -- can be set to a number or `-1` so go.nvim will pickup a random port
+  dap_timeout = 15, --  see dap option initialize_timeout_sec = 15,
+  dap_retries = 20, -- see dap option max_retries
   build_tags = '', --- you can provide extra build tags for tests or debugger
   textobjects = false, -- treesitter binding for text objects **, 启用会影响到treesitter的自定义安装路径
   test_runner = 'go', -- one of {`go`, `richgo`, `dlv`, `ginkgo`, `gotestsum`}
   verbose_tests = true, -- set to add verbose flag to tests
   run_in_floaterm = false, -- set to true to run in float window.
+  floaterm = {
+    posititon = 'auto', -- one of {`top`, `bottom`, `left`, `right`, `center`, `auto`}
+    width = 0.45, -- width of float window if not auto
+    height = 0.98, -- height of float window if not auto
+    title_colors = 'nord', -- table of colors for title, or a color scheme name
+  },
   trouble = true, -- true: use trouble to open quickfix **
   test_efm = false, -- errorfomat for quickfix, default mix mode, set to true will be efm only
+
   luasnip = true, -- enable included luasnip **
   username = '',
   useremail = '',
   disable_per_project_cfg = false, -- set to true to disable load script from .gonvim/init.lua
+  on_jobstart = function(cmd)
+    _ = cmd
+  end, -- callback for stdout
+  on_stdout = function(err, data)
+    _, _ = err, data
+  end, -- callback when job started
+  on_stderr = function(err, data)
+    _, _ = err, data
+  end, -- callback for stderr
+  on_exit = function(code, signal, output)
+    _, _, _ = code, signal, output
+  end, -- callback for jobexit, output : string
+  iferr_vertical_shift = 4, -- defines where the cursor will end up vertically from the begining of if err statement after GoIfErr command
 }
 
 function M.setup()

@@ -1,5 +1,5 @@
 # use name has bug
-# 268 items
+# 269 items
 name:
             ("a.out", "\u{f489}"),              // ""
             ("api", "\u{f048d}"),               // "󰒍"
@@ -271,7 +271,7 @@ name:
             (".zsh_history", "\u{f1183}"),      // "󱆃"
             (".zshrc", "\u{f1183}"),            // "󱆃"
 
-# 327 items
+# 329 items
 extension:
             ("1", "\u{f02d}"),               // ""
             ("2", "\u{f02d}"),               // ""
@@ -303,6 +303,8 @@ extension:
             ("bat", "\u{f17a}"),             // ""
             ("bin", "\u{eae8}"),             // ""
             ("bio", "\u{f0411}"),            // "󰐑"
+            ("blend", "\u{f00ab}"),          // "󰂫"
+            ("blend1", "\u{f00ab}"),         // "󰂫"
             ("bmp", "\u{f1c5}"),             // ""
             ("bz2", "\u{f410}"),             // ""
             ("cc", "\u{e61d}"),              // ""
