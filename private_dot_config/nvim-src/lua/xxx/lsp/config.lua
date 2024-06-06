@@ -1,6 +1,7 @@
 local skipped_servers = {
   'angularls',
   'ansiblels',
+  'ast_grep',
   'azure_pipelines_ls',
   'ccls',
   'csharp_ls',
@@ -18,6 +19,7 @@ local skipped_servers = {
   'gradle_ls',
   'graphql',
   'harper_ls',
+  'hydra_lsp',
   'jedi_language_server',
   'ltex',
   'ocamlls',

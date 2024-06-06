@@ -14,12 +14,13 @@ name:
   vite.config.ts: 󰉁
   .zshenv: 
   android: 󰀲
-  "applications (parallels)": 󰜨
+  "applications (parallels)": 󰕶
+  applications: 󰀻
   fish: 󱢺
   library: 󰁰
   movies: 󰎁
   npmrc: 󰛷
-  parallels: 󰜨
+  parallels: 󰕶
   tmux: 󰕮
   tmuxinator: 󰡃
   work: 󰃖

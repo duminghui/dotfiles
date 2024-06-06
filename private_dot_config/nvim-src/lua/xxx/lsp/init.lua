@@ -46,7 +46,6 @@ function M.common_on_attach(client, bufnr)
   lu.setup_document_symbols(client, bufnr)
 
   lu.setup_fold()
-  require('lsp-inlayhints').on_attach(client, bufnr)
 end
 
 function M.common_on_exit(_, _)

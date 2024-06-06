@@ -18,8 +18,14 @@ function plugin_loader.init()
     }
   end
 
-  vim.opt.runtimepath:append(lazy_install_dir)
-  vim.opt.runtimepath:append(join_paths(plugins_dir, '*'))
+  local rtp = vim.opt.rtp:get()
+  local idx_base = #rtp + 1
+  table.insert(rtp, idx_base, lazy_install_dir)
+  table.insert(rtp, idx_base + 1, join_paths(plugins_dir, '*'))
+  vim.opt.rtp = rtp
+
+  -- vim.opt.runtimepath:append(lazy_install_dir)
+  -- vim.opt.runtimepath:append(join_paths(plugins_dir, '*'))
 
   pcall(function()
     -- set a custom path for lazy's cache
@@ -53,7 +59,8 @@ function plugin_loader.load(configurations)
       },
       install = {
         missing = true,
-        colorscheme = { 'tokyonight', 'habamax' },
+        -- colorscheme = { 'tokyonight', 'habamax' },
+        colorscheme = { 'neosolarized', 'habamax' },
       },
       ui = {
         size = { width = 0.8, height = 0.7 },
@@ -65,24 +72,31 @@ function plugin_loader.load(configurations)
           cmd = '',
           config = '󰒓',
           event = '󰉁',
+          favorite = '󰓎', --  󰥺
           ft = '󰈔',
           init = '󰒓',
           import = '󱚀',
-          keys = '󰌌',
+          keys = '󰌌', -- 󰌌 󱀍
           lazy = '󰒲',
           loaded = '●',
           not_loaded = '○',
-          plugin = '󰏓',
+          -- plugin = '󰏓',
+          plugin = '󰙴', -- 󱕅
           runtime = '',
+          require = '󰹳', -- 󰢱
           source = '󰗀',
           start = '󰐊',
           -- task = '✔',
           task = '󰄭 ',
           list = {
-            '●',
-            '󰜴',
-            '󰓎',
-            '󰍴',
+            '󰨐',
+            '󰨓',
+            '󰧞',
+            -- '󱨊',
+            -- '●',
+            -- '󰜴',
+            -- '',
+            -- '󰍴',
           },
         },
         throttle = 20,
@@ -102,7 +116,6 @@ function plugin_loader.load(configurations)
         root = join_paths(vim.fn.stdpath('state'), 'lazy', 'readme'),
       },
     }
-
     lazy.setup(configurations, opts)
   end, debug.traceback)
 

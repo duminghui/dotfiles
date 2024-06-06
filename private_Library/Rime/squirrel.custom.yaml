@@ -2,7 +2,16 @@
 # git clone --depth 1 https://github.com/rime/plum.git
 # cd plum
 # ./rime-install wubi pinyin-simp
+
+# https://github.com/rime/squirrel/wiki/squirrel.yaml-配置指南
 patch:
+  # app_options/com.googlecode.iterm2:
+  #   ascii_mode: false
+  #   no_inline: true
+  #   vim_mode: true
+  app_options/com.microsoft.VSCode:
+    ascii_mode: true
+    vim_mode: true
   app_options/com.runningwithcrayons.Alfred:
     ascii_mode: true
   # style/color_scheme: apathy
@@ -28,72 +37,73 @@ patch:
   style/color_scheme_dark: solarized_dark_2
   # 以下三项会影响到输入框的高度
   style/border_height: 3
-  style/border_width: 7
+  style/border_width: 8
   style/corner_radius: 2
-  style/comment_font_point: 13
-  style/font_point: 17
-  style/label_font_point: 13
+  # style/label_font_point: 13
+  # style/font_point: 17
+  # style/comment_font_point: 13
   style/candidate_list_layout: linear
   style/text_orientation: horizontal
   style/status_message_type: mix # mix | long | short 状态改变时如何展示状态标签
+  style/memorize_size: true
 
   # prettier-ignore
   preset_color_schemes:
     solarized_dark_2:
       name: 'Solarized Dark'
       author: "dumh"
-      # font_face: PingFang SC                    # 字体 - 候选文字
-      font_point: 17                            # 字体大小 - 候选
-      # label_font_face: Arial                    # 字体 - 候选数字
-      label_font_point: 13                      # 字体大小 - 候选序号
-      # comment_font_face: "PingFangSC-Regular"
-      comment_font_point: 13                    # 字体大小 - 提示编码
+      font_face: "Fira Code, 微软雅黑"          # 字体
+      font_point: 16                            # 字号
+      label_font_face: "Fira Code"              # 候选序号字体
+      label_font_point: 12                      # 候选序号字号
+      comment_font_face: "JetBrains Mono"       # 注释字体
+      comment_font_point: 12                    # 注释字号
 
-      candidate_list_layout: linear             # 候选排布
-      text_orientation: horizontal              # 行方向
+      candidate_list_layout: linear             # 候选排布 linear | stacked
+      text_orientation: horizontal              # 行方向 horizontal | vertical
 
-      inline_preedit: true                      # 输入的编码是否直接写入到输入框中，如果为 false，未上屏的编码就会写在候选框中
-      translucency: true                        # 磨砂
-      mutual_exclusive: true                    # 色不叠加
+      inline_preedit: true                      # true: 输入的内容显示在编辑器内, false: 输入的字母显示在编辑区
 
-      border_height: 3                          # 边距 - 面板上下
-      border_width: 7                           # 边距 - 面板左右
-      corner_radius: 2                          # 候选框圆角大小
-      hilited_corner_radius: 0                  # 选中项圆色大小
+      translucency: false                        # 是否使用磨砂效果, 需要透明背景, 这个效果打开后, 如果设置的圆角大小, 会在边框的四个角位置显示白色
+      mutual_exclusive: true                    # 候选区各背景色是否各自独立, 带透明度的情况下互不浸染
 
-      line_spacing: 7                           # horizontal 为 false 时，上下候选的间隔大小
-      spacing: 7                                # 当 inline_preedit 为 false 时，编码会出现在候选面板中，该值控制编码与候选词之间的距离
+      border_height: 3                          # 外框高
+      border_width: 8                           # 外框宽
+      corner_radius: 2                          # 外框圆角大小
+      hilited_corner_radius: 0                  # 选中项圆角大小
 
-      # %c 是候选序号 %@ 是候选词
-      candidate_format: "[label]. [candidate] [comment]" # 候选词格式
+      line_spacing: 8                           # candidate_list_layout 为 stacked 时，候选顶之间的间距
+      spacing: 8                                # 编辑区与侯选区之间的间距
+      base_offset: 0                            # 文字基线高度调节
+
+      candidate_format: "[label].[candidate] [comment]" # 候选项格式
 
       alpha: 0.93                               # 候选窗口透明度：符点型数据，小数点形式，不然出错无法正常显示皮肤
 
-      color_space: display_p3                   # 色域
+      color_space: display_p3                   # 色域 display_p3 | srgb
       # BGR
       # ABGR 8位的前两位是颜色透明度，00就是透明，FF就是不透明
       # 背景色叠加顺序 hilited_back_color -> preedit_back_color -> back_color
-      back_color: 0x362b00                      # 底色
-      # border_color: 0x362b00                    # 外边框 - 不加没边框
-      text_color: 0xa1a193                      # 其他字顔色 - 字母 -- 会影响到游标顔色
+      back_color: 0x362b00                      # 候选框背景色
+      # border_color: 0x362b00                    # 候选框边框色 - 不加没边框
+      text_color: 0xa1a193                      # 编辑区(非高亮)编码色 - 会影响到游标顔色
 
-      # candidate_back_color: 0x009985            # 非高亮候选项背景色
-      # candidate_text_color: 0xd5e8ee            # 非高亮候选项字顔色
+      # candidate_back_color: 0x009985            # 候选项背景色
+      # candidate_text_color: 0xd5e8ee            # 候选项顔色
       # 下面两行是旧版本的配置
-      # candidate_text_color: 0xa1a193            # 非高亮候选项字顔色
-      # comment_text_color: 0x009985              # 非高亮候选项注释字顔色 - 提示编码 - 切换中英文时的提示框的字体顔色 0.16.2
-      candidate_text_color: 0x009985            # 非高亮候选项字顔色 - 切换中英文时的提示框的字体顔色 0.18.0
-      comment_text_color: 0xa1a193              # 非高亮候选项注释字顔色 - 提示编码 - 太极图
+      # candidate_text_color: 0xa1a193            # 候选项顔色
+      # comment_text_color: 0x009985              # 候选项注释顔色 - 提示编码 - 切换中英文时的提示框的字体顔色 0.16.2
+      candidate_text_color: 0x009985            # 候选项顔色 - 切换中英文时的提示框的字体顔色 0.18.0
+      comment_text_color: 0xa1a193              # 候选项注释顔色 - 提示编码 - 太极图
 
-      # inline_preedit 为 false 时
-      # hilited_back_color: 0x362b00              # 输入中背景色 - 不填使用back_color
-      hilited_text_color: 0x009985              # 输入中选中字母顔色 - 编码
+      # hilited_back_color: 0x362b00              # 编辑区高亮背景色 - 不填使用back_color
+      hilited_text_color: 0x009985              # 编辑区高亮编码色 - 编码
 
       label_color: 0xcca1a193                   # 候选序号顔色
 
-      hilited_candidate_label_color: 0xcc362b00 # 选中项序号顔色
-      hilited_candidate_back_color: 0x009985    # 选中项背景色
-      hilited_candidate_text_color: 0x362b00    # 选中项字顔色
-      hilited_comment_text_color: 0xcc362b00    # 选中项注释字体顔色- 提示编码 -- 太极图
+      hilited_candidate_label_color: 0xcc362b00 # 高亮候选序号顔色
+      hilited_candidate_back_color: 0x009985    # 高亮候选项背景色
+      hilited_candidate_text_color: 0x362b00    # 高亮候选顶顔色
+      hilited_comment_text_color: 0xcc362b00    # 高亮候选项注释顔色- 提示编码 -- 太极图
 
-      # preedit_back_color: 0x362b00              # 输入字母区背景色 @不填,使用back_color
+      # preedit_back_color: 0x362b00              # 编辑区背景色 @不填,使用back_color

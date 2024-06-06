@@ -1,18 +1,15 @@
 local plugins = {
   { 'folke/lazy.nvim', tag = 'stable' },
   {
-    'laishulu/vim-macos-ime',
-    cond = vim.uv.os_uname().sysname == 'Darwin',
+    'keaising/im-select.nvim',
     config = function()
-      require('xxx.plugin-config.vim-macos-ime-rc').setup()
+      require('xxx.plugin-config.im-select-rc').setup()
     end,
-    event = { 'InsertEnter', 'InsertLeave' },
+    -- event = { 'VeryLazy' },
     enabled = false,
   },
   { 'Tastyep/structlog.nvim', lazy = true },
   {
-    -- 'phaazon/hop.nvim',
-    -- branch = 'v2', -- optional but strongly recommended
     'smoka7/hop.nvim',
     version = '*',
     -- config = true,
@@ -25,13 +22,11 @@ local plugins = {
     cmd = { 'HopAnywhere', 'HopChar1', 'HopChar2', 'HopWord', 'HopLineStart', 'HopLine', 'HopVertical', 'HopPattern' },
     enabled = true,
   },
-  -- { 'rlane/pounce.nvim', config = true },
   -- {
-  --   'numToStr/Comment.nvim',
-  --   config = function()
-  --     require('xxx.plugin-config.comment-rc').setup()
-  --   end,
-  --   keys = { { 'gc', mode = { 'n', 'v' } }, { 'gb', mode = { 'n', 'v' } } },
+  --   -- Pounce is a motion plugin
+  --   'rlane/pounce.nvim',
+  --   config = true,
+  --   cmd = { 'Pounce' },
   -- },
   {
     'kylechui/nvim-surround',

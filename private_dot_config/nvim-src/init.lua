@@ -37,27 +37,20 @@ require('xxx.core.autocmds').load_defaults()
 
 local plugin_loader = require('xxx.plugin-loader')
 plugin_loader.init()
+local plugins = require('xxx.plugins')
+plugin_loader.load { plugins }
 
 if not vim.g.vscode then
   require('xxx.core.commands').load_defaults()
-
   keymappings.load_others()
 
-  local plugins = require('xxx.plugins')
-  plugin_loader.load { plugins }
-
-  -- local plugins = require('xxx.vscode.plugins')
-  -- plugin_loader.load { plugins }
-
-  -- --Lsp配置
+  --Lsp配置
   if Xvim.lsp.enable then
     require('xxx.lsp').setup()
   end
+
   Log:info('Starting xvim')
 else
-  local plugins = require('xxx.vscode.plugins')
-  plugin_loader.load { plugins }
-
   require('xxx.vscode').setup()
   Log:info('Starting xvim in vscode')
 end

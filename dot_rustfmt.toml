@@ -1,3 +1,4 @@
+# .rustfmt.toml rustfmt.toml 文件查找位置: https://github.com/rust-lang/rustfmt/blob/c97996fab61fc09432abcf64dbe3ce2d84f4d679/src/config/mod.rs#L283
 # 注释的第一列是默认值
 # array_width = 60                       # 60
 # attr_fn_like_width = 70                # 70
