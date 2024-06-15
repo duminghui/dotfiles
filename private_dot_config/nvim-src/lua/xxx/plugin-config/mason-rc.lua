@@ -18,7 +18,7 @@ M.opts = {
       -- package_uninstalled = "◍",
       package_installed = icons.ui.CircleCheck,
       package_pending = icons.ui.Pending,
-      package_uninstalled = icons.ui.Plus2,
+      package_uninstalled = icons.ui.Plus2, -- 󰙝
     },
     keymaps = {
       -- Keymap to expand a package

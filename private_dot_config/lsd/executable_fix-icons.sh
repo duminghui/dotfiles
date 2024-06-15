@@ -179,7 +179,7 @@ extension_icon(){
   icon_manage 'extension' "$1" "$2"
 }
 
-name_icon 'work' '󰃖'
+name_icon 'work' '󱙘'
 name_icon 'tmuxinator' '󰡃'
 name_icon 'tmux' '󰕮'
 # name_icon 'parallels' '󰜨'

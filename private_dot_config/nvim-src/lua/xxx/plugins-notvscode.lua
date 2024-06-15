@@ -414,6 +414,7 @@ local plugins = {
   },
   {
     'ThePrimeagen/harpoon', -- Mark buffers for faster navigation
+    branch = 'harpoon2',
     config = function()
       require('xxx.plugin-config.harpoon-rc').setup()
     end,

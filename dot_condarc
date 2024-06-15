@@ -1,4 +1,5 @@
 # ### use miniconda
+# conda config --set is use $HOME/.condarc
 channels:
   - defaults
 show_channel_urls: true

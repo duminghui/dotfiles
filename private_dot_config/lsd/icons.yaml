@@ -14,8 +14,8 @@ name:
   vite.config.ts: 󰉁
   .zshenv: 
   android: 󰀲
-  "applications (parallels)": 󰕶
   applications: 󰀻
+  "applications (parallels)": 󰕶
   fish: 󱢺
   library: 󰁰
   movies: 󰎁
@@ -23,7 +23,7 @@ name:
   parallels: 󰕶
   tmux: 󰕮
   tmuxinator: 󰡃
-  work: 󰃖
+  work: 󱙘
   a.out: 
   api: 󰒍
   .asoundrc: 󰒓

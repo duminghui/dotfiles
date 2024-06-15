@@ -64,6 +64,48 @@ function M.get_common_opts()
   }
 end
 
+local icons = require('xxx.core.icons')
+
+M.opts = {
+  diagnostics = {
+    signs = {
+      priority = 30,
+      values = {
+        { name = 'DiagnosticSignError', text = icons.diagnostics.BoldError },
+        { name = 'DiagnosticSignWarn', text = icons.diagnostics.BoldWarning },
+        { name = 'DiagnosticSignHint', text = icons.diagnostics.Hint },
+        { name = 'DiagnosticSignInfo', text = icons.diagnostics.BoldInformation },
+      },
+    },
+    virtual_text = {
+      -- prefix = icons.ui.Square,
+      -- spacing = 12,
+    },
+    -- true: cmp's ghost_text show bug
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = false,
+      -- style = 'minimal',
+      border = 'single',
+      -- border = 'none',
+      source = 'always',
+      header = '',
+      prefix = ' ',
+      suffix = ' ',
+      -- title = ' Diagnostic ',
+      format = function(d)
+        local code = d.code or (d.user_data and d.user_data.lsp and d.user_data.lsp.code)
+        if code then
+          return string.format('%s [%s]', d.message, code):gsub('1. ', '')
+        end
+        return d.message
+      end,
+    },
+  },
+}
+
 function M.setup()
   Log:info('Setting up LSP support')
   local lsp_status_ok, _ = pcall(require, 'lspconfig')
@@ -71,6 +113,8 @@ function M.setup()
     Log:debug('LSP: lspconfig not ok')
     return
   end
+
+  vim.diagnostic.config(M.opts.diagnostics)
 
   -- command :LspInfo 's border
   -- require('lspconfig.ui.windows').default_options.border = 'single'
@@ -87,15 +131,16 @@ function M.setup()
   -- }
   --
 
-  local templates = require('xxx.lsp.templates')
-  templates.generate_templates()
-
   -- diagnostics signs
-  for _, sign in ipairs(lsp_opts.diagnostics.signs.values) do
+  -- for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
+  for _, sign in ipairs(M.opts.diagnostics.signs.values) do
     vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.name, numhl = sign.name })
   end
 
   require('xxx.lsp.handlers').setup()
+
+  local templates = require('xxx.lsp.templates')
+  templates.generate_templates()
 
   -- require("nlspsettings").setup(lsp_opts.nlsp_settings.setup)
 

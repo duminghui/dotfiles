@@ -1,7 +1,7 @@
-local typescript = require 'mason-lspconfig.typescript'
+local typescript = require('mason-lspconfig.typescript')
 
-local server_mapping = require 'mason-lspconfig.mappings.server'
-local path = require 'mason-core.path'
+local server_mapping = require('mason-lspconfig.mappings.server')
+local path = require('mason-core.path')
 local pkg_name = server_mapping.lspconfig_to_package['volar']
 local _install_dir = path.package_prefix(pkg_name)
 

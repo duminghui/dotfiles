@@ -81,7 +81,7 @@ function plugin_loader.load(configurations)
           loaded = '●',
           not_loaded = '○',
           -- plugin = '󰏓',
-          plugin = '󰙴', -- 󱕅
+          plugin = '󰙴', -- 󱕅 󰙴 󰐱
           runtime = '',
           require = '󰹳', -- 󰢱
           source = '󰗀',

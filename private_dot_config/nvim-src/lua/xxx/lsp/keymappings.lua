@@ -1,6 +1,5 @@
 local M = {}
 
-local lsp_opts = require('xxx.lsp.config')
 local default_opts = { buffer = 0, desc = '', noremap = true, silent = false }
 
 function M.set_keymap(bufnr, mode, key, map, desc)
@@ -94,10 +93,15 @@ function M.add_lsp_buffer_keybindings(client, bufnr)
 
     ['gl'] = {
       function()
-        local config = lsp_opts.diagnostics.float
-        config.scope = 'line'
-        config.bufnr = 0
-        vim.diagnostic.open_float(config)
+        local float = vim.diagnostic.config().float
+        if float then
+          local config = type(float) == 'table' and float or {}
+          config.scope = 'line'
+          config.bufnr = 0
+          vim.diagnostic.open_float(config)
+        else
+          vim.print("can't find vim.diagnostic.config().float")
+        end
       end,
       '[LSP]Show line diagnostics',
       not_null_ls,
