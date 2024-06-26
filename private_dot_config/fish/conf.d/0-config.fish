@@ -118,6 +118,8 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 test -d $HOME/.local/bin; and set -gx PATH $HOME/.local/bin $PATH
 
+abbr corepack-up "corepack up"
+
 ### docker
 test -d $HOME/.docker/bin; and set -gx PATH $HOME/.docker/bin $PATH
 

@@ -24,9 +24,20 @@ M.defaults = {
   {
     name = 'PrintRtp',
     fn = function()
-      for k, v in pairs(vim.opt.rtp:get()) do
-        print(string.format('%3d: %s', k, v))
+      local content_provider = function(popup)
+        local text = require('xxx.interface.text')
+        local content = {}
+        for k, v in pairs(vim.opt.rtp:get()) do
+          local path = string.format('%3d: %s', k, v)
+          table.insert(content, path)
+        end
+        return text.align_left(popup, content, 0.0)
       end
+      local Popup = require('xxx.interface.popup'):new {
+        win_opts = { number = false },
+        buf_opts = { modifiable = false, filetype = 'RuntimePath' },
+      }
+      Popup:display(content_provider)
     end,
   },
 }

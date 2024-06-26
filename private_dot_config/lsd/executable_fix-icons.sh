@@ -3,7 +3,7 @@
 # https://github.com/lsd-rs/lsd/blob/master/src/theme/icon.rs
 # 󰅱 md-code_not_equal_variant
 
-cp icons.yaml.org icons.yaml
+cp icons.yaml.orig icons.yaml
 
     # -e 's||󰿃|g' \
 gsed -i -r \
@@ -182,13 +182,16 @@ extension_icon(){
 name_icon 'work' '󱙘'
 name_icon 'tmuxinator' '󰡃'
 name_icon 'tmux' '󰕮'
+name_icon 'pictures' '󰋫'
 # name_icon 'parallels' '󰜨'
 # name_icon 'parallels' '󰕭'
 name_icon 'parallels' '󰕶'
 name_icon 'npmrc' '󰛷'
+name_icon 'music' '󰝚'
 name_icon 'movies' '󰎁'
 name_icon 'library' '󰁰'
 name_icon 'fish' '󱢺'
+name_icon 'downloads' '󰇚'
 name_icon 'copyright' '󰗦'
 # name_icon '"applications \(parallels\)"' '󰜨'
 # name_icon '"applications \(parallels\)"' '󰕭'
@@ -203,13 +206,15 @@ name_icon '\.pub-cache' ''
 name_icon '\.m2' ''
 name_icon '\.localized' '󰀵'
 name_icon '\.gradle' ''
-name_icon '.editorconfig' ''
+name_icon '\.gnupg' '󰯄'
+name_icon '\.editorconfig' ''
 name_icon '\.docker' '󰡨'
 name_icon '\.dartserver' ''
 name_icon '\.dart' ''
 name_icon '\.condarc' '󰌠'
 name_icon '\.conda' '󰌠'
 
+extension_icon 'orig' '󰭃'
 extension_icon 'jsonc' '󰘦'
 extension_icon 'jks' '󰿃'
 extension_icon 'fish' '󱢺'

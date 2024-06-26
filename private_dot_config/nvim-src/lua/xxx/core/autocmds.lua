@@ -41,16 +41,17 @@ function M.load_defaults()
       {
         group = '_buffer_mappings',
         pattern = {
-          'Jaq',
-          'qf',
-          -- "help",
-          'man',
+          'DressingSelect',
           'floaterm',
+          -- "help",
+          'Jaq',
+          'lir',
           'lspinfo',
           'lsp-installer',
-          'lir',
-          'DressingSelect',
+          'man',
           'null-ls-info',
+          'qf',
+          'RuntimePath',
           'tsplayground',
         },
         callback = function()

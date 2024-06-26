@@ -151,7 +151,9 @@ local plugins = {
       require('xxx.plugin-config.scroll.nvim-scrollbar-rc').setup()
     end,
     event = 'BufEnter',
-    dependencies = { 'nvim-hlslens', 'cinnamon.nvim' },
+    -- dependencies 中的插件先加载 即: nvim-hlslens 比 nvim-scrollbar先加载
+    -- dependencies = { 'nvim-hlslens', 'cinnamon.nvim' },
+    dependencies = { 'cinnamon.nvim' },
   },
   {
     'declancm/cinnamon.nvim', -- Smooth scrolling

@@ -44,6 +44,7 @@ local defaults = {
   'prompt',
   'qfs',
   'rnvimr',
+  'RuntimePath',
   'Startify',
   'sagacodeaction',
   'sagarename',

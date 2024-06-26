@@ -11,12 +11,12 @@ local blue = colors.blue
 local yellow = colors.yellow
 
 local left_sep_both = {
-  left = '',
+  left = ' ',
   right = '',
 }
 
 local right_seq_both = {
-  left = '',
+  left = ' ',
   right = '',
 }
 
@@ -165,7 +165,7 @@ M.location = {
   'location',
   color = { fg = mode_fg, bg = green },
   separator = {
-    left = '',
+    left = ' ',
   },
 }
 

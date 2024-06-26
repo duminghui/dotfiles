@@ -4,7 +4,7 @@ local disable_filetype = require('xxx.config.exclude-filetypes')
 local icons = require('xxx.core.icons')
 
 M.opts = {
-  max_lines = 500,
+  max_lines = 1500,
   handle = {
     blend = 0,
   },
@@ -22,9 +22,9 @@ M.opts = {
   },
   handlers = {
     diagnostic = true,
-    gitsigns = true,
-    -- not set to true, will conflict hlslens's setup
-    search = false,
+    gitsigns = true, -- Requires gitsigns
+    -- use require('xxx.plugin-config.scroll.nvim-hlslens-rc').integrate_with_scrollbar()
+    search = false, -- Requires hlslens
   },
   excluded_buftypes = {
     'terminal',
@@ -37,9 +37,7 @@ M.opts = {
 
 function M.setup()
   local scrollbar = require('scrollbar')
-
   scrollbar.setup(M.opts)
-
   require('xxx.plugin-config.scroll.nvim-hlslens-rc').integrate_with_scrollbar()
 end
 

@@ -1,45 +1,67 @@
 # https://github.com/tamasfe/taplo/blob/master/site/site/cli/usage/configuration.md#configuration-file
+include = ["**/*.toml"]
+
 [formatting]
 # Align entries vertically. Entries that have table headers, comments, or blank lines between them are not aligned.
-align_entries = false # default: false
+# default: false
+align_entries = false
 # Align consecutive comments after entries and items vertically. This applies to comments that are after entries or array items.
-align_comments = true # default: true
+# default: true
+align_comments = true
 # Put trailing commas for multiline arrays.
-array_trailing_comma = false # default: true
+# default: true
+array_trailing_comma = true
 # Automatically expand arrays to multiple lines when they exceed column_width characters.
-array_auto_expand = false # default: true
+# default: true
+array_auto_expand = true
 # Automatically collapse arrays if they fit in one line.
-array_auto_collapse = true # default: true
+# default: true
+array_auto_collapse = true
 # Omit whitespace padding inside single-line arrays.
-compact_arrays = true # default: true
+# default: true
+compact_arrays = true
 # Omit whitespace padding inside inline tables.
-compact_inline_tables = false # default: false
+# default: false
+compact_inline_tables = false
 # Expand values (e.g. arrays) inside inline tables.
-inline_table_expand = true # default: true
+# default: true
+inline_table_expand = true
 # Omit whitespace around =.
-compact_entries = false # default: flase
+# default: flase
+compact_entries = false
 # Target maximum column width after which arrays are expanded into new lines.
-column_width = 80 # default: 80
+# default: 80
+column_width = 80
 # Indent subtables if they come in order.
-indent_tables = false # default: flase
+# default: flase
+indent_tables = false
 # Indent entries under tables.
-indent_entries = false # default: flase
+# default: flase
+indent_entries = false
 # Indentation to use, should be tabs or spaces but technically could be anything.
-indent_string = "2" # default: 2 spaces (" ")
+# default: 2 spaces (" ")
+indent_string = "  "
 # Add trailing newline to the source.
-trailing_newline = true # default: true
+# default: true
+trailing_newline = true
 # Alphabetically reorder keys that are not separated by blank lines.
-reorder_keys = false # default: false
+# default: false
+reorder_keys = false
 # Alphabetically reorder array values that are not separated by blank lines.
-reorder_arrays = true # default: false
+# default: false
+reorder_arrays = false
 # The maximum amount of consecutive blank lines allowed.
-allowed_blank_lines = 2 # default: 2
+# default: 2
+allowed_blank_lines = 1
 # Use CRLF line endings.
-crlf = false # default: false
+# default: false
+crlf = false
 
 [[rule]]
 include = ["**/Cargo.toml"]
 keys = ["*-dependencies", "*.*.dependencies", "*.dependencies", "dependencies"]
 
 [rule.formatting]
+array_auto_expand = false
 reorder_keys = true
+reorder_arrays = true

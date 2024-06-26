@@ -86,7 +86,7 @@ name:
   dist: 󰆧
   documents: 󰂺
   .doom.d: 
-  downloads: 󰉍
+  downloads: 󰇚
   .ds_store: 󰀵
   .editorconfig: 
   .electron-gyp: 󰛷
@@ -111,7 +111,7 @@ name:
   .gitlab-ci.yml: 󰮠
   .gitmodules: 󰊢
   .git: 󰊢
-  .gnupg: 󰢬
+  .gnupg: 󰯄
   go.mod: 󰟓
   go.sum: 󰟓
   go.work: 󰟓
@@ -183,7 +183,7 @@ name:
   mime.types: 󰙅
   module.symvers: 󰱾
   .mozilla: 
-  music: 󱍙
+  music: 󰝚
   muttrc: 󰒓
   .muttrc: 󰒓
   .mutt: 󰒓
@@ -206,7 +206,7 @@ name:
   packages.el: 
   pam.d: 󰢬
   passwd: 󰌾
-  pictures: 󰉏
+  pictures: 󰋫
   pkgbuild: 󰣇
   .pki: 󰌾
   portage: 󰣨
@@ -494,7 +494,7 @@ extension:
   ogv: 󰈰
   old: 󰁯
   opus: 󰝚
-  orig: 󰁯
+  orig: 󰭃
   org: 
   otf: 󰛖
   o: 
