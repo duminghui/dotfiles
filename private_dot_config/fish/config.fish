@@ -1,10 +1,20 @@
 #### .fish scripts in ~/.config/fish/conf.d/ are also automatically executed before config.fish.
 ### conf.d/*fish -> functions/*.fish -> config.fish
 if status is-login
+    # echo "is-login"
 end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    # echo "is-interactive"
+    # if  not set -q TMUX && not set -q VSCODE_INJECTION
+    # 用and必须换行
+    if not set -q TMUX
+    and not set -q VSCODE_INJECTION
+        tmux new
+    end
 end
+
 
 # Emulates vim's cursor shape behavior
 # Set the normal and visual mode cursors to a block

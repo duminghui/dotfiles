@@ -13,7 +13,7 @@ align_comments = true
 array_trailing_comma = true
 # Automatically expand arrays to multiple lines when they exceed column_width characters.
 # default: true
-array_auto_expand = true
+array_auto_expand = false
 # Automatically collapse arrays if they fit in one line.
 # default: true
 array_auto_collapse = true
@@ -59,9 +59,10 @@ crlf = false
 
 [[rule]]
 include = ["**/Cargo.toml"]
-keys = ["*-dependencies", "*.*.dependencies", "*.dependencies", "dependencies"]
+keys = ["*-dependencies", "*.*.dependencies", "*.dependencies", "dependencies" , "features"]
 
 [rule.formatting]
 array_auto_expand = false
 reorder_keys = true
 reorder_arrays = true
+

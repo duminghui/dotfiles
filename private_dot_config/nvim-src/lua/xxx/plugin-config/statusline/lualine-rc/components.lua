@@ -139,7 +139,7 @@ M.lsp_clients = {
 }
 
 local function is_in_session()
-  return require('session_manager.utils').is_exist_in_session()
+  return require('session_manager.utils').exists_in_session()
 end
 
 M.session_status = {

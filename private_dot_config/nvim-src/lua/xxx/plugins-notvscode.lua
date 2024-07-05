@@ -144,7 +144,6 @@ local plugins = {
     end,
     event = 'BufEnter',
   },
-
   {
     'petertriho/nvim-scrollbar', -- A scrollbar for the current window
     config = function()
@@ -161,6 +160,7 @@ local plugins = {
       require('xxx.plugin-config.scroll.cinnamon-rc').setup()
     end,
     lazy = true,
+    cond = false,
   },
   {
     'kevinhwang91/nvim-hlslens', -- Highlight searches
