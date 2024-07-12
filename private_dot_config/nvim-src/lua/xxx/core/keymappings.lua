@@ -29,10 +29,17 @@ local defaults = {
     -- Increment/decrement
     ['+'] = { '<C-a>' },
     ['-'] = { '<C-x>' },
-    -- ['j'] = { 'gj', silent_opts },
+
+    -- ['j'] = { "v:count==0 ? 'gj' : 'j'", { expr = true, silent = false } },
     -- ['gj'] = { 'j', silent_opts },
-    -- ['k'] = { 'gk', silent_opts },
+    -- ['k'] = { "v:count==0 ? 'gk' : 'k'", { expr = true, silent = false } },
     -- ['gk'] = { 'k', silent_opts },
+
+    -- ['j'] = { "v:count==0 ? 'gj' : 'j'", { expr = true, silent = false } },
+    -- ['gj'] = { 'j', silent_opts },
+    -- ['k'] = { "v:count==0 ? 'gk' : 'k'", { expr = true, silent = false } },
+    -- ['gk'] = { 'k', silent_opts },
+
     ['zl'] = { 'zL', silent_opts },
     ['zh'] = { 'zH', silent_opts },
     -- ["Y"] = { "y$", silent_opts }, -- neovim buildin
@@ -60,11 +67,8 @@ local default_others = {
     ['<A-l>'] = '<C-\\><C-N><C-w>l',
   },
   normal_mode = {
-
-    ['j'] = { 'gj', silent_opts },
-    ['gj'] = { 'j', silent_opts },
-    ['k'] = { 'gk', silent_opts },
-    ['gk'] = { 'k', silent_opts },
+    ['j'] = { "v:count==0 ? 'gj' : 'j'", { expr = true, silent = false } },
+    ['k'] = { "v:count==0 ? 'gk' : 'k'", { expr = true, silent = false } },
 
     -- Better window movement
     ['<C-h>'] = '<C-w>h',

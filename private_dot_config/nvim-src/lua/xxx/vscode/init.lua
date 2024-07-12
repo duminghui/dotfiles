@@ -1,50 +1,46 @@
 local M = {}
 
 local fmt = string.format
+local vscode = require('vscode')
 
 local keymap_opts = { noremap = true, silent = false }
 
 local function cmd(c)
-  return fmt('<cmd>%s<CR>', c)
+  return fmt('<CMD>%s<CR>', c)
 end
 
--- local function cursor_move(to)
---   return function()
---     local count = vim.api.nvim_get_vvar('count')
---     if count == 0 then
---       count = 1
---     end
---     local args = {
---       to = to,
---       by = 'wrappedLine',
---       value = count,
---     }
---     args = vim.tbl_deep_extend('keep', args, { value = count })
---     require('vscode').notify('cursorMove', args)
---   end
--- end
+local function vscode_action(vs_action)
+  return cmd(fmt('lua require"vscode".action("%s")', vs_action))
+end
 
--- local function vscode(vs_action)
---   return cmd(fmt("call VSCodeNotify('%s')", vs_action))
--- end
-
-local function vscode(vs_action, args)
-  args = args or {}
+local function cursor_move(to)
   return function()
-    require('vscode-neovim').call(vs_action, args)
+    local count = vim.api.nvim_get_vvar('count')
+    local args = {
+      to = to,
+      by = 'wrappedLine',
+      value = count,
+    }
+    if count > 0 then
+      args = {
+        to = to,
+        value = count,
+      }
+    end
+    vscode.action('cursorMove', { args = args })
   end
 end
 
-local function manageEditorSize(wh, to)
+local function manageEditorSize(wh, opt)
   local vs_action = ''
   if wh == 'w' then
-    if to == 'increase' then
+    if opt == 'increase' then
       vs_action = 'workbench.action.increaseViewWidth'
     else
       vs_action = 'workbench.action.decreaseViewWidth'
     end
   else
-    if to == 'decrease' then
+    if opt == 'decrease' then
       vs_action = 'workbench.action.decreaseViewHeight'
     else
       vs_action = 'workbench.action.increaseViewHeight'
@@ -56,15 +52,15 @@ local function manageEditorSize(wh, to)
       count = 1
     end
     for _ = 1, count, 1 do
-      vim.fn['VSCodeNotify'](vs_action)
+      vscode.call(vs_action)
     end
   end
 end
 
 M.keymappings = {
   ['<leader>/'] = { 'n', cmd('nohl') },
-  -- ['k'] = { 'n', cursor_move('up') },
-  -- ['j'] = { 'n', cursor_move('down') },
+  ['k'] = { 'n', cursor_move('up') },
+  ['j'] = { 'n', cursor_move('down') },
   ['gc'] = { { 'n', 'x', 'o' }, '<Plug>VSCodeCommentary' },
   ['gcc'] = { 'n', '<Plug>VSCodeCommentaryLine' },
 
@@ -75,12 +71,12 @@ M.keymappings = {
   ['<leader><leader>l'] = { 'n', cmd('HopLineStart') },
   -- ['<leader><leader>s'] = { 'n', cmd('Pounce') },
 
-  ['<leader>sf'] = { 'n', vscode('workbench.action.quickOpen') },
+  ['<leader>sf'] = { 'n', vscode_action('workbench.action.quickOpen') },
   -- 无输入框
   -- ['<leader>bf'] = { 'n', vscode('workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup') },
   -- 有输入框
   -- ['<leader>bf'] = { 'n', vscode('workbench.action.showEditorsInActiveGroup') },
-  ['<leader>bf'] = { 'n', vscode('workbench.action.showAllEditors') },
+  ['<leader>bf'] = { 'n', vscode_action('workbench.action.showAllEditors') },
   -- ['<leader>bf'] = { 'n', vscode('workbench.action.showAllEditorsByMostRecentlyUsed') },
 
   -- 从终端跳到编辑器
@@ -94,17 +90,17 @@ M.keymappings = {
   --   // the input to send to Neovim
   --   "args": ",bb"
   -- }
-  ['<leader>bb'] = { 'n', vscode('workbench.action.focusActiveEditorGroup') },
+  ['<leader>bb'] = { 'n', vscode_action('workbench.action.focusActiveEditorGroup') },
 
   -- 跳到终端
-  ['<leader>tt'] = { 'n', vscode('workbench.action.terminal.toggleTerminal') },
-  ['<leader>tn'] = { 'n', vscode('workbench.action.terminal.new') },
+  ['<leader>tt'] = { 'n', vscode_action('workbench.action.terminal.toggleTerminal') },
+  ['<leader>tn'] = { 'n', vscode_action('workbench.action.terminal.new') },
 
   -- window movement
-  ['<C-h>'] = { 'n', vscode('workbench.action.focusLeftGroup') },
-  ['<C-j>'] = { 'n', vscode('workbench.action.focusBelowGroup') },
-  ['<C-k>'] = { 'n', vscode('workbench.action.focusAboveGroup') },
-  ['<C-l>'] = { 'n', vscode('workbench.action.focusRightGroup') },
+  ['<C-h>'] = { 'n', vscode_action('workbench.action.navigateLeft') },
+  ['<C-j>'] = { 'n', vscode_action('workbench.action.navigateDown') },
+  ['<C-k>'] = { 'n', vscode_action('workbench.action.navigateUp') },
+  ['<C-l>'] = { 'n', vscode_action('workbench.action.navigateRight') },
 
   -- not work
   -- ['<leader>b'] = { 'n', '<C-w>-', { noremap = false } },
@@ -113,22 +109,22 @@ M.keymappings = {
   ['<A-k>'] = { 'n', manageEditorSize('h', 'decrease') },
   ['<A-l>'] = { 'n', manageEditorSize('w', 'increase') },
 
-  ['<leader>w'] = { 'n', vscode('workbench.action.files.save') },
-  ['<leader>cc'] = { 'n', vscode('workbench.action.closeActiveEditor') },
+  ['<leader>w'] = { 'n', vscode_action('workbench.action.files.save') },
+  ['<leader>c'] = { 'n', vscode_action('workbench.action.closeActiveEditor') },
   -- ['<leader>e'] = { 'n', vscode('workbench.action.focusSideBar') },
-  ['<leader>e'] = { 'n', vscode('workbench.view.explorer') },
+  ['<leader>e'] = { 'n', vscode_action('workbench.view.explorer') },
 
   -- ['[d'] = { 'n', vscode('editor.action.marker.prevInFiles') },
   -- [']d'] = { 'n', vscode('editor.action.marker.nextInFiles') },
-  ['[d'] = { 'n', vscode('editor.action.marker.prev') },
-  [']d'] = { 'n', vscode('editor.action.marker.next') },
+  ['[d'] = { 'n', vscode_action('editor.action.marker.prev') },
+  [']d'] = { 'n', vscode_action('editor.action.marker.next') },
 
-  ['[b'] = { 'n', vscode('workbench.action.previousEditor') },
-  [']b'] = { 'n', vscode('workbench.action.nextEditor') },
+  ['[b'] = { 'n', vscode_action('workbench.action.previousEditor') },
+  [']b'] = { 'n', vscode_action('workbench.action.nextEditor') },
 
-  ['gr'] = { 'n', vscode('editor.action.referenceSearch.trigger') },
-  ['gI'] = { 'n', vscode('editor.action.peekImplementation') },
-  ['gnr'] = { 'n', vscode('editor.action.rename') },
+  ['gr'] = { 'n', vscode_action('editor.action.referenceSearch.trigger') },
+  ['gI'] = { 'n', vscode_action('editor.action.peekImplementation') },
+  ['gnr'] = { 'n', vscode_action('editor.action.rename') },
 }
 
 function M.set_keymappings()
@@ -141,7 +137,7 @@ function M.set_keymappings()
 end
 
 function M.setup()
-  -- 不显竖的光标所在行
+  -- 不显示光标所在列
   vim.opt.cursorcolumn = false
 
   M.set_keymappings()

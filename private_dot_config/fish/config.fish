@@ -11,6 +11,7 @@ if status is-interactive
     # 用and必须换行
     if not set -q TMUX
     and not set -q VSCODE_INJECTION
+    and test "$LC_TERMINAL" = "iTerm2"
         tmux new
     end
 end

@@ -146,9 +146,9 @@ M.n_mappings = {
     D = { '<cmd>BufferLineSortByDirectory<cr>', 'Sort by directory' },
     L = { '<cmd>BufferLineSortByExtension<cr>', 'Sort by language' },
   },
-  c = {
-    c = { '<cmd>BufferKill<CR>', 'Close Buffer(Keep window)' },
-  },
+  -- c = {
+  c = { '<cmd>BufferKill<CR>', 'Close Buffer(Keep window)' },
+  -- },
   P = {},
   g = {
     name = 'Git',
