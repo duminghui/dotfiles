@@ -1,11 +1,11 @@
 local plugins = {
   {
     'folke/which-key.nvim',
+    event = 'VeryLazy',
+    cmd = 'WhichKey',
     config = function()
       require('xxx.plugin-config.which-key-rc').setup()
     end,
-    cmd = 'WhichKey',
-    keys = '<leader>',
   },
   -- {
   --   'christoomey/vim-tmux-navigator',
@@ -17,7 +17,7 @@ local plugins = {
   {
     'aserowy/tmux.nvim',
     cond = function()
-      return os.getenv('TERM') == 'screen-256color'
+      return os.getenv('TERM_PROGRAM') == 'tmux'
     end,
     config = function()
       require('xxx.plugin-config.tmux-rc').setup()

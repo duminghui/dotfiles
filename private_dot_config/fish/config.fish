@@ -10,8 +10,8 @@ if status is-interactive
     # if  not set -q TMUX && not set -q VSCODE_INJECTION
     # 用and必须换行
     if not set -q TMUX
-    and not set -q VSCODE_INJECTION
-    and test "$LC_TERMINAL" = "iTerm2"
+        and not set -q VSCODE_INJECTION
+        and test "$LC_TERMINAL" = iTerm2
         tmux new
     end
 end
@@ -57,7 +57,7 @@ end
 #     abbr lla "exa -lg -smodified --time-style=long-iso --icons -a"
 if type -q lsd
     # abbr ls "lsd -L"
-    abbr ls "lsd"
+    abbr ls lsd
     abbr ll "lsd -ltr"
     abbr lla "lsd -Altr"
 else
@@ -78,7 +78,7 @@ abbr -a ipinfo curl cip.cc
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 if test -f ~/.local/share/miniconda3/bin/conda
-    eval ~/.local/share/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+    eval ~/.local/share/miniconda3/bin/conda "shell.fish" hook $argv | source
 else
     if test -f "~/.local/share/miniconda3/etc/fish/conf.d/conda.fish"
         . "~/.local/share/miniconda3/etc/fish/conf.d/conda.fish"
@@ -87,4 +87,3 @@ else
     end
 end
 # <<< conda initialize <<<
-

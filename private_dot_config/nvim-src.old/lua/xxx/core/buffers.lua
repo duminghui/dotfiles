@@ -21,7 +21,12 @@ function M.buf_kill(kill_command, bufnr, force)
 
   if not force then
     local choice
+
     if bo[bufnr].modified then
+      -- vim.ui.input({
+      --   prompt = fmt([[Save changes to "%s"? ([Y]es, [N]o, [C]ancel)]], bufname),
+      -- }, function(input) end)
+
       choice = fn.confirm(fmt([[Save changes to "%s"?]], bufname), '&Yes\n&No\n&Cancel')
       if choice == 1 then
         vim.api.nvim_buf_call(bufnr, function()

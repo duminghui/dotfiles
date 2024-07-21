@@ -103,7 +103,6 @@ local function highlights()
   return hl
 end
 
--- local function diagnostics_indicator(num, _, diagnostics, _)
 local function diagnostics_indicator(_, _, diagnostics, _)
   local result = {}
   local types = { 'error', 'warning', 'info' }

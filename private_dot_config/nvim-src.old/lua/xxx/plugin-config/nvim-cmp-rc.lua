@@ -223,6 +223,12 @@ M.opts = function()
           vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. icons.ui.Ellipsis
         end
 
+        if not vim_item.kind then
+          vim.print('kind error')
+          vim.print(vim_item)
+          return vim_item
+        end
+
         vim_item.kind = M.options.formatting.kind_icons[vim_item.kind] .. ' ' .. vim_item.kind
 
         if entry.source.name == 'copilot' then

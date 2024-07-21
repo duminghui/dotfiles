@@ -52,7 +52,7 @@ function plugin_loader.load(configurations)
         lazy = false,
         version = nil,
       },
-      lockfile = join_paths(vim.fn.stdpath('data'), 'lazy-lock.json'),
+      lockfile = join_paths(vim.fn.stdpath('state'), 'lazy-lock.json'),
       concurrency = 20,
       git = {
         timeout = 120,

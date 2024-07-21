@@ -585,7 +585,7 @@ extension:
   tgz: 󰗄
   tiff: 󰈟
   timestamp: 󰅐
-  toml: 󰅩
+  toml: 
   torrent: 󰒍
   trash: 󰩹
   ts: 󰛦
@@ -618,8 +618,8 @@ extension:
   xml: 󰗀
   xul: 󰈹
   xz: 󰗄
-  yaml: 󰅩
-  yml: 󰅩
+  yaml: 
+  yml: 
   zip: 󰗄
   zig: 
   zshrc: 

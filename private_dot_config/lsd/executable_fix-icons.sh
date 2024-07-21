@@ -5,153 +5,153 @@
 
 cp icons.yaml.orig icons.yaml
 
-    # -e 's||󰿃|g' \
+# -e 's||󰿃|g' \
 gsed -i -r \
-    -e 's|^ +([a-z_.-]+):.+[\/ ]+(\W{1})$|  \1: \2|g' \
-    -e 's|^ +\("([A-Za-z0-9._+-]+)".+[\/ ]+"(\W{1})"$|  \1: \2|g' \
-    -e 's|symlink_dir|symlink-dir|g' \
-    -e 's|symlink_file|symlink-file|g' \
-    -e 's|device_char|device-char|g' \
-    -e 's|device_block|device-block|g' \
-    -e 's|||g' \
-    -e 's||󰝨|g' \
-    -e 's||󱕵|g' \
-    -e 's||󰆓|g' \
-    -e 's||󰀲|g' \
-    -e 's||󱁿|g' \
-    -e 's||󰆧|g' \
-    -e 's||󰌠|g' \
-    -e 's||󰒓|g' \
-    -e 's||󱘗|g' \
-    -e 's||󱘗|g' \
-    -e 's||󰍔|g' \
-    -e 's||󰌟|g' \
-    -e 's|||g' \
-    -e 's||󰌜|g' \
-    -e 's||󰒓|g' \
-    -e 's||󰇄|g' \
-    -e 's||󰡨|g' \
-    -e 's||󰂺|g' \
-    -e 's||󱧨|g' \
-    -e 's||󰀵|g' \
-    -e 's||󰙪|g' \
-    -e 's||󰓎|g' \
-    -e 's||󰆼|g' \
-    -e 's||󰊢|g' \
-    -e 's||󰊤|g' \
-    -e 's||󰮠|g' \
-    -e 's||󰊢|g' \
-    -e 's||󰌾|g' \
-    -e 's||󰀲|g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's||󰋜|g' \
-    -e 's||󰌠|g' \
-    -e 's||󰈟|g' \
-    -e 's||󰌞|g' \
-    -e 's||󰗀|g' \
-    -e 's|󰇰|󰗰|g' \
-    -e 's||󰐣|g' \
-    -e 's||󰱾|g' \
-    -e 's|||g' \
-    -e 's||󰋋|g' \
-    -e 's||󰒋|g' \
-    -e 's||󰛷|g' \
-    -e 's||󰎙|g' \
-    -e 's||󰛷|g' \
-    -e 's||󰛷|g' \
-    -e 's|||g' \
-    -e 's||󰏜|g' \
-    -e 's||󰏜|g' \
-    -e 's||󰣇|g' \
-    -e 's|󰆍||g' \
-    -e 's||󰀄|g' \
-    -e 's|󰚩|󱚝|g' \
-    -e 's||󰫏|g' \
-    -e 's||󰴭|g' \
-    -e 's||󰟬|g' \
-    -e 's||󱇴|g' \
-    -e 's|||g' \
-    -e 's||󰩹|g' \
-    -e 's||󰛦|g' \
-    -e 's||󰇧|g' \
-    -e 's||󰕧|g' \
-    -e 's||󰨞|g' \
-    -e 's||󰗄|g' \
-    -e 's|||g' \
-    -e 's||󰝚|g' \
-    -e 's|||g' \
-    -e 's||󰈰|g' \
-    -e 's||󰅩|g' \
-    -e 's||󰖳|g' \
-    -e 's||󰙲|g' \
-    -e 's||󰬷|g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's||󰅶|g' \
-    -e 's||󰁥|g' \
-    -e 's||󰈛|g' \
-    -e 's||󰙱|g' \
-    -e 's|||g' \
-    -e 's||󰀼|g' \
-    -e 's|||g' \
-    -e 's||󰈬|g' \
-    -e 's||󰗚|g' \
-    -e 's||󰣨|g' \
-    -e 's||󰅴|g' \
-    -e 's|||g' \
-    -e 's||󰛖|g' \
-    -e 's||󰗚|g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's||󰟓|g' \
-    -e 's||󰈧|g' \
-    -e 's||󱗞|g' \
-    -e 's||󰬏|g' \
-    -e 's||󰲒|g' \
-    -e 's||󰌝|g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's||󰜈|g' \
-    -e 's||󱈙|g' \
-    -e 's|||g' \
-    -e 's||󰕲|g' \
-    -e 's||󰘋|g' \
-    -e 's||󰢱|g' \
-    -e 's||󰍇|g' \
-    -e 's||󰣖|g' \
-    -e 's||󱄅|g' \
-    -e 's||󰈦|g' \
-    -e 's||󰀵|g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's||󰌌|g' \
-    -e 's||󰑬|g' \
-    -e 's||󰈙|g' \
-    -e 's|||g' \
-    -e 's||󰬚|g' \
-    -e 's||󰛥|g' \
-    -e 's|||g' \
-    -e 's|󰡄|󰹭|g' \
-    -e 's||󰈹|g' \
-    -e 's|||g' \
-    -e 's||󰝰|g' \
-    -e 's||󰈔|g' \
-    -e 's||󱧮|g' \
-    -e 's||󰪹|g' \
-    -e 's|||g' \
-    -e 's||󰜗|g' \
-    -e 's||󰅐|g' \
-    -e 's||󰚯|g' \
-    -e 's|||g' \
-    -e 's|||g' \
-    -e 's||󱌣|g' \
-    icons.yaml
+  -e 's|^ +([a-z_.-]+):.+[\/ ]+(\W{1})$|  \1: \2|g' \
+  -e 's|^ +\("([A-Za-z0-9._+-]+)".+[\/ ]+"(\W{1})"$|  \1: \2|g' \
+  -e 's|symlink_dir|symlink-dir|g' \
+  -e 's|symlink_file|symlink-file|g' \
+  -e 's|device_char|device-char|g' \
+  -e 's|device_block|device-block|g' \
+  -e 's|||g' \
+  -e 's||󰝨|g' \
+  -e 's||󱕵|g' \
+  -e 's||󰆓|g' \
+  -e 's||󰀲|g' \
+  -e 's||󱁿|g' \
+  -e 's||󰆧|g' \
+  -e 's||󰌠|g' \
+  -e 's||󰒓|g' \
+  -e 's||󱘗|g' \
+  -e 's||󱘗|g' \
+  -e 's||󰍔|g' \
+  -e 's||󰌟|g' \
+  -e 's|||g' \
+  -e 's||󰌜|g' \
+  -e 's||󰒓|g' \
+  -e 's||󰇄|g' \
+  -e 's||󰡨|g' \
+  -e 's||󰂺|g' \
+  -e 's||󱧨|g' \
+  -e 's||󰀵|g' \
+  -e 's||󰙪|g' \
+  -e 's||󰓎|g' \
+  -e 's||󰆼|g' \
+  -e 's||󰊢|g' \
+  -e 's||󰊤|g' \
+  -e 's||󰮠|g' \
+  -e 's||󰊢|g' \
+  -e 's||󰌾|g' \
+  -e 's||󰀲|g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's||󰋜|g' \
+  -e 's||󰌠|g' \
+  -e 's||󰈟|g' \
+  -e 's||󰌞|g' \
+  -e 's||󰗀|g' \
+  -e 's|󰇰|󰗰|g' \
+  -e 's||󰐣|g' \
+  -e 's||󰱾|g' \
+  -e 's|||g' \
+  -e 's||󰋋|g' \
+  -e 's||󰒋|g' \
+  -e 's||󰛷|g' \
+  -e 's||󰎙|g' \
+  -e 's||󰛷|g' \
+  -e 's||󰛷|g' \
+  -e 's|||g' \
+  -e 's||󰏜|g' \
+  -e 's||󰏜|g' \
+  -e 's||󰣇|g' \
+  -e 's|󰆍||g' \
+  -e 's||󰀄|g' \
+  -e 's|󰚩|󱚝|g' \
+  -e 's||󰫏|g' \
+  -e 's||󰴭|g' \
+  -e 's||󰟬|g' \
+  -e 's||󱇴|g' \
+  -e 's|||g' \
+  -e 's||󰩹|g' \
+  -e 's||󰛦|g' \
+  -e 's||󰇧|g' \
+  -e 's||󰕧|g' \
+  -e 's||󰨞|g' \
+  -e 's||󰗄|g' \
+  -e 's|||g' \
+  -e 's||󰝚|g' \
+  -e 's|||g' \
+  -e 's||󰈰|g' \
+  -e 's||󰅩|g' \
+  -e 's||󰖳|g' \
+  -e 's||󰙲|g' \
+  -e 's||󰬷|g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's||󰅶|g' \
+  -e 's||󰁥|g' \
+  -e 's||󰈛|g' \
+  -e 's||󰙱|g' \
+  -e 's|||g' \
+  -e 's||󰀼|g' \
+  -e 's|||g' \
+  -e 's||󰈬|g' \
+  -e 's||󰗚|g' \
+  -e 's||󰣨|g' \
+  -e 's||󰅴|g' \
+  -e 's|||g' \
+  -e 's||󰛖|g' \
+  -e 's||󰗚|g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's||󰟓|g' \
+  -e 's||󰈧|g' \
+  -e 's||󱗞|g' \
+  -e 's||󰬏|g' \
+  -e 's||󰲒|g' \
+  -e 's||󰌝|g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's||󰜈|g' \
+  -e 's||󱈙|g' \
+  -e 's|||g' \
+  -e 's||󰕲|g' \
+  -e 's||󰘋|g' \
+  -e 's||󰢱|g' \
+  -e 's||󰍇|g' \
+  -e 's||󰣖|g' \
+  -e 's||󱄅|g' \
+  -e 's||󰈦|g' \
+  -e 's||󰀵|g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's||󰌌|g' \
+  -e 's||󰑬|g' \
+  -e 's||󰈙|g' \
+  -e 's|||g' \
+  -e 's||󰬚|g' \
+  -e 's||󰛥|g' \
+  -e 's|||g' \
+  -e 's|󰡄|󰹭|g' \
+  -e 's||󰈹|g' \
+  -e 's|||g' \
+  -e 's||󰝰|g' \
+  -e 's||󰈔|g' \
+  -e 's||󱧮|g' \
+  -e 's||󰪹|g' \
+  -e 's|||g' \
+  -e 's||󰜗|g' \
+  -e 's||󰅐|g' \
+  -e 's||󰚯|g' \
+  -e 's|||g' \
+  -e 's|||g' \
+  -e 's||󱌣|g' \
+  icons.yaml
 
 icon_manage() {
   local parent=$1 key=$2 icon=$3
@@ -171,11 +171,11 @@ icon_manage() {
   fi
 }
 
-name_icon(){
+name_icon() {
   icon_manage 'name' "$1" "$2"
 }
 
-extension_icon(){
+extension_icon() {
   icon_manage 'extension' "$1" "$2"
 }
 
@@ -216,9 +216,11 @@ name_icon '\.dart' ''
 name_icon '\.condarc' '󰌠'
 name_icon '\.conda' '󰌠'
 
+extension_icon 'yml' ''
+extension_icon 'yaml' ''
+extension_icon 'toml' ''
 extension_icon 'orig' '󰭃'
 extension_icon 'jsonc' '󰘦'
 extension_icon 'jks' '󰿃'
 extension_icon 'fish' '󱢺'
 extension_icon 'editorconfig' ''
-

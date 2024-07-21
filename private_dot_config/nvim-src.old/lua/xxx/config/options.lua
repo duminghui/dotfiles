@@ -95,16 +95,11 @@ function M.load_default_options()
   vim.opt.scrolloff = 6 -- Set the cursor 6 lines down instead of directly at the top of the file
 
   vim.opt.shortmess = {
-    f = false, -- use "(3 of 5)" instead of "(file 3 of 5)"
-    i = false, -- use "[noeol]" instead of "[Incomplete last line]"
     l = false, -- use "999L, 888B" instead of "999 lines, 888 bytes"
     m = false, -- use "[+]" instead of "[Modified]"
-    n = false, -- use "[New]" instead of "[New File]"
     r = false, -- use "[RO]" instead of "[readonly]"
     w = false, -- use "[w]" instead of "written" for file write message and "[a]" instead of "appended" for ':w >> file' command
-    x = false, -- use "[dos]" instead of "[dos format]", "[unix]" instead of "[unix format]" and "[mac]" instead of "[mac format]"
     a = true, -- all of the above abbreviations
-
     o = true, -- overwrite message for writing a file with subsequent message for reading a file (useful for ":wn" or when 'autowrite' on)
     O = true, -- message for reading a file overwrites any previous message;  also for quickfix message (e.g., ":cn")
     s = false, -- don't give "search hit BOTTOM, continuing at TOP" or "search hit TOP, continuing at BOTTOM" messages; when using the search count do not show "W" after the count message (see S below)
@@ -113,12 +108,18 @@ function M.load_default_options()
     W = false, -- don't give "written" or "[w]" when writing a file
     A = false, -- don't give the "ATTENTION" message when an existing swap file is found
     I = false, -- don't give the intro message when starting Vim,:intro
-    c = false, -- don't give |ins-completion-menu| messages; for example, "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found", "Back at original", etc.
+    c = true, -- don't give |ins-completion-menu| messages; for example, "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found", "Back at original", etc.
     C = false, -- don't give messages while scanning for ins-completion items, for instance "scanning tags"
     q = false, -- use "recording" instead of "recording @a"
     F = true, -- don't give the file info when editing a file, like `:silent` was used for the command
     S = false, -- do not show search count message when searching, e.g.'[1/5]',
+    -- remove in neovim 10
+    f = false, -- use "(3 of 5)" instead of "(file 3 of 5)"
+    i = false, -- use "[noeol]" instead of "[Incomplete last line]"
+    n = false, -- use "[New]" instead of "[New File]"
+    x = false, -- use "[dos]" instead of "[dos format]", "[unix]" instead of "[unix format]" and "[mac]" instead of "[mac format]"
   }
+
   vim.opt.showcmd = true -- Do not show me what I'm typing
 
   -- search
@@ -167,7 +168,7 @@ function M.load_default_options()
     end
   end
 
-  vim.o.sessionoptions = 'buffers,curdir,folds,globals,tabpages,winpos,winsize' -- Session options to store in the session
+  vim.o.sessionoptions = 'buffers,curdir,tabpages,winsize,globals,folds,winpos,skiprtp' -- Session options to store in the session
 
   vim.opt.undofile = true -- Maintain undo history between sessions
   vim.opt.undolevels = 1000 -- Ensure we can undo a lot! **

@@ -12,13 +12,21 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 ### homeberw ###
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx HOMEBREW_NO_INSTALL_CLEANUP true
-set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
-set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
-set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+# set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
+# 重置
+# set -gx HOMEBREW_BREW_GIT_REMOTE "https://github.com/Homebrew/brew"
+# git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
+# set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
+# set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+
+# homebrew/services
+# 执行下面命令
 # brew tap --custom-remote --force-auto-update homebrew/services https://mirrors.ustc.edu.cn/homebrew-services.git
+# 恢复
+# brew tap --custom-remote --force-auto-update homebrew/services https://github.com/Homebrew/homebrew-services
+
 ## befor Brew 4.0 start
-set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
-# brew tap --custom-remote --force-auto-update homebrew/cask-versions https://mirrors.ustc.edu.cn/homebrew-cask-versions.git
+# set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
 # brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.ustc.edu.cn/homebrew-cask.git
 ## befor Brew 4.0 end
 
@@ -45,7 +53,7 @@ set -gx CARGO_HTTP_MULTIPLEXING false
 # set -gx SCCACHE_CONF $XDG_CONFIG_HOME/sccache/sccache-config.toml
 # 下面三个环境变量如果设置了, 不会使用config文件中的cache.disk.dir
 set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
-set -gx SCCACHE_CACHE_SIZE "6G"
+set -gx SCCACHE_CACHE_SIZE 6G
 set -gx SCCACHE_DIRECT true
 # cross
 # set -gx CROSS_CONTAINER_ENGINE podman
@@ -114,7 +122,7 @@ set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node
 ### pnpm
 set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 test -d $HOME/.local/bin; and set -gx PATH $HOME/.local/bin $PATH
 
@@ -129,4 +137,3 @@ test -d $SOLANA_HOME/bin; and set -gx PATH $SOLANA_HOME/bin $PATH
 # for solana-test-validator
 test -d (brew --prefix)/opt/gnu-tar/libexec/gnubin; and set -gx PATH $(brew --prefix)/opt/gnu-tar/libexec/gnubin $PATH
 ### solana ###
-
