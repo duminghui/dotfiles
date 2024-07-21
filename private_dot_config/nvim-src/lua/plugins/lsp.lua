@@ -1,3 +1,4 @@
+local icons = xxx.icons
 ---@type LazySpec
 return {
   {
@@ -21,5 +22,17 @@ return {
       keys[#keys + 1] = { "gy", "<CMD>Trouble lsp_type_definitions<CR>", desc = "Goto T[y]pe Definition (Trouble)" }
       keys[#keys + 1] = { "gD", "<CMD>Trouble lsp_declarations<CR>", desc = "Goto Declaration (Trouble)" }
     end,
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = icons.ui.CircleCheck,
+          package_pending = icons.ui.Pending,
+          package_uninstalled = icons.ui.Plus2, -- 󰙝
+        },
+      },
+    },
   },
 }

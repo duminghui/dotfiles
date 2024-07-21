@@ -52,7 +52,7 @@ return {
         },
         {
           action = "SessionManager load_last_session",
-          desc = "Last session",
+          desc = "Last Session",
           icon = xxx.icons.ui.Restore .. "  ",
           key = "L",
         },

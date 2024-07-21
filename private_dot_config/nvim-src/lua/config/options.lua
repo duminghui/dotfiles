@@ -26,6 +26,8 @@ opt.cursorcolumn = true
 -- screenline: current line in warp
 opt.cursorlineopt = "screenline,number"
 
+opt.clipboard = { "unnamedplus" } -- Use the system clipboard
+
 -- 如果vscode中配置会造成vscode显示多个光标符号
 opt.colorcolumn = vim.g.vscode and "" or "80,100,120,140,160"
 opt.cmdheight = 2 -- Hide the command bar
@@ -111,4 +113,4 @@ opt.swapfile = false
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
-vim.cmd([[language message en_US.UTF-8]])
+-- vim.cmd([[language message en_US.UTF-8]])
