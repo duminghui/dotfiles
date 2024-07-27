@@ -1,4 +1,4 @@
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 local M = {}
 
@@ -83,8 +83,8 @@ M.opts = {
     icon = {
       folder_closed = icons.ui.Folder,
       folder_open = icons.ui.FolderOpen,
-      folder_empty = icons.ui.EmptyFolder,
-      folder_empty_open = icons.ui.EmptyFolderOpen,
+      folder_empty = icons.ui.FolderOutline,
+      folder_empty_open = icons.ui.FolderOpenEmpty,
       -- The next two settings are only a fallback, if you use nvim-web-devicons(default=true) and configure default icons there
       -- then these will never be used.
       default = icons.ui.File,
@@ -92,7 +92,7 @@ M.opts = {
     },
     modified = {
       -- symbol = "[+] ",
-      symbol = icons.ui.PrimitiveDot,
+      symbol = icons.ui.Dot,
       highlight = "NeoTreeModified",
     },
     name = {
@@ -200,7 +200,7 @@ M.opts = {
         if node.is_link then
           return {
             -- 󰜴
-            text = string.format(" %s %s", icons.ui.ChevronTripleRight, node.link_to),
+            text = string.format(" %s %s", icons.ui.ChevronRightTriple, node.link_to),
             highlight = config.highlight,
           }
         else

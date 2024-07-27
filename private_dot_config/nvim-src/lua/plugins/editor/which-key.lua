@@ -78,6 +78,7 @@ M.opts = {
       { pattern = "lowercase", icon = "󰬵" },
       { pattern = "uppercase", icon = "󰬶" },
       { pattern = "hop", icon = "󰍎", color = "green" },
+      { plugin = "tmux", icon = "󰕮", color = "green" },
     },
     keys = {
       Up = "󰜷 ",

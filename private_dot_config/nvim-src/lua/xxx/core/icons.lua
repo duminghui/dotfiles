@@ -1,8 +1,10 @@
 local M = {
   kind = {
-    --
+    ------ A ------
     Array = "󰅪", -- 󰅪 󰅨
+    ------ B ------
     Boolean = "󰔡", -- 󰔡 󰨚
+    ------ C ------
     Class = "󰌨", -- 󰌗 󰙅  EA4A
     Codeium = "󰘦 ",
     Color = "󰏘", --
@@ -11,43 +13,65 @@ local M = {
     Constant = "󰕶", -- 󰇽 󰏿
     Constructor = "󱀥", -- 󰆧 󰆦
     Copilot = " ",
+    ------ D ------
+    ------ E ------
     Enum = "󰷐", --   󰷐
     EnumMember = "󰍴", --   EA55
     Event = "󰉁", -- 󱐋
+    ------ F ------
     Field = "", --   󰆧
     File = "󰈔", -- 󰈙 󰈔 󰈤
     Folder = "󰝰", -- 󰝰 󰉋
     Function = "󰡱", -- 󰊕 ƒ
+    ------ G ------
+    ------ H ------
+    ------ I ------
     Interface = "󰀽", -- 󰀽 󰀿
+    ------ J ------
+    ------ K ------
     Key = "󱀍", -- 󰉿
     Keyword = "󰌆", -- 󰉨
+    ------ L ------
+    ------ M ------
     Macro = "󰐣", -- 󰬔
     Method = "󰊕", -- 󰡱 EA03
     Misc = "󰠱", -- #
     Module = "󰘦", -- 
+    ------ N ------
     Namespace = "󰘦", -- 󰅩
     Null = "󰟢", --
     Number = "󰎠", --
     Numeric = "󰎠", --
+    ------ O ------
     Object = "󰘦", -- 󰅩 󰙅 󰆩
     Operator = "", -- 󰆕 󰦒
+    ------ P ------
     Package = "󰘦", -- 󰏗 󰏓
     Parameter = "󰘮", -- 
     Property = "󰖷", -- 󰄻 󰓹 󰖷 󰆧
+    ------ Q ------
+    ------ R ------
     Reference = "󰌹", -- 󰈇 󱞬 󰌷 󰌹
     Ruler = "󰑭", --
+    ------ S ------
     Snippet = "󰃐", -- 󰌲 󰃐 󰗀 󱓡 󱓠 󰅌 󰆒
     StaticMethod = "󰊕", --
     String = "󰀬", -- 󰉿 󰀬 󱀍
     Struct = "󰆩", -- 󰆩  󰠱
     Structure = "󰆩", --
+    ------ T ------
     TabNine = "󰏚 ",
     Text = "󰀬", -- 󰊄  󰭷 󰦩 󰦨 󱀍
     TypeAlias = "󰌷", --  󰌷
     TypeParameter = "󰘮", --  
+    ------ U ------
     Unit = "󰑭", -- 󰉺
+    ------ V ------
     Value = "󰭷", --  󰀫 󰭸 󰈚 󰈚
     Variable = "󰫧", --   󰫧 󰀫
+    ------ W ------
+    ------ X ------
+    ------ Y ------
   },
   git = {
     -- Branch = "",
@@ -71,115 +95,133 @@ local M = {
     Repo = "󰳏", -- 
   },
   diagnostic = {
-    BoldError = "󰅙", -- 
-    Error = "󰅚", --
-    BoldWarning = "󰀦", --   󰀨
-    Warning = "󰀪", -- 
-    BoldInformation = "󰋼",
-    Information = "󰋽",
-    BoleQuestion = "󰮥", --  󰋗
-    Question = "󰮦", --  󰘥
-    BoldHint = "󰌵",
-    Hint = "󰌶", -- 
+    Error = "󰅙", -- 
+    ErrorOutline = "󰅚", --
+    Warning = "󰀦", --   󰀨
+    WarningOutline = "󰀪", -- 
+    Information = "󰋼",
+    InformationOutline = "󰋽",
+    Question = "󰮥", --  󰋗
+    QuestionOutline = "󰮦", --  󰘥
+    Hint = "󰌵",
+    HintOutline = "󰌶", -- 
     Debug = "󰃤",
     Trace = "󰏫", -- ✎
   },
   ui = {
+    ------ A ------
     Adjust = "󰀚",
     ArrowRight = "󰁔",
-    ArrowCircleDown = "󰁇",
-    ArrowCircleLeft = "󰁏",
-    ArrowCircleRight = "󰁖",
-    ArrowCircleUp = "󰁟",
-    BoldArrowDown = "󰜮",
-    BoldArrowLeft = "󰜱",
-    BoldArrowRight = "󰜴", -- 
-    BoldArrowUp = "󰜷",
-    BoldClose = "󱎘",
-    BoldDividerLeft = "",
-    BoldDividerRight = "",
-    BoldLineLeft = "▎",
+    ArrowUpCircle = "󰁟",
+    ArrowRightCircle = "󰁖",
+    ArrowDownCircle = "󰁇",
+    ArrowLeftCircle = "󰁏",
+    ArrowUpBold = "󰜷",
+    ArrowRightBold = "󰜴", -- 
+    ArrowDownBold = "󰜮",
+    ArrowLeftBold = "󰜱",
+    ------ B ------
     BookMark = "󰃀",
-    BoxChecked = "󰄵", -- 
     Bug = "󰃤", -- 
-    Stacks = " ",
-    Scopes = "",
-    Watches = "󰂥",
-    DebugConsole = "",
+    ------ C ------
     Calendar = "󰃭",
+    CameraTimer = "󰄉",
     Check = "󰄬",
+    CheckBold = "󰸞",
+    CheckboxMarked = "󰄲",
+    CheckboxMarkedCircle = "󰄴",
+    CheckboxMarkedOutline = "󰄵", -- 
+    CheckCircleOutline = "󰗡",
+    CheckCircle = "󰗠",
     ChevronUp = "󰅃", -- 
     ChevronDown = "󰅀", -- 
     ChevronRight = "󰅂", -- 
     ChevronLeft = "󰅁", -- 
-    ChevronDoubleUp = "󰄿", -- »
-    ChevronDoubleDown = "󰄼", -- »
-    ChevronDoubleLeft = "󰄽", -- »
-    ChevronDoubleRight = "󰄾", -- »
-    ChevronTripleUp = "󰶼",
-    ChevronTripleDown = "󰶹",
-    ChevronTripleLeft = "󰶺",
-    ChevronTripleRight = "󰶻",
-    Triangle = "󰐊",
-    TriangleShortArrowUp = "󰍠", -- 
-    TriangleShortArrowDown = "󰍝", --
-    TriangleShortArrowLeft = "󰍞", --
-    TriangleShortArrowRight = "󰍟", --
-    PrimitiveDot = "", -- ●
+    ChevronUpDouble = "󰄿", -- »
+    ChevronDownDouble = "󰄼", -- »
+    ChevronLeftDouble = "󰄽", -- »
+    ChevronRightDouble = "󰄾", -- »
+    ChevronUpTriple = "󰶼",
+    ChevronDownTriple = "󰶹",
+    ChevronLeftTriple = "󰶺",
+    ChevronRightTriple = "󰶻",
     CircleBig = "",
-    CircleCheck = "󰄴",
-    CircleCheck2 = "󰗡",
-    BoldCircleCheck = "󰗠",
+    Clock = "󰥔",
     Close = "󰅖",
+    CloseTick = "󱎘",
     CloudCheck = "󰅠",
     CloudOff = "󰅤",
     Code = "󰗀", -- 
     Code2 = "",
     Code3 = "",
     Comment = "󰅺",
+    ------ D ------
     Dashboard = "󰕮",
-    DividerLeft = "",
+    DebugConsole = "",
     DividerRight = "",
+    DividerLeft = "",
+    DividerRightBold = "",
+    DividerLeftBold = "",
+    Dot = "", -- ●
+    ------ E ------
     Ellipsis = "󰇘",
-    EmptyFolder = "󰉖", -- nf-md-folder_outline
-    EmptyFolderOpen = "󰷏", -- nf-md-folder_open_outline
+    ------ F ------
     File = "󰈔", -- nf-md-file
-    FileSymlink = "󰪹", -- nf-md-file-link_outline
+    FilePlus = "󰝒",
     Files = "󰈢", -- nf-md-file_multiple
+    FileSymlink = "󰪹", -- nf-md-file-link_outline
     Filter = "󰈲",
     FindFile = "󰈞", -- nf-md-file_find
     FindText = "󰊄", -- nf-md-format_text
-    Fire = "",
+    Fire = "󰈸",
     Folder = "󰉋", -- nf-md-folder
-    FolderOpen = "󰝰", -- nf-md-folder_open
     FolderMultiple = "󰉓",
+    FolderOpen = "󰝰", -- nf-md-folder_open
+    FolderOpenEmpty = "󰷏", -- nf-md-folder_open_outline
+    FolderOutline = "󰉖", -- nf-md-folder_outline
     FolderSymlink = "󱧮", -- nf-md_folder_pound -- 
     Forward = "󱞬", -- 
+    ------ G ------
     Gear = "󰒓",
-    History = "󰄉",
+    ------ H ------
+    ------ I ------
+    ------ J ------
+    ------ K ------
+    ------ L ------
     Lightbulb = "󰌵",
     LineLeft = "▏",
     LineMiddle = "│",
+    LineLeftBold = "▎",
     List = "󰷐",
-    Lock = "󰍁",
-    Lock2 = "󰌾", -- 
+    Lock = "󰌾", -- 
     LockOpen = "󰌿",
+    LockOutline = "󰍁",
     -- LspActive = "󰊲",
     LspActive = "",
     LspInactive = "󰊱",
-    NewFile = "󰝒",
+    ------ M ------
+    MenuUp = "󰍠", -- 
+    MenuRight = "󰍟", --
+    MenuLeft = "󰍞", --
+    MenuDown = "󰍝", --
+    ------ N ------
     Note = "󰎞",
+    ------ O ------
+    ------ P ------
     Package = "󰏓",
     Pencil = "󰏫",
     Pending = "󰊳",
     Plus = "󰐕",
     Plus2 = "󰙞",
     Project = "󰂺",
+    ------ Q ------
     Question = "󰋖",
+    ------ R ------
     Restore = "󰁯",
-    WindowRestore = "󰖲",
     Run = "󰜎",
     RunError = "",
+    ------ S ------
+    Scopes = "",
     Search = "󰍉",
     Session = "󰙰",
     SessionIn = "󰘽",
@@ -188,17 +230,27 @@ local M = {
     -- SessionOut = "󰘼",
     SignIn = "󰍂",
     SignOut = "󰍃",
+    Space = "•",
     Square = "󰝤",
     SquareMedium = "󰨓", -- nf-md-square_medium
     SquareSmall = "󰨕",
-    SquareCheck = "󰄲",
-    Space = "•",
+    Stacks = " ",
+    ------ T ------
     Tab = "󰌒",
     Table = "󰓫",
     Target = "󰀘",
     Text = "󰭷", -- 󰭷 󰈚
     TextMultiple = "󰪷",
     Tree = "󰐅",
+    Triangle = "󰐊",
+    ------ U ------
+    ------ V ------
+    ------ W ------
+    Watches = "󰂥",
+    WindowRestore = "󰖲",
+    ------ X ------
+    ------ Y ------
+    ------ Z ------
   },
   misc = {
     -- Neovim = '',
@@ -222,16 +274,13 @@ local M = {
 
 local fmt = string.format
 
-M.findKind = function(name, suffix)
+function M.findKind(name, suffix)
   local icon = M.kind[name]
   if icon == nil then
     vim.print(fmt("No Kind `%s` icon", name))
     return nil
   end
-  if suffix == nil then
-    return icon
-  end
-  return icon .. suffix
+  return suffix and icon .. suffix or icon
 end
 
 -- M.kinds = function(suffix, ...)
@@ -242,10 +291,10 @@ end
 -- return kindTable
 -- end
 --
-M.kinds = function(suffix)
+function M.kinds(suffix)
   local kinds = {}
   for k, v in pairs(M.kind) do
-    kinds[k] = v .. suffix
+    kinds[k] = suffix and v .. suffix or v
   end
   return kinds
 end

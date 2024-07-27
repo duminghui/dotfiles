@@ -1,4 +1,4 @@
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 local M = {}
 

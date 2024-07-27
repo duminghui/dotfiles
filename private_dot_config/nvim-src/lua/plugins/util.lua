@@ -27,4 +27,13 @@ return {
   {
     import = "plugins.util.neovim-session-manager",
   },
+
+  {
+    "xvzc/chezmoi.nvim",
+    opts = {
+      notification = {
+        on_open = true,
+      },
+    },
+  },
 }

@@ -1,4 +1,4 @@
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 local function fix_highlight(name, fg, bg)
   local hl = {}
@@ -102,9 +102,9 @@ local function diagnostics_indicator(_, _, diagnostics, _)
   local result = {}
   local types = { "error", "warning", "info" }
   local symbols = {
-    error = icons.diagnostic.BoldError,
-    warning = icons.diagnostic.BoldWarning,
-    info = icons.diagnostic.BoldInformation,
+    error = icons.diagnostic.Error,
+    warning = icons.diagnostic.Warning,
+    info = icons.diagnostic.Information,
   }
 
   for _, type in ipairs(types) do
@@ -150,10 +150,10 @@ M.opts = function(_, opts)
   local opts_new = {
     options = {
       buffer_close_icon = icons.ui.Close,
-      modified_icon = icons.ui.PrimitiveDot,
-      close_icon = icons.ui.BoldClose,
-      left_trunc_marker = icons.ui.ArrowCircleLeft,
-      right_trunc_marker = icons.ui.ArrowCircleRight,
+      modified_icon = icons.ui.Dot,
+      close_icon = icons.ui.CloseTick,
+      left_trunc_marker = icons.ui.ArrowLeftCircle,
+      right_trunc_marker = icons.ui.ArrowRightCircle,
       max_name_length = 12,
       max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
       truncate_names = false, -- whether or not tab names should be truncated

@@ -1,4 +1,4 @@
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 local M = {}
 
@@ -26,8 +26,8 @@ M.opts = {
     format = {
       ---@diagnostic disable:missing-fields
       cmdline = { icon = icons.misc.Shell },
-      search_down = { icon = " " .. icons.ui.Search .. " " .. icons.ui.ChevronTripleDown },
-      search_up = { icon = " " .. icons.ui.Search .. " " .. icons.ui.ChevronTripleUp },
+      search_down = { icon = " " .. icons.ui.Search .. " " .. icons.ui.ChevronDownTriple },
+      search_up = { icon = " " .. icons.ui.Search .. " " .. icons.ui.ChevronUpTriple },
       filter = { icon = icons.misc.Bash },
       lua = { icon = icons.misc.Lua },
       help = { icon = icons.ui.Question },

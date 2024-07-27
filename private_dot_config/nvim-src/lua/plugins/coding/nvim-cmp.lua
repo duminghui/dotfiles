@@ -101,7 +101,7 @@ local M = {}
 ---@param _ LazyPlugin
 ---@param opts cmp.ConfigSchema
 M.opts = function(_, opts)
-  local icons = require("xxx.core.icons")
+  local icons = xxx.icons
 
   local cmp = require("cmp")
   local cmp_types = require("cmp.types.cmp")
@@ -111,7 +111,7 @@ M.opts = function(_, opts)
 
   local opts_meta = {
     max_width = 50,
-    kind_icons = require("xxx.core.icons").kinds(""),
+    kind_icons = icons.kinds(),
     source_names = {
       nvim_lsp = "[LSP]",
       emoji = "[Emoji]",

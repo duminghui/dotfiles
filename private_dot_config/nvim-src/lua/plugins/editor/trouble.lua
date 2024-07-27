@@ -2,7 +2,7 @@
 local M = {}
 ---@param opts trouble.Config
 function M.opts(_, opts)
-  local icons = require("xxx.core.icons")
+  local icons = xxx.icons
   ---@type trouble.Config
   local opts_new = {
     auto_close = false, -- auto close when there are no items

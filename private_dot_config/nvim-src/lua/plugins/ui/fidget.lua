@@ -1,4 +1,4 @@
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 local M = {}
 
@@ -6,7 +6,7 @@ function M.opts()
   return {
     progress = {
       display = {
-        done_icon = icons.ui.SquareCheck,
+        done_icon = icons.ui.CheckboxMarked,
         done_style = "FidgetDone",
         progress_icon = { pattern = "dots_negative", period = 1 },
         progress_style = "FidgetProgress",
@@ -58,7 +58,7 @@ end
 return {
   -- Standalone UI for nvim-lsp progress.
   "j-hui/fidget.nvim",
-  opts = M.opts,
   event = "LspAttach",
+  opts = M.opts,
   -- event = 'User FileOpened',
 }

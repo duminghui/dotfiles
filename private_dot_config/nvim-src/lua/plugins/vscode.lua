@@ -18,6 +18,5 @@ return {
   { "JoosepAlviste/nvim-ts-context-commentstring", enabled = false },
   { "folke/ts-comments.nvim", cond = not vscode },
   { "tpope/vim-repeat", enabled = false },
-  { "gbprod/yanky.nvim", enabled = false }
-,
+  { "gbprod/yanky.nvim", enabled = false },
 }

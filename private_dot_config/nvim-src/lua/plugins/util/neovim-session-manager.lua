@@ -46,14 +46,14 @@ return {
       local entities = {
         {
           action = "SessionManager load_session",
-          desc = "Sessions",
-          icon = xxx.icons.ui.WindowRestore .. "  ",
+          desc = " Sessions",
+          icon = xxx.icons.ui.WindowRestore .. " ",
           key = "s",
         },
         {
           action = "SessionManager load_last_session",
-          desc = "Last Session",
-          icon = xxx.icons.ui.Restore .. "  ",
+          desc = " Last Session",
+          icon = xxx.icons.ui.Restore .. " ",
           key = "L",
         },
       }

@@ -28,7 +28,7 @@ return {
     opts = {
       ui = {
         icons = {
-          package_installed = icons.ui.CircleCheck,
+          package_installed = icons.ui.CheckboxMarkedCircle,
           package_pending = icons.ui.Pending,
           package_uninstalled = icons.ui.Plus2, -- 󰙝
         },

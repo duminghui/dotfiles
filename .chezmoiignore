@@ -2,7 +2,7 @@
 .config/containers
 .config/containers/registries.conf
 .config/nvim-src
-.config/nvim-src.old
+.config/nvim-src.orig
 .config/zsh/custom-zsh-src
 .docker/daemon-src.json
 

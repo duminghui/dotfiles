@@ -91,6 +91,9 @@ local keymaps = {
   { "n", "<A-k>", manageEditorSize("h", "decrease") },
   { "n", "<A-l>", manageEditorSize("w", "increase") },
   { "n", "<A-h>", manageEditorSize("w", "decrease") },
+
+  { "n", "[d", vscode_action("editor.action.marker.prev") },
+  { "n", "]d", vscode_action("editor.action.marker.next") },
 }
 
 keymappings(keymaps)

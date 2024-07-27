@@ -1,4 +1,4 @@
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 local left_sep_both = {
   left = " ",
@@ -28,10 +28,10 @@ M.filename = {
   color = "SlComponent",
   newfile_status = true,
   symbols = {
-    modified = icons.ui.PrimitiveDot,
-    readonly = icons.ui.Lock2,
+    modified = icons.ui.Dot,
+    readonly = icons.ui.Lock,
     unnamed = "[No Name]",
-    newfile = icons.ui.NewFile,
+    newfile = icons.ui.FilePlus,
   },
   separator = left_sep_both,
 }
@@ -81,10 +81,10 @@ M.diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
   symbols = {
-    error = icons.diagnostic.BoldError .. " ",
-    warn = icons.diagnostic.BoldWarning .. " ",
-    info = icons.diagnostic.BoldInformation .. " ",
-    hint = icons.diagnostic.BoldHint .. " ",
+    error = icons.diagnostic.Error .. " ",
+    warn = icons.diagnostic.Warning .. " ",
+    info = icons.diagnostic.Information .. " ",
+    hint = icons.diagnostic.Hint .. " ",
   },
   color = "SlComponent",
   separator = left_sep_both,

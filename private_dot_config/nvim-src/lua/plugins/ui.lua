@@ -1,14 +1,15 @@
+local icons = xxx.icons
 ---@type LazySpec
 return {
   {
     "rcarriga/nvim-notify",
     opts = {
       icons = {
-        DEBUG = xxx.icons.diagnostic.Debug .. " ",
-        ERROR = xxx.icons.diagnostic.BoldError .. " ",
-        INFO = xxx.icons.diagnostic.BoldInformation .. " ",
-        TRACE = xxx.icons.diagnostic.Trace .. " ",
-        WARN = xxx.icons.diagnostic.BoldWarning .. " ",
+        DEBUG = icons.diagnostic.Debug .. " ",
+        ERROR = icons.diagnostic.Error .. " ",
+        INFO = icons.diagnostic.Information .. " ",
+        TRACE = icons.diagnostic.Trace .. " ",
+        WARN = icons.diagnostic.Warning .. " ",
       },
       timeout = 6000,
     },
@@ -24,14 +25,15 @@ return {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
       local icon_patchs = {
-        [""] = xxx.icons.ui.Search,
-        [""] = xxx.icons.ui.File,
-        [""] = xxx.icons.ui.Files,
-        [""] = xxx.icons.ui.Text,
-        [""] = xxx.icons.ui.Gear,
-        [""] = xxx.icons.ui.Restore,
-        [""] = xxx.icons.misc.Package,
-        [""] = xxx.icons.ui.SinOut,
+        [""] = icons.ui.Search,
+        [""] = icons.ui.File,
+        [""] = icons.ui.Files,
+        [""] = icons.ui.Text,
+        [""] = icons.ui.Gear,
+        [""] = icons.ui.Restore,
+        [""] = icons.misc.Package,
+        [""] = icons.ui.SinOut,
+        [""] = icons.ui.Gear,
       }
       local config = opts.config
       for _, entity in ipairs(config.center) do
@@ -46,7 +48,7 @@ return {
       if type(footer) == "function" then
         footer = footer()
         for idx, entity in ipairs(footer) do
-          footer[idx] = string.gsub(entity, "⚡", xxx.icons.kind.Event .. " ")
+          footer[idx] = string.gsub(entity, "⚡", icons.kind.Event .. " ")
         end
       end
       config.footer = footer

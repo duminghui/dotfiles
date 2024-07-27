@@ -13,7 +13,7 @@ local default_options = {
 }
 
 local M = require("lualine.component"):extend()
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 function M:init(options)
   M.super.init(self, options)
@@ -25,7 +25,7 @@ function M:init(options)
 end
 
 function M:update_status()
-  local buf_clients = vim.lsp.get_clients { bufnr = 0 }
+  local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
   if not buf_clients or #buf_clients == 0 then
     return self.options.icons.inactive .. " Inactive "
   end
@@ -56,6 +56,18 @@ function M:update_status()
   -- add code action
   local supported_code_actions = nl.list_registered(buf_ft, "code-action")
   vim.list_extend(buf_client_names, supported_code_actions)
+
+  if LazyVim.has("conform.nvim") then
+    --- @type conform.FormatterInfo[]
+    local available_formatters = require("conform").list_formatters()
+    for _, formatter in ipairs(available_formatters) do
+      local formatter_name = formatter.name
+      if not formatter.available then
+        formatter_name = string.format("%s(N)", formatter_name)
+      end
+      table.insert(buf_client_names, formatter_name)
+    end
+  end
 
   local unique_client_names = vim.fn.uniq(buf_client_names)
 

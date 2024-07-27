@@ -1,10 +1,10 @@
 local lualine_require = require("lualine_require")
-local modules = lualine_require.lazy_require {
+local modules = lualine_require.lazy_require({
   highlight = "lualine.highlight",
   utils = "lualine.utils.utils",
-}
+})
 
-local icons = require("xxx.core.icons")
+local icons = xxx.icons
 
 local M = require("lualine.component"):extend()
 
