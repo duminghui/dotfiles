@@ -31,8 +31,11 @@ return {
   {
     "xvzc/chezmoi.nvim",
     opts = {
+      edit = {},
       notification = {
         on_open = true,
+        on_apply = true,
+        on_watch = true,
       },
     },
   },

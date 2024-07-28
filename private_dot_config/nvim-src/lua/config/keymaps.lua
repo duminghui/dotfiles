@@ -3,13 +3,13 @@
 -- Add any additional keymaps here
 
 local del_keymaps = {
-  -- { "n", "<leader>ww" },
-  -- { "n", "<leader>wd" },
+  { "n", "<leader>w" },
+  { "n", "<leader>wd" },
   -- { "n", "<leader>w-" },
   -- { "n", "<leader>w|" },
   -- { "n", "<leader>-" },
   -- { "n", "<leader>|" },
-  -- { "n", "<leader>wm" },
+  { "n", "<leader>wm" },
 
   -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
   -- { { "n", "x", "o" }, "n" },
