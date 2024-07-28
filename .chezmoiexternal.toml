@@ -4,3 +4,9 @@
 # exact = true
 # stripComponents = 1
 # refreshPeriod = "168h"
+
+[".config/nvim"]
+type = "git-repo"
+url = "git@github.com:duminghui/nvim-cfg.git"
+# disables refreshes
+refreshPeriod = 0
