@@ -1,6 +1,7 @@
 # 这里的是target路径, 不是source路径
 .config/containers
 .config/containers/registries.conf
+.config/nvim.tmpl.bak
 .config/nvim-src
 .config/nvim-src.orig
 .config/zsh/custom-zsh-src

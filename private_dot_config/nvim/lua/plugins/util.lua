@@ -35,7 +35,7 @@ return {
       notification = {
         on_open = true,
         on_apply = true,
-        on_watch = true,
+        on_watch = false,
       },
     },
   },
