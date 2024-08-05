@@ -12,12 +12,14 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 ### homeberw ###
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx HOMEBREW_NO_INSTALL_CLEANUP true
-# set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
-# 重置
-# set -gx HOMEBREW_BREW_GIT_REMOTE "https://github.com/Homebrew/brew"
+set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
+# set -e -g HOMEBREW_BREW_GIT_REMOTE
 # git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
-# set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
-# set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+
+set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
+# set -e -g HOMEBREW_BOTTLE_DOMAIN
+set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
+# set -e -g HOMEBREW_API_DOMAIN
 
 # homebrew/services
 # 执行下面命令
@@ -56,7 +58,8 @@ set -gx SCCACHE_DIR $XDG_CACHE_HOME/sccache
 set -gx SCCACHE_CACHE_SIZE 6G
 set -gx SCCACHE_DIRECT true
 # cross
-# set -gx CROSS_CONTAINER_ENGINE podman
+# set -gx CROSS_CONTAINER_ENGINE podma
+
 # taplo
 set -gx TAPLO_CONFIG $XDG_CONFIG_HOME/taplo.toml
 
