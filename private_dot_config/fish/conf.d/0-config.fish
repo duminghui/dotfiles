@@ -81,6 +81,7 @@ end
 set -gx GOPATH $XDG_DATA_HOME/go
 set -gx GOPROXY https://goproxy.cn,direct
 test -d $GOPATH/bin; and set -gx PATH $GOPATH/bin $PATH
+type -q go; and abbr go-mod-check go list -m -u all
 
 ### gradle ###
 if type -q brew; and test -d (brew --prefix)/opt/gradle
