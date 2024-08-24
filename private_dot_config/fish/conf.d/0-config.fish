@@ -62,6 +62,7 @@ set -gx SCCACHE_DIRECT true
 
 # taplo
 set -gx TAPLO_CONFIG $XDG_CONFIG_HOME/taplo.toml
+# set -e -g TAPLO_CONFIG # 取消设置
 
 
 ### tmuxinator ###

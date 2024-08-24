@@ -79,7 +79,14 @@ cargo install fd-find
 
 ```
 
+### rust
+
+```fish
+rustup completions fish > ~/.config/fish/completions/rustup.fish
+```
+
 ### nvm
+
 ```fish
 brew install nvm
 bash /opt/homebrew/opt/nvm/nvm.sh
@@ -87,7 +94,9 @@ fisher install FabioAntunes/fish-nvm edc/bass
 ```
 
 ### pnpm
+
 ```fish
 fisher install g-plane/pnpm-shell-completion
 ```
+
 这个插件会创建$HOME/.local/bin目录
