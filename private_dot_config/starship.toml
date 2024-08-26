@@ -161,7 +161,7 @@ style = "blue"
 [lua]
 format = "[$symbol($version )]($style)"
 # symbol = "🌖 "
-symbol = "󰢱"
+symbol = "󰢱 "
 style = "blue"
 
 [nodejs]
@@ -186,6 +186,7 @@ style = "yellow"
 format = '[$symbol($version\($toolchain\) )]($style)'
 version_format = "v${raw}"
 # symbol = "🦀 "
+# symbol = "󱘗 "
 symbol = " "
 style = "red"
 

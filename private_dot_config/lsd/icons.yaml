@@ -325,7 +325,7 @@ extension:
   bashrc: 󱆃
   bash: 󱆃
   bat: 󰖳
-  bin: 
+  bin: 󰱾
   bio: 󰐑
   blend: 󰂫
   blend1: 󰂫
@@ -497,7 +497,7 @@ extension:
   orig: 󰭃
   org: 
   otf: 󰛖
-  o: 
+  o: 󰱾
   part: 󰅐
   patch: 
   pdb: 󰪪
@@ -576,7 +576,7 @@ extension:
   svelte: 
   swift: 󰛥
   swp: 
-  sym: 
+  sym: 󰱾
   tar: 󰗄
   taz: 󰗄
   tbz: 󰗄

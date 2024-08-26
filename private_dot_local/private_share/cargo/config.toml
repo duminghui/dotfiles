@@ -3,8 +3,8 @@
 # 指定镜像
 # source-rsproxy-sparse: install或update命令时每次要fetch, 项目使用的依赖越多, 时间越长
 # replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
-replace-with = 'source-rsproxy'
-# replace-with = 'source-rsproxy-sparse'
+# replace-with = 'source-rsproxy'
+replace-with = 'source-rsproxy-sparse'
 
 [source.source-rsproxy]
 registry = "https://rsproxy.cn/crates.io-index"
@@ -15,11 +15,14 @@ registry = "sparse+https://rsproxy.cn/index/"
 # [registries.crates-io]
 # protocol = "git"
 
-[registries.registry-rsproxy]
+[registries.source-rsproxy]
 index = "https://rsproxy.cn/crates.io-index"
 
-[registries.registry-rsproxy-sparse]
+[registries.source-rsproxy-sparse]
 index = "sparse+https://rsproxy.cn/index/"
+
+# ^^^^^^^^^^^^^^^^^^^
+# [source.xxx]和[registries.xxx]后面的键值要一样
 
 # [registry]
 # binstall用registry-rsproxy会有很长时间的解析过程
@@ -70,61 +73,61 @@ multiplexing = true
 [target.x86_64-unknown-linux-gnu]
 linker = "clang"
 rustflags = [
-    # LLD linker
-    #
-    # You may need to install it:
-    #
-    # - Ubuntu: `sudo apt-get install lld clang`
-    # - Fedora: `sudo dnf install lld clang`
-    # - Arch: `sudo pacman -S lld clang`
-    "-Clink-arg=-fuse-ld=lld",
+  # LLD linker
+  #
+  # You may need to install it:
+  #
+  # - Ubuntu: `sudo apt-get install lld clang`
+  # - Fedora: `sudo dnf install lld clang`
+  # - Arch: `sudo pacman -S lld clang`
+  "-Clink-arg=-fuse-ld=lld",
 
-    # Mold linker
-    #
-    # You may need to install it:
-    #
-    # - Ubuntu: `sudo apt-get install mold clang`
-    # - Fedora: `sudo dnf install mold clang`
-    # - Arch: `sudo pacman -S mold clang`
-    # "-Clink-arg=-fuse-ld=/usr/bin/mold",
+  # Mold linker
+  #
+  # You may need to install it:
+  #
+  # - Ubuntu: `sudo apt-get install mold clang`
+  # - Fedora: `sudo dnf install mold clang`
+  # - Arch: `sudo pacman -S mold clang`
+  # "-Clink-arg=-fuse-ld=/usr/bin/mold",
 
-    # Nightly
-    # "-Zshare-generics=y",
-    # "-Zthreads=0",
+  # Nightly
+  # "-Zshare-generics=y",
+  # "-Zthreads=0",
 ]
 
 [target.x86_64-apple-darwin]
 rustflags = [
-    # LLD linker
-    #
-    # The default ld64 linker is faster, you should continue using it instead.
-    #
-    # You may need to install it:
-    #
-    # Brew: `brew install llvm`
-    # Manually: <https://lld.llvm.org/MachO/index.html>
-    # "-Clink-arg=-fuse-ld=/usr/local/opt/llvm/bin/ld64.lld",
+  # LLD linker
+  #
+  # The default ld64 linker is faster, you should continue using it instead.
+  #
+  # You may need to install it:
+  #
+  # Brew: `brew install llvm`
+  # Manually: <https://lld.llvm.org/MachO/index.html>
+  # "-Clink-arg=-fuse-ld=/usr/local/opt/llvm/bin/ld64.lld",
 
-    # Nightly
-    # "-Zshare-generics=y",
-    # "-Zthreads=0",
+  # Nightly
+  # "-Zshare-generics=y",
+  # "-Zthreads=0",
 ]
 
 [target.aarch64-apple-darwin]
 rustflags = [
-    # LLD linker
-    #
-    # The default ld64 linker is faster, you should continue using it instead.
-    #
-    # You may need to install it:
-    #
-    # Brew: `brew install llvm`
-    # Manually: <https://lld.llvm.org/MachO/index.html>
-    "-Clink-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld",
+  # LLD linker
+  #
+  # The default ld64 linker is faster, you should continue using it instead.
+  #
+  # You may need to install it:
+  #
+  # Brew: `brew install llvm`
+  # Manually: <https://lld.llvm.org/MachO/index.html>
+  "-Clink-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld",
 
-    # Nightly
-    # "-Zshare-generics=y",
-    # "-Zthreads=0",
+  # Nightly
+  # "-Zshare-generics=y",
+  # "-Zthreads=0",
 ]
 
 [target.x86_64-pc-windows-msvc]
@@ -138,9 +141,9 @@ rustflags = [
 # ```
 linker = "rust-lld.exe"
 rustflags = [
-    # Nightly
-    # "-Zshare-generics=y",
-    # "-Zthreads=0",
+  # Nightly
+  # "-Zshare-generics=y",
+  # "-Zthreads=0",
 ]
 
 # Optional: Uncommenting the following improves compile times, but reduces the amount of debug info to 'line number tables only'
