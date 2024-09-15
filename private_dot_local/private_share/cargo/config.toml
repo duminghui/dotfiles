@@ -3,8 +3,8 @@
 # 指定镜像
 # source-rsproxy-sparse: install或update命令时每次要fetch, 项目使用的依赖越多, 时间越长
 # replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
-# replace-with = 'source-rsproxy'
-replace-with = 'source-rsproxy-sparse'
+replace-with = 'source-rsproxy'
+# replace-with = 'source-rsproxy-sparse'
 
 [source.source-rsproxy]
 registry = "https://rsproxy.cn/crates.io-index"
