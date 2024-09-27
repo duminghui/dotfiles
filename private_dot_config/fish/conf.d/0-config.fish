@@ -13,20 +13,19 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx HOMEBREW_NO_INSTALL_CLEANUP true
 set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
-# set -e -g HOMEBREW_BREW_GIT_REMOTE
+set -e -g HOMEBREW_BREW_GIT_REMOTE
 # git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
 
 set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
-# set -e -g HOMEBREW_BOTTLE_DOMAIN
+set -e -g HOMEBREW_BOTTLE_DOMAIN
 set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-# set -e -g HOMEBREW_API_DOMAIN
+set -e -g HOMEBREW_API_DOMAIN
 
 # homebrew/services
 # 执行下面命令
 # brew tap --custom-remote --force-auto-update homebrew/services https://mirrors.ustc.edu.cn/homebrew-services.git
 # 恢复
 # brew tap --custom-remote --force-auto-update homebrew/services https://github.com/Homebrew/homebrew-services
-
 ## befor Brew 4.0 start
 # set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
 # brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.ustc.edu.cn/homebrew-cask.git
@@ -123,6 +122,8 @@ set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm
 
 set -gx NVM_DIR $XDG_DATA_HOME/nvm
 set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node
+
+set -gx COREPACK_NPM_REGISTRY https://registry.npmmirror.com
 
 ### pnpm
 set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
