@@ -3,25 +3,27 @@
 # 指定镜像
 # source-rsproxy-sparse: install或update命令时每次要fetch, 项目使用的依赖越多, 时间越长
 # replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
-replace-with = 'source-rsproxy'
-# replace-with = 'source-rsproxy-sparse'
+# replace-with = 'rsproxy'
+replace-with = 'rsproxy-sparse'
 
-[source.source-rsproxy]
+[source.rsproxy]
 registry = "https://rsproxy.cn/crates.io-index"
 
-[source.source-rsproxy-sparse]
+[source.rsproxy-sparse]
 registry = "sparse+https://rsproxy.cn/index/"
 
 # [registries.crates-io]
 # protocol = "git"
 
-[registries.source-rsproxy]
+[registries.rsproxy]
 index = "https://rsproxy.cn/crates.io-index"
 
-[registries.source-rsproxy-sparse]
+[registries.rsproxy-sparse]
+# index = "https://rsproxy.cn/crates.io-index"
 index = "sparse+https://rsproxy.cn/index/"
 
 # ^^^^^^^^^^^^^^^^^^^
+# cargo-update
 # [source.xxx]和[registries.xxx]后面的键值要一样
 
 # [registry]

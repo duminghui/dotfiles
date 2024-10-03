@@ -47,8 +47,10 @@ else
     abbr cargo-batch-clean "find . -name 'Cargo.toml' | xargs -t -I {} cargo clean --manifest-path {}"
 end
 # set -gx CARGO_HOME $HOME/.cargo
-set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
-set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
+#set -gx RUSTUP_DIST_SERVER https://mirrors.ustc.edu.cn/rust-static
+#set -gx RUSTUP_UPDATE_ROOT https://mirrors.ustc.edu.cn/rust-static/rustup
+set -gx RUSTUP_DIST_SERVER https://rsproxy.cn
+set -gx RUSTUP_UPDATE_ROOT https://rsproxy.cn/rustup
 set -gx CARGO_HTTP_MULTIPLEXING false
 # 配置文件不支持相对路径, 暂时不用
 # set -gx SCCACHE_CONF $XDG_CONFIG_HOME/sccache/sccache-config.toml
