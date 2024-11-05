@@ -2,12 +2,13 @@
 
 # vim: ft=toml
 
-[data]
-  GIT_USER_NAME = "dumh"
-  GIT_USER_EMAIL = "duminghui@users.noreply.github.com"
-
 encryption = "gpg"
 [gpg]
   recipient = {{ $recipient | quote }}
   args=["--quiet"]
+
+[data]
+  GIT_USER_NAME = "dumh"
+  GIT_USER_EMAIL = "duminghui@users.noreply.github.com"
+
 
