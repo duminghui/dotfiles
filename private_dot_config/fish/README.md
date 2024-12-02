@@ -1,3 +1,22 @@
+<!--toc:start-->
+
+- [Default shell](#default-shell)
+- [oh-my-fish](#oh-my-fish)
+- [fisher](#fisher)
+- [z](#z)
+- [starship](#starship)
+- [lsd](#lsd)
+- [vivid (LS_COLORS)](#vivid-lscolors)
+- [exa](#exa)
+- [ripgrep](#ripgrep)
+- [fd](#fd)
+- [rust](#rust)
+- [nvm](#nvm)
+- [pnpm](#pnpm)
+<!--toc:end-->
+
+---
+
 - [Fish shell](https://fishshell.com/)
 - [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) - Plugin manager
 - [Nerd fonts](https://github.com/ryanoasis/nerd-fonts) - Powerline-patched fonts.
@@ -5,6 +24,13 @@
 - [Exa](https://the.exa.website/) - `ls` replacement
 - [peco](https://github.com/peco/peco) - Interactive filtering
 - [starship](https://github.com/starship/starship) - The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+
+### Default shell
+
+```fish
+echo FISH_PATH | sudo tee -a /etc/shells
+chsh -s FISH_PATH
+```
 
 ### oh-my-fish
 
@@ -14,7 +40,7 @@ omf channel dev
 ```
 
 Why use channel `dev` not `stable`
-https://github.com/oh-my-fish/oh-my-fish/pull/908
+<https://github.com/oh-my-fish/oh-my-fish/pull/908>
 
 ### fisher
 

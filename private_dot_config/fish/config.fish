@@ -37,6 +37,8 @@ set fish_color_autosuggestion brgreen brblack
 if type -q starship
     function starship_transient_prompt_func
         starship module sudo
+        starship module username
+        starship module hostname
         starship module directory
         starship module git_branch
         starship module git_commit
