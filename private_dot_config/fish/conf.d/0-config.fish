@@ -107,9 +107,9 @@ end
 
 ### flutter ###
 set -gx PUB_HOSTED_URL https://pub.flutter-io.cn
-set -gx PUB_CACHE $HOME/.pub-cache
+set -gx PUB_CACHE $XDG_CACHE_HOME/pub-cache
 set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
-test -d $HOME/Library/flutter/bin; and set -gx PATH $HOME/Library/flutter/bin $PATH
+test -d $HOME/.local/flutter/bin; and set -gx PATH $HOME/.local/flutter/bin $PATH
 
 ### ruby
 if type -q brew; and test -d (brew --prefix)/opt/ruby/bin
