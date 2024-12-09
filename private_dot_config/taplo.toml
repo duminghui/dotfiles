@@ -59,10 +59,9 @@ crlf = false
 
 [[rule]]
 include = ["**/Cargo.toml"]
-keys = ["*-dependencies", "*.*.dependencies", "*.dependencies", "dependencies" , "features"]
+keys = ["*-dependencies", "*.*.dependencies", "*.dependencies", "dependencies", "features"]
 
 [rule.formatting]
 array_auto_expand = false
 reorder_keys = true
 reorder_arrays = true
-
