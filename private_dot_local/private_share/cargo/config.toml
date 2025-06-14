@@ -1,7 +1,7 @@
 [source.crates-io]
 # registry = "https://github.com/rust-lang/crates.io-index"
 # 指定镜像
-# source-rsproxy-sparse: install或update命令时每次要fetch, 项目使用的依赖越多, 时间越长
+# source.rsproxy-sparse: install或update命令时每次要fetch, 项目使用的依赖越多, 时间越长
 # replace-with = 'ustc' # 如：tuna、sjtu、ustc，或者 rustcc
 # replace-with = 'rsproxy'
 replace-with = 'rsproxy-sparse'
