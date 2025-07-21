@@ -16,7 +16,6 @@ if status is-interactive
     end
 end
 
-
 # Emulates vim's cursor shape behavior
 # Set the normal and visual mode cursors to a block
 set fish_cursor_default block blink

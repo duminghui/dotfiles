@@ -65,7 +65,6 @@ set -gx SCCACHE_DIRECT true
 set -gx TAPLO_CONFIG $XDG_CONFIG_HOME/taplo.toml
 # set -e -g TAPLO_CONFIG # 取消设置
 
-
 ### tmuxinator ###
 type -q nvim; and set -gx EDITOR nvim
 # why add this in https://github.com/tmuxinator/tmuxinator
