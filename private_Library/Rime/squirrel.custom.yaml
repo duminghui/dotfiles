@@ -14,6 +14,9 @@ patch:
     vim_mode: true
   app_options/com.runningwithcrayons.Alfred:
     ascii_mode: true
+  app_options/com.trae.app:
+    ascii_mode: true
+    vim_mode: true
   app_options/cn.trae.app:
     ascii_mode: true
     vim_mode: true
