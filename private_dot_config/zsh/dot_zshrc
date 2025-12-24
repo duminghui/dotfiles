@@ -60,9 +60,10 @@ ZSH_CUSTOM=$HOME/.config/zsh/custom-zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(git macos tmux vi-mode ssh-agent docker docker-compose)
-plugins=(git macos vi-mode ssh-agent docker docker-compose)
 
-zstyle :omz:plugins:ssh-agent identities github github-spider coding vps1
+# 以下两行暂时不启用了
+# plugins=(git macos vi-mode ssh-agent docker docker-compose)
+# zstyle :omz:plugins:ssh-agent identities github github-spider coding vps1
 
 source $ZSH/oh-my-zsh.sh
 
