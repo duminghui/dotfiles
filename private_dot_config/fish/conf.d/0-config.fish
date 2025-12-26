@@ -138,6 +138,9 @@ abbr corepack-up "corepack up"
 ### docker
 test -d $HOME/.docker/bin; and set -gx PATH $HOME/.docker/bin $PATH
 
+### gpg
+set -x GPG_TTY (tty)
+
 ### solana ###
 set -gx SOLANA_HOME $XDG_DATA_HOME/solana/install/active_release
 test -d $SOLANA_HOME/bin; and set -gx PATH $SOLANA_HOME/bin $PATH

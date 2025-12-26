@@ -1,40 +1,51 @@
-[user]
-    name = {{ .GIT_USER_NAME }}
-    email = {{ .GIT_USER_EMAIL }}
-[hub]
-    protocol = https
-[alias]
-    co = checkout
-    count = !git shortlog -sn
-[color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
-[core]
-    editor = nvim
-    autocrlf = input
-[pager]
-    branch = false
-    tag = false
-[apply]
-    whitespace = nowarn
-[mergetool]
-    keepBackup = false
-[difftool]
-    prompt = false
-[help]
-    autocorrect = 1
-[push]
-    # See `git help config` (search for push.default)
-    # for more information on different options of the below setting.
-    #
-    # Setting to git 2.0 default to suppress warning message
-    default = simple
+# vim: ft=gitconfig
 
+[user]
+  name = {{ .GIT_USER_NAME }}
+  email = {{ .GIT_USER_EMAIL }}
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
+[hub]
+  protocol = https
+[alias]
+  co = checkout
+  count = !git shortlog -sn
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[core]
+  editor = nvim
+  autocrlf = input
+[pager]
+  branch = false
+  tag = false
+[apply]
+  whitespace = nowarn
+[mergetool]
+  keepBackup = false
+[difftool]
+  prompt = false
+[help]
+  autocorrect = 1
+[push]
+  # See `git help config` (search for push.default)
+  # for more information on different options of the below setting.
+  #
+  # Setting to git 2.0 default to suppress warning message
+  default = simple
 [init]
-    defaultBranch = main
-[url "git@192.168.1.197:stock/"]
-    insteadof = https://github.com/jujian/
-[url "http://192.168.1.197/stock/"]
-    insteadof = https://github.com/jujian/
+  defaultBranch = main
+
+[includeIf "hasconfig:remote.*.url:*github.com:*/*"]
+   path = ~/.config/git/config-github
+
+[includeIf "hasconfig:remote.*.url:*192.168.1.197:*/*"]
+   path = ~/.config/git/config-jujian
+
+[includeIf "hasconfig:remote.*.url:*://192.168.1.197/**"]
+   path = ~/.config/git/config-jujian
+
