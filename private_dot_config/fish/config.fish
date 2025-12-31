@@ -29,7 +29,7 @@ set fish_cursor_replace_one underscore blink
 set fish_cursor_replace underscore blink
 # Set the external cursor to a line. The external cursor appears when a command is started.
 # The cursor shape takes the value of fish_cursor_default when fish_cursor_external is not specified.
-set fish_cursor_external line blink
+set fish_cursor_external underscore blink
 # The following variable can be used to configure cursor shape in
 # visual mode, but due to fish_cursor_default, is redundant here
 set fish_cursor_visual underscore blink
