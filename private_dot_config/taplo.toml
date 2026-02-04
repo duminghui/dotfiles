@@ -16,7 +16,7 @@ array_trailing_comma = true
 array_auto_expand = false
 # Automatically collapse arrays if they fit in one line.
 # default: true
-array_auto_collapse = true
+array_auto_collapse = false
 # Omit whitespace padding inside single-line arrays.
 # default: true
 compact_arrays = true
