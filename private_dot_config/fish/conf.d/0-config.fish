@@ -122,6 +122,7 @@ set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npmrc
 set -gx NPM_CONFIG_CACHE $XDG_CACHE_HOME/npm
 
 set -gx NVM_DIR $XDG_DATA_HOME/nvm
+set -gx nvm_prefix /opt/homebrew/opt/nvm
 set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node
 
 set -gx COREPACK_NPM_REGISTRY https://registry.npmmirror.com
