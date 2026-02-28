@@ -70,6 +70,22 @@ multiplexing = true
 # [profile.dev.package."*"]
 # opt-level = 3
 
+# https://bevy.org/learn/quick-start/getting-started/setup/#alternative-linkers
+#
+# LLD Installation
+# Ubuntu: sudo apt-get install lld clang
+#
+# Fedora: sudo dnf install lld clang
+#
+# Arch: sudo pacman -S lld clang
+#
+# Windows: Ensure you have the latest cargo-binutils as this lets commands like cargo run use the LLD linker automatically.
+#
+# cargo install -f cargo-binutils
+# rustup component add llvm-tools-preview
+#
+# MacOS: On MacOS, the default system linker ld-prime is faster than LLD.
+
 # https://github.com/bevyengine/bevy/blob/main/.cargo/config_fast_builds.toml
 
 [target.x86_64-unknown-linux-gnu]
@@ -123,9 +139,9 @@ rustflags = [
   #
   # You may need to install it:
   #
-  # Brew: `brew install lld`
+  # Brew: `brew install llvm`
   # Manually: <https://lld.llvm.org/MachO/index.html>
-  "-Clink-arg=-fuse-ld=/opt/homebrew/opt/lld/bin/ld64.lld",
+  # "-Clink-arg=-fuse-ld=/opt/homebrew/opt/llvm/bin/ld64.lld",
 
   # Nightly
   # "-Zshare-generics=y",
