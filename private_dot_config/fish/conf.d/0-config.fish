@@ -127,6 +127,10 @@ set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node
 
 set -gx COREPACK_NPM_REGISTRY https://registry.npmmirror.com
 
+type -q fnm; and fnm env --use-on-cd --shell fish | source
+
+set -gx FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node
+
 ### pnpm
 set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
