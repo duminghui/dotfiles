@@ -129,6 +129,8 @@ set -gx COREPACK_NPM_REGISTRY https://registry.npmmirror.com
 
 type -q fnm; and fnm env --use-on-cd --shell fish | source
 
+abbr fnm-state-cleanup "find ~/.local/state/fnm_multishells -type l -mtime +1 -print0 | xargs -0 -I {} rm -v {}"
+
 set -gx FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node
 
 ### pnpm
