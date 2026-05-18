@@ -112,16 +112,5 @@ abbr -a proxy-on export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.
 abbr -a proxy-off set -e https_proxy http_proxy all_proxy
 abbr -a ipinfo curl cip.cc
 
+# miniconda3的配置会使starship transient prompt不工作, 先卸载掉
 # ~/.local/share/miniconda3/bin/conda init fish
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f ~/.local/share/miniconda3/bin/conda
-    eval ~/.local/share/miniconda3/bin/conda "shell.fish" hook $argv | source
-else
-    if test -f "~/.local/share/miniconda3/etc/fish/conf.d/conda.fish"
-        . "~/.local/share/miniconda3/etc/fish/conf.d/conda.fish"
-    else
-        set -x PATH "~/.local/share/miniconda3/bin" $PATH
-    end
-end
-# <<< conda initialize <<<
