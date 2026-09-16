@@ -10,6 +10,7 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 # set -gx LS_COLORS 'di=34:ln=35:so=32:pi=33:ex=31:bd=34:cd=34:su=0:sg=0:tw=0:ow=0:'
 
 ### homeberw ###
+set -gx HOMEBREW_NO_ASK true
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx HOMEBREW_NO_INSTALL_CLEANUP true
 set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"

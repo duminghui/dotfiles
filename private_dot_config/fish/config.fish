@@ -114,3 +114,6 @@ abbr -a ipinfo curl cip.cc
 
 # miniconda3的配置会使starship transient prompt不工作, 先卸载掉
 # ~/.local/share/miniconda3/bin/conda init fish
+
+# Hermes Agent — ensure ~/.local/bin is on PATH
+# fish_add_path "$HOME/.local/bin"
