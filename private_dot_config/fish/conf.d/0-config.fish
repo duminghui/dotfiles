@@ -128,11 +128,23 @@ set -gx NVM_NODEJS_ORG_MIRROR https://npmmirror.com/mirrors/node
 
 set -gx COREPACK_NPM_REGISTRY https://registry.npmmirror.com
 
-type -q fnm; and fnm env --use-on-cd --shell fish | source
+if type -q fnm
+    set -gx FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node
+    fnm env --use-on-cd --shell fish | source
 
-abbr fnm-state-cleanup "find ~/.local/state/fnm_multishells -type l -mtime +1 -print0 | xargs -0 -I {} rm -v {}"
+    set -g __fnm_live_dir ~/.local/state/fnm_multishells_live
+    mkdir -p $__fnm_live_dir
+    echo $FNM_MULTISHELL_PATH >$__fnm_live_dir/$fish_pid
+    # echo $FNM_MULTISHELL_PATH
+    # echo $__fnm_live_dir/$fish_pid
 
-set -gx FNM_NODE_DIST_MIRROR https://npmmirror.com/mirrors/node
+    function fnm-cleanup-self --on-event fish_exit
+        rm -f $FNM_MULTISHELL_PATH $__fnm_live_dir/$fish_pid
+    end
+end
+
+# abbr fnm-state-cleanup "find ~/.local/state/fnm_multishells -type l -mtime +1 -print0 | xargs -0 -I {} rm -v {}"
+# abbr fnm-state-cleanup "find ~/.local/state/fnm_multishells -type l -mtime +1 -print0 | xargs -0 rm -v"
 
 ### pnpm
 set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
