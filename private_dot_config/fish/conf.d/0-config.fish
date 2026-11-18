@@ -22,16 +22,6 @@ set -e -g HOMEBREW_BOTTLE_DOMAIN
 set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 set -e -g HOMEBREW_API_DOMAIN
 
-# homebrew/services
-# 执行下面命令
-# brew tap --custom-remote --force-auto-update homebrew/services https://mirrors.ustc.edu.cn/homebrew-services.git
-# 恢复
-# brew tap --custom-remote --force-auto-update homebrew/services https://github.com/Homebrew/homebrew-services
-## befor Brew 4.0 start
-# set -gx HOMEBREW_CORE_GIT_REMOTE "https://mirrors.ustc.edu.cn/homebrew-core.git"
-# brew tap --custom-remote --force-auto-update homebrew/cask https://mirrors.ustc.edu.cn/homebrew-cask.git
-## befor Brew 4.0 end
-
 if test -x /opt/homebrew/bin/brew
     eval "$(/opt/homebrew/bin/brew shellenv)"
 else if test -x brew

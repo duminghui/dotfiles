@@ -9,11 +9,17 @@ if status is-interactive
     # echo "is-interactive"
     # if  not set -q TMUX && not set -q VSCODE_INJECTION
     # 用and必须换行
-    if not set -q TMUX
+    # if not set -q TMUX
+    #     and not set -q VSCODE_INJECTION
+    #     and test "$LC_TERMINAL" = iTerm2
+    #     tmux new
+    # end
+    if not set -q ZELLIJ
         and not set -q VSCODE_INJECTION
         and test "$LC_TERMINAL" = iTerm2
-        tmux new
+        zellij
     end
+
 end
 
 set --global fish_key_bindings fish_vi_key_bindings
