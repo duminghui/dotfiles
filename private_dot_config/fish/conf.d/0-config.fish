@@ -72,7 +72,8 @@ if type -q brew; and test -d (brew --prefix)/opt/go/libexec
 end
 set -gx GOPATH $XDG_DATA_HOME/go
 set -gx GOPROXY https://goproxy.cn,direct
-test -d $GOPATH/bin; and set -gx PATH $GOPATH/bin $PATH
+# test -d $GOPATH/bin; and set -gx PATH $GOPATH/bin $PATH
+fish_add_path -g $GOPATH/bin
 type -q go; and abbr go-mod-check go list -m -u all
 
 ### gradle ###
@@ -83,30 +84,39 @@ end
 
 ### android ###
 set -gx JAVA_HOME /Library/Java/Home
-test -d $JAVA_HOME/bin; and set -gx PATH $JAVA_HOME/bin $PATH
+# test -d $JAVA_HOME/bin; and set -gx PATH $JAVA_HOME/bin $PATH
+fish_add_path -g $JAVA_HOME/bin
 
 set -gx ANDROID_HOME $HOME/Library/Android/sdk
 if test -d $ANDROID_HOME
-    set -gx PATH $ANDROID_HOME/tools $ANDROID_HOME/platform-tools $PATH
+    # set -gx PATH $ANDROID_HOME/tools $ANDROID_HOME/platform-tools $PATH
+    fish_add_path -g $ANDROID_HOME/tools $ANDROID_HOME/platform-tools
     set -gx NDK_HOME $ANDROID_HOME/ndk-bundle
     set -gx ANDROID_NDK $NDK_HOME
     set -gx ANDROID_NDK_HOME $NDK_HOME
     set -gx NDK $ANDROID_NDK_HOME
-    test -d $NDK_HOME; and set -gx PATH $NDK_HOME $PATH
+    # test -d $NDK_HOME; and set -gx PATH $NDK_HOME $PATH
+    fish_add_path -g $NDK_HOME
 end
 
 ### flutter ###
 set -gx PUB_HOSTED_URL https://pub.flutter-io.cn
 set -gx PUB_CACHE $XDG_CACHE_HOME/pub-cache
 set -gx FLUTTER_STORAGE_BASE_URL https://storage.flutter-io.cn
-test -d $HOME/.local/flutter/bin; and set -gx PATH $HOME/.local/flutter/bin $PATH
+# test -d $HOME/.local/flutter/bin; and set -gx PATH $HOME/.local/flutter/bin $PATH
+fish_add_path -g $HOME/.local/flutter/bin
 
 ### ruby
-if type -q brew; and test -d (brew --prefix)/opt/ruby/bin
-    set -gx PATH (brew --prefix)/opt/ruby/bin $PATH
+# if type -q brew; and test -d (brew --prefix)/opt/ruby/bin
+#     set -gx PATH (brew --prefix)/opt/ruby/bin $PATH
+# end
+if type -q brew
+    fish_add_path -g (brew --prefix)/opt/ruby/bin
 end
+
 set -gx GEM_HOME $XDG_DATA_HOME/gem
-test -d $GEM_HOME/bin; and set -gx PATH $GEM_HOME/bin $PATH
+# test -d $GEM_HOME/bin; and set -gx PATH $GEM_HOME/bin $PATH
+fish_add_path -g $GEM_HOME/bin
 
 ### nodejs ###
 set -gx NPM_CONFIG_USERCONFIG $XDG_CONFIG_HOME/npmrc
@@ -138,22 +148,27 @@ end
 
 ### pnpm
 set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
-end
-test -d $HOME/.local/bin; and set -gx PATH $HOME/.local/bin $PATH
+# if not string match -q -- $PNPM_HOME $PATH
+#     set -gx PATH "$PNPM_HOME" $PATH
+# end
+fish_add_path -g $PNPM_HOME
+# test -d $HOME/.local/bin; and set -gx PATH $HOME/.local/bin $PATH
+fish_add_path -g $HOME/.local/bin
 
 abbr corepack-up "corepack up"
 
 ### docker
-test -d $HOME/.docker/bin; and set -gx PATH $HOME/.docker/bin $PATH
+# test -d $HOME/.docker/bin; and set -gx PATH $HOME/.docker/bin $PATH
+fish_add_path -g $HOME/.docker/bin
 
 ### gpg
 set -x GPG_TTY (tty)
 
 ### solana ###
 set -gx SOLANA_HOME $XDG_DATA_HOME/solana/install/active_release
-test -d $SOLANA_HOME/bin; and set -gx PATH $SOLANA_HOME/bin $PATH
+# test -d $SOLANA_HOME/bin; and set -gx PATH $SOLANA_HOME/bin $PATH
+fish_add_path -g $SOLANA_HOME/bin
 # for solana-test-validator
-test -d (brew --prefix)/opt/gnu-tar/libexec/gnubin; and set -gx PATH $(brew --prefix)/opt/gnu-tar/libexec/gnubin $PATH
+# test -d (brew --prefix)/opt/gnu-tar/libexec/gnubin; and set -gx PATH $(brew --prefix)/opt/gnu-tar/libexec/gnubin $PATH
+fish_add_path -g (brew --prefix)/opt/gnu-tar/libexec/gnubin
 ### solana ###
