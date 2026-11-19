@@ -13,14 +13,16 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -gx HOMEBREW_NO_ASK true
 set -gx HOMEBREW_NO_AUTO_UPDATE true
 set -gx HOMEBREW_NO_INSTALL_CLEANUP true
-set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
-set -e -g HOMEBREW_BREW_GIT_REMOTE
-# git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
 
+set -gx HOMEBREW_BREW_GIT_REMOTE "https://mirrors.ustc.edu.cn/brew.git"
+# set -ge HOMEBREW_BREW_GIT_REMOTE
+# git -C "$(brew --repo)" remote set-url origin https://github.com/Homebrew/brew
 set -gx HOMEBREW_BOTTLE_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
-set -e -g HOMEBREW_BOTTLE_DOMAIN
+set -ge HOMEBREW_BOTTLE_DOMAIN
+set -gx HOMEBREW_ARTIFACT_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles"
+# set -ge HOMEBREW_ARTIFACT_DOMAIN
 set -gx HOMEBREW_API_DOMAIN "https://mirrors.ustc.edu.cn/homebrew-bottles/api"
-set -e -g HOMEBREW_API_DOMAIN
+# set -ge HOMEBREW_API_DOMAIN
 
 if test -x /opt/homebrew/bin/brew
     eval "$(/opt/homebrew/bin/brew shellenv)"
